@@ -1,0 +1,2065 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AgriConnect - Orders</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        "Noto Sans Tamil",
+        "Latha",
+        Arial,
+        sans-serif;
+
+    min-height:100vh;
+
+    color:#183b21;
+
+    background-image:
+        linear-gradient(
+            rgba(235,248,237,.15),
+            rgba(235,248,237,.30)
+        ),
+        url("./image/order-bg.png.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+
+    min-height:78px;
+
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:10px 30px;
+
+    background:rgba(255,255,255,.96);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,.12);
+}
+
+.logo{
+    text-decoration:none;
+
+    color:#16842f;
+
+    font-size:27px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+.nav-links{
+    display:flex;
+
+    align-items:center;
+
+    gap:4px;
+
+    overflow-x:auto;
+}
+
+.nav-links a{
+    text-decoration:none;
+
+    color:#38523f;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    padding:9px 11px;
+
+    border-radius:8px;
+
+    white-space:nowrap;
+
+    transition:.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    background:#e5f5e8;
+
+    color:#16842f;
+}
+
+.language{
+    display:flex;
+
+    gap:5px;
+
+    padding:4px;
+
+    background:#edf5ee;
+
+    border-radius:9px;
+}
+
+.language button{
+    border:none;
+
+    background:transparent;
+
+    padding:7px 10px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-weight:800;
+
+    color:#35533c;
+}
+
+.language button.active{
+    background:white;
+
+    color:#16842f;
+
+    box-shadow:
+        0 2px 7px rgba(0,0,0,.08);
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+    min-height:100vh;
+
+    padding:
+        125px
+        6%
+        60px;
+}
+
+.container{
+    width:min(1200px,100%);
+
+    margin:auto;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.page-header{
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:white;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.55);
+}
+
+.page-header .icon{
+    font-size:52px;
+
+    margin-bottom:7px;
+}
+
+.page-header h1{
+    font-size:43px;
+
+    font-weight:900;
+
+    margin-bottom:9px;
+}
+
+.page-header p{
+    font-size:16px;
+
+    font-weight:600;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:17px;
+
+    margin-bottom:24px;
+}
+
+.stat-card{
+    padding:20px;
+
+    border-radius:17px;
+
+    background:rgba(255,255,255,.94);
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.14);
+
+    border-left:5px solid #168a32;
+
+    backdrop-filter:blur(8px);
+}
+
+.stat-card .icon{
+    font-size:28px;
+
+    margin-bottom:8px;
+}
+
+.stat-card p{
+    color:#647268;
+
+    font-size:13px;
+
+    margin-bottom:6px;
+}
+
+.stat-card strong{
+    color:#145b27;
+
+    font-size:27px;
+
+    font-weight:900;
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls{
+    display:grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr auto;
+
+    gap:12px;
+
+    padding:19px;
+
+    margin-bottom:24px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.94);
+
+    box-shadow:
+        0 9px 28px rgba(0,0,0,.13);
+
+    backdrop-filter:blur(8px);
+}
+
+.controls input,
+.controls select{
+    width:100%;
+
+    padding:12px 14px;
+
+    border:1px solid #cad9cd;
+
+    border-radius:9px;
+
+    background:white;
+
+    outline:none;
+
+    color:#203d27;
+}
+
+.controls input:focus,
+.controls select:focus{
+    border-color:#168a32;
+
+    box-shadow:
+        0 0 0 3px rgba(22,138,50,.10);
+}
+
+.reset-btn{
+    border:1px solid #c6d8c9;
+
+    background:white;
+
+    color:#16842f;
+
+    padding:12px 18px;
+
+    border-radius:9px;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.reset-btn:hover{
+    background:#eef8ef;
+}
+
+
+/* =========================
+   ORDERS
+========================= */
+
+.orders-card{
+    padding:25px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.95);
+
+    box-shadow:
+        0 13px 35px rgba(0,0,0,.15);
+
+    backdrop-filter:blur(9px);
+}
+
+.orders-card h2{
+    color:#145725;
+
+    font-size:25px;
+
+    margin-bottom:18px;
+}
+
+
+/* =========================
+   ORDER ITEM
+========================= */
+
+.order-list{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.order-item{
+    display:grid;
+
+    grid-template-columns:
+        70px
+        1.5fr
+        1fr
+        1fr
+        auto;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:18px;
+
+    border:1px solid #dce9de;
+
+    border-radius:15px;
+
+    background:#fbfdfb;
+
+    transition:.2s;
+}
+
+.order-item:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 7px 20px rgba(0,70,20,.09);
+}
+
+.product-icon{
+    width:62px;
+    height:62px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:#edf8ef;
+
+    font-size:35px;
+}
+
+.order-info h3{
+    color:#175b29;
+
+    font-size:18px;
+
+    margin-bottom:5px;
+}
+
+.order-id{
+    color:#758078;
+
+    font-size:11px;
+}
+
+.order-info p{
+    color:#69766d;
+
+    font-size:12px;
+
+    margin-top:4px;
+}
+
+.order-detail{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+}
+
+.detail-label{
+    color:#7a857d;
+
+    font-size:11px;
+}
+
+.detail-value{
+    color:#294630;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+.order-price{
+    color:#16842f;
+
+    font-size:20px;
+
+    font-weight:900;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:7px 12px;
+
+    border-radius:20px;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+.status-delivered{
+    background:#ddf5e3;
+
+    color:#14752d;
+}
+
+.status-transit{
+    background:#e2f0ff;
+
+    color:#1d5c98;
+}
+
+.status-processing{
+    background:#fff1c9;
+
+    color:#8a6510;
+}
+
+.status-cancelled{
+    background:#ffe1e1;
+
+    color:#a82020;
+}
+
+
+/* =========================
+   VIEW BUTTON
+========================= */
+
+.view-btn{
+    border:1px solid #c6dbc9;
+
+    background:white;
+
+    color:#16842f;
+
+    padding:9px 14px;
+
+    border-radius:8px;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.view-btn:hover{
+    background:#eef8ef;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+    padding:60px 20px;
+
+    text-align:center;
+
+    color:#6b776e;
+}
+
+.empty .empty-icon{
+    font-size:55px;
+
+    margin-bottom:12px;
+}
+
+.empty h3{
+    color:#315339;
+
+    margin-bottom:7px;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,30,10,.55);
+
+    backdrop-filter:blur(5px);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+
+    max-width:570px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    padding:28px;
+
+    position:relative;
+
+    border-radius:20px;
+
+    background:white;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.28);
+}
+
+.close{
+    position:absolute;
+
+    right:17px;
+    top:15px;
+
+    width:37px;
+    height:37px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f0f5f1;
+
+    color:#26412c;
+
+    font-size:21px;
+
+    cursor:pointer;
+}
+
+.modal-box h2{
+    color:#145725;
+
+    margin-bottom:20px;
+
+    padding-right:40px;
+}
+
+.detail-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+
+    margin-bottom:18px;
+}
+
+.detail-box{
+    padding:15px;
+
+    border-radius:11px;
+
+    background:#f3f8f3;
+
+    border:1px solid #e0ebe2;
+}
+
+.detail-box .label{
+    display:block;
+
+    color:#718078;
+
+    font-size:11px;
+
+    margin-bottom:5px;
+}
+
+.detail-box strong{
+    color:#294a31;
+
+    font-size:14px;
+}
+
+.modal-total{
+    padding:17px;
+
+    border-radius:12px;
+
+    background:#eaf7ec;
+
+    color:#16842f;
+
+    font-size:22px;
+
+    font-weight:900;
+
+    text-align:center;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    padding:25px;
+
+    text-align:center;
+
+    background:rgba(13,55,25,.95);
+
+    color:#d5e5d8;
+}
+
+.footer p{
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1100px){
+
+    .header{
+        flex-wrap:wrap;
+
+        padding:10px 18px;
+    }
+
+    .nav-links{
+        width:100%;
+
+        order:3;
+    }
+
+    .stats{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .controls{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .order-item{
+        grid-template-columns:
+            65px
+            1fr
+            1fr;
+    }
+
+    .order-item .order-status{
+        grid-column:2;
+    }
+
+    .order-item .order-action{
+        grid-column:3;
+        grid-row:2;
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    body{
+        background-attachment:scroll;
+    }
+
+    .page{
+        padding:
+            120px 5% 45px;
+    }
+
+    .page-header h1{
+        font-size:34px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .controls{
+        grid-template-columns:1fr;
+    }
+
+    .orders-card{
+        padding:18px;
+    }
+
+    .order-item{
+        grid-template-columns:
+            60px 1fr;
+        gap:12px;
+    }
+
+    .product-icon{
+        width:55px;
+        height:55px;
+        font-size:30px;
+    }
+
+    .order-detail,
+    .order-status,
+    .order-action{
+        grid-column:1/-1 !important;
+    }
+
+    .detail-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    .logo{
+        font-size:20px;
+    }
+
+    .language button{
+        padding:6px 8px;
+        font-size:11px;
+    }
+
+    .page-header h1{
+        font-size:29px;
+    }
+
+    .modal-box{
+        padding:20px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<a href="index.html" class="logo">
+🌱 AgriConnect
+</a>
+
+
+<nav class="nav-links">
+
+<a href="index.html">
+🏠 Home
+</a>
+
+<a href="farmer.html">
+👨‍🌾 Farmer
+</a>
+
+<a href="buyer.html">
+🛒 Buyer
+</a>
+
+<a href="machinery.html">
+🚜 Machinery
+</a>
+
+<a href="fertilizer.html">
+🌱 Fertilizer
+</a>
+
+<a href="weather.html">
+🌦️ Weather
+</a>
+
+<a href="crop-prices.html">
+📈 Crop Prices
+</a>
+
+<a href="orders.html" class="active">
+📦 Orders
+</a>
+
+</nav>
+
+
+<div class="language">
+
+<button
+id="enBtn"
+class="active"
+onclick="changeLanguage('en')">
+EN
+</button>
+
+<button
+id="taBtn"
+onclick="changeLanguage('ta')">
+தமிழ்
+</button>
+
+</div>
+
+</header>
+
+
+
+<main class="page">
+
+<div class="container">
+
+
+<!-- PAGE HEADER -->
+
+<div class="page-header">
+
+<div class="icon">
+📦
+</div>
+
+<h1
+data-en="My Orders"
+data-ta="எனது ஆர்டர்கள்">
+My Orders
+</h1>
+
+<p
+data-en="Track and manage your agricultural product orders."
+data-ta="உங்கள் விவசாய பொருட்களின் ஆர்டர்களை கண்காணித்து நிர்வகிக்கவும்.">
+Track and manage your agricultural product orders.
+</p>
+
+</div>
+
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+
+<div class="stat-card">
+
+<div class="icon">
+📦
+</div>
+
+<p
+data-en="Total Orders"
+data-ta="மொத்த ஆர்டர்கள்">
+Total Orders
+</p>
+
+<strong id="totalOrders">
+6
+</strong>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="icon">
+🚚
+</div>
+
+<p
+data-en="In Transit"
+data-ta="வழியில்">
+In Transit
+</p>
+
+<strong id="transitOrders">
+2
+</strong>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="icon">
+✅
+</div>
+
+<p
+data-en="Delivered"
+data-ta="வழங்கப்பட்டது">
+Delivered
+</p>
+
+<strong id="deliveredOrders">
+3
+</strong>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="icon">
+💰
+</div>
+
+<p
+data-en="Total Spent"
+data-ta="மொத்த செலவு">
+Total Spent
+</p>
+
+<strong id="totalSpent">
+₹7,420
+</strong>
+
+</div>
+
+</div>
+
+
+
+<!-- CONTROLS -->
+
+<div class="controls">
+
+<input
+id="searchInput"
+type="text"
+placeholder="🔍 Search order or product..."
+oninput="renderOrders()">
+
+
+<select
+id="statusFilter"
+onchange="renderOrders()">
+
+<option value="all">
+All Status
+</option>
+
+<option value="Delivered">
+Delivered
+</option>
+
+<option value="In Transit">
+In Transit
+</option>
+
+<option value="Processing">
+Processing
+</option>
+
+<option value="Cancelled">
+Cancelled
+</option>
+
+</select>
+
+
+<select
+id="sortFilter"
+onchange="renderOrders()">
+
+<option value="newest">
+Newest First
+</option>
+
+<option value="oldest">
+Oldest First
+</option>
+
+<option value="priceHigh">
+Price: High to Low
+</option>
+
+<option value="priceLow">
+Price: Low to High
+</option>
+
+</select>
+
+
+<button
+class="reset-btn"
+onclick="resetFilters()">
+
+↻ Reset
+
+</button>
+
+</div>
+
+
+
+<!-- ORDERS -->
+
+<div class="orders-card">
+
+<h2
+data-en="📋 Order History"
+data-ta="📋 ஆர்டர் வரலாறு">
+📋 Order History
+</h2>
+
+
+<div
+id="orderList"
+class="order-list">
+</div>
+
+</div>
+
+
+</div>
+
+</main>
+
+
+
+<!-- ORDER MODAL -->
+
+<div
+id="orderModal"
+class="modal"
+onclick="closeOutside(event)">
+
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeModal()">
+×
+</button>
+
+<h2
+data-en="📦 Order Details"
+data-ta="📦 ஆர்டர் விவரங்கள்">
+📦 Order Details
+</h2>
+
+
+<div class="detail-grid">
+
+
+<div class="detail-box">
+
+<span class="label"
+data-en="Order ID"
+data-ta="ஆர்டர் ID">
+Order ID
+</span>
+
+<strong id="modalOrderId">
+-
+</strong>
+
+</div>
+
+
+<div class="detail-box">
+
+<span class="label"
+data-en="Status"
+data-ta="நிலை">
+Status
+</span>
+
+<strong id="modalStatus">
+-
+</strong>
+
+</div>
+
+
+<div class="detail-box">
+
+<span class="label"
+data-en="Product"
+data-ta="பொருள்">
+Product
+</span>
+
+<strong id="modalProduct">
+-
+</strong>
+
+</div>
+
+
+<div class="detail-box">
+
+<span class="label"
+data-en="Quantity"
+data-ta="அளவு">
+Quantity
+</span>
+
+<strong id="modalQuantity">
+-
+</strong>
+
+</div>
+
+
+<div class="detail-box">
+
+<span class="label"
+data-en="Farmer"
+data-ta="விவசாயி">
+Farmer
+</span>
+
+<strong id="modalFarmer">
+-
+</strong>
+
+</div>
+
+
+<div class="detail-box">
+
+<span class="label"
+data-en="Location"
+data-ta="இடம்">
+Location
+</span>
+
+<strong id="modalLocation">
+-
+</strong>
+
+</div>
+
+
+<div class="detail-box">
+
+<span class="label"
+data-en="Order Date"
+data-ta="ஆர்டர் தேதி">
+Order Date
+</span>
+
+<strong id="modalDate">
+-
+</strong>
+
+</div>
+
+
+<div class="detail-box">
+
+<span class="label"
+data-en="Payment"
+data-ta="பணம் செலுத்துதல்">
+Payment
+</span>
+
+<strong id="modalPayment">
+-
+</strong>
+
+</div>
+
+</div>
+
+
+<div
+id="modalTotal"
+class="modal-total">
+Total: ₹0
+</div>
+
+</div>
+
+</div>
+
+
+
+<footer class="footer">
+
+<p
+data-en="🌱 AgriConnect — Smart Agriculture Platform"
+data-ta="🌱 AgriConnect — ஸ்மார்ட் விவசாய தளம்">
+🌱 AgriConnect — Smart Agriculture Platform
+</p>
+
+<p>
+© 2026 AgriConnect — All Rights Reserved.
+</p>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   ORDER DATA
+========================= */
+
+const orders = [
+
+{
+    id:"AGR-1001",
+    product:"Tomato",
+    tamil:"தக்காளி",
+    icon:"🍅",
+    quantity:50,
+    farmer:"Ravi Kumar",
+    location:"Chennai",
+    date:"2026-08-20",
+    price:1600,
+    payment:"UPI",
+    status:"Delivered"
+},
+
+{
+    id:"AGR-1002",
+    product:"Paddy",
+    tamil:"நெல்",
+    icon:"🌾",
+    quantity:100,
+    farmer:"Suresh Farms",
+    location:"Thanjavur",
+    date:"2026-08-18",
+    price:2350,
+    payment:"Cash on Delivery",
+    status:"In Transit"
+},
+
+{
+    id:"AGR-1003",
+    product:"Mango",
+    tamil:"மாம்பழம்",
+    icon:"🥭",
+    quantity:30,
+    farmer:"Murugan Farm",
+    location:"Madurai",
+    date:"2026-08-16",
+    price:2040,
+    payment:"UPI",
+    status:"Delivered"
+},
+
+{
+    id:"AGR-1004",
+    product:"Turmeric",
+    tamil:"மஞ்சள்",
+    icon:"🟡",
+    quantity:20,
+    farmer:"Kannan Agro",
+    location:"Erode",
+    date:"2026-08-14",
+    price:1520,
+    payment:"Bank Transfer",
+    status:"Processing"
+},
+
+{
+    id:"AGR-1005",
+    product:"Banana",
+    tamil:"வாழைப்பழம்",
+    icon:"🍌",
+    quantity:40,
+    farmer:"Green Farm",
+    location:"Madurai",
+    date:"2026-08-12",
+    price:1440,
+    payment:"UPI",
+    status:"Delivered"
+},
+
+{
+    id:"AGR-1006",
+    product:"Chilli",
+    tamil:"மிளகாய்",
+    icon:"🌶️",
+    quantity:50,
+    farmer:"South Farm",
+    location:"Erode",
+    date:"2026-08-10",
+    price:4600,
+    payment:"Cash on Delivery",
+    status:"In Transit"
+},
+
+{
+    id:"AGR-1007",
+    product:"Onion",
+    tamil:"வெங்காயம்",
+    icon:"🧅",
+    quantity:25,
+    farmer:"Kumar Farms",
+    location:"Coimbatore",
+    date:"2026-08-08",
+    price:1025,
+    payment:"UPI",
+    status:"Cancelled"
+}
+
+];
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+let currentLanguage =
+    localStorage.getItem("agriLanguage") || "en";
+
+
+function changeLanguage(language){
+
+    currentLanguage = language;
+
+    localStorage.setItem(
+        "agriLanguage",
+        language
+    );
+
+
+    document
+    .querySelectorAll("[data-en]")
+    .forEach(function(element){
+
+        element.textContent =
+            language === "en"
+            ? element.getAttribute("data-en")
+            : element.getAttribute("data-ta");
+
+    });
+
+
+    document
+    .getElementById("enBtn")
+    .classList
+    .toggle(
+        "active",
+        language === "en"
+    );
+
+
+    document
+    .getElementById("taBtn")
+    .classList
+    .toggle(
+        "active",
+        language === "ta"
+    );
+
+
+    renderOrders();
+
+}
+
+
+/* =========================
+   STATUS TEXT
+========================= */
+
+function statusText(status){
+
+    if(currentLanguage === "en"){
+        return status;
+    }
+
+    const map = {
+
+        "Delivered":"வழங்கப்பட்டது",
+
+        "In Transit":"வழியில்",
+
+        "Processing":"செயலாக்கத்தில்",
+
+        "Cancelled":"ரத்து செய்யப்பட்டது"
+
+    };
+
+    return map[status] || status;
+}
+
+
+/* =========================
+   PAYMENT TEXT
+========================= */
+
+function paymentText(payment){
+
+    if(currentLanguage === "en"){
+        return payment;
+    }
+
+    const map = {
+
+        "UPI":"UPI",
+
+        "Cash on Delivery":"பொருள் பெற்றபின் பணம்",
+
+        "Bank Transfer":"வங்கி பரிமாற்றம்"
+
+    };
+
+    return map[payment] || payment;
+}
+
+
+/* =========================
+   RENDER ORDERS
+========================= */
+
+function renderOrders(){
+
+    const search =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const status =
+        document
+        .getElementById("statusFilter")
+        .value;
+
+
+    const sort =
+        document
+        .getElementById("sortFilter")
+        .value;
+
+
+    let filtered =
+        orders.filter(function(order){
+
+            const matchesSearch =
+
+                order.id
+                .toLowerCase()
+                .includes(search)
+
+                ||
+
+                order.product
+                .toLowerCase()
+                .includes(search)
+
+                ||
+
+                order.tamil
+                .includes(search)
+
+                ||
+
+                order.farmer
+                .toLowerCase()
+                .includes(search);
+
+
+            const matchesStatus =
+                status === "all"
+                ||
+                order.status === status;
+
+
+            return (
+                matchesSearch &&
+                matchesStatus
+            );
+
+        });
+
+
+    if(sort === "newest"){
+
+        filtered.sort(
+            (a,b) =>
+                new Date(b.date) -
+                new Date(a.date)
+        );
+
+    }
+
+    else if(sort === "oldest"){
+
+        filtered.sort(
+            (a,b) =>
+                new Date(a.date) -
+                new Date(b.date)
+        );
+
+    }
+
+    else if(sort === "priceHigh"){
+
+        filtered.sort(
+            (a,b) =>
+                b.price - a.price
+        );
+
+    }
+
+    else if(sort === "priceLow"){
+
+        filtered.sort(
+            (a,b) =>
+                a.price - b.price
+        );
+
+    }
+
+
+    const list =
+        document
+        .getElementById("orderList");
+
+
+    list.innerHTML = "";
+
+
+    if(filtered.length === 0){
+
+        list.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    ${
+                        currentLanguage === "en"
+                        ? "No Orders Found"
+                        : "ஆர்டர்கள் எதுவும் கிடைக்கவில்லை"
+                    }
+                </h3>
+
+                <p>
+                    ${
+                        currentLanguage === "en"
+                        ? "Try changing your search or filter."
+                        : "தேடல் அல்லது filter-ஐ மாற்றிப் பார்க்கவும்."
+                    }
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    filtered.forEach(function(order){
+
+        const productName =
+            currentLanguage === "en"
+            ? order.product
+            : order.tamil;
+
+
+        const item =
+            document.createElement("div");
+
+
+        item.className =
+            "order-item";
+
+
+        let statusClass =
+            "status-processing";
+
+
+        if(order.status === "Delivered"){
+            statusClass =
+                "status-delivered";
+        }
+
+        else if(order.status === "In Transit"){
+            statusClass =
+                "status-transit";
+        }
+
+        else if(order.status === "Cancelled"){
+            statusClass =
+                "status-cancelled";
+        }
+
+
+        item.innerHTML = `
+
+            <div class="product-icon">
+                ${order.icon}
+            </div>
+
+
+            <div class="order-info">
+
+                <h3>
+                    ${productName}
+                </h3>
+
+                <div class="order-id">
+                    ${order.id}
+                </div>
+
+                <p>
+                    👨‍🌾 ${order.farmer}
+                </p>
+
+            </div>
+
+
+            <div class="order-detail">
+
+                <span class="detail-label">
+                    ${
+                        currentLanguage === "en"
+                        ? "Quantity"
+                        : "அளவு"
+                    }
+                </span>
+
+                <span class="detail-value">
+                    ${order.quantity} kg
+                </span>
+
+
+                <span class="detail-label">
+                    📍 ${order.location}
+                </span>
+
+            </div>
+
+
+            <div class="order-detail">
+
+                <span class="detail-label">
+                    ${
+                        currentLanguage === "en"
+                        ? "Order Date"
+                        : "ஆர்டர் தேதி"
+                    }
+                </span>
+
+                <span class="detail-value">
+                    ${formatDate(order.date)}
+                </span>
+
+
+                <span class="order-price">
+                    ₹${order.price.toLocaleString("en-IN")}
+                </span>
+
+            </div>
+
+
+            <div class="order-status">
+
+                <span class="status ${statusClass}">
+                    ${statusText(order.status)}
+                </span>
+
+            </div>
+
+
+            <div class="order-action">
+
+                <button
+                    class="view-btn"
+                    onclick="viewOrder('${order.id}')">
+
+                    👁️
+                    ${
+                        currentLanguage === "en"
+                        ? "View"
+                        : "பார்க்க"
+                    }
+
+                </button>
+
+            </div>
+
+        `;
+
+
+        list.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================
+   DATE
+========================= */
+
+function formatDate(dateString){
+
+    const date =
+        new Date(dateString);
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day:"2-digit",
+            month:"short",
+            year:"numeric"
+        }
+    );
+
+}
+
+
+/* =========================
+   VIEW ORDER
+========================= */
+
+function viewOrder(id){
+
+    const order =
+        orders.find(
+            item => item.id === id
+        );
+
+
+    if(!order){
+        return;
+    }
+
+
+    document
+    .getElementById("modalOrderId")
+    .textContent =
+        order.id;
+
+
+    document
+    .getElementById("modalStatus")
+    .textContent =
+        statusText(order.status);
+
+
+    document
+    .getElementById("modalProduct")
+    .textContent =
+        order.icon +
+        " " +
+        (
+            currentLanguage === "en"
+            ? order.product
+            : order.tamil
+        );
+
+
+    document
+    .getElementById("modalQuantity")
+    .textContent =
+        order.quantity +
+        " kg";
+
+
+    document
+    .getElementById("modalFarmer")
+    .textContent =
+        order.farmer;
+
+
+    document
+    .getElementById("modalLocation")
+    .textContent =
+        order.location;
+
+
+    document
+    .getElementById("modalDate")
+    .textContent =
+        formatDate(order.date);
+
+
+    document
+    .getElementById("modalPayment")
+    .textContent =
+        paymentText(order.payment);
+
+
+    document
+    .getElementById("modalTotal")
+    .textContent =
+
+        (
+            currentLanguage === "en"
+            ? "Total: ₹"
+            : "மொத்தம்: ₹"
+        )
+
+        +
+
+        order.price.toLocaleString("en-IN");
+
+
+    document
+    .getElementById("orderModal")
+    .classList
+    .add("show");
+
+}
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+function closeModal(){
+
+    document
+    .getElementById("orderModal")
+    .classList
+    .remove("show");
+
+}
+
+
+function closeOutside(event){
+
+    if(
+        event.target.id ===
+        "orderModal"
+    ){
+
+        closeModal();
+
+    }
+
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+function resetFilters(){
+
+    document
+    .getElementById("searchInput")
+    .value = "";
+
+
+    document
+    .getElementById("statusFilter")
+    .value = "all";
+
+
+    document
+    .getElementById("sortFilter")
+    .value = "newest";
+
+
+    renderOrders();
+
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+function updateStats(){
+
+    const total =
+        orders.length;
+
+
+    const transit =
+        orders.filter(
+            order =>
+                order.status ===
+                "In Transit"
+        ).length;
+
+
+    const delivered =
+        orders.filter(
+            order =>
+                order.status ===
+                "Delivered"
+        ).length;
+
+
+    const spent =
+        orders
+        .filter(
+            order =>
+                order.status !==
+                "Cancelled"
+        )
+        .reduce(
+            (sum,order) =>
+                sum + order.price,
+            0
+        );
+
+
+    document
+    .getElementById("totalOrders")
+    .textContent =
+        total;
+
+
+    document
+    .getElementById("transitOrders")
+    .textContent =
+        transit;
+
+
+    document
+    .getElementById("deliveredOrders")
+    .textContent =
+        delivered;
+
+
+    document
+    .getElementById("totalSpent")
+    .textContent =
+        "₹" +
+        spent.toLocaleString("en-IN");
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+changeLanguage(
+    currentLanguage
+);
+
+updateStats();
+
+renderOrders();
+
+</script>
+
+</body>
+</html>
+```

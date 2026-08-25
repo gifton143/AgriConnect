@@ -1,0 +1,2169 @@
+```html
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgriConnect</title>
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                "Noto Sans Tamil",
+                "Latha",
+                Arial,
+                sans-serif;
+
+            color: #123b20;
+            background: #eef8ef;
+            overflow-x: hidden;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .header {
+            width: 100%;
+            height: 82px;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 42px;
+
+            background: rgba(255, 255, 255, 0.94);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(30, 100, 45, 0.12);
+
+            box-shadow:
+                0 5px 25px rgba(0, 0, 0, 0.10);
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo {
+            display: flex;
+            align-items: center;
+
+            gap: 11px;
+
+            color: #126b2b;
+
+            font-size: 31px;
+            font-weight: 900;
+
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e8f7e9,
+                    #ccebcf
+                );
+
+            font-size: 29px;
+
+            box-shadow:
+                0 4px 12px rgba(22, 120, 45, 0.15);
+        }
+
+
+        /* =====================================================
+           LANGUAGE BUTTONS
+        ===================================================== */
+
+        .language {
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+        }
+
+        .language button {
+            min-width: 90px;
+
+            padding: 10px 17px;
+
+            border-radius: 10px;
+
+            border: 1px solid #b9cebD;
+
+            background: #ffffff;
+
+            color: #24452d;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+        }
+
+        .language button:hover {
+            border-color: #168b35;
+
+            transform: translateY(-1px);
+        }
+
+        .language button.active {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #168c35,
+                    #0d6e29
+                );
+
+            border-color: #168c35;
+
+            box-shadow:
+                0 5px 15px rgba(20, 120, 45, 0.22);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                110px 25px
+                80px;
+
+            overflow: hidden;
+
+            /*
+              IMPORTANT:
+              Your actual image name is:
+
+              image/farmer-bg.jpg.png
+            */
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.88) 0%,
+                    rgba(255,255,255,0.62) 38%,
+                    rgba(255,255,255,0.22) 75%,
+                    rgba(255,255,255,0.12) 100%
+                ),
+                url("image/farmer-bg.jpg.png");
+
+            background-size: cover;
+
+            background-position: center center;
+
+            background-repeat: no-repeat;
+        }
+
+
+        /* =====================================================
+           HERO DARK / GREEN OVERLAY
+        ===================================================== */
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,0.18) 0%,
+                    rgba(255,255,255,0.02) 50%,
+                    rgba(10,65,25,0.28) 100%
+                );
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        /* =====================================================
+           BOTTOM FADE
+        ===================================================== */
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 170px;
+
+            background:
+                linear-gradient(
+                    transparent,
+                    #eef8ef
+                );
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+
+        /* =====================================================
+           HERO CONTENT
+        ===================================================== */
+
+        .hero-content {
+            width: 100%;
+            max-width: 980px;
+
+            position: relative;
+
+            z-index: 5;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+
+        /* =====================================================
+           WELCOME
+        ===================================================== */
+
+        .welcome {
+            margin-bottom: 8px;
+
+            color: #075e24;
+
+            font-size: 36px;
+            font-weight: 900;
+
+            text-shadow:
+                0 2px 8px rgba(255,255,255,0.95);
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .hero-title {
+            margin-bottom: 15px;
+
+            color: #075c25;
+
+            font-size: clamp(48px, 8vw, 82px);
+
+            line-height: 1;
+
+            font-weight: 950;
+
+            letter-spacing: -3px;
+
+            text-shadow:
+                0 4px 10px rgba(255,255,255,0.9),
+                0 2px 3px rgba(255,255,255,0.8);
+        }
+
+
+        /* =====================================================
+           DIVIDER
+        ===================================================== */
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 15px;
+
+            margin: 10px auto 22px;
+        }
+
+        .divider span {
+            width: 85px;
+            height: 2px;
+
+            display: block;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #39814b,
+                    transparent
+                );
+        }
+
+        .divider-icon {
+            font-size: 28px;
+
+            filter:
+                drop-shadow(
+                    0 2px 3px
+                    rgba(255,255,255,.8)
+                );
+        }
+
+
+        /* =====================================================
+           DESCRIPTION
+        ===================================================== */
+
+        .hero-description {
+            max-width: 760px;
+
+            margin: 0 auto 30px;
+
+            color: #132d1b;
+
+            font-size: 19px;
+
+            line-height: 1.8;
+
+            font-weight: 600;
+
+            text-shadow:
+                0 2px 7px rgba(255,255,255,0.95);
+        }
+
+
+        /* =====================================================
+           CONTINUE BUTTON
+        ===================================================== */
+
+        .continue-btn {
+            border: none;
+
+            padding: 17px 55px;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #17923a,
+                    #0d712a
+                );
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 28px rgba(0, 85, 25, 0.28);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease,
+                background .25s ease;
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-4px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1ca343,
+                    #0b6726
+                );
+
+            box-shadow:
+                0 15px 35px rgba(0, 85, 25, 0.36);
+        }
+
+        .continue-btn:active {
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           LOGIN MODAL
+        ===================================================== */
+
+        .modal {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 2000;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 22px;
+
+            background:
+                rgba(0, 35, 10, 0.50);
+
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+
+        /* =====================================================
+           LOGIN PANEL
+        ===================================================== */
+
+        .login-panel {
+            width: min(940px, 100%);
+
+            min-height: 510px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            overflow: hidden;
+
+            border-radius: 22px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.30);
+
+            animation:
+                popup .28s ease;
+        }
+
+        @keyframes popup {
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(.97);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           LEFT LOGIN SECTION
+        ===================================================== */
+
+        .login-left {
+            position: relative;
+
+            padding: 45px 34px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #f5fbf6
+                );
+
+            border-right:
+                1px solid #e1ebe3;
+        }
+
+
+        /* =====================================================
+           CLOSE BUTTON
+        ===================================================== */
+
+        .close-btn {
+            position: absolute;
+
+            top: 17px;
+            right: 17px;
+
+            width: 38px;
+            height: 38px;
+
+            border-radius: 50%;
+
+            border:
+                1px solid #dbe5de;
+
+            background: #ffffff;
+
+            color: #263c2c;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+        .close-btn:hover {
+            background: #edf7ef;
+
+            color: #11752d;
+
+            transform: rotate(90deg);
+        }
+
+
+        /* =====================================================
+           LEFT TITLE
+        ===================================================== */
+
+        .login-left h2 {
+            margin-top: 23px;
+
+            margin-bottom: 8px;
+
+            color: #123d20;
+
+            font-size: 23px;
+            font-weight: 900;
+        }
+
+        .login-left > p {
+            margin-bottom: 24px;
+
+            color: #536358;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           ROLE CARDS
+        ===================================================== */
+
+        .role-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 14px;
+        }
+
+        .role-card {
+            min-height: 235px;
+
+            padding: 20px 14px;
+
+            border:
+                1px solid #d4e3d7;
+
+            border-radius: 14px;
+
+            background: white;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            transition:
+                transform .22s ease,
+                box-shadow .22s ease,
+                border-color .22s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-4px);
+
+            border-color: #22933d;
+
+            box-shadow:
+                0 10px 25px
+                rgba(24,130,48,.12);
+        }
+
+        .role-card.selected {
+            transform: translateY(-3px);
+
+            border:
+                2px solid #1b913c;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff,
+                    #f2fbf3
+                );
+
+            box-shadow:
+                0 10px 28px
+                rgba(24,130,48,.16);
+        }
+
+
+        /* =====================================================
+           ROLE IMAGE
+        ===================================================== */
+
+        .role-image {
+            width: 92px;
+            height: 92px;
+
+            margin:
+                0 auto 14px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef9ef,
+                    #dcefe0
+                );
+
+            font-size: 53px;
+
+            box-shadow:
+                inset 0 0 0 1px
+                rgba(20,110,45,.08);
+        }
+
+
+        /* =====================================================
+           ROLE TITLE
+        ===================================================== */
+
+        .role-card h3 {
+            margin-bottom: 7px;
+
+            color: #145c28;
+
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .role-card p {
+            color: #536358;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           RIGHT LOGIN
+        ===================================================== */
+
+        .login-right {
+            padding: 30px 35px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            background: #ffffff;
+        }
+
+
+        /* =====================================================
+           BACK BUTTON
+        ===================================================== */
+
+        .back-btn {
+            align-self: flex-start;
+
+            margin-bottom: 12px;
+
+            border: none;
+
+            background: transparent;
+
+            color: #163c21;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            color: #168b35;
+        }
+
+
+        /* =====================================================
+           USER ICON
+        ===================================================== */
+
+        .user-icon {
+            width: 78px;
+            height: 78px;
+
+            margin:
+                0 auto 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef8ef,
+                    #dcefe0
+                );
+
+            font-size: 42px;
+        }
+
+
+        /* =====================================================
+           LOGIN TITLE
+        ===================================================== */
+
+        .login-right h2 {
+            margin-bottom: 23px;
+
+            text-align: center;
+
+            color: #0f5123;
+
+            font-size: 26px;
+
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           ERROR
+        ===================================================== */
+
+        .error {
+            display: none;
+
+            margin-bottom: 12px;
+
+            padding: 10px 12px;
+
+            border-radius: 8px;
+
+            background: #ffeded;
+
+            color: #bd2525;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #263a2c;
+
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           INPUT
+        ===================================================== */
+
+        .input-wrap {
+            position: relative;
+        }
+
+        .input-wrap input {
+            width: 100%;
+            height: 48px;
+
+            padding:
+                0 45px 0 14px;
+
+            border:
+                1px solid #d1dbd3;
+
+            border-radius: 9px;
+
+            outline: none;
+
+            background: #ffffff;
+
+            color: #183a22;
+
+            font-size: 14px;
+
+            transition: .2s;
+        }
+
+        .input-wrap input::placeholder {
+            color: #9aa69d;
+        }
+
+        .input-wrap input:focus {
+            border-color: #168b35;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(22,139,53,.09);
+        }
+
+
+        /* =====================================================
+           PASSWORD EYE
+        ===================================================== */
+
+        .eye-btn {
+            position: absolute;
+
+            top: 50%;
+            right: 10px;
+
+            transform:
+                translateY(-50%);
+
+            border: none;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            font-size: 18px;
+        }
+
+
+        /* =====================================================
+           LOGIN BUTTON
+        ===================================================== */
+
+        .submit-btn {
+            width: 100%;
+            height: 48px;
+
+            margin-top: 4px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #168d34,
+                    #0d702a
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 7px 18px
+                rgba(18,120,45,.20);
+
+            transition: .2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 23px
+                rgba(18,120,45,.28);
+        }
+
+
+        /* =====================================================
+           DEMO MESSAGE
+        ===================================================== */
+
+        .demo {
+            margin-top: 10px;
+
+            padding: 11px;
+
+            border-radius: 8px;
+
+            background: #edf7ef;
+
+            color: #183a22;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .header {
+                padding: 0 22px;
+            }
+
+            .logo {
+                font-size: 26px;
+            }
+
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+
+                font-size: 25px;
+            }
+
+            .login-panel {
+                width: min(720px, 100%);
+            }
+
+            .login-left {
+                padding: 35px 25px;
+            }
+
+            .login-right {
+                padding: 28px 25px;
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .header {
+                height: 70px;
+
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 21px;
+
+                gap: 7px;
+            }
+
+            .logo-icon {
+                width: 34px;
+                height: 34px;
+
+                font-size: 21px;
+            }
+
+            .language {
+                gap: 5px;
+            }
+
+            .language button {
+                min-width: auto;
+
+                padding: 7px 9px;
+
+                font-size: 11px;
+            }
+
+
+            .hero {
+                padding:
+                    100px 18px
+                    60px;
+
+                background-position:
+                    center center;
+            }
+
+            .hero-content {
+                padding: 20px 10px;
+            }
+
+            .welcome {
+                font-size: 27px;
+            }
+
+            .hero-title {
+                font-size: 51px;
+
+                letter-spacing: -1px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+
+                line-height: 1.7;
+            }
+
+            .continue-btn {
+                width: 90%;
+
+                padding: 15px 20px;
+
+                font-size: 16px;
+            }
+
+
+            .modal {
+                padding: 12px;
+            }
+
+            .login-panel {
+                width: 100%;
+
+                max-height: 94vh;
+
+                display: block;
+
+                overflow-y: auto;
+
+                border-radius: 18px;
+            }
+
+            .login-left {
+                padding: 25px 18px;
+
+                border-right: none;
+
+                border-bottom:
+                    1px solid #e5ebe6;
+            }
+
+            .login-right {
+                padding: 25px 18px;
+            }
+
+            .login-left h2 {
+                font-size: 20px;
+            }
+
+            .role-card {
+                min-height: 210px;
+
+                padding: 17px 10px;
+            }
+
+            .role-image {
+                width: 75px;
+                height: 75px;
+
+                font-size: 43px;
+            }
+
+            .role-card h3 {
+                font-size: 18px;
+            }
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 480px) {
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .logo-icon {
+                width: 31px;
+                height: 31px;
+
+                font-size: 19px;
+            }
+
+            .language button {
+                padding: 6px 7px;
+
+                font-size: 10px;
+            }
+
+            .welcome {
+                font-size: 23px;
+            }
+
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .divider span {
+                width: 55px;
+            }
+
+            .role-container {
+                grid-template-columns: 1fr;
+            }
+
+            .role-card {
+                min-height: auto;
+
+                padding: 18px;
+            }
+
+            .role-image {
+                width: 70px;
+                height: 70px;
+            }
+
+            .login-right h2 {
+                font-size: 22px;
+            }
+        }
+
+
+        /* =====================================================
+           VERY SMALL SCREEN
+        ===================================================== */
+
+        @media (max-width: 360px) {
+
+            .hero-title {
+                font-size: 35px;
+            }
+
+            .welcome {
+                font-size: 21px;
+            }
+
+            .language button {
+                padding: 5px 6px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <span class="logo-icon">
+                🌱
+            </span>
+
+            <span>
+                AgriConnect
+            </span>
+
+        </div>
+
+
+        <div class="language">
+
+            <button
+                id="englishBtn"
+                onclick="setLanguage('en')">
+
+                English
+
+            </button>
+
+
+            <button
+                id="tamilBtn"
+                class="active"
+                onclick="setLanguage('ta')">
+
+                தமிழ்
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO / HOME
+    ===================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+
+            <div
+                class="welcome"
+                id="welcomeText">
+
+                வரவேற்கிறோம்
+
+            </div>
+
+
+            <h1 class="hero-title">
+
+                AgriConnect
+
+            </h1>
+
+
+            <div class="divider">
+
+                <span></span>
+
+                <div class="divider-icon">
+                    🌱
+                </div>
+
+                <span></span>
+
+            </div>
+
+
+            <p
+                class="hero-description"
+                id="descriptionText">
+
+                விவசாயிகள் மற்றும் வாங்குபவர்களை
+                விவசாய சேவைகள், சந்தை தகவல்கள் மற்றும்
+                விவசாய வளங்களுடன் இணைக்கும் ஸ்மார்ட்
+                விவசாய தளம்.
+
+            </p>
+
+
+            <button
+                class="continue-btn"
+                id="continueBtn"
+                onclick="openLogin()">
+
+                🔐 தொடர உள்நுழையுங்கள்
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         LOGIN MODAL
+    ===================================================== -->
+
+    <div
+        class="modal"
+        id="loginModal">
+
+        <div class="login-panel">
+
+
+            <!-- =================================================
+                 LEFT SIDE
+            ================================================== -->
+
+            <div class="login-left">
+
+
+                <button
+                    class="close-btn"
+                    onclick="closeLogin()">
+
+                    ×
+
+                </button>
+
+
+                <h2 id="modalTitle">
+
+                    AgriConnect-ல் உள்நுழையுங்கள்
+
+                </h2>
+
+
+                <p id="modalSubtitle">
+
+                    உங்கள் கணக்கு வகையை தேர்வு செய்யுங்கள்
+
+                </p>
+
+
+                <div class="role-container">
+
+
+                    <!-- FARMER -->
+
+                    <div
+                        class="role-card selected"
+                        id="farmerCard"
+                        onclick="selectRole('farmer')">
+
+                        <div class="role-image">
+                            👨‍🌾
+                        </div>
+
+                        <h3 id="farmerTitle">
+                            விவசாயி
+                        </h3>
+
+                        <p id="farmerDescription">
+                            விவசாயம், பொருட்கள்
+                            மற்றும் ஆர்டர்களை
+                            நிர்வகிக்கவும்
+                        </p>
+
+                    </div>
+
+
+                    <!-- BUYER -->
+
+                    <div
+                        class="role-card"
+                        id="buyerCard"
+                        onclick="selectRole('buyer')">
+
+                        <div class="role-image">
+                            🛒
+                        </div>
+
+                        <h3 id="buyerTitle">
+                            வாங்குபவர்
+                        </h3>
+
+                        <p id="buyerDescription">
+                            பொருட்கள், விவசாயிகள்
+                            மற்றும் ஆர்டர்களை
+                            கண்டறியுங்கள்
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RIGHT SIDE
+            ================================================== -->
+
+            <div class="login-right">
+
+
+                <button
+                    class="back-btn"
+                    onclick="backToRoles()">
+
+                    ←
+                    <span id="backText">
+                        பின்செல்
+                    </span>
+
+                </button>
+
+
+                <div
+                    class="user-icon"
+                    id="userIcon">
+
+                    👨‍🌾
+
+                </div>
+
+
+                <h2 id="loginTitle">
+
+                    விவசாயி உள்நுழைவு
+
+                </h2>
+
+
+                <div
+                    class="error"
+                    id="loginError">
+
+                    தயவுசெய்து அனைத்து விவரங்களையும்
+                    உள்ளிடுங்கள்.
+
+                </div>
+
+
+                <form onsubmit="login(event)">
+
+
+                    <!-- USERNAME -->
+
+                    <div class="form-group">
+
+                        <label id="usernameLabel">
+
+                            மின்னஞ்சல் / மொபைல் எண்
+
+                        </label>
+
+
+                        <div class="input-wrap">
+
+                            <input
+                                type="text"
+                                id="username"
+                                placeholder="மின்னஞ்சல் அல்லது மொபைல் எண்ணை உள்ளிடுங்கள்"
+                                autocomplete="username"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label id="passwordLabel">
+
+                            கடவுச்சொல்
+
+                        </label>
+
+
+                        <div class="input-wrap">
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="கடவுச்சொல்லை உள்ளிடுங்கள்"
+                                autocomplete="current-password"
+                                required>
+
+
+                            <button
+                                type="button"
+                                class="eye-btn"
+                                onclick="togglePassword()"
+                                id="eyeButton">
+
+                                👁️
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOGIN -->
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                        id="loginButton">
+
+                        உள்நுழைய
+
+                    </button>
+
+
+                    <div
+                        class="demo"
+                        id="demoText">
+
+                        Demo login: எந்த மின்னஞ்சல் /
+                        மொபைல் எண்ணையும் கடவுச்சொல்லையும்
+                        உள்ளிடலாம்.
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        let currentLanguage =
+            localStorage.getItem("agriLanguage") || "ta";
+
+        let selectedRole = "farmer";
+
+
+        /* =====================================================
+           TRANSLATIONS
+        ===================================================== */
+
+        const translations = {
+
+            en: {
+
+                welcome:
+                    "Welcome",
+
+                description:
+                    "A smart agriculture platform connecting farmers and buyers with agricultural services, market information and farming resources.",
+
+                continue:
+                    "🔐 Login to Continue",
+
+                modalTitle:
+                    "Login to AgriConnect",
+
+                modalSubtitle:
+                    "Select your account type",
+
+                farmer:
+                    "Farmer",
+
+                farmerDescription:
+                    "Manage farming, products and orders",
+
+                buyer:
+                    "Buyer",
+
+                buyerDescription:
+                    "Find products, farmers and orders",
+
+                back:
+                    "Back",
+
+                farmerLogin:
+                    "Farmer Login",
+
+                buyerLogin:
+                    "Buyer Login",
+
+                username:
+                    "Email / Mobile Number",
+
+                usernamePlaceholder:
+                    "Enter email or mobile number",
+
+                password:
+                    "Password",
+
+                passwordPlaceholder:
+                    "Enter password",
+
+                login:
+                    "Login",
+
+                demo:
+                    "Demo login: enter any email/mobile and password.",
+
+                error:
+                    "Please enter all details."
+
+            },
+
+
+            ta: {
+
+                welcome:
+                    "வரவேற்கிறோம்",
+
+                description:
+                    "விவசாயிகள் மற்றும் வாங்குபவர்களை விவசாய சேவைகள், சந்தை தகவல்கள் மற்றும் விவசாய வளங்களுடன் இணைக்கும் ஸ்மார்ட் விவசாய தளம்.",
+
+                continue:
+                    "🔐 தொடர உள்நுழையுங்கள்",
+
+                modalTitle:
+                    "AgriConnect-ல் உள்நுழையுங்கள்",
+
+                modalSubtitle:
+                    "உங்கள் கணக்கு வகையை தேர்வு செய்யுங்கள்",
+
+                farmer:
+                    "விவசாயி",
+
+                farmerDescription:
+                    "விவசாயம், பொருட்கள் மற்றும் ஆர்டர்களை நிர்வகிக்கவும்",
+
+                buyer:
+                    "வாங்குபவர்",
+
+                buyerDescription:
+                    "பொருட்கள், விவசாயிகள் மற்றும் ஆர்டர்களை கண்டறியுங்கள்",
+
+                back:
+                    "பின்செல்",
+
+                farmerLogin:
+                    "விவசாயி உள்நுழைவு",
+
+                buyerLogin:
+                    "வாங்குபவர் உள்நுழைவு",
+
+                username:
+                    "மின்னஞ்சல் / மொபைல் எண்",
+
+                usernamePlaceholder:
+                    "மின்னஞ்சல் அல்லது மொபைல் எண்ணை உள்ளிடுங்கள்",
+
+                password:
+                    "கடவுச்சொல்",
+
+                passwordPlaceholder:
+                    "கடவுச்சொல்லை உள்ளிடுங்கள்",
+
+                login:
+                    "உள்நுழைய",
+
+                demo:
+                    "Demo login: எந்த மின்னஞ்சல் / மொபைல் எண்ணையும் கடவுச்சொல்லையும் உள்ளிடலாம்.",
+
+                error:
+                    "தயவுசெய்து அனைத்து விவரங்களையும் உள்ளிடுங்கள்."
+
+            }
+
+        };
+
+
+        /* =====================================================
+           SET LANGUAGE
+        ===================================================== */
+
+        function setLanguage(language) {
+
+            currentLanguage = language;
+
+            localStorage.setItem(
+                "agriLanguage",
+                language
+            );
+
+            updateLanguage();
+
+        }
+
+
+        /* =====================================================
+           UPDATE LANGUAGE
+        ===================================================== */
+
+        function updateLanguage() {
+
+            const t =
+                translations[currentLanguage];
+
+
+            document.getElementById(
+                "welcomeText"
+            ).textContent = t.welcome;
+
+
+            document.getElementById(
+                "descriptionText"
+            ).textContent = t.description;
+
+
+            document.getElementById(
+                "continueBtn"
+            ).textContent = t.continue;
+
+
+            document.getElementById(
+                "modalTitle"
+            ).textContent = t.modalTitle;
+
+
+            document.getElementById(
+                "modalSubtitle"
+            ).textContent = t.modalSubtitle;
+
+
+            document.getElementById(
+                "farmerTitle"
+            ).textContent = t.farmer;
+
+
+            document.getElementById(
+                "farmerDescription"
+            ).textContent =
+                t.farmerDescription;
+
+
+            document.getElementById(
+                "buyerTitle"
+            ).textContent = t.buyer;
+
+
+            document.getElementById(
+                "buyerDescription"
+            ).textContent =
+                t.buyerDescription;
+
+
+            document.getElementById(
+                "backText"
+            ).textContent = t.back;
+
+
+            document.getElementById(
+                "usernameLabel"
+            ).textContent = t.username;
+
+
+            document.getElementById(
+                "username"
+            ).placeholder =
+                t.usernamePlaceholder;
+
+
+            document.getElementById(
+                "passwordLabel"
+            ).textContent = t.password;
+
+
+            document.getElementById(
+                "password"
+            ).placeholder =
+                t.passwordPlaceholder;
+
+
+            document.getElementById(
+                "loginButton"
+            ).textContent = t.login;
+
+
+            document.getElementById(
+                "demoText"
+            ).textContent = t.demo;
+
+
+            document.getElementById(
+                "loginError"
+            ).textContent = t.error;
+
+
+            document.getElementById(
+                "englishBtn"
+            ).classList.toggle(
+                "active",
+                currentLanguage === "en"
+            );
+
+
+            document.getElementById(
+                "tamilBtn"
+            ).classList.toggle(
+                "active",
+                currentLanguage === "ta"
+            );
+
+
+            updateRole();
+
+        }
+
+
+        /* =====================================================
+           OPEN LOGIN
+        ===================================================== */
+
+        function openLogin() {
+
+            document
+                .getElementById("loginModal")
+                .classList.add("show");
+
+            document.body.style.overflow = "hidden";
+
+            selectRole("farmer");
+
+        }
+
+
+        /* =====================================================
+           CLOSE LOGIN
+        ===================================================== */
+
+        function closeLogin() {
+
+            document
+                .getElementById("loginModal")
+                .classList.remove("show");
+
+            document.body.style.overflow = "";
+
+        }
+
+
+        /* =====================================================
+           SELECT ROLE
+        ===================================================== */
+
+        function selectRole(role) {
+
+            selectedRole = role;
+
+
+            document
+                .getElementById("farmerCard")
+                .classList.toggle(
+                    "selected",
+                    role === "farmer"
+                );
+
+
+            document
+                .getElementById("buyerCard")
+                .classList.toggle(
+                    "selected",
+                    role === "buyer"
+                );
+
+
+            updateRole();
+
+        }
+
+
+        /* =====================================================
+           UPDATE ROLE
+        ===================================================== */
+
+        function updateRole() {
+
+            const t =
+                translations[currentLanguage];
+
+
+            if (selectedRole === "farmer") {
+
+                document
+                    .getElementById("userIcon")
+                    .textContent = "👨‍🌾";
+
+
+                document
+                    .getElementById("loginTitle")
+                    .textContent =
+                    t.farmerLogin;
+
+            }
+
+            else {
+
+                document
+                    .getElementById("userIcon")
+                    .textContent = "🛒";
+
+
+                document
+                    .getElementById("loginTitle")
+                    .textContent =
+                    t.buyerLogin;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           BACK TO FARMER
+        ===================================================== */
+
+        function backToRoles() {
+
+            selectRole("farmer");
+
+        }
+
+
+        /* =====================================================
+           PASSWORD SHOW / HIDE
+        ===================================================== */
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById(
+                    "password"
+                );
+
+
+            const eye =
+                document.getElementById(
+                    "eyeButton"
+                );
+
+
+            if (
+                password.type ===
+                "password"
+            ) {
+
+                password.type = "text";
+
+                eye.textContent = "🙈";
+
+            }
+
+            else {
+
+                password.type = "password";
+
+                eye.textContent = "👁️";
+
+            }
+
+        }
+
+
+        /* =====================================================
+           LOGIN
+        ===================================================== */
+
+        function login(event) {
+
+            event.preventDefault();
+
+
+            const username =
+                document
+                    .getElementById("username")
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById("password")
+                    .value
+                    .trim();
+
+
+            const error =
+                document.getElementById(
+                    "loginError"
+                );
+
+
+            if (
+                !username ||
+                !password
+            ) {
+
+                error.style.display =
+                    "block";
+
+                return;
+
+            }
+
+
+            error.style.display =
+                "none";
+
+
+            /* SAVE LOGIN */
+
+            localStorage.setItem(
+                "agriLoggedIn",
+                "true"
+            );
+
+
+            localStorage.setItem(
+                "agriUserType",
+                selectedRole
+            );
+
+
+            localStorage.setItem(
+                "agriUsername",
+                username
+            );
+
+
+            /* REDIRECT */
+
+            if (
+                selectedRole ===
+                "farmer"
+            ) {
+
+                window.location.href =
+                    "farmer.html";
+
+            }
+
+            else {
+
+                window.location.href =
+                    "buyer.html";
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CLOSE MODAL WHEN CLICK OUTSIDE
+        ===================================================== */
+
+        document
+            .getElementById("loginModal")
+            .addEventListener(
+                "click",
+                function(event) {
+
+                    if (
+                        event.target ===
+                        this
+                    ) {
+
+                        closeLogin();
+
+                    }
+
+                }
+            );
+
+
+        /* =====================================================
+           ESCAPE KEY
+        ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key ===
+                    "Escape"
+                ) {
+
+                    closeLogin();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           INITIAL LANGUAGE
+        ===================================================== */
+
+        updateLanguage();
+
+    </script>
+
+</body>
+</html>
+```

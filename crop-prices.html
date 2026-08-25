@@ -1,0 +1,1755 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AgriConnect - Crop Price Prediction</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        "Noto Sans Tamil",
+        "Latha",
+        Arial,
+        sans-serif;
+
+    min-height:100vh;
+    color:#183b21;
+
+    background-image:
+        linear-gradient(
+            rgba(235,248,237,0.15),
+            rgba(235,248,237,0.30)
+        ),
+        url("./image/crop-price-bg.png.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+
+    min-height:78px;
+
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:10px 30px;
+
+    background:rgba(255,255,255,0.96);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,0.12);
+}
+
+.logo{
+    text-decoration:none;
+
+    color:#16842f;
+
+    font-size:27px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+}
+
+.nav-links{
+    display:flex;
+
+    align-items:center;
+
+    gap:4px;
+
+    overflow-x:auto;
+}
+
+.nav-links a{
+    text-decoration:none;
+
+    color:#38523f;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    padding:9px 11px;
+
+    border-radius:8px;
+
+    white-space:nowrap;
+
+    transition:.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    background:#e5f5e8;
+
+    color:#16842f;
+}
+
+.language{
+    display:flex;
+
+    gap:5px;
+
+    padding:4px;
+
+    background:#edf5ee;
+
+    border-radius:9px;
+}
+
+.language button{
+    border:none;
+
+    background:transparent;
+
+    padding:7px 10px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-weight:800;
+
+    color:#35533c;
+}
+
+.language button.active{
+    background:white;
+
+    color:#16842f;
+
+    box-shadow:
+        0 2px 7px rgba(0,0,0,.08);
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+    min-height:100vh;
+
+    padding:
+        125px
+        6%
+        60px;
+}
+
+.container{
+    width:min(1200px,100%);
+
+    margin:auto;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.page-header{
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:white;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.45);
+}
+
+.page-header .icon{
+    font-size:55px;
+
+    margin-bottom:8px;
+}
+
+.page-header h1{
+    font-size:43px;
+
+    font-weight:900;
+
+    margin-bottom:9px;
+}
+
+.page-header p{
+    font-size:16px;
+
+    font-weight:600;
+}
+
+
+/* =========================
+   PREDICTION PANEL
+========================= */
+
+.prediction-panel{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1.15fr;
+
+    gap:22px;
+
+    margin-bottom:25px;
+}
+
+
+/* =========================
+   FORM CARD
+========================= */
+
+.form-card{
+    padding:30px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.94);
+
+    box-shadow:
+        0 13px 35px rgba(0,0,0,.16);
+
+    backdrop-filter:blur(9px);
+}
+
+.form-card h2{
+    color:#145725;
+
+    font-size:25px;
+
+    margin-bottom:22px;
+}
+
+.form-group{
+    margin-bottom:17px;
+}
+
+.form-group label{
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#29452f;
+
+    font-size:14px;
+
+    font-weight:800;
+}
+
+.form-group select,
+.form-group input{
+    width:100%;
+
+    padding:13px 14px;
+
+    border:1px solid #cbdacf;
+
+    border-radius:9px;
+
+    background:white;
+
+    color:#203d27;
+
+    outline:none;
+
+    font-size:14px;
+}
+
+.form-group select:focus,
+.form-group input:focus{
+    border-color:#168a32;
+
+    box-shadow:
+        0 0 0 3px rgba(22,138,50,.10);
+}
+
+.predict-btn{
+    width:100%;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #168e35,
+            #08782a
+        );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 7px 18px rgba(0,90,25,.22);
+
+    transition:.2s;
+}
+
+.predict-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(0,90,25,.30);
+}
+
+
+/* =========================
+   RESULT CARD
+========================= */
+
+.result-card{
+    padding:30px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.94);
+
+    box-shadow:
+        0 13px 35px rgba(0,0,0,.16);
+
+    backdrop-filter:blur(9px);
+}
+
+.result-card h2{
+    color:#145725;
+
+    font-size:25px;
+
+    margin-bottom:20px;
+}
+
+.selected-crop{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    background:#edf8ef;
+
+    border:1px solid #d7e9da;
+
+    margin-bottom:20px;
+}
+
+.crop-icon{
+    width:65px;
+    height:65px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:white;
+
+    font-size:37px;
+}
+
+.selected-crop h3{
+    color:#155b28;
+
+    margin-bottom:4px;
+}
+
+.selected-crop p{
+    color:#68766c;
+
+    font-size:13px;
+}
+
+
+/* =========================
+   PRICE BOXES
+========================= */
+
+.price-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap:15px;
+}
+
+.price-box{
+    padding:20px;
+
+    border-radius:14px;
+
+    text-align:center;
+
+    background:#f5faf5;
+
+    border:1px solid #dce9de;
+}
+
+.price-box .label{
+    display:block;
+
+    color:#68766c;
+
+    font-size:12px;
+
+    margin-bottom:8px;
+}
+
+.price-box strong{
+    display:block;
+
+    color:#16842f;
+
+    font-size:27px;
+
+    font-weight:900;
+}
+
+.price-box small{
+    color:#718078;
+
+    font-size:11px;
+}
+
+
+/* =========================
+   TREND
+========================= */
+
+.trend{
+    margin-top:18px;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    background:#eef8ef;
+}
+
+.trend-title{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:12px;
+}
+
+.trend-title strong{
+    color:#285134;
+}
+
+.trend-value{
+    color:#16842f;
+
+    font-weight:900;
+}
+
+.bar{
+    width:100%;
+
+    height:12px;
+
+    background:#dce9de;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.bar-fill{
+    height:100%;
+
+    width:72%;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8cc99a,
+            #16842f
+        );
+
+    transition:.5s;
+}
+
+.trend-note{
+    margin-top:9px;
+
+    color:#66746b;
+
+    font-size:12px;
+
+    line-height:1.5;
+}
+
+
+/* =========================
+   MARKET TABLE
+========================= */
+
+.market-card{
+    margin-top:22px;
+
+    padding:28px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.94);
+
+    box-shadow:
+        0 13px 35px rgba(0,0,0,.15);
+
+    backdrop-filter:blur(9px);
+}
+
+.market-card h2{
+    color:#145725;
+
+    font-size:25px;
+
+    margin-bottom:18px;
+}
+
+.table-wrapper{
+    width:100%;
+
+    overflow-x:auto;
+
+    border-radius:12px;
+
+    border:1px solid #dce9de;
+}
+
+table{
+    width:100%;
+
+    min-width:650px;
+
+    border-collapse:collapse;
+}
+
+th{
+    padding:14px;
+
+    text-align:left;
+
+    background:#168a32;
+
+    color:white;
+
+    font-size:13px;
+}
+
+td{
+    padding:13px 14px;
+
+    border-bottom:1px solid #e3ebe5;
+
+    color:#334b39;
+
+    font-size:13px;
+}
+
+tr:hover td{
+    background:#f3faf4;
+}
+
+.up{
+    color:#16842f;
+
+    font-weight:900;
+}
+
+.down{
+    color:#bd3b2d;
+
+    font-weight:900;
+}
+
+
+/* =========================
+   TIPS
+========================= */
+
+.tips{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:17px;
+
+    margin-top:22px;
+}
+
+.tip-card{
+    padding:22px;
+
+    border-radius:17px;
+
+    background:rgba(255,255,255,.93);
+
+    box-shadow:
+        0 9px 27px rgba(0,0,0,.13);
+
+    backdrop-filter:blur(7px);
+}
+
+.tip-icon{
+    font-size:38px;
+
+    margin-bottom:10px;
+}
+
+.tip-card h3{
+    color:#155b28;
+
+    font-size:18px;
+
+    margin-bottom:8px;
+}
+
+.tip-card p{
+    color:#66736a;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    margin-top:45px;
+
+    padding:25px;
+
+    text-align:center;
+
+    background:rgba(13,55,25,.94);
+
+    color:#d5e5d8;
+}
+
+.footer p{
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1050px){
+
+    .header{
+        flex-wrap:wrap;
+
+        height:auto;
+
+        min-height:70px;
+
+        padding:10px 18px;
+    }
+
+    .nav-links{
+        width:100%;
+
+        order:3;
+    }
+
+    .prediction-panel{
+        grid-template-columns:1fr;
+    }
+
+    .tips{
+        grid-template-columns:
+            1fr
+            1fr;
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    body{
+        background-attachment:scroll;
+    }
+
+    .page{
+        padding:
+            120px
+            5%
+            40px;
+    }
+
+    .page-header h1{
+        font-size:34px;
+    }
+
+    .page-header .icon{
+        font-size:45px;
+    }
+
+    .price-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tips{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    .logo{
+        font-size:20px;
+    }
+
+    .language button{
+        padding:6px 8px;
+
+        font-size:11px;
+    }
+
+    .page-header h1{
+        font-size:29px;
+    }
+
+    .form-card,
+    .result-card,
+    .market-card{
+        padding:20px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<a href="index.html" class="logo">
+🌱 AgriConnect
+</a>
+
+
+<nav class="nav-links">
+
+<a href="index.html">
+🏠 Home
+</a>
+
+<a href="farmer.html">
+👨‍🌾 Farmer
+</a>
+
+<a href="buyer.html">
+🛒 Buyer
+</a>
+
+<a href="machinery.html">
+🚜 Machinery
+</a>
+
+<a href="fertilizer.html">
+🌱 Fertilizer
+</a>
+
+<a href="weather.html">
+🌦️ Weather
+</a>
+
+<a href="crop-prices.html" class="active">
+📈 Crop Prices
+</a>
+
+<a href="orders.html">
+📦 Orders
+</a>
+
+</nav>
+
+
+<div class="language">
+
+<button
+id="enBtn"
+class="active"
+onclick="changeLanguage('en')">
+EN
+</button>
+
+<button
+id="taBtn"
+onclick="changeLanguage('ta')">
+தமிழ்
+</button>
+
+</div>
+
+</header>
+
+
+
+<main class="page">
+
+<div class="container">
+
+
+<div class="page-header">
+
+<div class="icon">
+📈
+</div>
+
+<h1
+data-en="Crop Price Prediction"
+data-ta="பயிர் விலை கணிப்பு">
+Crop Price Prediction
+</h1>
+
+<p
+data-en="Check current market prices and estimate future crop prices."
+data-ta="தற்போதைய சந்தை விலைகளை பார்த்து எதிர்கால பயிர் விலையை கணிக்கவும்.">
+Check current market prices and estimate future crop prices.
+</p>
+
+</div>
+
+
+
+<div class="prediction-panel">
+
+
+<!-- FORM -->
+
+<div class="form-card">
+
+<h2
+data-en="🔮 Predict Crop Price"
+data-ta="🔮 பயிர் விலையை கணிக்கவும்">
+🔮 Predict Crop Price
+</h2>
+
+
+<div class="form-group">
+
+<label
+data-en="Select Crop"
+data-ta="பயிரை தேர்வு செய்யவும்">
+Select Crop
+</label>
+
+<select id="cropSelect">
+
+<option value="tomato">
+🍅 Tomato / தக்காளி
+</option>
+
+<option value="onion">
+🧅 Onion / வெங்காயம்
+</option>
+
+<option value="paddy">
+🌾 Paddy / நெல்
+</option>
+
+<option value="mango">
+🥭 Mango / மாம்பழம்
+</option>
+
+<option value="turmeric">
+🟡 Turmeric / மஞ்சள்
+</option>
+
+<option value="banana">
+🍌 Banana / வாழைப்பழம்
+</option>
+
+<option value="groundnut">
+🥜 Groundnut / நிலக்கடலை
+</option>
+
+<option value="chilli">
+🌶️ Chilli / மிளகாய்
+</option>
+
+<option value="carrot">
+🥕 Carrot / கேரட்
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label
+data-en="Market Location"
+data-ta="சந்தை இடம்">
+Market Location
+</label>
+
+<select id="marketSelect">
+
+<option value="chennai">
+Chennai
+</option>
+
+<option value="coimbatore">
+Coimbatore
+</option>
+
+<option value="madurai">
+Madurai
+</option>
+
+<option value="thanjavur">
+Thanjavur
+</option>
+
+<option value="erode">
+Erode
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label
+data-en="Prediction Period"
+data-ta="கணிப்பு காலம்">
+Prediction Period
+</label>
+
+<select id="periodSelect">
+
+<option value="7">
+7 Days
+</option>
+
+<option value="15">
+15 Days
+</option>
+
+<option value="30">
+30 Days
+</option>
+
+</select>
+
+</div>
+
+
+<button
+class="predict-btn"
+onclick="predictPrice()">
+
+📊
+<span
+data-en="Predict Price"
+data-ta="விலையை கணிக்கவும்">
+Predict Price
+</span>
+
+</button>
+
+</div>
+
+
+
+<!-- RESULT -->
+
+<div class="result-card">
+
+<h2
+data-en="📊 Prediction Result"
+data-ta="📊 கணிப்பு முடிவு">
+📊 Prediction Result
+</h2>
+
+
+<div class="selected-crop">
+
+<div
+id="cropIcon"
+class="crop-icon">
+🍅
+</div>
+
+<div>
+
+<h3 id="cropName">
+Tomato
+</h3>
+
+<p id="marketName">
+Chennai Market
+</p>
+
+</div>
+
+</div>
+
+
+<div class="price-grid">
+
+
+<div class="price-box">
+
+<span
+class="label"
+data-en="Current Price"
+data-ta="தற்போதைய விலை">
+Current Price
+</span>
+
+<strong id="currentPrice">
+₹32
+</strong>
+
+<small>/ kg</small>
+
+</div>
+
+
+<div class="price-box">
+
+<span
+class="label"
+data-en="Predicted Price"
+data-ta="கணிக்கப்பட்ட விலை">
+Predicted Price
+</span>
+
+<strong id="predictedPrice">
+₹38
+</strong>
+
+<small>/ kg</small>
+
+</div>
+
+
+</div>
+
+
+<div class="trend">
+
+<div class="trend-title">
+
+<strong
+data-en="Expected Price Trend"
+data-ta="எதிர்பார்க்கப்படும் விலை நிலவரம்">
+Expected Price Trend
+</strong>
+
+<span
+id="trendValue"
+class="trend-value">
+↗ +18.75%
+</span>
+
+</div>
+
+
+<div class="bar">
+
+<div
+id="barFill"
+class="bar-fill">
+</div>
+
+</div>
+
+
+<p
+id="trendNote"
+class="trend-note"
+data-en="The predicted price is higher than the current market price."
+data-ta="கணிக்கப்பட்ட விலை தற்போதைய சந்தை விலையை விட அதிகமாக உள்ளது.">
+The predicted price is higher than the current market price.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- MARKET PRICES -->
+
+<div class="market-card">
+
+<h2
+data-en="💰 Current Market Prices"
+data-ta="💰 தற்போதைய சந்தை விலைகள்">
+💰 Current Market Prices
+</h2>
+
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th
+data-en="Crop"
+data-ta="பயிர்">
+Crop
+</th>
+
+<th
+data-en="Market"
+data-ta="சந்தை">
+Market
+</th>
+
+<th
+data-en="Current Price"
+data-ta="தற்போதைய விலை">
+Current Price
+</th>
+
+<th
+data-en="Change"
+data-ta="மாற்றம்">
+Change
+</th>
+
+<th
+data-en="Trend"
+data-ta="நிலை">
+Trend
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="marketTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+
+<!-- TIPS -->
+
+<div class="tips">
+
+
+<div class="tip-card">
+
+<div class="tip-icon">
+📈
+</div>
+
+<h3
+data-en="Watch Market Trends"
+data-ta="சந்தை நிலவரத்தை கவனிக்கவும்">
+Watch Market Trends
+</h3>
+
+<p
+data-en="Check crop prices regularly to understand whether the market is moving upward or downward."
+data-ta="சந்தை விலை மேலே அல்லது கீழே செல்கிறதா என்பதை அறிய பயிர் விலைகளை தொடர்ந்து பாருங்கள்.">
+Check crop prices regularly to understand whether the market is moving upward or downward.
+</p>
+
+</div>
+
+
+<div class="tip-card">
+
+<div class="tip-icon">
+🌾
+</div>
+
+<h3
+data-en="Plan Your Sale"
+data-ta="விற்பனையை திட்டமிடுங்கள்">
+Plan Your Sale
+</h3>
+
+<p
+data-en="Use price predictions as a reference when deciding the best time to sell your crops."
+data-ta="பயிர்களை விற்க சிறந்த நேரத்தை தேர்வு செய்ய விலை கணிப்பை ஒரு வழிகாட்டியாக பயன்படுத்துங்கள்.">
+Use price predictions as a reference when deciding the best time to sell your crops.
+</p>
+
+</div>
+
+
+<div class="tip-card">
+
+<div class="tip-icon">
+💡
+</div>
+
+<h3
+data-en="Smart Farming Decision"
+data-ta="ஸ்மார்ட் விவசாய முடிவு">
+Smart Farming Decision
+</h3>
+
+<p
+data-en="Combine price information with weather and crop conditions before making farming decisions."
+data-ta="விவசாய முடிவுகளை எடுப்பதற்கு முன் விலை தகவலுடன் வானிலை மற்றும் பயிர் நிலைமைகளையும் கவனியுங்கள்.">
+Combine price information with weather and crop conditions before making farming decisions.
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</main>
+
+
+
+<footer class="footer">
+
+<p
+data-en="🌱 AgriConnect — Smart Agriculture Platform"
+data-ta="🌱 AgriConnect — ஸ்மார்ட் விவசாய தளம்">
+🌱 AgriConnect — Smart Agriculture Platform
+</p>
+
+<p>
+© 2026 AgriConnect — All Rights Reserved.
+</p>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   CROP DATA
+========================= */
+
+const cropData = {
+
+    tomato:{
+        name:"Tomato",
+        tamil:"தக்காளி",
+        icon:"🍅",
+        price:32,
+        change:18.75
+    },
+
+    onion:{
+        name:"Onion",
+        tamil:"வெங்காயம்",
+        icon:"🧅",
+        price:41,
+        change:-5.2
+    },
+
+    paddy:{
+        name:"Paddy",
+        tamil:"நெல்",
+        icon:"🌾",
+        price:23.5,
+        change:9.8
+    },
+
+    mango:{
+        name:"Mango",
+        tamil:"மாம்பழம்",
+        icon:"🥭",
+        price:68,
+        change:14.5
+    },
+
+    turmeric:{
+        name:"Turmeric",
+        tamil:"மஞ்சள்",
+        icon:"🟡",
+        price:76,
+        change:7.4
+    },
+
+    banana:{
+        name:"Banana",
+        tamil:"வாழைப்பழம்",
+        icon:"🍌",
+        price:36,
+        change:-3.6
+    },
+
+    groundnut:{
+        name:"Groundnut",
+        tamil:"நிலக்கடலை",
+        icon:"🥜",
+        price:61,
+        change:11.2
+    },
+
+    chilli:{
+        name:"Chilli",
+        tamil:"மிளகாய்",
+        icon:"🌶️",
+        price:92,
+        change:16.3
+    },
+
+    carrot:{
+        name:"Carrot",
+        tamil:"கேரட்",
+        icon:"🥕",
+        price:48,
+        change:6.9
+    }
+
+};
+
+
+/* =========================
+   MARKET DATA
+========================= */
+
+const markets = {
+
+    chennai:"Chennai Market",
+    coimbatore:"Coimbatore Market",
+    madurai:"Madurai Market",
+    thanjavur:"Thanjavur Market",
+    erode:"Erode Market"
+
+};
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+let currentLanguage =
+    localStorage.getItem("agriLanguage") || "en";
+
+
+function changeLanguage(language){
+
+    currentLanguage = language;
+
+    localStorage.setItem(
+        "agriLanguage",
+        language
+    );
+
+
+    document
+    .querySelectorAll("[data-en]")
+    .forEach(function(element){
+
+        element.textContent =
+            language === "en"
+            ? element.getAttribute("data-en")
+            : element.getAttribute("data-ta");
+
+    });
+
+
+    document
+    .getElementById("enBtn")
+    .classList
+    .toggle(
+        "active",
+        language === "en"
+    );
+
+
+    document
+    .getElementById("taBtn")
+    .classList
+    .toggle(
+        "active",
+        language === "ta"
+    );
+
+
+    predictPrice();
+
+}
+
+
+/* =========================
+   PREDICT PRICE
+========================= */
+
+function predictPrice(){
+
+    const cropKey =
+        document
+        .getElementById("cropSelect")
+        .value;
+
+
+    const marketKey =
+        document
+        .getElementById("marketSelect")
+        .value;
+
+
+    const period =
+        Number(
+            document
+            .getElementById("periodSelect")
+            .value
+        );
+
+
+    const crop =
+        cropData[cropKey];
+
+
+    if(!crop){
+        return;
+    }
+
+
+    let multiplier = 1;
+
+
+    if(period === 7){
+        multiplier = 1;
+    }
+
+    else if(period === 15){
+        multiplier = 1.08;
+    }
+
+    else{
+        multiplier = 1.15;
+    }
+
+
+    const predicted =
+        crop.price *
+        (
+            1 +
+            crop.change / 100
+        ) *
+        multiplier;
+
+
+    const roundedPrice =
+        Math.round(predicted);
+
+
+    document
+    .getElementById("cropIcon")
+    .textContent =
+        crop.icon;
+
+
+    document
+    .getElementById("cropName")
+    .textContent =
+        currentLanguage === "en"
+        ? crop.name
+        : crop.tamil;
+
+
+    document
+    .getElementById("marketName")
+    .textContent =
+        currentLanguage === "en"
+        ? markets[marketKey]
+        : marketKey === "chennai"
+            ? "சென்னை சந்தை"
+            : marketKey === "coimbatore"
+                ? "கோயம்புத்தூர் சந்தை"
+                : marketKey === "madurai"
+                    ? "மதுரை சந்தை"
+                    : marketKey === "thanjavur"
+                        ? "தஞ்சாவூர் சந்தை"
+                        : "ஈரோடு சந்தை";
+
+
+    document
+    .getElementById("currentPrice")
+    .textContent =
+        "₹" +
+        crop.price;
+
+
+    document
+    .getElementById("predictedPrice")
+    .textContent =
+        "₹" +
+        roundedPrice;
+
+
+    const percentage =
+        (
+            (
+                roundedPrice -
+                crop.price
+            )
+            /
+            crop.price
+        ) *
+        100;
+
+
+    const positive =
+        percentage >= 0;
+
+
+    document
+    .getElementById("trendValue")
+    .textContent =
+        positive
+        ? "↗ +" + percentage.toFixed(1) + "%"
+        : "↘ " + percentage.toFixed(1) + "%";
+
+
+    document
+    .getElementById("trendValue")
+    .style.color =
+        positive
+        ? "#16842f"
+        : "#bd3b2d";
+
+
+    const barWidth =
+        Math.min(
+            95,
+            Math.max(
+                20,
+                50 + percentage
+            )
+        );
+
+
+    document
+    .getElementById("barFill")
+    .style.width =
+        barWidth + "%";
+
+
+    document
+    .getElementById("trendNote")
+    .textContent =
+
+        positive
+
+        ?
+
+        (
+            currentLanguage === "en"
+            ? "The predicted price is higher than the current market price."
+            : "கணிக்கப்பட்ட விலை தற்போதைய சந்தை விலையை விட அதிகமாக உள்ளது."
+        )
+
+        :
+
+        (
+            currentLanguage === "en"
+            ? "The predicted price is lower than the current market price."
+            : "கணிக்கப்பட்ட விலை தற்போதைய சந்தை விலையை விட குறைவாக உள்ளது."
+        );
+
+}
+
+
+/* =========================
+   MARKET TABLE
+========================= */
+
+function loadMarketTable(){
+
+    const table =
+        document
+        .getElementById("marketTable");
+
+
+    table.innerHTML = "";
+
+
+    Object.keys(cropData)
+    .forEach(function(key){
+
+        const crop =
+            cropData[key];
+
+
+        const row =
+            document.createElement("tr");
+
+
+        const positive =
+            crop.change >= 0;
+
+
+        row.innerHTML = `
+
+            <td>
+                ${crop.icon}
+                ${
+                    currentLanguage === "en"
+                    ? crop.name
+                    : crop.tamil
+                }
+            </td>
+
+            <td>
+                Chennai
+            </td>
+
+            <td>
+                <strong>
+                    ₹${crop.price}
+                </strong>
+                / kg
+            </td>
+
+            <td
+                class="${positive ? "up" : "down"}">
+
+                ${
+                    positive
+                    ? "↗ +"
+                    : "↘ "
+                }
+
+                ${crop.change}%
+
+            </td>
+
+            <td>
+
+                <span
+                    class="${positive ? "up" : "down"}">
+
+                    ${
+                        positive
+                        ? (
+                            currentLanguage === "en"
+                            ? "Rising"
+                            : "உயர்வு"
+                          )
+                        : (
+                            currentLanguage === "en"
+                            ? "Falling"
+                            : "சரிவு"
+                          )
+                    }
+
+                </span>
+
+            </td>
+
+        `;
+
+
+        table.appendChild(row);
+
+    });
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+changeLanguage(
+    currentLanguage
+);
+
+loadMarketTable();
+
+predictPrice();
+
+</script>
+
+</body>
+</html>
+```

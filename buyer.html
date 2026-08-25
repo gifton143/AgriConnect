@@ -1,0 +1,2478 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AgriConnect - Buyer</title>
+
+<style>
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,"Noto Sans Tamil",sans-serif;
+    color:#183d20;
+
+    background:
+        linear-gradient(
+            rgba(235,248,237,0.12),
+            rgba(235,248,237,0.18)
+        ),
+        url("./image/buyer-page-bg.png.png");
+
+    background-size:cover;
+    background-position:center top;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    min-height:100vh;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar{
+
+    min-height:70px;
+
+    background:rgba(255,255,255,0.95);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:12px 5%;
+
+    gap:20px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:
+        0 3px 18px rgba(0,0,0,0.12);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+}
+
+
+/* LOGO */
+
+.logo{
+
+    font-size:24px;
+
+    font-weight:900;
+
+    color:#16852f;
+
+    white-space:nowrap;
+}
+
+
+/* NAVIGATION */
+
+.nav-links{
+
+    display:flex;
+
+    gap:5px;
+
+    align-items:center;
+
+    overflow-x:auto;
+
+    scrollbar-width:none;
+}
+
+.nav-links::-webkit-scrollbar{
+    display:none;
+}
+
+.nav-links a{
+
+    padding:9px 11px;
+
+    border-radius:9px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:#3d5141;
+
+    white-space:nowrap;
+
+    transition:0.2s;
+}
+
+.nav-links a:hover{
+
+    background:#e6f5e8;
+
+    color:#218b35;
+}
+
+.nav-links a.active{
+
+    background:#dff2e2;
+
+    color:#16852f;
+}
+
+
+/* LANGUAGE */
+
+.language{
+
+    display:flex;
+
+    background:#edf5ee;
+
+    padding:4px;
+
+    border-radius:9px;
+
+    flex-shrink:0;
+}
+
+.language button{
+
+    border:0;
+
+    background:transparent;
+
+    padding:7px 9px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+.language button.active{
+
+    background:white;
+
+    color:#218b35;
+
+    box-shadow:
+        0 2px 7px rgba(0,0,0,0.08);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+
+    min-height:560px;
+
+    padding:70px 7%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    background:transparent;
+}
+
+
+/*
+   IMPORTANT:
+   White transparent panel behind hero text
+   so letters are clearly visible.
+*/
+
+.hero-content{
+
+    width:min(900px,100%);
+
+    text-align:center;
+
+    padding:38px 45px;
+
+    background:
+        rgba(255,255,255,0.84);
+
+    border:
+        1px solid rgba(255,255,255,0.85);
+
+    border-radius:24px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.18);
+
+    backdrop-filter:blur(7px);
+
+    -webkit-backdrop-filter:blur(7px);
+}
+
+
+/* BADGE */
+
+.badge{
+
+    display:inline-block;
+
+    background:#e1f5e4;
+
+    color:#176b29;
+
+    padding:9px 17px;
+
+    border-radius:25px;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    margin-bottom:20px;
+
+    border:1px solid #c4e3c9;
+}
+
+
+/* HERO TITLE */
+
+.hero h1{
+
+    font-size:52px;
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+
+    color:#123f1d;
+
+    font-weight:900;
+
+    text-shadow:
+        0 2px 4px rgba(255,255,255,0.95);
+}
+
+.hero h1 span{
+
+    color:#168b32;
+}
+
+
+/* HERO DESCRIPTION */
+
+.hero p{
+
+    max-width:760px;
+
+    margin:0 auto;
+
+    line-height:1.8;
+
+    color:#263d2b;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    text-shadow:
+        0 1px 3px rgba(255,255,255,0.95);
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.section{
+
+    padding:55px 0;
+
+    background:
+        rgba(255,255,255,0.91);
+
+    backdrop-filter:blur(4px);
+
+    -webkit-backdrop-filter:blur(4px);
+}
+
+.container{
+
+    width:86%;
+
+    max-width:1250px;
+
+    margin:auto;
+}
+
+
+/* SECTION TITLE */
+
+.section-title{
+
+    margin-bottom:28px;
+
+    text-align:left;
+}
+
+.section-title h2{
+
+    font-size:32px;
+
+    margin-bottom:8px;
+
+    color:#123f1d;
+
+    font-weight:900;
+
+    text-shadow:
+        0 1px 3px rgba(255,255,255,0.9);
+}
+
+.section-title p{
+
+    color:#405448;
+
+    font-weight:600;
+
+    font-size:15px;
+}
+
+
+/* =========================================================
+   FILTER CONTROLS
+   ========================================================= */
+
+.controls{
+
+    background:
+        rgba(255,255,255,0.98);
+
+    border:
+        1px solid #cbdccc;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr auto;
+
+    gap:12px;
+
+    margin-bottom:30px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.12);
+}
+
+.controls input,
+.controls select{
+
+    width:100%;
+
+    padding:13px;
+
+    border:
+        1px solid #cdddcf;
+
+    border-radius:9px;
+
+    outline:none;
+
+    background:white;
+
+    color:#183d20;
+}
+
+.controls input:focus,
+.controls select:focus{
+
+    border-color:#218b35;
+
+    box-shadow:
+        0 0 0 3px rgba(33,139,53,0.10);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn{
+
+    border:0;
+
+    padding:12px 20px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:0.2s;
+}
+
+.primary{
+
+    background:#218b35;
+
+    color:white;
+}
+
+.primary:hover{
+
+    background:#176e28;
+
+    transform:translateY(-1px);
+}
+
+.secondary{
+
+    background:white;
+
+    border:1px solid #c7dbc9;
+
+    color:#218b35;
+}
+
+.secondary:hover{
+
+    background:#edf8ef;
+}
+
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
+
+.products{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+
+/* PRODUCT CARD */
+
+.product-card{
+
+    background:
+        rgba(255,255,255,0.98);
+
+    border:
+        1px solid #dce9de;
+
+    border-radius:17px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 7px 25px rgba(0,0,0,0.12);
+
+    transition:0.2s;
+}
+
+.product-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.17);
+}
+
+
+/* PRODUCT IMAGE */
+
+.product-image{
+
+    height:160px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8f6e9,
+            #f5fbf5
+        );
+
+    font-size:75px;
+}
+
+
+/* PRODUCT CONTENT */
+
+.product-content{
+
+    padding:20px;
+}
+
+.product-content h3{
+
+    margin-bottom:8px;
+
+    font-size:21px;
+
+    color:#183d20;
+}
+
+.location{
+
+    color:#718077;
+
+    font-size:12px;
+
+    margin-bottom:14px;
+}
+
+.price{
+
+    color:#218b35;
+
+    font-size:21px;
+
+    font-weight:800;
+}
+
+.unit{
+
+    color:#718077;
+
+    font-size:12px;
+}
+
+
+/* SELLER */
+
+.seller{
+
+    margin-top:15px;
+
+    padding-top:15px;
+
+    border-top:
+        1px solid #edf2ee;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.seller-name{
+
+    font-weight:bold;
+
+    font-size:13px;
+}
+
+.rating{
+
+    color:#d18b18;
+
+    font-size:12px;
+}
+
+
+/* ACTIONS */
+
+.product-actions{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:17px;
+}
+
+.product-actions button{
+
+    flex:1;
+}
+
+
+/* EMPTY */
+
+.empty{
+
+    grid-column:1/-1;
+
+    text-align:center;
+
+    padding:50px;
+
+    background:white;
+
+    border-radius:15px;
+
+    color:#718077;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+}
+
+
+/* =========================================================
+   INFO SECTION
+   ========================================================= */
+
+.info-section{
+
+    background:
+        rgba(239,248,240,0.95);
+}
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.info-card{
+
+    background:
+        rgba(255,255,255,0.98);
+
+    border:
+        1px solid #dce9de;
+
+    border-radius:15px;
+
+    padding:23px;
+
+    box-shadow:
+        0 7px 22px rgba(0,0,0,0.08);
+}
+
+.info-icon{
+
+    font-size:38px;
+
+    margin-bottom:12px;
+}
+
+.info-card h3{
+
+    margin-bottom:8px;
+
+    color:#183d20;
+}
+
+.info-card p{
+
+    color:#68766c;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,0.55);
+
+    z-index:5000;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+.modal.show{
+
+    display:flex;
+}
+
+.modal-box{
+
+    background:white;
+
+    width:100%;
+
+    max-width:550px;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    position:relative;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.25);
+}
+
+.close{
+
+    position:absolute;
+
+    right:20px;
+
+    top:18px;
+
+    border:0;
+
+    background:#f1f4f1;
+
+    width:35px;
+
+    height:35px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:18px;
+}
+
+.close:hover{
+
+    background:#e2eee4;
+}
+
+
+/* FORM */
+
+.form-group{
+
+    margin-bottom:15px;
+}
+
+.form-group label{
+
+    display:block;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select{
+
+    width:100%;
+
+    padding:12px;
+
+    border:
+        1px solid #cdddcf;
+
+    border-radius:8px;
+
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+
+    border-color:#218b35;
+}
+
+
+/* ORDER SUMMARY */
+
+.order-summary{
+
+    background:#f3f8f3;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin:15px 0;
+
+    line-height:1.8;
+}
+
+.total{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#218b35;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+
+    background:
+        rgba(18,59,28,0.97);
+
+    color:white;
+
+    padding:45px 7% 20px;
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap:40px;
+
+    margin-bottom:30px;
+}
+
+footer h3{
+
+    margin-bottom:12px;
+}
+
+footer p,
+footer li{
+
+    color:#c3d3c6;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+footer ul{
+
+    list-style:none;
+}
+
+.copyright{
+
+    border-top:
+        1px solid #31533a;
+
+    padding-top:18px;
+
+    text-align:center;
+
+    color:#afc0b2;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media(max-width:1000px){
+
+    .navbar{
+
+        flex-wrap:wrap;
+
+        padding:12px 4%;
+    }
+
+    .nav-links{
+
+        width:100%;
+
+        order:5;
+    }
+
+    .products{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .controls{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .info-grid{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .hero{
+
+        min-height:500px;
+    }
+
+    .hero h1{
+
+        font-size:44px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:700px){
+
+    body{
+
+        background-attachment:scroll;
+
+        background-position:center top;
+    }
+
+    .hero{
+
+        min-height:480px;
+
+        padding:40px 20px;
+    }
+
+    .hero-content{
+
+        padding:28px 20px;
+
+        border-radius:18px;
+    }
+
+    .hero h1{
+
+        font-size:35px;
+    }
+
+    .hero p{
+
+        font-size:15px;
+    }
+
+    .products{
+
+        grid-template-columns:1fr;
+    }
+
+    .controls{
+
+        grid-template-columns:1fr;
+    }
+
+    .info-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+    }
+
+    .container{
+
+        width:92%;
+    }
+
+    .section-title h2{
+
+        font-size:27px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media(max-width:400px){
+
+    .hero h1{
+
+        font-size:30px;
+    }
+
+    .logo{
+
+        font-size:20px;
+    }
+
+    .language button{
+
+        padding:6px 8px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        🌱 AgriConnect
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+        <a href="farmer.html">
+            👨‍🌾 Farmer
+        </a>
+
+        <a href="buyer.html" class="active">
+            🛒 Buyer
+        </a>
+
+        <a href="machinery.html">
+            🚜 Machinery
+        </a>
+
+        <a href="fertilizer.html">
+            🌱 Fertilizer
+        </a>
+
+        <a href="weather.html">
+            🌦️ Weather
+        </a>
+
+        <a href="crop-prices.html">
+            📈 Crop Prices
+        </a>
+
+        <a href="orders.html">
+            📦 Orders
+        </a>
+
+    </nav>
+
+
+    <div class="language">
+
+        <button
+            id="enBtn"
+            class="active"
+            onclick="changeLanguage('en')">
+
+            EN
+
+        </button>
+
+        <button
+            id="taBtn"
+            onclick="changeLanguage('ta')">
+
+            தமிழ்
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+
+            🛒 Buyer Marketplace
+
+        </div>
+
+
+        <h1>
+
+            <span
+                data-en="Buy Fresh"
+                data-ta="புதிய விளைபொருட்களை">
+
+                Buy Fresh
+
+            </span>
+
+            <span
+                data-en=" Directly"
+                data-ta=" நேரடியாக வாங்குங்கள்">
+
+                Directly
+
+            </span>
+
+        </h1>
+
+
+        <p
+            data-en="Find fresh agricultural products directly from farmers and place your order easily."
+            data-ta="விவசாயிகளிடமிருந்து நேரடியாக புதிய விளைபொருட்களை கண்டுபிடித்து எளிதாக ஆர்டர் செய்யுங்கள்.">
+
+            Find fresh agricultural products directly from farmers
+            and place your order easily.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCTS
+     ===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2
+                data-en="🌾 Available Products"
+                data-ta="🌾 கிடைக்கும் விளைபொருட்கள்">
+
+                🌾 Available Products
+
+            </h2>
+
+
+            <p
+                data-en="Browse products from farmers near different markets."
+                data-ta="வெவ்வேறு சந்தைகளில் உள்ள விவசாயிகளின் பொருட்களை பாருங்கள்.">
+
+                Browse products from farmers near different markets.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- FILTERS -->
+
+        <div class="controls">
+
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="🔍 Search product..."
+                onkeyup="filterProducts()">
+
+
+
+            <select
+                id="categoryFilter"
+                onchange="filterProducts()">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="vegetable">
+                    Vegetables
+                </option>
+
+                <option value="fruit">
+                    Fruits
+                </option>
+
+                <option value="grain">
+                    Grains
+                </option>
+
+                <option value="spice">
+                    Spices
+                </option>
+
+            </select>
+
+
+
+            <select
+                id="locationFilter"
+                onchange="filterProducts()">
+
+                <option value="all">
+                    All Locations
+                </option>
+
+                <option value="Chennai">
+                    Chennai
+                </option>
+
+                <option value="Coimbatore">
+                    Coimbatore
+                </option>
+
+                <option value="Madurai">
+                    Madurai
+                </option>
+
+                <option value="Thanjavur">
+                    Thanjavur
+                </option>
+
+                <option value="Erode">
+                    Erode
+                </option>
+
+                <option value="Ooty">
+                    Ooty
+                </option>
+
+            </select>
+
+
+
+            <button
+                class="btn secondary"
+                onclick="resetFilters()">
+
+                ↻ Reset
+
+            </button>
+
+        </div>
+
+
+
+        <!-- PRODUCTS -->
+
+        <div
+            id="products"
+            class="products">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY BUY DIRECT
+     ===================================================== -->
+
+<section class="section info-section">
+
+    <div class="container">
+
+
+        <div class="section-title">
+
+            <h2
+                data-en="💡 Why Buy Direct?"
+                data-ta="💡 ஏன் நேரடியாக வாங்க வேண்டும்?">
+
+                💡 Why Buy Direct?
+
+            </h2>
+
+
+            <p
+                data-en="AgriConnect connects buyers directly with farmers."
+                data-ta="AgriConnect வாங்குபவர்களை நேரடியாக விவசாயிகளுடன் இணைக்கிறது.">
+
+                AgriConnect connects buyers directly with farmers.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="info-grid">
+
+
+            <!-- CARD 1 -->
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    👨‍🌾
+                </div>
+
+
+                <h3
+                    data-en="Direct From Farmer"
+                    data-ta="விவசாயியிடமிருந்து நேரடியாக">
+
+                    Direct From Farmer
+
+                </h3>
+
+
+                <p
+                    data-en="Buy agricultural products directly from farmers without unnecessary middle steps."
+                    data-ta="தேவையற்ற இடைத்தரகர்கள் இல்லாமல் விவசாயிகளிடமிருந்து நேரடியாக பொருட்களை வாங்கலாம்.">
+
+                    Buy agricultural products directly from farmers
+                    without unnecessary middle steps.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- CARD 2 -->
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🥬
+                </div>
+
+
+                <h3
+                    data-en="Fresh Products"
+                    data-ta="புதிய விளைபொருட்கள்">
+
+                    Fresh Products
+
+                </h3>
+
+
+                <p
+                    data-en="Find fresh crops and agricultural products listed by local farmers."
+                    data-ta="உள்ளூர் விவசாயிகள் பட்டியலிடும் புதிய பயிர்கள் மற்றும் விளைபொருட்களை கண்டுபிடிக்கலாம்.">
+
+                    Find fresh crops and agricultural products listed
+                    by local farmers.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- CARD 3 -->
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    💰
+                </div>
+
+
+                <h3
+                    data-en="Better Prices"
+                    data-ta="சிறந்த விலைகள்">
+
+                    Better Prices
+
+                </h3>
+
+
+                <p
+                    data-en="Compare products and prices before placing your order."
+                    data-ta="ஆர்டர் செய்வதற்கு முன் பொருட்கள் மற்றும் விலைகளை ஒப்பிடலாம்.">
+
+                    Compare products and prices before placing your order.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div>
+
+            <h3>
+                🌱 AgriConnect
+            </h3>
+
+
+            <p
+                data-en="Smart farming technology for modern farmers and buyers."
+                data-ta="நவீன விவசாயிகள் மற்றும் வாங்குபவர்களுக்கான ஸ்மார்ட் விவசாய தொழில்நுட்பம்.">
+
+                Smart farming technology for modern farmers and buyers.
+
+            </p>
+
+        </div>
+
+
+
+        <div>
+
+            <h3
+                data-en="Buyer"
+                data-ta="வாங்குபவர்">
+
+                Buyer
+
+            </h3>
+
+
+            <ul>
+
+                <li>Products</li>
+
+                <li>Orders</li>
+
+                <li>Farmers</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div>
+
+            <h3
+                data-en="Services"
+                data-ta="சேவைகள்">
+
+                Services
+
+            </h3>
+
+
+            <ul>
+
+                <li>Crop Prices</li>
+
+                <li>Weather</li>
+
+                <li>Machinery</li>
+
+                <li>Fertilizer</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="copyright">
+
+        © 2026 AgriConnect — All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     ORDER MODAL
+     ===================================================== -->
+
+<div
+    id="orderModal"
+    class="modal"
+    onclick="closeOutside(event)">
+
+
+    <div class="modal-box">
+
+
+        <button
+            class="close"
+            onclick="closeModal()">
+
+            ×
+
+        </button>
+
+
+        <h2
+            id="modalTitle">
+
+            Place Order
+
+        </h2>
+
+
+        <br>
+
+
+        <div class="order-summary">
+
+            <div id="selectedProduct">
+            </div>
+
+
+            <div id="selectedPrice">
+            </div>
+
+
+            <div id="selectedSeller">
+            </div>
+
+
+            <div
+                id="totalPrice"
+                class="total">
+
+            </div>
+
+        </div>
+
+
+
+        <!-- QUANTITY -->
+
+        <div class="form-group">
+
+            <label
+                data-en="Quantity (kg)"
+                data-ta="அளவு (கிலோ)">
+
+                Quantity (kg)
+
+            </label>
+
+
+            <input
+                id="quantity"
+                type="number"
+                min="1"
+                value="10"
+                oninput="calculateTotal()">
+
+        </div>
+
+
+
+        <!-- LOCATION -->
+
+        <div class="form-group">
+
+            <label
+                data-en="Delivery Location"
+                data-ta="விநியோக இடம்">
+
+                Delivery Location
+
+            </label>
+
+
+            <input
+                id="deliveryLocation"
+                type="text"
+                placeholder="Enter delivery location">
+
+        </div>
+
+
+
+        <!-- PAYMENT -->
+
+        <div class="form-group">
+
+            <label
+                data-en="Payment Method"
+                data-ta="பணம் செலுத்தும் முறை">
+
+                Payment Method
+
+            </label>
+
+
+            <select id="paymentMethod">
+
+                <option value="cod">
+                    Cash on Delivery
+                </option>
+
+                <option value="upi">
+                    UPI
+                </option>
+
+                <option value="bank">
+                    Bank Transfer
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <button
+            class="btn primary"
+            style="width:100%;"
+            onclick="placeOrder()">
+
+            🛒
+
+            <span
+                data-en="Place Order"
+                data-ta="ஆர்டர் செய்யுங்கள்">
+
+                Place Order
+
+            </span>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   PRODUCTS DATA
+   ========================================================= */
+
+const products = [
+
+    {
+        id:1,
+        name:"Tomato",
+        tamil:"தக்காளி",
+        icon:"🍅",
+        category:"vegetable",
+        location:"Chennai",
+        price:32,
+        seller:"Ravi Kumar",
+        rating:"4.8"
+    },
+
+    {
+        id:2,
+        name:"Onion",
+        tamil:"வெங்காயம்",
+        icon:"🧅",
+        category:"vegetable",
+        location:"Coimbatore",
+        price:41,
+        seller:"Kumar Farms",
+        rating:"4.7"
+    },
+
+    {
+        id:3,
+        name:"Paddy",
+        tamil:"நெல்",
+        icon:"🌾",
+        category:"grain",
+        location:"Thanjavur",
+        price:23.5,
+        seller:"Suresh Farms",
+        rating:"4.9"
+    },
+
+    {
+        id:4,
+        name:"Mango",
+        tamil:"மாம்பழம்",
+        icon:"🥭",
+        category:"fruit",
+        location:"Madurai",
+        price:68,
+        seller:"Murugan Farm",
+        rating:"4.8"
+    },
+
+    {
+        id:5,
+        name:"Turmeric",
+        tamil:"மஞ்சள்",
+        icon:"🟡",
+        category:"spice",
+        location:"Erode",
+        price:76,
+        seller:"Kannan Agro",
+        rating:"4.9"
+    },
+
+    {
+        id:6,
+        name:"Banana",
+        tamil:"வாழைப்பழம்",
+        icon:"🍌",
+        category:"fruit",
+        location:"Madurai",
+        price:36,
+        seller:"Green Farm",
+        rating:"4.6"
+    },
+
+    {
+        id:7,
+        name:"Groundnut",
+        tamil:"நிலக்கடலை",
+        icon:"🥜",
+        category:"grain",
+        location:"Coimbatore",
+        price:61,
+        seller:"Kovai Agro",
+        rating:"4.7"
+    },
+
+    {
+        id:8,
+        name:"Chilli",
+        tamil:"மிளகாய்",
+        icon:"🌶️",
+        category:"spice",
+        location:"Erode",
+        price:92,
+        seller:"South Farm",
+        rating:"4.8"
+    },
+
+    {
+        id:9,
+        name:"Carrot",
+        tamil:"கேரட்",
+        icon:"🥕",
+        category:"vegetable",
+        location:"Ooty",
+        price:48,
+        seller:"Hill Farms",
+        rating:"4.9"
+    }
+
+];
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+let currentLanguage =
+    localStorage.getItem("agriLanguage") || "en";
+
+let selectedProduct = null;
+
+
+/* =========================================================
+   LANGUAGE
+   ========================================================= */
+
+function changeLanguage(language){
+
+    currentLanguage = language;
+
+    localStorage.setItem(
+        "agriLanguage",
+        language
+    );
+
+
+    document
+        .querySelectorAll("[data-en]")
+        .forEach(function(element){
+
+            element.textContent =
+                language === "en"
+                ? element.getAttribute("data-en")
+                : element.getAttribute("data-ta");
+
+        });
+
+
+    document
+        .getElementById("enBtn")
+        .classList
+        .toggle(
+            "active",
+            language === "en"
+        );
+
+
+    document
+        .getElementById("taBtn")
+        .classList
+        .toggle(
+            "active",
+            language === "ta"
+        );
+
+
+    renderProducts();
+
+}
+
+
+/* =========================================================
+   RENDER PRODUCTS
+   ========================================================= */
+
+function renderProducts(){
+
+    const search =
+        document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    const category =
+        document
+            .getElementById("categoryFilter")
+            .value;
+
+
+    const location =
+        document
+            .getElementById("locationFilter")
+            .value;
+
+
+    const filtered =
+        products.filter(function(product){
+
+            const searchMatch =
+
+                product.name
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                product.tamil
+                    .includes(search)
+
+                ||
+
+                product.seller
+                    .toLowerCase()
+                    .includes(search);
+
+
+            const categoryMatch =
+                category === "all"
+                ||
+                product.category === category;
+
+
+            const locationMatch =
+                location === "all"
+                ||
+                product.location === location;
+
+
+            return(
+                searchMatch &&
+                categoryMatch &&
+                locationMatch
+            );
+
+        });
+
+
+    const container =
+        document.getElementById("products");
+
+
+    container.innerHTML = "";
+
+
+    if(filtered.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                🔍
+
+                <br><br>
+
+                ${
+                    currentLanguage === "en"
+                    ? "No products found."
+                    : "பொருட்கள் எதுவும் கிடைக்கவில்லை."
+                }
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    filtered.forEach(function(product){
+
+        const name =
+            currentLanguage === "en"
+            ? product.name
+            : product.tamil;
+
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "product-card";
+
+
+        card.innerHTML = `
+
+            <div class="product-image">
+
+                ${product.icon}
+
+            </div>
+
+
+            <div class="product-content">
+
+                <h3>
+                    ${name}
+                </h3>
+
+
+                <div class="location">
+
+                    📍 ${product.location}
+
+                </div>
+
+
+                <div>
+
+                    <span class="price">
+
+                        ₹${product.price}
+
+                    </span>
+
+                    <span class="unit">
+
+                        / kg
+
+                    </span>
+
+                </div>
+
+
+                <div class="seller">
+
+                    <div>
+
+                        <span class="seller-name">
+
+                            👨‍🌾 ${product.seller}
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="rating">
+
+                        ⭐ ${product.rating}
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-actions">
+
+
+                    <button
+                        class="btn secondary"
+                        onclick="showDetails(${product.id})">
+
+                        👁️
+
+                        ${
+                            currentLanguage === "en"
+                            ? "Details"
+                            : "விவரம்"
+                        }
+
+                    </button>
+
+
+                    <button
+                        class="btn primary"
+                        onclick="openOrder(${product.id})">
+
+                        🛒
+
+                        ${
+                            currentLanguage === "en"
+                            ? "Order"
+                            : "ஆர்டர்"
+                        }
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
+   FILTER
+   ========================================================= */
+
+function filterProducts(){
+
+    renderProducts();
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+function resetFilters(){
+
+    document
+        .getElementById("searchInput")
+        .value = "";
+
+
+    document
+        .getElementById("categoryFilter")
+        .value = "all";
+
+
+    document
+        .getElementById("locationFilter")
+        .value = "all";
+
+
+    renderProducts();
+
+}
+
+
+/* =========================================================
+   DETAILS
+   ========================================================= */
+
+function showDetails(id){
+
+    const product =
+        products.find(
+            item => item.id === id
+        );
+
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    const name =
+        currentLanguage === "en"
+        ? product.name
+        : product.tamil;
+
+
+    alert(
+
+        currentLanguage === "en"
+
+        ?
+
+`${name}
+
+Farmer: ${product.seller}
+Location: ${product.location}
+Price: ₹${product.price}/kg
+Rating: ⭐ ${product.rating}`
+
+        :
+
+`${name}
+
+விவசாயி: ${product.seller}
+இடம்: ${product.location}
+விலை: ₹${product.price}/கிலோ
+Rating: ⭐ ${product.rating}`
+
+    );
+
+}
+
+
+/* =========================================================
+   OPEN ORDER
+   ========================================================= */
+
+function openOrder(id){
+
+    selectedProduct =
+        products.find(
+            item => item.id === id
+        );
+
+
+    if(!selectedProduct){
+
+        return;
+
+    }
+
+
+    const name =
+        currentLanguage === "en"
+        ? selectedProduct.name
+        : selectedProduct.tamil;
+
+
+    document
+        .getElementById("selectedProduct")
+        .innerHTML =
+            "<strong>" +
+            selectedProduct.icon +
+            " " +
+            name +
+            "</strong>";
+
+
+    document
+        .getElementById("selectedPrice")
+        .textContent =
+            "₹" +
+            selectedProduct.price +
+            " / kg";
+
+
+    document
+        .getElementById("selectedSeller")
+        .textContent =
+            "👨‍🌾 " +
+            selectedProduct.seller;
+
+
+    document
+        .getElementById("quantity")
+        .value = 10;
+
+
+    document
+        .getElementById("deliveryLocation")
+        .value = "";
+
+
+    calculateTotal();
+
+
+    document
+        .getElementById("orderModal")
+        .classList
+        .add("show");
+
+}
+
+
+/* =========================================================
+   TOTAL
+   ========================================================= */
+
+function calculateTotal(){
+
+    if(!selectedProduct){
+
+        return;
+
+    }
+
+
+    const quantity =
+        Number(
+            document
+                .getElementById("quantity")
+                .value
+        ) || 0;
+
+
+    const total =
+        selectedProduct.price *
+        quantity;
+
+
+    document
+        .getElementById("totalPrice")
+        .textContent =
+
+        (
+            currentLanguage === "en"
+            ? "Total: "
+            : "மொத்தம்: "
+        )
+
+        +
+
+        "₹" +
+
+        total.toLocaleString("en-IN");
+
+}
+
+
+/* =========================================================
+   PLACE ORDER
+   ========================================================= */
+
+function placeOrder(){
+
+    const quantity =
+        Number(
+            document
+                .getElementById("quantity")
+                .value
+        );
+
+
+    const location =
+        document
+            .getElementById("deliveryLocation")
+            .value
+            .trim();
+
+
+    const payment =
+        document
+            .getElementById("paymentMethod")
+            .value;
+
+
+    if(quantity <= 0){
+
+        alert(
+
+            currentLanguage === "en"
+
+            ? "Please enter a valid quantity."
+
+            : "சரியான அளவை உள்ளிடவும்."
+
+        );
+
+        return;
+
+    }
+
+
+    if(location === ""){
+
+        alert(
+
+            currentLanguage === "en"
+
+            ? "Please enter delivery location."
+
+            : "விநியோக இடத்தை உள்ளிடவும்."
+
+        );
+
+        return;
+
+    }
+
+
+    const orderId =
+        "AGR-" +
+        Math.floor(
+            1000 +
+            Math.random() * 9000
+        );
+
+
+    const total =
+        selectedProduct.price *
+        quantity;
+
+
+    alert(
+
+        currentLanguage === "en"
+
+        ?
+
+`Order placed successfully!
+
+Order ID: ${orderId}
+Product: ${selectedProduct.name}
+Quantity: ${quantity} kg
+Total: ₹${total.toLocaleString("en-IN")}
+
+Payment: ${payment}`
+
+        :
+
+`ஆர்டர் வெற்றிகரமாக செய்யப்பட்டது!
+
+ஆர்டர் ID: ${orderId}
+பொருள்: ${selectedProduct.tamil}
+அளவு: ${quantity} கிலோ
+மொத்தம்: ₹${total.toLocaleString("en-IN")}`
+
+    );
+
+
+    closeModal();
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+   ========================================================= */
+
+function closeModal(){
+
+    document
+        .getElementById("orderModal")
+        .classList
+        .remove("show");
+
+}
+
+
+function closeOutside(event){
+
+    if(
+        event.target.id ===
+        "orderModal"
+    ){
+
+        closeModal();
+
+    }
+
+}
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+changeLanguage(currentLanguage);
+
+renderProducts();
+
+</script>
+
+
+</body>
+
+</html>
+```

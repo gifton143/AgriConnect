@@ -1,0 +1,2750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AgriConnect - Farmer</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        "Noto Sans Tamil",
+        "Latha",
+        Arial,
+        sans-serif;
+
+    color:#173b21;
+
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            rgba(235,248,237,0.20),
+            rgba(235,248,237,0.30)
+        ),
+        url("./image/farmer-page-bg.png.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar{
+
+    min-height:72px;
+
+    background:rgba(255,255,255,0.96);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:10px 4%;
+
+    gap:20px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:
+        0 3px 18px rgba(0,0,0,0.10);
+
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+
+    font-size:25px;
+
+    font-weight:900;
+
+    color:#16852f;
+
+    white-space:nowrap;
+}
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    overflow-x:auto;
+}
+
+.nav-links a{
+
+    padding:9px 11px;
+
+    border-radius:8px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:#405244;
+
+    white-space:nowrap;
+
+    transition:0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+
+    background:#e4f5e7;
+
+    color:#16852f;
+}
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+.language{
+
+    display:flex;
+
+    gap:5px;
+
+    background:#edf5ee;
+
+    padding:4px;
+
+    border-radius:8px;
+
+    flex-shrink:0;
+}
+
+.language button{
+
+    border:0;
+
+    background:transparent;
+
+    color:#23452c;
+
+    padding:7px 10px;
+
+    border-radius:6px;
+
+    font-size:12px;
+
+    font-weight:800;
+}
+
+.language button.active{
+
+    background:white;
+
+    color:#16852f;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.08);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    min-height:430px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:70px 20px;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.20),
+            rgba(235,248,237,0.32)
+        );
+}
+
+.hero-content{
+
+    width:min(900px,94%);
+
+    background:
+        rgba(255,255,255,0.82);
+
+    padding:45px 35px;
+
+    border-radius:24px;
+
+    box-shadow:
+        0 15px 45px rgba(0,70,20,0.16);
+
+    backdrop-filter:blur(8px);
+}
+
+.hero-icon{
+
+    font-size:65px;
+
+    margin-bottom:12px;
+}
+
+.badge{
+
+    display:inline-block;
+
+    background:#dff3e2;
+
+    color:#16732c;
+
+    padding:8px 16px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+}
+
+.hero h1{
+
+    color:#124c23;
+
+    font-size:46px;
+
+    font-weight:900;
+
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+
+    color:#16852f;
+}
+
+.hero p{
+
+    max-width:720px;
+
+    margin:auto;
+
+    color:#536459;
+
+    line-height:1.8;
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+
+    width:min(1250px,92%);
+
+    margin:auto;
+}
+
+.section{
+
+    padding:55px 0;
+}
+
+.section-title{
+
+    margin-bottom:25px;
+
+    text-align:center;
+}
+
+.section-title h2{
+
+    color:#124c23;
+
+    font-size:32px;
+
+    margin-bottom:8px;
+}
+
+.section-title p{
+
+    color:#627267;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   STAT CARDS
+===================================================== */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+
+    margin-top:-25px;
+
+    position:relative;
+
+    z-index:5;
+}
+
+.stat-card{
+
+    background:rgba(255,255,255,0.94);
+
+    border-radius:17px;
+
+    padding:23px;
+
+    box-shadow:
+        0 10px 30px rgba(0,70,20,0.13);
+
+    border:1px solid rgba(30,100,45,0.12);
+
+    text-align:center;
+
+    transition:0.2s;
+}
+
+.stat-card:hover{
+
+    transform:translateY(-4px);
+}
+
+.stat-icon{
+
+    font-size:38px;
+
+    margin-bottom:10px;
+}
+
+.stat-card h3{
+
+    color:#627267;
+
+    font-size:13px;
+
+    margin-bottom:7px;
+}
+
+.stat-card strong{
+
+    color:#126029;
+
+    font-size:27px;
+}
+
+
+/* =====================================================
+   MAIN GRID
+===================================================== */
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.4fr 0.8fr;
+
+    gap:22px;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card{
+
+    background:rgba(255,255,255,0.94);
+
+    border:1px solid rgba(30,100,45,0.12);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:
+        0 10px 32px rgba(0,70,20,0.12);
+
+    backdrop-filter:blur(7px);
+}
+
+.card-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-bottom:20px;
+}
+
+.card-header h2{
+
+    color:#164e26;
+
+    font-size:22px;
+}
+
+.card-header p{
+
+    color:#708076;
+
+    font-size:12px;
+
+    margin-top:4px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn{
+
+    border:0;
+
+    border-radius:9px;
+
+    padding:11px 18px;
+
+    font-weight:800;
+
+    transition:0.2s;
+}
+
+.primary{
+
+    background:#168d34;
+
+    color:white;
+}
+
+.primary:hover{
+
+    background:#116d28;
+
+    transform:translateY(-1px);
+}
+
+.secondary{
+
+    background:#edf7ef;
+
+    color:#16852f;
+
+    border:1px solid #cce0cf;
+}
+
+.secondary:hover{
+
+    background:#dff1e2;
+}
+
+.danger{
+
+    background:#ffe8e8;
+
+    color:#b52b2b;
+}
+
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.products{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:17px;
+}
+
+.product-card{
+
+    border:1px solid #dce8de;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    background:white;
+
+    transition:0.2s;
+}
+
+.product-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 8px 22px rgba(0,70,20,0.10);
+}
+
+.product-image{
+
+    height:135px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#edf7ee;
+
+    font-size:65px;
+}
+
+.product-content{
+
+    padding:17px;
+}
+
+.product-content h3{
+
+    color:#184b25;
+
+    font-size:19px;
+
+    margin-bottom:7px;
+}
+
+.location{
+
+    color:#738078;
+
+    font-size:12px;
+
+    margin-bottom:12px;
+}
+
+.price{
+
+    color:#16852f;
+
+    font-size:20px;
+
+    font-weight:900;
+}
+
+.unit{
+
+    color:#748078;
+
+    font-size:11px;
+}
+
+.product-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:15px;
+
+    padding-top:13px;
+
+    border-top:1px solid #edf1ed;
+}
+
+.status{
+
+    background:#ddf5e3;
+
+    color:#14752d;
+
+    padding:5px 9px;
+
+    border-radius:20px;
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   QUICK ACTIONS
+===================================================== */
+
+.quick-actions{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+}
+
+.action{
+
+    border:1px solid #d8e6da;
+
+    background:white;
+
+    border-radius:13px;
+
+    padding:18px 12px;
+
+    text-align:center;
+
+    transition:0.2s;
+}
+
+.action:hover{
+
+    background:#f1f9f2;
+
+    border-color:#9fcaa6;
+
+    transform:translateY(-2px);
+}
+
+.action-icon{
+
+    font-size:34px;
+
+    margin-bottom:8px;
+}
+
+.action h3{
+
+    color:#21532c;
+
+    font-size:14px;
+
+    margin-bottom:4px;
+}
+
+.action p{
+
+    color:#728078;
+
+    font-size:11px;
+
+    line-height:1.5;
+}
+
+
+/* =====================================================
+   RECENT ORDERS
+===================================================== */
+
+.orders{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.order-item{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    padding:14px;
+
+    border:1px solid #dfe9e1;
+
+    border-radius:11px;
+
+    background:#fbfdfb;
+}
+
+.order-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.order-icon{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:#eaf6ec;
+
+    font-size:23px;
+}
+
+.order-info h4{
+
+    color:#294b31;
+
+    font-size:13px;
+
+    margin-bottom:4px;
+}
+
+.order-info p{
+
+    color:#77827a;
+
+    font-size:11px;
+}
+
+.order-price{
+
+    color:#16852f;
+
+    font-size:14px;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+   ADD PRODUCT MODAL
+===================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(0,35,10,0.52);
+
+    backdrop-filter:blur(5px);
+}
+
+.modal.show{
+
+    display:flex;
+}
+
+.modal-box{
+
+    width:min(600px,100%);
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    position:relative;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.30);
+
+    animation:popup .25s ease;
+}
+
+@keyframes popup{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(20px)
+            scale(.97);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.close{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    width:36px;
+
+    height:36px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#f0f4f0;
+
+    color:#29432f;
+
+    font-size:20px;
+}
+
+.modal-box h2{
+
+    color:#124c23;
+
+    margin-bottom:20px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:15px;
+}
+
+.form-group{
+
+    margin-bottom:15px;
+}
+
+.form-group.full{
+
+    grid-column:1/-1;
+}
+
+.form-group label{
+
+    display:block;
+
+    color:#29432f;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #cdddcf;
+
+    border-radius:8px;
+
+    outline:none;
+
+    background:white;
+}
+
+.form-group textarea{
+
+    min-height:90px;
+
+    resize:vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    border-color:#168d34;
+
+    box-shadow:
+        0 0 0 3px rgba(22,141,52,0.10);
+}
+
+.form-submit{
+
+    width:100%;
+
+    margin-top:5px;
+}
+
+
+/* =====================================================
+   FARMER TIPS
+===================================================== */
+
+.tips-section{
+
+    background:
+        rgba(239,249,240,0.82);
+}
+
+.tips{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.tip{
+
+    background:rgba(255,255,255,0.94);
+
+    border-radius:15px;
+
+    padding:22px;
+
+    border:1px solid #dce8de;
+
+    box-shadow:
+        0 7px 22px rgba(0,70,20,0.08);
+}
+
+.tip-icon{
+
+    font-size:38px;
+
+    margin-bottom:10px;
+}
+
+.tip h3{
+
+    color:#174d26;
+
+    font-size:18px;
+
+    margin-bottom:7px;
+}
+
+.tip p{
+
+    color:#68766d;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:#123b1c;
+
+    color:white;
+
+    padding:38px 6% 18px;
+
+    margin-top:35px;
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap:35px;
+
+    margin-bottom:25px;
+}
+
+footer h3{
+
+    margin-bottom:10px;
+}
+
+footer p,
+footer li{
+
+    color:#c3d3c6;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+footer ul{
+
+    list-style:none;
+}
+
+.copyright{
+
+    border-top:1px solid #31533a;
+
+    padding-top:16px;
+
+    text-align:center;
+
+    color:#afc0b2;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+    .navbar{
+
+        flex-wrap:wrap;
+    }
+
+    .nav-links{
+
+        width:100%;
+
+        order:5;
+    }
+
+    .stats{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .tips{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+
+@media(max-width:700px){
+
+    body{
+
+        background-attachment:scroll;
+
+        background-position:center center;
+    }
+
+    .navbar{
+
+        padding:9px 15px;
+    }
+
+    .logo{
+
+        font-size:21px;
+    }
+
+    .language button{
+
+        padding:6px 8px;
+
+        font-size:11px;
+    }
+
+    .hero{
+
+        padding:45px 12px;
+    }
+
+    .hero-content{
+
+        padding:30px 18px;
+    }
+
+    .hero-icon{
+
+        font-size:50px;
+    }
+
+    .hero h1{
+
+        font-size:34px;
+    }
+
+    .hero p{
+
+        font-size:14px;
+    }
+
+    .stats{
+
+        grid-template-columns:1fr 1fr;
+
+        margin-top:0;
+    }
+
+    .products{
+
+        grid-template-columns:1fr;
+    }
+
+    .quick-actions{
+
+        grid-template-columns:1fr 1fr;
+    }
+
+    .tips{
+
+        grid-template-columns:1fr;
+    }
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+
+        grid-column:auto;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .section{
+
+        padding:40px 0;
+    }
+
+    .section-title h2{
+
+        font-size:26px;
+    }
+}
+
+
+@media(max-width:450px){
+
+    .stats{
+
+        grid-template-columns:1fr;
+    }
+
+    .quick-actions{
+
+        grid-template-columns:1fr;
+    }
+
+    .order-item{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+    }
+
+    .card{
+
+        padding:18px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        🌱 AgriConnect
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+        <a href="farmer.html" class="active">
+            👨‍🌾 Farmer
+        </a>
+
+        <a href="buyer.html">
+            🛒 Buyer
+        </a>
+
+        <a href="machinery.html">
+            🚜 Machinery
+        </a>
+
+        <a href="fertilizer.html">
+            🌱 Fertilizer
+        </a>
+
+        <a href="weather.html">
+            🌦️ Weather
+        </a>
+
+        <a href="crop-prices.html">
+            📈 Crop Prices
+        </a>
+
+        <a href="orders.html">
+            📦 Orders
+        </a>
+
+    </nav>
+
+
+    <div class="language">
+
+        <button
+            id="enBtn"
+            class="active"
+            onclick="changeLanguage('en')">
+            EN
+        </button>
+
+        <button
+            id="taBtn"
+            onclick="changeLanguage('ta')">
+            தமிழ்
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-icon">
+            👨‍🌾
+        </div>
+
+        <div class="badge"
+             data-en="Farmer Dashboard"
+             data-ta="விவசாயி டாஷ்போர்டு">
+
+            Farmer Dashboard
+
+        </div>
+
+
+        <h1>
+
+            <span
+                data-en="Grow More."
+                data-ta="அதிகமாக வளருங்கள்.">
+
+                Grow More.
+
+            </span>
+
+            <br>
+
+            <span
+                data-en="Earn More."
+                data-ta="அதிகமாக சம்பாதியுங்கள்.">
+
+                Earn More.
+
+            </span>
+
+        </h1>
+
+
+        <p
+            data-en="Manage your crops, add products, connect with buyers and grow your agricultural business with AgriConnect."
+            data-ta="உங்கள் பயிர்களை நிர்வகித்து, பொருட்களை சேர்த்து, வாங்குபவர்களுடன் இணைந்து AgriConnect மூலம் உங்கள் விவசாய வணிகத்தை வளர்த்துக் கொள்ளுங்கள்.">
+
+            Manage your crops, add products, connect with buyers
+            and grow your agricultural business with AgriConnect.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="stats">
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            🌾
+        </div>
+
+        <h3
+            data-en="Active Products"
+            data-ta="செயலில் உள்ள பொருட்கள்">
+
+            Active Products
+
+        </h3>
+
+        <strong>
+            12
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            📦
+        </div>
+
+        <h3
+            data-en="Orders Received"
+            data-ta="பெறப்பட்ட ஆர்டர்கள்">
+
+            Orders Received
+
+        </h3>
+
+        <strong>
+            28
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            💰
+        </div>
+
+        <h3
+            data-en="Total Earnings"
+            data-ta="மொத்த வருமானம்">
+
+            Total Earnings
+
+        </h3>
+
+        <strong>
+            ₹48,650
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            ⭐
+        </div>
+
+        <h3
+            data-en="Farmer Rating"
+            data-ta="விவசாயி மதிப்பீடு">
+
+            Farmer Rating
+
+        </h3>
+
+        <strong>
+            4.8
+        </strong>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="dashboard-grid">
+
+
+<!-- PRODUCTS -->
+
+<div class="card">
+
+    <div class="card-header">
+
+        <div>
+
+            <h2
+                data-en="🌾 My Products"
+                data-ta="🌾 எனது விளைபொருட்கள்">
+
+                🌾 My Products
+
+            </h2>
+
+            <p
+                data-en="Manage products listed for buyers."
+                data-ta="வாங்குபவர்களுக்காக பட்டியலிட்ட பொருட்களை நிர்வகிக்கவும்.">
+
+                Manage products listed for buyers.
+
+            </p>
+
+        </div>
+
+
+        <button
+            class="btn primary"
+            onclick="openAddProduct()">
+
+            + Add
+
+        </button>
+
+    </div>
+
+
+    <div class="products" id="productContainer">
+    </div>
+
+</div>
+
+
+
+<!-- QUICK ACTIONS -->
+
+<div class="card">
+
+    <div class="card-header">
+
+        <div>
+
+            <h2
+                data-en="⚡ Quick Actions"
+                data-ta="⚡ விரைவு செயல்கள்">
+
+                ⚡ Quick Actions
+
+            </h2>
+
+            <p
+                data-en="Useful farmer tools."
+                data-ta="பயனுள்ள விவசாயி கருவிகள்.">
+
+                Useful farmer tools.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="quick-actions">
+
+
+        <button
+            class="action"
+            onclick="openAddProduct()">
+
+            <div class="action-icon">
+                ➕
+            </div>
+
+            <h3
+                data-en="Add Product"
+                data-ta="பொருள் சேர்க்க">
+
+                Add Product
+
+            </h3>
+
+            <p
+                data-en="List a new crop."
+                data-ta="புதிய பயிரை பட்டியலிடுங்கள்.">
+
+                List a new crop.
+
+            </p>
+
+        </button>
+
+
+        <a
+            href="crop-prices.html"
+            class="action">
+
+            <div class="action-icon">
+                📈
+            </div>
+
+            <h3
+                data-en="Crop Prices"
+                data-ta="பயிர் விலைகள்">
+
+                Crop Prices
+
+            </h3>
+
+            <p
+                data-en="Check current prices."
+                data-ta="தற்போதைய விலைகளை பாருங்கள்.">
+
+                Check current prices.
+
+            </p>
+
+        </a>
+
+
+        <a
+            href="weather.html"
+            class="action">
+
+            <div class="action-icon">
+                🌦️
+            </div>
+
+            <h3
+                data-en="Weather"
+                data-ta="வானிலை">
+
+                Weather
+
+            </h3>
+
+            <p
+                data-en="Monitor farm weather."
+                data-ta="பண்ணை வானிலையை கண்காணிக்கவும்.">
+
+                Monitor farm weather.
+
+            </p>
+
+        </a>
+
+
+        <a
+            href="machinery.html"
+            class="action">
+
+            <div class="action-icon">
+                🚜
+            </div>
+
+            <h3
+                data-en="Machinery"
+                data-ta="இயந்திரங்கள்">
+
+                Machinery
+
+            </h3>
+
+            <p
+                data-en="Rent farm machinery."
+                data-ta="விவசாய இயந்திரங்களை வாடகைக்கு எடுக்கவும்.">
+
+                Rent farm machinery.
+
+            </p>
+
+        </a>
+
+
+        <a
+            href="fertilizer.html"
+            class="action">
+
+            <div class="action-icon">
+                🌱
+            </div>
+
+            <h3
+                data-en="Fertilizer"
+                data-ta="உரம்">
+
+                Fertilizer
+
+            </h3>
+
+            <p
+                data-en="Find organic fertilizer."
+                data-ta="இயற்கை உரத்தை கண்டுபிடிக்கவும்.">
+
+                Find organic fertilizer.
+
+            </p>
+
+        </a>
+
+
+        <a
+            href="orders.html"
+            class="action">
+
+            <div class="action-icon">
+                📦
+            </div>
+
+            <h3
+                data-en="Orders"
+                data-ta="ஆர்டர்கள்">
+
+                Orders
+
+            </h3>
+
+            <p
+                data-en="View your orders."
+                data-ta="உங்கள் ஆர்டர்களை பார்க்கவும்.">
+
+                View your orders.
+
+            </p>
+
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RECENT ORDERS
+===================================================== -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="card">
+
+    <div class="card-header">
+
+        <div>
+
+            <h2
+                data-en="📦 Recent Buyer Orders"
+                data-ta="📦 சமீபத்திய வாங்குபவர் ஆர்டர்கள்">
+
+                📦 Recent Buyer Orders
+
+            </h2>
+
+            <p
+                data-en="Latest orders received from buyers."
+                data-ta="வாங்குபவர்களிடமிருந்து பெறப்பட்ட சமீபத்திய ஆர்டர்கள்.">
+
+                Latest orders received from buyers.
+
+            </p>
+
+        </div>
+
+
+        <a
+            href="orders.html"
+            class="btn secondary">
+
+            <span
+                data-en="View All"
+                data-ta="அனைத்தையும் பார்க்க">
+
+                View All
+
+            </span>
+
+        </a>
+
+    </div>
+
+
+    <div class="orders">
+
+
+        <div class="order-item">
+
+            <div class="order-info">
+
+                <div class="order-icon">
+                    🍅
+                </div>
+
+                <div>
+
+                    <h4>
+                        Tomato
+                    </h4>
+
+                    <p>
+                        Order #AGR-1024 • 25 kg
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-price">
+                ₹800
+            </div>
+
+        </div>
+
+
+        <div class="order-item">
+
+            <div class="order-info">
+
+                <div class="order-icon">
+                    🌾
+                </div>
+
+                <div>
+
+                    <h4>
+                        Paddy
+                    </h4>
+
+                    <p>
+                        Order #AGR-1021 • 100 kg
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-price">
+                ₹2,350
+            </div>
+
+        </div>
+
+
+        <div class="order-item">
+
+            <div class="order-info">
+
+                <div class="order-icon">
+                    🧅
+                </div>
+
+                <div>
+
+                    <h4>
+                        Onion
+                    </h4>
+
+                    <p>
+                        Order #AGR-1018 • 50 kg
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-price">
+                ₹2,050
+            </div>
+
+        </div>
+
+
+        <div class="order-item">
+
+            <div class="order-info">
+
+                <div class="order-icon">
+                    🥭
+                </div>
+
+                <div>
+
+                    <h4>
+                        Mango
+                    </h4>
+
+                    <p>
+                        Order #AGR-1015 • 30 kg
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="order-price">
+                ₹2,040
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FARMER TIPS
+===================================================== -->
+
+<section class="section tips-section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2
+    data-en="🌱 Smart Farming Tips"
+    data-ta="🌱 ஸ்மார்ட் விவசாய குறிப்புகள்">
+
+    🌱 Smart Farming Tips
+
+</h2>
+
+<p
+    data-en="Simple ways to improve your farm business."
+    data-ta="உங்கள் விவசாய வணிகத்தை மேம்படுத்த எளிய வழிகள்.">
+
+    Simple ways to improve your farm business.
+
+</p>
+
+</div>
+
+
+<div class="tips">
+
+
+<div class="tip">
+
+    <div class="tip-icon">
+        📈
+    </div>
+
+    <h3
+        data-en="Check Market Prices"
+        data-ta="சந்தை விலைகளை சரிபார்க்கவும்">
+
+        Check Market Prices
+
+    </h3>
+
+    <p
+        data-en="Check crop prices before selling your products so you can make better selling decisions."
+        data-ta="உங்கள் பொருட்களை விற்பதற்கு முன் பயிர் விலைகளை சரிபார்த்து சிறந்த முடிவுகளை எடுக்கவும்.">
+
+        Check crop prices before selling your products
+        so you can make better selling decisions.
+
+    </p>
+
+</div>
+
+
+<div class="tip">
+
+    <div class="tip-icon">
+        🌦️
+    </div>
+
+    <h3
+        data-en="Monitor Weather"
+        data-ta="வானிலையை கண்காணிக்கவும்">
+
+        Monitor Weather
+
+    </h3>
+
+    <p
+        data-en="Keep track of temperature, humidity, wind and rainfall to protect your crops."
+        data-ta="உங்கள் பயிர்களை பாதுகாக்க வெப்பநிலை, ஈரப்பதம், காற்று மற்றும் மழையை கண்காணிக்கவும்.">
+
+        Keep track of temperature, humidity, wind
+        and rainfall to protect your crops.
+
+    </p>
+
+</div>
+
+
+<div class="tip">
+
+    <div class="tip-icon">
+        🌱
+    </div>
+
+    <h3
+        data-en="Use Organic Fertilizer"
+        data-ta="இயற்கை உரத்தை பயன்படுத்துங்கள்">
+
+        Use Organic Fertilizer
+
+    </h3>
+
+    <p
+        data-en="Choose suitable organic fertilizer and maintain healthy soil for better crop production."
+        data-ta="சிறந்த விளைச்சலுக்காக பொருத்தமான இயற்கை உரத்தை தேர்வு செய்து மண்ணை ஆரோக்கியமாக வைத்திருக்கவும்.">
+
+        Choose suitable organic fertilizer and maintain
+        healthy soil for better crop production.
+
+    </p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-grid">
+
+
+<div>
+
+<h3>
+    🌱 AgriConnect
+</h3>
+
+<p
+    data-en="Smart agriculture technology connecting farmers and buyers."
+    data-ta="விவசாயிகளையும் வாங்குபவர்களையும் இணைக்கும் ஸ்மார்ட் விவசாய தொழில்நுட்பம்.">
+
+    Smart agriculture technology connecting
+    farmers and buyers.
+
+</p>
+
+</div>
+
+
+<div>
+
+<h3
+    data-en="Farmer"
+    data-ta="விவசாயி">
+
+    Farmer
+
+</h3>
+
+<ul>
+
+<li>
+    Products
+</li>
+
+<li>
+    Orders
+</li>
+
+<li>
+    Crop Prices
+</li>
+
+</ul>
+
+</div>
+
+
+<div>
+
+<h3
+    data-en="Services"
+    data-ta="சேவைகள்">
+
+    Services
+
+</h3>
+
+<ul>
+
+<li>
+    Weather
+</li>
+
+<li>
+    Machinery
+</li>
+
+<li>
+    Fertilizer
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 AgriConnect — All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     ADD PRODUCT MODAL
+===================================================== -->
+
+<div
+    id="productModal"
+    class="modal"
+    onclick="closeOutside(event)">
+
+<div class="modal-box">
+
+
+<button
+    class="close"
+    onclick="closeModal()">
+
+    ×
+
+</button>
+
+
+<h2
+    data-en="➕ Add New Product"
+    data-ta="➕ புதிய பொருளை சேர்க்கவும்">
+
+    ➕ Add New Product
+
+</h2>
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label
+    data-en="Product Name"
+    data-ta="பொருளின் பெயர்">
+
+    Product Name
+
+</label>
+
+<input
+    id="productName"
+    type="text"
+    placeholder="Example: Tomato">
+
+</div>
+
+
+<div class="form-group">
+
+<label
+    data-en="Category"
+    data-ta="வகை">
+
+    Category
+
+</label>
+
+<select id="productCategory">
+
+<option value="vegetable">
+Vegetable
+</option>
+
+<option value="fruit">
+Fruit
+</option>
+
+<option value="grain">
+Grain
+</option>
+
+<option value="spice">
+Spice
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label
+    data-en="Price per kg"
+    data-ta="ஒரு கிலோ விலை">
+
+    Price per kg
+
+</label>
+
+<input
+    id="productPrice"
+    type="number"
+    min="1"
+    placeholder="₹ Price">
+
+</div>
+
+
+<div class="form-group">
+
+<label
+    data-en="Available Quantity"
+    data-ta="கிடைக்கும் அளவு">
+
+    Available Quantity
+
+</label>
+
+<input
+    id="productQuantity"
+    type="number"
+    min="1"
+    placeholder="Quantity in kg">
+
+</div>
+
+
+<div class="form-group full">
+
+<label
+    data-en="Location"
+    data-ta="இடம்">
+
+    Location
+
+</label>
+
+<input
+    id="productLocation"
+    type="text"
+    placeholder="Example: Coimbatore">
+
+</div>
+
+
+<div class="form-group full">
+
+<label
+    data-en="Description"
+    data-ta="விளக்கம்">
+
+    Description
+
+</label>
+
+<textarea
+    id="productDescription"
+    placeholder="Describe your product..."></textarea>
+
+</div>
+
+
+</div>
+
+
+<button
+    class="btn primary form-submit"
+    onclick="addProduct()">
+
+    <span
+        data-en="Add Product"
+        data-ta="பொருளை சேர்க்கவும்">
+
+        Add Product
+
+    </span>
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   PRODUCT DATA
+===================================================== */
+
+const farmerProducts = [
+
+{
+    id:1,
+    name:"Tomato",
+    tamil:"தக்காளி",
+    icon:"🍅",
+    price:32,
+    quantity:250,
+    location:"Chennai"
+},
+
+{
+    id:2,
+    name:"Paddy",
+    tamil:"நெல்",
+    icon:"🌾",
+    price:23.5,
+    quantity:500,
+    location:"Thanjavur"
+},
+
+{
+    id:3,
+    name:"Onion",
+    tamil:"வெங்காயம்",
+    icon:"🧅",
+    price:41,
+    quantity:180,
+    location:"Coimbatore"
+},
+
+{
+    id:4,
+    name:"Mango",
+    tamil:"மாம்பழம்",
+    icon:"🥭",
+    price:68,
+    quantity:120,
+    location:"Madurai"
+}
+
+];
+
+
+let currentLanguage =
+    localStorage.getItem("agriLanguage") || "en";
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+function changeLanguage(language){
+
+    currentLanguage = language;
+
+    localStorage.setItem(
+        "agriLanguage",
+        language
+    );
+
+
+    document
+        .querySelectorAll("[data-en]")
+        .forEach(function(element){
+
+            element.textContent =
+                language === "en"
+                ? element.getAttribute("data-en")
+                : element.getAttribute("data-ta");
+
+        });
+
+
+    document
+        .getElementById("enBtn")
+        .classList
+        .toggle(
+            "active",
+            language === "en"
+        );
+
+
+    document
+        .getElementById("taBtn")
+        .classList
+        .toggle(
+            "active",
+            language === "ta"
+        );
+
+
+    renderProducts();
+
+}
+
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(){
+
+    const container =
+        document.getElementById(
+            "productContainer"
+        );
+
+
+    container.innerHTML = "";
+
+
+    farmerProducts.forEach(function(product){
+
+        const name =
+            currentLanguage === "en"
+            ? product.name
+            : product.tamil;
+
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "product-card";
+
+
+        card.innerHTML = `
+
+            <div class="product-image">
+                ${product.icon}
+            </div>
+
+
+            <div class="product-content">
+
+                <h3>
+                    ${name}
+                </h3>
+
+
+                <div class="location">
+
+                    📍 ${product.location}
+
+                </div>
+
+
+                <div>
+
+                    <span class="price">
+                        ₹${product.price}
+                    </span>
+
+                    <span class="unit">
+                        / kg
+                    </span>
+
+                </div>
+
+
+                <div class="product-footer">
+
+                    <span class="status">
+
+                        ${
+                            currentLanguage === "en"
+                            ? "Available"
+                            : "கிடைக்கிறது"
+                        }
+
+                    </span>
+
+
+                    <span
+                        style="
+                        font-size:11px;
+                        color:#718078;
+                        ">
+
+                        ${product.quantity} kg
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+function openAddProduct(){
+
+    document
+        .getElementById("productModal")
+        .classList
+        .add("show");
+
+}
+
+
+function closeModal(){
+
+    document
+        .getElementById("productModal")
+        .classList
+        .remove("show");
+
+}
+
+
+function closeOutside(event){
+
+    if(
+        event.target.id ===
+        "productModal"
+    ){
+
+        closeModal();
+
+    }
+
+}
+
+
+/* =====================================================
+   ADD PRODUCT
+===================================================== */
+
+function addProduct(){
+
+    const name =
+        document
+        .getElementById("productName")
+        .value
+        .trim();
+
+
+    const category =
+        document
+        .getElementById("productCategory")
+        .value;
+
+
+    const price =
+        Number(
+            document
+            .getElementById("productPrice")
+            .value
+        );
+
+
+    const quantity =
+        Number(
+            document
+            .getElementById("productQuantity")
+            .value
+        );
+
+
+    const location =
+        document
+        .getElementById("productLocation")
+        .value
+        .trim();
+
+
+    if(
+        name === "" ||
+        price <= 0 ||
+        quantity <= 0 ||
+        location === ""
+    ){
+
+        alert(
+
+            currentLanguage === "en"
+
+            ?
+
+            "Please fill all required fields."
+
+            :
+
+            "தேவையான அனைத்து விவரங்களையும் உள்ளிடவும்."
+
+        );
+
+        return;
+
+    }
+
+
+    let icon = "🌾";
+
+    if(category === "vegetable"){
+        icon = "🥬";
+    }
+
+    if(category === "fruit"){
+        icon = "🍎";
+    }
+
+    if(category === "grain"){
+        icon = "🌾";
+    }
+
+    if(category === "spice"){
+        icon = "🌶️";
+    }
+
+
+    farmerProducts.push({
+
+        id:
+            Date.now(),
+
+        name:
+            name,
+
+        tamil:
+            name,
+
+        icon:
+            icon,
+
+        price:
+            price,
+
+        quantity:
+            quantity,
+
+        location:
+            location
+
+    });
+
+
+    renderProducts();
+
+
+    document
+        .getElementById("productName")
+        .value = "";
+
+
+    document
+        .getElementById("productPrice")
+        .value = "";
+
+
+    document
+        .getElementById("productQuantity")
+        .value = "";
+
+
+    document
+        .getElementById("productLocation")
+        .value = "";
+
+
+    document
+        .getElementById("productDescription")
+        .value = "";
+
+
+    closeModal();
+
+
+    alert(
+
+        currentLanguage === "en"
+
+        ?
+
+        "Product added successfully!"
+
+        :
+
+        "பொருள் வெற்றிகரமாக சேர்க்கப்பட்டது!"
+
+    );
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+changeLanguage(
+    currentLanguage
+);
+
+renderProducts();
+
+</script>
+
+
+</body>
+</html>

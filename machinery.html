@@ -1,0 +1,2616 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AgriConnect - Machinery</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        "Noto Sans Tamil",
+        "Latha",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color:#183d20;
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            rgba(235,248,237,0.18),
+            rgba(235,248,237,0.28)
+        ),
+        url("./image/machinery-bg.png.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+    min-height:72px;
+
+    background:rgba(255,255,255,0.95);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:12px 4%;
+
+    gap:20px;
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:
+        0 3px 18px rgba(0,0,0,0.10);
+
+    backdrop-filter:blur(12px);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+
+    font-size:25px;
+    font-weight:900;
+
+    color:#218b35;
+
+    white-space:nowrap;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+
+    gap:4px;
+
+    overflow-x:auto;
+}
+
+.nav-links::-webkit-scrollbar{
+    display:none;
+}
+
+.nav-links a{
+    padding:9px 11px;
+
+    border-radius:8px;
+
+    font-size:13px;
+    font-weight:700;
+
+    color:#405246;
+
+    white-space:nowrap;
+
+    transition:0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    background:#e4f4e6;
+
+    color:#218b35;
+}
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+.language{
+    display:flex;
+
+    gap:4px;
+
+    padding:4px;
+
+    border-radius:9px;
+
+    background:#edf5ee;
+
+    flex-shrink:0;
+}
+
+.language button{
+    border:0;
+
+    background:transparent;
+
+    padding:7px 10px;
+
+    border-radius:6px;
+
+    font-weight:800;
+
+    color:#34513a;
+}
+
+.language button.active{
+    background:white;
+
+    color:#218b35;
+
+    box-shadow:
+        0 2px 5px rgba(0,0,0,0.08);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:410px;
+
+    display:flex;
+    align-items:center;
+
+    position:relative;
+
+    padding:80px 7%;
+
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.88),
+            rgba(255,255,255,0.50),
+            rgba(255,255,255,0.15)
+        );
+}
+
+.hero-content{
+    position:relative;
+
+    z-index:2;
+
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:9px 16px;
+
+    margin-bottom:18px;
+
+    border-radius:25px;
+
+    background:#dff3e2;
+
+    color:#17762d;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+.hero h1{
+    font-size:50px;
+
+    line-height:1.15;
+
+    margin-bottom:15px;
+
+    color:#124c23;
+
+    font-weight:900;
+}
+
+.hero h1 span{
+    color:#218b35;
+}
+
+.hero p{
+    max-width:750px;
+
+    color:#3f5846;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    font-weight:600;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container{
+    width:88%;
+
+    max-width:1250px;
+
+    margin:auto;
+}
+
+.section{
+    padding:55px 0;
+}
+
+.section-title{
+    margin-bottom:27px;
+}
+
+.section-title h2{
+    font-size:32px;
+
+    color:#124c23;
+
+    margin-bottom:7px;
+}
+
+.section-title p{
+    color:#607064;
+
+    font-size:15px;
+}
+
+
+/* =========================================================
+   SEARCH CONTROLS
+========================================================= */
+
+.controls{
+    display:grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr auto;
+
+    gap:12px;
+
+    padding:20px;
+
+    margin-bottom:28px;
+
+    background:rgba(255,255,255,0.94);
+
+    border:1px solid #d9e7db;
+
+    border-radius:16px;
+
+    box-shadow:
+        0 8px 25px rgba(0,60,20,0.09);
+
+    backdrop-filter:blur(8px);
+}
+
+.controls input,
+.controls select{
+    width:100%;
+
+    padding:13px;
+
+    border:1px solid #cadbcc;
+
+    border-radius:9px;
+
+    outline:none;
+
+    background:white;
+
+    color:#27432e;
+}
+
+.controls input:focus,
+.controls select:focus{
+    border-color:#218b35;
+
+    box-shadow:
+        0 0 0 3px rgba(33,139,53,0.10);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn{
+    border:0;
+
+    padding:12px 20px;
+
+    border-radius:9px;
+
+    font-weight:800;
+
+    transition:0.2s;
+}
+
+.primary{
+    background:#218b35;
+
+    color:white;
+}
+
+.primary:hover{
+    background:#176e28;
+
+    transform:translateY(-1px);
+}
+
+.secondary{
+    background:white;
+
+    color:#218b35;
+
+    border:1px solid #c6dbc9;
+}
+
+.secondary:hover{
+    background:#edf8ef;
+}
+
+
+/* =========================================================
+   MACHINERY GRID
+========================================================= */
+
+.machinery-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:22px;
+}
+
+
+/* =========================================================
+   MACHINERY CARD
+========================================================= */
+
+.machine-card{
+    background:rgba(255,255,255,0.95);
+
+    border:1px solid #dce9de;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 8px 28px rgba(0,60,20,0.10);
+
+    transition:0.25s;
+
+    backdrop-filter:blur(7px);
+}
+
+.machine-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 14px 35px rgba(0,60,20,0.17);
+}
+
+
+/* =========================================================
+   MACHINE IMAGE
+========================================================= */
+
+.machine-image{
+    height:190px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e7f5e9,
+            #f7fbf7
+        );
+
+    font-size:82px;
+
+    position:relative;
+}
+
+.machine-type{
+    position:absolute;
+
+    left:13px;
+    top:13px;
+
+    padding:6px 10px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,0.92);
+
+    color:#217b32;
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.machine-content{
+    padding:21px;
+}
+
+.machine-content h3{
+    font-size:21px;
+
+    margin-bottom:8px;
+
+    color:#173d21;
+}
+
+.machine-location{
+    color:#6b796e;
+
+    font-size:12px;
+
+    margin-bottom:13px;
+}
+
+.machine-description{
+    color:#66756a;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    min-height:42px;
+
+    margin-bottom:14px;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.price-row{
+    display:flex;
+
+    align-items:end;
+
+    gap:5px;
+
+    margin-bottom:14px;
+}
+
+.price{
+    color:#218b35;
+
+    font-size:23px;
+
+    font-weight:900;
+}
+
+.price-unit{
+    color:#718077;
+
+    font-size:12px;
+
+    margin-bottom:3px;
+}
+
+
+/* =========================================================
+   OWNER
+========================================================= */
+
+.owner{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    padding-top:14px;
+
+    border-top:1px solid #e9efea;
+}
+
+.owner-name{
+    font-size:13px;
+
+    font-weight:800;
+
+    color:#314c37;
+}
+
+.rating{
+    color:#c98616;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.machine-actions{
+    display:flex;
+
+    gap:8px;
+
+    margin-top:17px;
+}
+
+.machine-actions button{
+    flex:1;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty{
+    grid-column:1/-1;
+
+    padding:60px 20px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,0.92);
+
+    border-radius:16px;
+
+    color:#6b786e;
+
+    box-shadow:
+        0 8px 25px rgba(0,60,20,0.08);
+}
+
+.empty-icon{
+    font-size:50px;
+
+    margin-bottom:12px;
+}
+
+
+/* =========================================================
+   INFO SECTION
+========================================================= */
+
+.info-section{
+    background:
+        rgba(237,248,239,0.90);
+
+    backdrop-filter:blur(5px);
+}
+
+.info-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.info-card{
+    background:white;
+
+    border:1px solid #dce9de;
+
+    border-radius:16px;
+
+    padding:24px;
+
+    box-shadow:
+        0 7px 22px rgba(0,60,20,0.07);
+}
+
+.info-icon{
+    font-size:40px;
+
+    margin-bottom:12px;
+}
+
+.info-card h3{
+    margin-bottom:8px;
+
+    color:#194928;
+}
+
+.info-card p{
+    color:#65736a;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,30,10,0.55);
+
+    backdrop-filter:blur(5px);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+
+    max-width:570px;
+
+    max-height:92vh;
+
+    overflow-y:auto;
+
+    padding:30px;
+
+    background:white;
+
+    border-radius:19px;
+
+    position:relative;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.30);
+
+    animation:
+        popup 0.25s ease;
+}
+
+@keyframes popup{
+
+    from{
+        opacity:0;
+
+        transform:
+            translateY(20px)
+            scale(.97);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.close{
+    position:absolute;
+
+    right:18px;
+    top:17px;
+
+    width:36px;
+    height:36px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#f1f5f1;
+
+    color:#27432d;
+
+    font-size:20px;
+}
+
+.close:hover{
+    background:#e4efe5;
+}
+
+.modal-box h2{
+    color:#164a24;
+
+    margin-bottom:3px;
+}
+
+
+/* =========================================================
+   BOOKING FORM
+========================================================= */
+
+.form-group{
+    margin-bottom:16px;
+}
+
+.form-group label{
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#294331;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+
+    padding:12px 13px;
+
+    border:1px solid #cdddcf;
+
+    border-radius:9px;
+
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#218b35;
+}
+
+
+/* =========================================================
+   BOOKING SUMMARY
+========================================================= */
+
+.booking-summary{
+    margin:17px 0;
+
+    padding:16px;
+
+    border-radius:11px;
+
+    background:#f2f8f3;
+
+    border:1px solid #dfece1;
+
+    line-height:1.8;
+}
+
+.summary-machine{
+    font-size:17px;
+
+    font-weight:900;
+
+    color:#194b27;
+}
+
+.total{
+    margin-top:7px;
+
+    color:#218b35;
+
+    font-size:21px;
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#123b1c;
+
+    color:white;
+
+    padding:45px 7% 20px;
+
+    margin-top:0;
+}
+
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap:40px;
+
+    margin-bottom:30px;
+}
+
+footer h3{
+    margin-bottom:12px;
+}
+
+footer p,
+footer li{
+    color:#c3d3c6;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+footer ul{
+    list-style:none;
+}
+
+.copyright{
+    border-top:1px solid #31533a;
+
+    padding-top:18px;
+
+    text-align:center;
+
+    color:#afc0b2;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .navbar{
+        flex-wrap:wrap;
+
+        padding:10px 3%;
+    }
+
+    .nav-links{
+        width:100%;
+
+        order:5;
+    }
+
+    .hero{
+        padding-top:100px;
+    }
+
+    .machinery-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .controls{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    body{
+        background-attachment:scroll;
+    }
+
+    .hero{
+        min-height:360px;
+
+        padding:
+            70px 6%
+            55px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .machinery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .controls{
+        grid-template-columns:1fr;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+
+        gap:25px;
+    }
+
+    .section{
+        padding:42px 0;
+    }
+
+    .section-title h2{
+        font-size:27px;
+    }
+
+    .modal-box{
+        padding:24px 18px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:420px){
+
+    .logo{
+        font-size:20px;
+    }
+
+    .language button{
+        padding:6px 8px;
+
+        font-size:11px;
+    }
+
+    .hero h1{
+        font-size:31px;
+    }
+
+    .machine-image{
+        height:165px;
+
+        font-size:70px;
+    }
+
+    .machine-content{
+        padding:18px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     NAVBAR
+======================================================= -->
+
+<header class="navbar">
+
+<a href="index.html" class="logo">
+🌱 AgriConnect
+</a>
+
+
+<nav class="nav-links">
+
+<a href="index.html">
+🏠 Home
+</a>
+
+<a href="farmer.html">
+👨‍🌾 Farmer
+</a>
+
+<a href="buyer.html">
+🛒 Buyer
+</a>
+
+<a href="machinery.html" class="active">
+🚜 Machinery
+</a>
+
+<a href="fertilizer.html">
+🌱 Fertilizer
+</a>
+
+<a href="weather.html">
+🌦️ Weather
+</a>
+
+<a href="crop-prices.html">
+📈 Crop Prices
+</a>
+
+<a href="orders.html">
+📦 Orders
+</a>
+
+</nav>
+
+
+<div class="language">
+
+<button
+id="enBtn"
+class="active"
+onclick="changeLanguage('en')">
+
+EN
+
+</button>
+
+<button
+id="taBtn"
+onclick="changeLanguage('ta')">
+
+தமிழ்
+
+</button>
+
+</div>
+
+</header>
+
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+
+🚜
+<span
+data-en="Agricultural Machinery Rental"
+data-ta="விவசாய இயந்திர வாடகை">
+
+Agricultural Machinery Rental
+
+</span>
+
+</div>
+
+
+<h1>
+
+<span
+data-en="Rent"
+data-ta="வாடகைக்கு">
+
+Rent
+
+</span>
+
+<span
+data-en="Farm Machinery"
+data-ta="விவசாய இயந்திரங்கள்">
+
+Farm Machinery
+
+</span>
+
+</h1>
+
+
+<p
+data-en="Find reliable agricultural machinery from nearby owners and rent the right equipment for your farm work."
+data-ta="அருகிலுள்ள இயந்திர உரிமையாளர்களிடமிருந்து நம்பகமான விவசாய இயந்திரங்களை கண்டுபிடித்து உங்கள் விவசாய பணிகளுக்கு தேவையான இயந்திரத்தை வாடகைக்கு எடுக்கலாம்.">
+
+Find reliable agricultural machinery from nearby owners
+and rent the right equipment for your farm work.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     MACHINERY SECTION
+======================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+
+<div class="section-title">
+
+<h2
+data-en="🚜 Available Machinery"
+data-ta="🚜 கிடைக்கும் விவசாய இயந்திரங்கள்">
+
+🚜 Available Machinery
+
+</h2>
+
+<p
+data-en="Search and compare agricultural machines available for rent."
+data-ta="வாடகைக்கு கிடைக்கும் விவசாய இயந்திரங்களை தேடி ஒப்பிடுங்கள்.">
+
+Search and compare agricultural machines available for rent.
+
+</p>
+
+</div>
+
+
+
+<!-- CONTROLS -->
+
+<div class="controls">
+
+<input
+id="searchInput"
+type="text"
+placeholder="🔍 Search machinery..."
+onkeyup="filterMachines()">
+
+
+<select
+id="categoryFilter"
+onchange="filterMachines()">
+
+<option value="all">
+All Categories
+</option>
+
+<option value="tractor">
+Tractor
+</option>
+
+<option value="harvester">
+Harvester
+</option>
+
+<option value="tiller">
+Power Tiller
+</option>
+
+<option value="sprayer">
+Sprayer
+</option>
+
+<option value="plough">
+Plough
+</option>
+
+</select>
+
+
+<select
+id="locationFilter"
+onchange="filterMachines()">
+
+<option value="all">
+All Locations
+</option>
+
+<option value="Chennai">
+Chennai
+</option>
+
+<option value="Coimbatore">
+Coimbatore
+</option>
+
+<option value="Madurai">
+Madurai
+</option>
+
+<option value="Thanjavur">
+Thanjavur
+</option>
+
+<option value="Erode">
+Erode
+</option>
+
+</select>
+
+
+<button
+class="btn secondary"
+onclick="resetFilters()">
+
+↻
+<span
+data-en="Reset"
+data-ta="மீட்டமை">
+
+Reset
+
+</span>
+
+</button>
+
+</div>
+
+
+
+<!-- MACHINERY GRID -->
+
+<div
+id="machineryGrid"
+class="machinery-grid">
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     WHY RENT
+======================================================= -->
+
+<section class="section info-section">
+
+<div class="container">
+
+
+<div class="section-title">
+
+<h2
+data-en="💡 Why Rent Machinery?"
+data-ta="💡 ஏன் இயந்திரங்களை வாடகைக்கு எடுக்க வேண்டும்?">
+
+💡 Why Rent Machinery?
+
+</h2>
+
+<p
+data-en="Save money and get the right equipment when you need it."
+data-ta="பணம் சேமித்து தேவையான நேரத்தில் சரியான இயந்திரத்தை பயன்படுத்துங்கள்.">
+
+Save money and get the right equipment when you need it.
+
+</p>
+
+</div>
+
+
+
+<div class="info-grid">
+
+
+<div class="info-card">
+
+<div class="info-icon">
+💰
+</div>
+
+<h3
+data-en="Save Money"
+data-ta="பணம் சேமிக்கலாம்">
+
+Save Money
+
+</h3>
+
+<p
+data-en="Rent machinery instead of spending a large amount to purchase equipment."
+data-ta="இயந்திரங்களை வாங்குவதற்குப் பதிலாக வாடகைக்கு எடுத்து அதிக செலவை தவிர்க்கலாம்.">
+
+Rent machinery instead of spending a large amount
+to purchase equipment.
+
+</p>
+
+</div>
+
+
+
+<div class="info-card">
+
+<div class="info-icon">
+⚙️
+</div>
+
+<h3
+data-en="Right Equipment"
+data-ta="சரியான இயந்திரம்">
+
+Right Equipment
+
+</h3>
+
+<p
+data-en="Choose machinery according to your crop, field size and farming work."
+data-ta="உங்கள் பயிர், நிலத்தின் அளவு மற்றும் விவசாய பணிக்கு ஏற்ப சரியான இயந்திரத்தை தேர்வு செய்யலாம்.">
+
+Choose machinery according to your crop,
+field size and farming work.
+
+</p>
+
+</div>
+
+
+
+<div class="info-card">
+
+<div class="info-icon">
+📍
+</div>
+
+<h3
+data-en="Nearby Owners"
+data-ta="அருகிலுள்ள உரிமையாளர்கள்">
+
+Nearby Owners
+
+</h3>
+
+<p
+data-en="Find machinery owners near your location and contact them easily."
+data-ta="உங்கள் இருப்பிடத்திற்கு அருகிலுள்ள இயந்திர உரிமையாளர்களை எளிதாக கண்டுபிடிக்கலாம்.">
+
+Find machinery owners near your location
+and contact them easily.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+<div class="footer-grid">
+
+
+<div>
+
+<h3>
+🌱 AgriConnect
+</h3>
+
+<p
+data-en="Smart farming technology for modern farmers and agricultural communities."
+data-ta="நவீன விவசாயிகள் மற்றும் விவசாய சமூகங்களுக்கான ஸ்மார்ட் விவசாய தொழில்நுட்பம்.">
+
+Smart farming technology for modern farmers
+and agricultural communities.
+
+</p>
+
+</div>
+
+
+
+<div>
+
+<h3
+data-en="Machinery"
+data-ta="இயந்திரங்கள்">
+
+Machinery
+
+</h3>
+
+<ul>
+
+<li>🚜 Tractors</li>
+
+<li>🌾 Harvesters</li>
+
+<li>⚙️ Tillers</li>
+
+<li>💦 Sprayers</li>
+
+</ul>
+
+</div>
+
+
+
+<div>
+
+<h3
+data-en="Services"
+data-ta="சேவைகள்">
+
+Services
+
+</h3>
+
+<ul>
+
+<li>🌱 Fertilizer</li>
+
+<li>🌦️ Weather</li>
+
+<li>📈 Crop Prices</li>
+
+<li>📦 Orders</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 AgriConnect — All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+
+<!-- =======================================================
+     BOOKING MODAL
+======================================================= -->
+
+<div
+id="bookingModal"
+class="modal"
+onclick="closeOutside(event)">
+
+
+<div class="modal-box">
+
+
+<button
+class="close"
+onclick="closeModal()">
+
+×
+
+</button>
+
+
+<h2
+data-en="🚜 Rent Machinery"
+data-ta="🚜 இயந்திரத்தை வாடகைக்கு எடுக்கவும்">
+
+🚜 Rent Machinery
+
+</h2>
+
+
+<br>
+
+
+
+<div class="booking-summary">
+
+<div
+id="selectedMachine"
+class="summary-machine">
+</div>
+
+<div
+id="selectedOwner">
+</div>
+
+<div
+id="selectedRate">
+</div>
+
+<div
+id="totalPrice"
+class="total">
+</div>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label
+data-en="Number of Days"
+data-ta="எத்தனை நாட்கள்">
+
+Number of Days
+
+</label>
+
+<input
+id="days"
+type="number"
+min="1"
+value="1"
+oninput="calculateTotal()">
+
+</div>
+
+
+
+<div class="form-group">
+
+<label
+data-en="Delivery / Farm Location"
+data-ta="விநியோக / விவசாய நில இடம்">
+
+Delivery / Farm Location
+
+</label>
+
+<input
+id="deliveryLocation"
+type="text"
+placeholder="Enter your farm location">
+
+</div>
+
+
+
+<div class="form-group">
+
+<label
+data-en="Start Date"
+data-ta="தொடக்க தேதி">
+
+Start Date
+
+</label>
+
+<input
+id="startDate"
+type="date">
+
+</div>
+
+
+
+<div class="form-group">
+
+<label
+data-en="Payment Method"
+data-ta="பணம் செலுத்தும் முறை">
+
+Payment Method
+
+</label>
+
+<select id="paymentMethod">
+
+<option value="cod">
+Cash on Delivery
+</option>
+
+<option value="upi">
+UPI
+</option>
+
+<option value="bank">
+Bank Transfer
+</option>
+
+</select>
+
+</div>
+
+
+
+<button
+class="btn primary"
+style="width:100%;"
+onclick="bookMachine()">
+
+🚜
+
+<span
+data-en="Confirm Rental"
+data-ta="வாடகையை உறுதி செய்யுங்கள்">
+
+Confirm Rental
+
+</span>
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   MACHINERY DATA
+========================================================= */
+
+const machines = [
+
+{
+    id:1,
+    name:"John Deere Tractor",
+    tamil:"ஜான் டியர் டிராக்டர்",
+    icon:"🚜",
+    category:"tractor",
+    location:"Coimbatore",
+    price:1800,
+    owner:"Karthik Farms",
+    rating:"4.9",
+    description:
+        "Powerful tractor suitable for ploughing and field preparation.",
+    tamilDescription:
+        "உழவு மற்றும் நிலத் தயாரிப்பு பணிகளுக்கு ஏற்ற சக்திவாய்ந்த டிராக்டர்."
+},
+
+{
+    id:2,
+    name:"Mahindra Tractor",
+    tamil:"மஹிந்திரா டிராக்டர்",
+    icon:"🚜",
+    category:"tractor",
+    location:"Thanjavur",
+    price:1600,
+    owner:"Suresh Machinery",
+    rating:"4.8",
+    description:
+        "Reliable tractor for farming, transport and field operations.",
+    tamilDescription:
+        "விவசாயம், போக்குவரத்து மற்றும் நிலப்பணி பயன்பாடுகளுக்கு ஏற்ற டிராக்டர்."
+},
+
+{
+    id:3,
+    name:"Paddy Harvester",
+    tamil:"நெல் அறுவடை இயந்திரம்",
+    icon:"🌾",
+    category:"harvester",
+    location:"Thanjavur",
+    price:3500,
+    owner:"Raja Agro Machines",
+    rating:"4.9",
+    description:
+        "Efficient harvester designed for fast paddy harvesting.",
+    tamilDescription:
+        "விரைவான நெல் அறுவடைக்காக வடிவமைக்கப்பட்ட திறமையான இயந்திரம்."
+},
+
+{
+    id:4,
+    name:"Power Tiller",
+    tamil:"பவர் டில்லர்",
+    icon:"⚙️",
+    category:"tiller",
+    location:"Madurai",
+    price:1100,
+    owner:"Murugan Machinery",
+    rating:"4.7",
+    description:
+        "Compact power tiller suitable for small and medium farms.",
+    tamilDescription:
+        "சிறிய மற்றும் நடுத்தர விவசாய நிலங்களுக்கு ஏற்ற பவர் டில்லர்."
+},
+
+{
+    id:5,
+    name:"Crop Sprayer",
+    tamil:"பயிர் தெளிப்பான்",
+    icon:"💦",
+    category:"sprayer",
+    location:"Erode",
+    price:750,
+    owner:"Green Agro Rentals",
+    rating:"4.8",
+    description:
+        "Sprayer machine for efficient crop protection and spraying.",
+    tamilDescription:
+        "பயிர் பாதுகாப்பு மற்றும் தெளிப்பு பணிகளுக்கு ஏற்ற இயந்திரம்."
+},
+
+{
+    id:6,
+    name:"Rotary Plough",
+    tamil:"ரோட்டரி கலப்பை",
+    icon:"🔧",
+    category:"plough",
+    location:"Chennai",
+    price:1300,
+    owner:"Tamil Nadu Farm Tools",
+    rating:"4.6",
+    description:
+        "Heavy-duty rotary plough for soil preparation.",
+    tamilDescription:
+        "மண் தயாரிப்பு பணிகளுக்கான வலுவான ரோட்டரி கலப்பை."
+},
+
+{
+    id:7,
+    name:"Mini Tractor",
+    tamil:"மினி டிராக்டர்",
+    icon:"🚜",
+    category:"tractor",
+    location:"Madurai",
+    price:1400,
+    owner:"South Farm Equipment",
+    rating:"4.7",
+    description:
+        "Small tractor suitable for vegetable and fruit farms.",
+    tamilDescription:
+        "காய்கறி மற்றும் பழத்தோட்டங்களுக்கு ஏற்ற சிறிய டிராக்டர்."
+},
+
+{
+    id:8,
+    name:"Combine Harvester",
+    tamil:"கம்பைன் அறுவடை இயந்திரம்",
+    icon:"🌾",
+    category:"harvester",
+    location:"Coimbatore",
+    price:4200,
+    owner:"Kovai Agri Machines",
+    rating:"4.9",
+    description:
+        "High-performance combine harvester for large farming operations.",
+    tamilDescription:
+        "பெரிய விவசாய நிலங்களுக்கான உயர் செயல்திறன் கொண்ட கம்பைன் அறுவடை இயந்திரம்."
+}
+
+];
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+let currentLanguage =
+    localStorage.getItem("agriLanguage") || "en";
+
+let selectedMachine = null;
+
+
+function changeLanguage(language){
+
+    currentLanguage = language;
+
+    localStorage.setItem(
+        "agriLanguage",
+        language
+    );
+
+
+    document
+    .querySelectorAll("[data-en]")
+    .forEach(function(element){
+
+        element.textContent =
+            language === "en"
+            ? element.getAttribute("data-en")
+            : element.getAttribute("data-ta");
+
+    });
+
+
+    document
+    .getElementById("enBtn")
+    .classList
+    .toggle(
+        "active",
+        language === "en"
+    );
+
+
+    document
+    .getElementById("taBtn")
+    .classList
+    .toggle(
+        "active",
+        language === "ta"
+    );
+
+
+    renderMachines();
+
+}
+
+
+/* =========================================================
+   RENDER MACHINES
+========================================================= */
+
+function renderMachines(){
+
+    const search =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const category =
+        document
+        .getElementById("categoryFilter")
+        .value;
+
+
+    const location =
+        document
+        .getElementById("locationFilter")
+        .value;
+
+
+    const filtered =
+        machines.filter(function(machine){
+
+            const searchMatch =
+
+                machine.name
+                .toLowerCase()
+                .includes(search)
+
+                ||
+
+                machine.tamil
+                .includes(search)
+
+                ||
+
+                machine.owner
+                .toLowerCase()
+                .includes(search);
+
+
+            const categoryMatch =
+                category === "all"
+                ||
+                machine.category === category;
+
+
+            const locationMatch =
+                location === "all"
+                ||
+                machine.location === location;
+
+
+            return(
+                searchMatch &&
+                categoryMatch &&
+                locationMatch
+            );
+
+        });
+
+
+    const grid =
+        document.getElementById(
+            "machineryGrid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    if(filtered.length === 0){
+
+        grid.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    🔍
+                </div>
+
+                ${
+                    currentLanguage === "en"
+                    ?
+                    "No machinery found."
+                    :
+                    "இயந்திரங்கள் எதுவும் கிடைக்கவில்லை."
+                }
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    filtered.forEach(function(machine){
+
+        const name =
+            currentLanguage === "en"
+            ? machine.name
+            : machine.tamil;
+
+
+        const description =
+            currentLanguage === "en"
+            ? machine.description
+            : machine.tamilDescription;
+
+
+        const categoryText =
+            currentLanguage === "en"
+            ? getCategoryEnglish(machine.category)
+            : getCategoryTamil(machine.category);
+
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "machine-card";
+
+
+        card.innerHTML = `
+
+            <div class="machine-image">
+
+                <span class="machine-type">
+                    ${categoryText}
+                </span>
+
+                ${machine.icon}
+
+            </div>
+
+
+            <div class="machine-content">
+
+                <h3>
+                    ${name}
+                </h3>
+
+
+                <div class="machine-location">
+                    📍 ${machine.location}
+                </div>
+
+
+                <p class="machine-description">
+                    ${description}
+                </p>
+
+
+                <div class="price-row">
+
+                    <span class="price">
+                        ₹${machine.price.toLocaleString("en-IN")}
+                    </span>
+
+                    <span class="price-unit">
+
+                        ${
+                            currentLanguage === "en"
+                            ? "/ day"
+                            : "/ நாள்"
+                        }
+
+                    </span>
+
+                </div>
+
+
+                <div class="owner">
+
+                    <span class="owner-name">
+                        👨‍🌾 ${machine.owner}
+                    </span>
+
+                    <span class="rating">
+                        ⭐ ${machine.rating}
+                    </span>
+
+                </div>
+
+
+                <div class="machine-actions">
+
+                    <button
+                        class="btn secondary"
+                        onclick="showDetails(${machine.id})">
+
+                        👁️
+
+                        ${
+                            currentLanguage === "en"
+                            ? "Details"
+                            : "விவரம்"
+                        }
+
+                    </button>
+
+
+                    <button
+                        class="btn primary"
+                        onclick="openBooking(${machine.id})">
+
+                        🚜
+
+                        ${
+                            currentLanguage === "en"
+                            ? "Rent"
+                            : "வாடகை"
+                        }
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
+   CATEGORY TEXT
+========================================================= */
+
+function getCategoryEnglish(category){
+
+    const categories = {
+
+        tractor:"Tractor",
+
+        harvester:"Harvester",
+
+        tiller:"Power Tiller",
+
+        sprayer:"Sprayer",
+
+        plough:"Plough"
+
+    };
+
+    return categories[category] || category;
+}
+
+
+function getCategoryTamil(category){
+
+    const categories = {
+
+        tractor:"டிராக்டர்",
+
+        harvester:"அறுவடை இயந்திரம்",
+
+        tiller:"பவர் டில்லர்",
+
+        sprayer:"தெளிப்பான்",
+
+        plough:"கலப்பை"
+
+    };
+
+    return categories[category] || category;
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+function filterMachines(){
+
+    renderMachines();
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+function resetFilters(){
+
+    document
+    .getElementById("searchInput")
+    .value = "";
+
+
+    document
+    .getElementById("categoryFilter")
+    .value = "all";
+
+
+    document
+    .getElementById("locationFilter")
+    .value = "all";
+
+
+    renderMachines();
+
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+function showDetails(id){
+
+    const machine =
+        machines.find(
+            item => item.id === id
+        );
+
+
+    if(!machine){
+        return;
+    }
+
+
+    const name =
+        currentLanguage === "en"
+        ? machine.name
+        : machine.tamil;
+
+
+    const description =
+        currentLanguage === "en"
+        ? machine.description
+        : machine.tamilDescription;
+
+
+    alert(
+
+        currentLanguage === "en"
+
+        ?
+
+        `${machine.icon} ${name}
+
+Owner: ${machine.owner}
+Location: ${machine.location}
+Price: ₹${machine.price.toLocaleString("en-IN")} / day
+Rating: ⭐ ${machine.rating}
+
+${description}`
+
+        :
+
+        `${machine.icon} ${name}
+
+உரிமையாளர்: ${machine.owner}
+இடம்: ${machine.location}
+விலை: ₹${machine.price.toLocaleString("en-IN")} / நாள்
+Rating: ⭐ ${machine.rating}
+
+${description}`
+
+    );
+
+}
+
+
+/* =========================================================
+   OPEN BOOKING
+========================================================= */
+
+function openBooking(id){
+
+    selectedMachine =
+        machines.find(
+            item => item.id === id
+        );
+
+
+    if(!selectedMachine){
+        return;
+    }
+
+
+    const name =
+        currentLanguage === "en"
+        ? selectedMachine.name
+        : selectedMachine.tamil;
+
+
+    document
+    .getElementById("selectedMachine")
+    .textContent =
+        selectedMachine.icon +
+        " " +
+        name;
+
+
+    document
+    .getElementById("selectedOwner")
+    .textContent =
+        "👨‍🌾 " +
+        (
+            currentLanguage === "en"
+            ? "Owner: "
+            : "உரிமையாளர்: "
+        ) +
+        selectedMachine.owner;
+
+
+    document
+    .getElementById("selectedRate")
+    .textContent =
+        "₹" +
+        selectedMachine.price.toLocaleString("en-IN") +
+        (
+            currentLanguage === "en"
+            ? " / day"
+            : " / நாள்"
+        );
+
+
+    document
+    .getElementById("days")
+    .value = 1;
+
+
+    document
+    .getElementById("deliveryLocation")
+    .value = "";
+
+
+    document
+    .getElementById("startDate")
+    .value = "";
+
+
+    calculateTotal();
+
+
+    document
+    .getElementById("bookingModal")
+    .classList
+    .add("show");
+
+}
+
+
+/* =========================================================
+   CALCULATE TOTAL
+========================================================= */
+
+function calculateTotal(){
+
+    if(!selectedMachine){
+        return;
+    }
+
+
+    const days =
+        Number(
+            document
+            .getElementById("days")
+            .value
+        ) || 0;
+
+
+    const total =
+        selectedMachine.price *
+        days;
+
+
+    document
+    .getElementById("totalPrice")
+    .textContent =
+
+        (
+            currentLanguage === "en"
+            ? "Total: "
+            : "மொத்தம்: "
+        )
+
+        +
+
+        "₹" +
+
+        total.toLocaleString("en-IN");
+
+}
+
+
+/* =========================================================
+   BOOK MACHINE
+========================================================= */
+
+function bookMachine(){
+
+    if(!selectedMachine){
+        return;
+    }
+
+
+    const days =
+        Number(
+            document
+            .getElementById("days")
+            .value
+        );
+
+
+    const location =
+        document
+        .getElementById("deliveryLocation")
+        .value
+        .trim();
+
+
+    const startDate =
+        document
+        .getElementById("startDate")
+        .value;
+
+
+    const payment =
+        document
+        .getElementById("paymentMethod")
+        .value;
+
+
+    if(!days || days <= 0){
+
+        alert(
+
+            currentLanguage === "en"
+
+            ?
+
+            "Please enter a valid number of days."
+
+            :
+
+            "சரியான நாட்களின் எண்ணிக்கையை உள்ளிடவும்."
+
+        );
+
+        return;
+    }
+
+
+    if(location === ""){
+
+        alert(
+
+            currentLanguage === "en"
+
+            ?
+
+            "Please enter your farm location."
+
+            :
+
+            "உங்கள் விவசாய நிலத்தின் இடத்தை உள்ளிடவும்."
+
+        );
+
+        return;
+    }
+
+
+    if(startDate === ""){
+
+        alert(
+
+            currentLanguage === "en"
+
+            ?
+
+            "Please select a start date."
+
+            :
+
+            "தொடக்க தேதியை தேர்வு செய்யவும்."
+
+        );
+
+        return;
+    }
+
+
+    const bookingId =
+        "MCH-" +
+        Math.floor(
+            1000 +
+            Math.random() * 9000
+        );
+
+
+    const total =
+        selectedMachine.price *
+        days;
+
+
+    alert(
+
+        currentLanguage === "en"
+
+        ?
+
+        `Machinery rental confirmed!
+
+Booking ID: ${bookingId}
+Machinery: ${selectedMachine.name}
+Owner: ${selectedMachine.owner}
+Days: ${days}
+Total: ₹${total.toLocaleString("en-IN")}
+Location: ${location}
+Start Date: ${startDate}
+Payment: ${payment}`
+
+        :
+
+        `இயந்திர வாடகை வெற்றிகரமாக உறுதி செய்யப்பட்டது!
+
+Booking ID: ${bookingId}
+இயந்திரம்: ${selectedMachine.tamil}
+உரிமையாளர்: ${selectedMachine.owner}
+நாட்கள்: ${days}
+மொத்தம்: ₹${total.toLocaleString("en-IN")}
+இடம்: ${location}
+தொடக்க தேதி: ${startDate}`
+
+    );
+
+
+    closeModal();
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal(){
+
+    document
+    .getElementById("bookingModal")
+    .classList
+    .remove("show");
+
+}
+
+
+/* =========================================================
+   CLOSE OUTSIDE
+========================================================= */
+
+function closeOutside(event){
+
+    if(
+        event.target.id ===
+        "bookingModal"
+    ){
+
+        closeModal();
+
+    }
+
+}
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+changeLanguage(
+    currentLanguage
+);
+
+renderMachines();
+
+</script>
+
+</body>
+</html>
+```
+
