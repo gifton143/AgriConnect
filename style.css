@@ -1602,3 +1602,21 @@ tr:hover td {
         font-size: 18px;
     }
 }
+@media (max-width: 800px) {
+
+    .hero,
+    .agriculture-section,
+    .farm-hero,
+    .page-hero,
+    .machinery-hero,
+    .fertilizer-hero,
+    .weather-hero,
+    .crop-price-hero,
+    .order-hero,
+    .buyer-hero {
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+
+}
