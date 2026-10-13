@@ -1,2616 +1,1153 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AgriConnect - Machinery</title>
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-    font-family:
-        "Noto Sans Tamil",
-        "Latha",
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    color:#183d20;
-    min-height:100vh;
-
-    background:
-        linear-gradient(
-            rgba(235,248,237,0.18),
-            rgba(235,248,237,0.28)
-        ),
-        url("./image/machinery-bg.png.png");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
+  font-family:"Noto Sans Tamil","Latha","Segoe UI",Arial,sans-serif;
+  color:#183d20;min-height:100vh;
+  background:linear-gradient(#ebf8ed25,#ebf8ed35),
+    url("./image/machinery-bg.png.png") center/cover fixed no-repeat;
 }
-
-button,
-input,
-select{
-    font-family:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
 .navbar{
-    min-height:72px;
-
-    background:rgba(255,255,255,0.95);
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:12px 4%;
-
-    gap:20px;
-
-    position:sticky;
-    top:0;
-
-    z-index:1000;
-
-    box-shadow:
-        0 3px 18px rgba(0,0,0,0.10);
-
-    backdrop-filter:blur(12px);
+  min-height:70px;background:#fff;display:flex;align-items:center;
+  justify-content:space-between;padding:12px 4%;gap:15px;flex-wrap:wrap;
+  position:sticky;top:0;z-index:1000;box-shadow:0 3px 15px #00000012;
 }
-
-.logo{
-    display:flex;
-    align-items:center;
-
-    gap:8px;
-
-    font-size:25px;
-    font-weight:900;
-
-    color:#218b35;
-
-    white-space:nowrap;
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-
-    gap:4px;
-
-    overflow-x:auto;
-}
-
-.nav-links::-webkit-scrollbar{
-    display:none;
-}
-
-.nav-links a{
-    padding:9px 11px;
-
-    border-radius:8px;
-
-    font-size:13px;
-    font-weight:700;
-
-    color:#405246;
-
-    white-space:nowrap;
-
-    transition:0.2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active{
-    background:#e4f4e6;
-
-    color:#218b35;
-}
-
-
-/* =========================================================
-   LANGUAGE
-========================================================= */
-
-.language{
-    display:flex;
-
-    gap:4px;
-
-    padding:4px;
-
-    border-radius:9px;
-
-    background:#edf5ee;
-
-    flex-shrink:0;
-}
-
-.language button{
-    border:0;
-
-    background:transparent;
-
-    padding:7px 10px;
-
-    border-radius:6px;
-
-    font-weight:800;
-
-    color:#34513a;
-}
-
-.language button.active{
-    background:white;
-
-    color:#218b35;
-
-    box-shadow:
-        0 2px 5px rgba(0,0,0,0.08);
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-    min-height:410px;
-
-    display:flex;
-    align-items:center;
-
-    position:relative;
-
-    padding:80px 7%;
-
-    overflow:hidden;
-}
-
-.hero::before{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.88),
-            rgba(255,255,255,0.50),
-            rgba(255,255,255,0.15)
-        );
-}
-
-.hero-content{
-    position:relative;
-
-    z-index:2;
-
-    max-width:850px;
-}
-
-.badge{
-    display:inline-block;
-
-    padding:9px 16px;
-
-    margin-bottom:18px;
-
-    border-radius:25px;
-
-    background:#dff3e2;
-
-    color:#17762d;
-
-    font-size:13px;
-
-    font-weight:800;
-}
-
-.hero h1{
-    font-size:50px;
-
-    line-height:1.15;
-
-    margin-bottom:15px;
-
-    color:#124c23;
-
-    font-weight:900;
-}
-
-.hero h1 span{
-    color:#218b35;
-}
-
-.hero p{
-    max-width:750px;
-
-    color:#3f5846;
-
-    font-size:17px;
-
-    line-height:1.8;
-
-    font-weight:600;
-}
-
-
-/* =========================================================
-   MAIN CONTAINER
-========================================================= */
-
-.container{
-    width:88%;
-
-    max-width:1250px;
-
-    margin:auto;
-}
-
-.section{
-    padding:55px 0;
-}
-
-.section-title{
-    margin-bottom:27px;
-}
-
-.section-title h2{
-    font-size:32px;
-
-    color:#124c23;
-
-    margin-bottom:7px;
-}
-
-.section-title p{
-    color:#607064;
-
-    font-size:15px;
-}
-
-
-/* =========================================================
-   SEARCH CONTROLS
-========================================================= */
-
+.logo{font-size:24px;font-weight:900;color:#218b35;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:4px;overflow-x:auto}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{padding:9px 10px;border-radius:8px;font-size:13px;font-weight:700;white-space:nowrap;color:#405246}
+.nav-links a:hover,.nav-links a.active{background:#e4f4e6;color:#218b35}
+.language{display:flex;gap:4px;padding:4px;border-radius:9px;background:#edf5ee}
+.language button{border:0;background:transparent;padding:7px 10px;border-radius:6px;font-weight:800;color:#34513a}
+.language button.active{background:white;color:#218b35;box-shadow:0 2px 5px #00000012}
+
+.hero{min-height:380px;display:flex;align-items:center;padding:65px 7%;position:relative}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fffdf0e8,#ffffffa0,#ffffff20)}
+.hero-content{position:relative;max-width:850px}
+.badge{display:inline-block;padding:9px 16px;margin-bottom:18px;border-radius:25px;background:#dff3e2;color:#17762d;font-size:13px;font-weight:800}
+.hero h1{font-size:clamp(34px,5vw,50px);line-height:1.18;margin-bottom:15px;color:#124c23;font-weight:900}
+.hero h1 span{color:#218b35}
+.hero p{max-width:750px;color:#3f5846;font-size:16px;line-height:1.8;font-weight:600}
+.container{width:90%;max-width:1250px;margin:auto}
+.section{padding:45px 0}
+.section-title{margin-bottom:22px}
+.section-title h2{font-size:30px;color:#124c23;margin-bottom:8px}
+.section-title p{color:#607064;font-size:14px;line-height:1.7}
+
+.top-actions{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;margin-bottom:18px}
 .controls{
-    display:grid;
-
-    grid-template-columns:
-        2fr 1fr 1fr auto;
-
-    gap:12px;
-
-    padding:20px;
-
-    margin-bottom:28px;
-
-    background:rgba(255,255,255,0.94);
-
-    border:1px solid #d9e7db;
-
-    border-radius:16px;
-
-    box-shadow:
-        0 8px 25px rgba(0,60,20,0.09);
-
-    backdrop-filter:blur(8px);
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr auto;
+  gap:10px;padding:17px;margin-bottom:23px;background:#ffffffef;
+  border:1px solid #d9e7db;border-radius:15px;box-shadow:0 8px 25px #003c140c;
 }
-
-.controls input,
-.controls select{
-    width:100%;
-
-    padding:13px;
-
-    border:1px solid #cadbcc;
-
-    border-radius:9px;
-
-    outline:none;
-
-    background:white;
-
-    color:#27432e;
+.controls input,.controls select,.form-group input,.form-group select,.form-group textarea{
+  width:100%;padding:12px;border:1px solid #cadbcc;border-radius:9px;
+  outline:none;background:white;color:#27432e;min-width:0;
 }
+.controls input:focus,.controls select:focus,.form-group input:focus,
+.form-group select:focus,.form-group textarea:focus{border-color:#218b35}
+.btn{border:0;padding:11px 16px;border-radius:9px;font-weight:800;transition:.2s}
+.primary{background:#218b35;color:white}
+.primary:hover{background:#176e28}
+.secondary{background:white;color:#218b35;border:1px solid #c6dbc9}
+.secondary:hover{background:#edf8ef}
+.danger{background:#fff1ef;color:#a52a1c;border:1px solid #efc5be}
+.status{padding:12px 15px;border-radius:10px;margin-bottom:16px;background:#fff;border:1px solid #dce9de;font-size:13px;line-height:1.6}
+.status.error{background:#fff3f1;border-color:#e9b9b0;color:#9a2e20}
+.status.success{background:#effaf0;border-color:#c5e6ca;color:#176e28}
 
-.controls input:focus,
-.controls select:focus{
-    border-color:#218b35;
+.machinery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.machine-card{background:#fffffff2;border:1px solid #dce9de;border-radius:17px;overflow:hidden;box-shadow:0 8px 28px #003c1410;transition:.2s}
+.machine-card:hover{transform:translateY(-4px);box-shadow:0 14px 35px #003c141c}
+.machine-image{height:175px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#e7f5e9,#f7fbf7);font-size:75px;position:relative;overflow:hidden}
+.machine-image img{width:100%;height:100%;object-fit:cover}
+.machine-type{position:absolute;left:12px;top:12px;padding:6px 10px;border-radius:20px;background:#fff;color:#217b32;font-size:11px;font-weight:800}
+.machine-content{padding:19px}
+.machine-content h3{font-size:20px;margin-bottom:8px;color:#173d21;overflow-wrap:anywhere}
+.machine-location{color:#596d5e;font-size:12px;line-height:1.8;margin-bottom:12px}
+.machine-description{color:#66756a;font-size:13px;line-height:1.7;min-height:42px;margin-bottom:14px;overflow-wrap:anywhere}
+.price-row{display:flex;align-items:baseline;gap:5px;margin-bottom:14px}
+.price{color:#218b35;font-size:23px;font-weight:900}
+.price-unit{color:#718077;font-size:12px}
+.owner{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:13px;border-top:1px solid #e9efea}
+.owner-name{font-size:12px;font-weight:800;color:#314c37;overflow-wrap:anywhere}
+.rating{color:#c98616;font-size:12px;font-weight:700;white-space:nowrap}
+.machine-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.machine-actions button{flex:1;min-width:100px;padding:10px 8px}
+.owner-tag{font-size:11px;color:#176e28;background:#e9f7eb;padding:5px 8px;border-radius:20px;display:inline-block;margin-bottom:8px}
+.empty{grid-column:1/-1;padding:45px 20px;text-align:center;background:#ffffffed;border-radius:15px;color:#6b786e}
+.empty-icon{font-size:45px;margin-bottom:10px}
 
-    box-shadow:
-        0 0 0 3px rgba(33,139,53,0.10);
+.info-section{background:#edf8efed}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.info-card{background:white;border:1px solid #dce9de;border-radius:15px;padding:23px;box-shadow:0 7px 22px #003c140b}
+.info-icon{font-size:38px;margin-bottom:12px}
+.info-card h3{margin-bottom:8px;color:#194928}
+.info-card p{color:#65736a;font-size:13px;line-height:1.8}
+
+.modal{display:none;position:fixed;inset:0;z-index:5000;align-items:center;justify-content:center;padding:15px;background:#001e0a99}
+.modal.show{display:flex}
+.modal-box{width:100%;max-width:620px;max-height:92vh;overflow-y:auto;padding:27px;background:#fff;border-radius:17px;position:relative;box-shadow:0 25px 70px #0005}
+.close{position:absolute;right:14px;top:13px;width:35px;height:35px;border:0;border-radius:50%;background:#f1f5f1;font-size:21px;color:#27432d}
+.modal-box h2{color:#164a24;margin:0 42px 18px 0;font-size:23px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;margin-bottom:6px;color:#294331;font-size:13px;font-weight:800}
+.form-group textarea{min-height:85px;resize:vertical}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.booking-summary{margin:10px 0 18px;padding:15px;border-radius:11px;background:#f2f8f3;border:1px solid #dfece1;line-height:1.8;font-size:14px}
+.summary-machine{font-size:17px;font-weight:900;color:#194b27}
+.total{margin-top:5px;color:#218b35;font-size:21px;font-weight:900}
+.help{font-size:12px;color:#69776d;margin-top:5px;line-height:1.6}
+.listing-tools{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+
+footer{background:#123b1c;color:white;padding:40px 7% 20px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;margin-bottom:25px}
+footer h3{margin-bottom:12px}
+footer p,footer li{color:#c3d3c6;font-size:13px;line-height:1.9}
+footer ul{list-style:none}
+.copyright{border-top:1px solid #31533a;padding-top:17px;text-align:center;color:#afc0b2;font-size:12px}
+
+@media(max-width:1100px){
+  .nav-links{width:100%;order:3}
+  .controls{grid-template-columns:1fr 1fr 1fr}
+  .machinery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.btn{
-    border:0;
-
-    padding:12px 20px;
-
-    border-radius:9px;
-
-    font-weight:800;
-
-    transition:0.2s;
-}
-
-.primary{
-    background:#218b35;
-
-    color:white;
-}
-
-.primary:hover{
-    background:#176e28;
-
-    transform:translateY(-1px);
-}
-
-.secondary{
-    background:white;
-
-    color:#218b35;
-
-    border:1px solid #c6dbc9;
-}
-
-.secondary:hover{
-    background:#edf8ef;
-}
-
-
-/* =========================================================
-   MACHINERY GRID
-========================================================= */
-
-.machinery-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,minmax(0,1fr));
-
-    gap:22px;
-}
-
-
-/* =========================================================
-   MACHINERY CARD
-========================================================= */
-
-.machine-card{
-    background:rgba(255,255,255,0.95);
-
-    border:1px solid #dce9de;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 8px 28px rgba(0,60,20,0.10);
-
-    transition:0.25s;
-
-    backdrop-filter:blur(7px);
-}
-
-.machine-card:hover{
-    transform:translateY(-5px);
-
-    box-shadow:
-        0 14px 35px rgba(0,60,20,0.17);
-}
-
-
-/* =========================================================
-   MACHINE IMAGE
-========================================================= */
-
-.machine-image{
-    height:190px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #e7f5e9,
-            #f7fbf7
-        );
-
-    font-size:82px;
-
-    position:relative;
-}
-
-.machine-type{
-    position:absolute;
-
-    left:13px;
-    top:13px;
-
-    padding:6px 10px;
-
-    border-radius:20px;
-
-    background:rgba(255,255,255,0.92);
-
-    color:#217b32;
-
-    font-size:11px;
-
-    font-weight:800;
-}
-
-
-/* =========================================================
-   CARD CONTENT
-========================================================= */
-
-.machine-content{
-    padding:21px;
-}
-
-.machine-content h3{
-    font-size:21px;
-
-    margin-bottom:8px;
-
-    color:#173d21;
-}
-
-.machine-location{
-    color:#6b796e;
-
-    font-size:12px;
-
-    margin-bottom:13px;
-}
-
-.machine-description{
-    color:#66756a;
-
-    font-size:13px;
-
-    line-height:1.6;
-
-    min-height:42px;
-
-    margin-bottom:14px;
-}
-
-
-/* =========================================================
-   PRICE
-========================================================= */
-
-.price-row{
-    display:flex;
-
-    align-items:end;
-
-    gap:5px;
-
-    margin-bottom:14px;
-}
-
-.price{
-    color:#218b35;
-
-    font-size:23px;
-
-    font-weight:900;
-}
-
-.price-unit{
-    color:#718077;
-
-    font-size:12px;
-
-    margin-bottom:3px;
-}
-
-
-/* =========================================================
-   OWNER
-========================================================= */
-
-.owner{
-    display:flex;
-
-    align-items:center;
-    justify-content:space-between;
-
-    padding-top:14px;
-
-    border-top:1px solid #e9efea;
-}
-
-.owner-name{
-    font-size:13px;
-
-    font-weight:800;
-
-    color:#314c37;
-}
-
-.rating{
-    color:#c98616;
-
-    font-size:12px;
-
-    font-weight:700;
-}
-
-
-/* =========================================================
-   ACTIONS
-========================================================= */
-
-.machine-actions{
-    display:flex;
-
-    gap:8px;
-
-    margin-top:17px;
-}
-
-.machine-actions button{
-    flex:1;
-}
-
-
-/* =========================================================
-   EMPTY
-========================================================= */
-
-.empty{
-    grid-column:1/-1;
-
-    padding:60px 20px;
-
-    text-align:center;
-
-    background:rgba(255,255,255,0.92);
-
-    border-radius:16px;
-
-    color:#6b786e;
-
-    box-shadow:
-        0 8px 25px rgba(0,60,20,0.08);
-}
-
-.empty-icon{
-    font-size:50px;
-
-    margin-bottom:12px;
-}
-
-
-/* =========================================================
-   INFO SECTION
-========================================================= */
-
-.info-section{
-    background:
-        rgba(237,248,239,0.90);
-
-    backdrop-filter:blur(5px);
-}
-
-.info-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:20px;
-}
-
-.info-card{
-    background:white;
-
-    border:1px solid #dce9de;
-
-    border-radius:16px;
-
-    padding:24px;
-
-    box-shadow:
-        0 7px 22px rgba(0,60,20,0.07);
-}
-
-.info-icon{
-    font-size:40px;
-
-    margin-bottom:12px;
-}
-
-.info-card h3{
-    margin-bottom:8px;
-
-    color:#194928;
-}
-
-.info-card p{
-    color:#65736a;
-
-    font-size:13px;
-
-    line-height:1.7;
-}
-
-
-/* =========================================================
-   MODAL
-========================================================= */
-
-.modal{
-    display:none;
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:5000;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-
-    background:rgba(0,30,10,0.55);
-
-    backdrop-filter:blur(5px);
-}
-
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-    width:100%;
-
-    max-width:570px;
-
-    max-height:92vh;
-
-    overflow-y:auto;
-
-    padding:30px;
-
-    background:white;
-
-    border-radius:19px;
-
-    position:relative;
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,0.30);
-
-    animation:
-        popup 0.25s ease;
-}
-
-@keyframes popup{
-
-    from{
-        opacity:0;
-
-        transform:
-            translateY(20px)
-            scale(.97);
-    }
-
-    to{
-        opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-.close{
-    position:absolute;
-
-    right:18px;
-    top:17px;
-
-    width:36px;
-    height:36px;
-
-    border:0;
-
-    border-radius:50%;
-
-    background:#f1f5f1;
-
-    color:#27432d;
-
-    font-size:20px;
-}
-
-.close:hover{
-    background:#e4efe5;
-}
-
-.modal-box h2{
-    color:#164a24;
-
-    margin-bottom:3px;
-}
-
-
-/* =========================================================
-   BOOKING FORM
-========================================================= */
-
-.form-group{
-    margin-bottom:16px;
-}
-
-.form-group label{
-    display:block;
-
-    margin-bottom:7px;
-
-    color:#294331;
-
-    font-size:13px;
-
-    font-weight:800;
-}
-
-.form-group input,
-.form-group select{
-    width:100%;
-
-    padding:12px 13px;
-
-    border:1px solid #cdddcf;
-
-    border-radius:9px;
-
-    outline:none;
-}
-
-.form-group input:focus,
-.form-group select:focus{
-    border-color:#218b35;
-}
-
-
-/* =========================================================
-   BOOKING SUMMARY
-========================================================= */
-
-.booking-summary{
-    margin:17px 0;
-
-    padding:16px;
-
-    border-radius:11px;
-
-    background:#f2f8f3;
-
-    border:1px solid #dfece1;
-
-    line-height:1.8;
-}
-
-.summary-machine{
-    font-size:17px;
-
-    font-weight:900;
-
-    color:#194b27;
-}
-
-.total{
-    margin-top:7px;
-
-    color:#218b35;
-
-    font-size:21px;
-
-    font-weight:900;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-    background:#123b1c;
-
-    color:white;
-
-    padding:45px 7% 20px;
-
-    margin-top:0;
-}
-
-.footer-grid{
-    display:grid;
-
-    grid-template-columns:
-        2fr 1fr 1fr;
-
-    gap:40px;
-
-    margin-bottom:30px;
-}
-
-footer h3{
-    margin-bottom:12px;
-}
-
-footer p,
-footer li{
-    color:#c3d3c6;
-
-    font-size:13px;
-
-    line-height:1.8;
-}
-
-footer ul{
-    list-style:none;
-}
-
-.copyright{
-    border-top:1px solid #31533a;
-
-    padding-top:18px;
-
-    text-align:center;
-
-    color:#afc0b2;
-
-    font-size:12px;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media(max-width:1000px){
-
-    .navbar{
-        flex-wrap:wrap;
-
-        padding:10px 3%;
-    }
-
-    .nav-links{
-        width:100%;
-
-        order:5;
-    }
-
-    .hero{
-        padding-top:100px;
-    }
-
-    .machinery-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .controls{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .info-grid{
-        grid-template-columns:1fr 1fr;
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media(max-width:700px){
-
-    body{
-        background-attachment:scroll;
-    }
-
-    .hero{
-        min-height:360px;
-
-        padding:
-            70px 6%
-            55px;
-    }
-
-    .hero h1{
-        font-size:36px;
-    }
-
-    .hero p{
-        font-size:15px;
-    }
-
-    .machinery-grid{
-        grid-template-columns:1fr;
-    }
-
-    .controls{
-        grid-template-columns:1fr;
-    }
-
-    .info-grid{
-        grid-template-columns:1fr;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr;
-
-        gap:25px;
-    }
-
-    .section{
-        padding:42px 0;
-    }
-
-    .section-title h2{
-        font-size:27px;
-    }
-
-    .modal-box{
-        padding:24px 18px;
-    }
+  body{background:linear-gradient(#eff8ef30,#eff8ef40),url("./image/machinery-bg-portrait.jpg.png.png") center/cover fixed no-repeat}
+  .hero{min-height:320px;padding:55px 6%}
+  .hero p{font-size:14px}
+  .container{width:92%}
+  .machinery-grid,.info-grid,.footer-grid{grid-template-columns:1fr}
+  .controls{grid-template-columns:1fr;padding:13px}
+  .section{padding:35px 0}
+  .section-title h2{font-size:25px}
+  .form-grid{grid-template-columns:1fr;gap:0}
+  .modal-box{padding:23px 17px}
 }
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
 @media(max-width:420px){
-
-    .logo{
-        font-size:20px;
-    }
-
-    .language button{
-        padding:6px 8px;
-
-        font-size:11px;
-    }
-
-    .hero h1{
-        font-size:31px;
-    }
-
-    .machine-image{
-        height:165px;
-
-        font-size:70px;
-    }
-
-    .machine-content{
-        padding:18px;
-    }
+  .logo{font-size:20px}
+  .language button{padding:6px 8px;font-size:11px}
+  .machine-content{padding:16px}
 }
-
 </style>
 </head>
 
-
 <body>
-
-
-<!-- =======================================================
-     NAVBAR
-======================================================= -->
-
 <header class="navbar">
-
-<a href="index.html" class="logo">
-🌱 AgriConnect
-</a>
-
-
-<nav class="nav-links">
-
-<a href="index.html">
-🏠 Home
-</a>
-
-<a href="farmer.html">
-👨‍🌾 Farmer
-</a>
-
-<a href="buyer.html">
-🛒 Buyer
-</a>
-
-<a href="machinery.html" class="active">
-🚜 Machinery
-</a>
-
-<a href="fertilizer.html">
-🌱 Fertilizer
-</a>
-
-<a href="weather.html">
-🌦️ Weather
-</a>
-
-<a href="crop-prices.html">
-📈 Crop Prices
-</a>
-
-<a href="orders.html">
-📦 Orders
-</a>
-
-</nav>
-
-
-<div class="language">
-
-<button
-id="enBtn"
-class="active"
-onclick="changeLanguage('en')">
-
-EN
-
-</button>
-
-<button
-id="taBtn"
-onclick="changeLanguage('ta')">
-
-தமிழ்
-
-</button>
-
-</div>
-
+  <a href="index.html" class="logo">🌱 AgriConnect</a>
+  <nav class="nav-links">
+    <a href="index.html" data-en="🏠 Home" data-ta="🏠 முகப்பு">🏠 Home</a>
+    <a href="farmer.html" data-en="👨‍🌾 Farmer" data-ta="👨‍🌾 விவசாயி">👨‍🌾 Farmer</a>
+    <a href="buyer.html" data-en="🛒 Buyer" data-ta="🛒 வாங்குபவர்">🛒 Buyer</a>
+    <a href="machinery.html" class="active" data-en="🚜 Machinery" data-ta="🚜 இயந்திரங்கள்">🚜 Machinery</a>
+    <a href="fertilizer.html" data-en="🌱 Fertilizer" data-ta="🌱 உரம்">🌱 Fertilizer</a>
+    <a href="weather.html" data-en="🌦️ Weather" data-ta="🌦️ வானிலை">🌦️ Weather</a>
+    <a href="crop-prices.html" data-en="📈 Crop Prices" data-ta="📈 பயிர் விலை">📈 Crop Prices</a>
+    <a href="orders.html" data-en="📦 Orders" data-ta="📦 ஆர்டர்கள்">📦 Orders</a>
+  </nav>
+  <div class="language">
+    <button id="enBtn" onclick="changeLanguage('en')">EN</button>
+    <button id="taBtn" onclick="changeLanguage('ta')">தமிழ்</button>
+  </div>
 </header>
 
-
-
-<!-- =======================================================
-     HERO
-======================================================= -->
-
 <section class="hero">
-
-<div class="hero-content">
-
-<div class="badge">
-
-🚜
-<span
-data-en="Agricultural Machinery Rental"
-data-ta="விவசாய இயந்திர வாடகை">
-
-Agricultural Machinery Rental
-
-</span>
-
-</div>
-
-
-<h1>
-
-<span
-data-en="Rent"
-data-ta="வாடகைக்கு">
-
-Rent
-
-</span>
-
-<span
-data-en="Farm Machinery"
-data-ta="விவசாய இயந்திரங்கள்">
-
-Farm Machinery
-
-</span>
-
-</h1>
-
-
-<p
-data-en="Find reliable agricultural machinery from nearby owners and rent the right equipment for your farm work."
-data-ta="அருகிலுள்ள இயந்திர உரிமையாளர்களிடமிருந்து நம்பகமான விவசாய இயந்திரங்களை கண்டுபிடித்து உங்கள் விவசாய பணிகளுக்கு தேவையான இயந்திரத்தை வாடகைக்கு எடுக்கலாம்.">
-
-Find reliable agricultural machinery from nearby owners
-and rent the right equipment for your farm work.
-
-</p>
-
-</div>
-
+  <div class="hero-content">
+    <div class="badge" data-en="🚜 Agricultural Machinery Rental" data-ta="🚜 விவசாய இயந்திர வாடகை">🚜 Agricultural Machinery Rental</div>
+    <h1><span data-en="Rent" data-ta="வாடகைக்கு">Rent</span> <span data-en="Farm Machinery" data-ta="விவசாய இயந்திரங்கள்">Farm Machinery</span></h1>
+    <p data-en="Find farm machinery for rent, or register your own machinery and make it available to farmers." data-ta="வாடகைக்கு விவசாய இயந்திரங்களைத் தேடுங்கள் அல்லது உங்கள் இயந்திரத்தைப் பதிவு செய்து விவசாயிகளுக்குக் கிடைக்கச் செய்யுங்கள்.">Find farm machinery for rent, or register your own machinery and make it available to farmers.</p>
+  </div>
 </section>
-
-
-
-<!-- =======================================================
-     MACHINERY SECTION
-======================================================= -->
 
 <section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2 data-en="🚜 Available Machinery" data-ta="🚜 கிடைக்கும் விவசாய இயந்திரங்கள்">🚜 Available Machinery</h2>
+      <p data-en="Search machinery using its category and location." data-ta="இயந்திர வகை மற்றும் இடத்தைப் பயன்படுத்தி இயந்திரங்களைத் தேடுங்கள்.">Search machinery using its category and location.</p>
+    </div>
 
-<div class="container">
+    <div class="top-actions">
+      <button class="btn primary" onclick="openAddMachineModal()">➕ <span data-en="Add Your Machinery" data-ta="உங்கள் இயந்திரத்தைச் சேர்க்கவும்">Add Your Machinery</span></button>
+      <button class="btn secondary" onclick="showMyListings()">📋 <span data-en="My Listings" data-ta="எனது பதிவுகள்">My Listings</span></button>
+    </div>
 
+    <div id="locationStatus" class="status">Loading Tamil Nadu location data...</div>
 
-<div class="section-title">
+    <div class="controls">
+      <input id="searchInput" type="search" placeholder="🔍 Search machinery..." oninput="renderMachines()">
 
-<h2
-data-en="🚜 Available Machinery"
-data-ta="🚜 கிடைக்கும் விவசாய இயந்திரங்கள்">
+      <select id="categoryFilter" onchange="renderMachines()">
+        <option value="all" data-en="All Categories" data-ta="அனைத்து வகைகள்">All Categories</option>
+        <option value="tractor" data-en="Tractor" data-ta="டிராக்டர்">Tractor</option>
+        <option value="harvester" data-en="Harvester" data-ta="அறுவடை இயந்திரம்">Harvester</option>
+        <option value="tiller" data-en="Power Tiller" data-ta="பவர் டில்லர்">Power Tiller</option>
+        <option value="sprayer" data-en="Sprayer" data-ta="தெளிப்பான்">Sprayer</option>
+        <option value="plough" data-en="Plough" data-ta="கலப்பை">Plough</option>
+        <option value="other" data-en="Other" data-ta="மற்றவை">Other</option>
+      </select>
 
-🚜 Available Machinery
+      <select id="districtFilter" onchange="onFilterDistrictChange()">
+        <option value="">All Districts</option>
+      </select>
 
-</h2>
+      <select id="talukFilter" onchange="onFilterTalukChange()" disabled>
+        <option value="">All Taluks</option>
+      </select>
 
-<p
-data-en="Search and compare agricultural machines available for rent."
-data-ta="வாடகைக்கு கிடைக்கும் விவசாய இயந்திரங்களை தேடி ஒப்பிடுங்கள்.">
+      <select id="villageFilter" onchange="renderMachines()" disabled>
+        <option value="">All Villages</option>
+      </select>
 
-Search and compare agricultural machines available for rent.
+      <button class="btn secondary" onclick="resetFilters()">↻ <span data-en="Reset" data-ta="மீட்டமை">Reset</span></button>
+    </div>
 
-</p>
-
-</div>
-
-
-
-<!-- CONTROLS -->
-
-<div class="controls">
-
-<input
-id="searchInput"
-type="text"
-placeholder="🔍 Search machinery..."
-onkeyup="filterMachines()">
-
-
-<select
-id="categoryFilter"
-onchange="filterMachines()">
-
-<option value="all">
-All Categories
-</option>
-
-<option value="tractor">
-Tractor
-</option>
-
-<option value="harvester">
-Harvester
-</option>
-
-<option value="tiller">
-Power Tiller
-</option>
-
-<option value="sprayer">
-Sprayer
-</option>
-
-<option value="plough">
-Plough
-</option>
-
-</select>
-
-
-<select
-id="locationFilter"
-onchange="filterMachines()">
-
-<option value="all">
-All Locations
-</option>
-
-<option value="Chennai">
-Chennai
-</option>
-
-<option value="Coimbatore">
-Coimbatore
-</option>
-
-<option value="Madurai">
-Madurai
-</option>
-
-<option value="Thanjavur">
-Thanjavur
-</option>
-
-<option value="Erode">
-Erode
-</option>
-
-</select>
-
-
-<button
-class="btn secondary"
-onclick="resetFilters()">
-
-↻
-<span
-data-en="Reset"
-data-ta="மீட்டமை">
-
-Reset
-
-</span>
-
-</button>
-
-</div>
-
-
-
-<!-- MACHINERY GRID -->
-
-<div
-id="machineryGrid"
-class="machinery-grid">
-</div>
-
-
-</div>
-
+    <div id="machineryGrid" class="machinery-grid"></div>
+  </div>
 </section>
 
-
-
-<!-- =======================================================
-     WHY RENT
-======================================================= -->
+<section id="myListingsSection" class="section" style="display:none">
+  <div class="container">
+    <div class="listing-tools">
+      <div class="section-title" style="margin:0">
+        <h2 data-en="📋 My Machinery Listings" data-ta="📋 எனது இயந்திரப் பதிவுகள்">📋 My Machinery Listings</h2>
+        <p data-en="Listings saved in this browser." data-ta="இந்த browser-ல் சேமிக்கப்பட்ட பதிவுகள்.">Listings saved in this browser.</p>
+      </div>
+      <button class="btn secondary" onclick="hideMyListings()" data-en="Close" data-ta="மூடு">Close</button>
+    </div>
+    <div id="myListingsGrid" class="machinery-grid"></div>
+  </div>
+</section>
 
 <section class="section info-section">
-
-<div class="container">
-
-
-<div class="section-title">
-
-<h2
-data-en="💡 Why Rent Machinery?"
-data-ta="💡 ஏன் இயந்திரங்களை வாடகைக்கு எடுக்க வேண்டும்?">
-
-💡 Why Rent Machinery?
-
-</h2>
-
-<p
-data-en="Save money and get the right equipment when you need it."
-data-ta="பணம் சேமித்து தேவையான நேரத்தில் சரியான இயந்திரத்தை பயன்படுத்துங்கள்.">
-
-Save money and get the right equipment when you need it.
-
-</p>
-
-</div>
-
-
-
-<div class="info-grid">
-
-
-<div class="info-card">
-
-<div class="info-icon">
-💰
-</div>
-
-<h3
-data-en="Save Money"
-data-ta="பணம் சேமிக்கலாம்">
-
-Save Money
-
-</h3>
-
-<p
-data-en="Rent machinery instead of spending a large amount to purchase equipment."
-data-ta="இயந்திரங்களை வாங்குவதற்குப் பதிலாக வாடகைக்கு எடுத்து அதிக செலவை தவிர்க்கலாம்.">
-
-Rent machinery instead of spending a large amount
-to purchase equipment.
-
-</p>
-
-</div>
-
-
-
-<div class="info-card">
-
-<div class="info-icon">
-⚙️
-</div>
-
-<h3
-data-en="Right Equipment"
-data-ta="சரியான இயந்திரம்">
-
-Right Equipment
-
-</h3>
-
-<p
-data-en="Choose machinery according to your crop, field size and farming work."
-data-ta="உங்கள் பயிர், நிலத்தின் அளவு மற்றும் விவசாய பணிக்கு ஏற்ப சரியான இயந்திரத்தை தேர்வு செய்யலாம்.">
-
-Choose machinery according to your crop,
-field size and farming work.
-
-</p>
-
-</div>
-
-
-
-<div class="info-card">
-
-<div class="info-icon">
-📍
-</div>
-
-<h3
-data-en="Nearby Owners"
-data-ta="அருகிலுள்ள உரிமையாளர்கள்">
-
-Nearby Owners
-
-</h3>
-
-<p
-data-en="Find machinery owners near your location and contact them easily."
-data-ta="உங்கள் இருப்பிடத்திற்கு அருகிலுள்ள இயந்திர உரிமையாளர்களை எளிதாக கண்டுபிடிக்கலாம்.">
-
-Find machinery owners near your location
-and contact them easily.
-
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
+  <div class="container">
+    <div class="section-title">
+      <h2 data-en="💡 Why Rent Machinery?" data-ta="💡 ஏன் இயந்திரங்களை வாடகைக்கு எடுக்க வேண்டும்?">💡 Why Rent Machinery?</h2>
+      <p data-en="Save money and choose the right equipment for your field." data-ta="பணம் சேமித்து உங்கள் நிலத்திற்கு ஏற்ற இயந்திரத்தைத் தேர்வு செய்யுங்கள்.">Save money and choose the right equipment for your field.</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-card"><div class="info-icon">💰</div><h3 data-en="Save Money" data-ta="பணம் சேமிக்கலாம்">Save Money</h3><p data-en="Rent equipment instead of purchasing expensive machinery." data-ta="விலை உயர்ந்த இயந்திரங்களை வாங்குவதற்குப் பதிலாக வாடகைக்கு எடுக்கலாம்.">Rent equipment instead of purchasing expensive machinery.</p></div>
+      <div class="info-card"><div class="info-icon">⚙️</div><h3 data-en="Right Equipment" data-ta="சரியான இயந்திரம்">Right Equipment</h3><p data-en="Choose machinery based on your crop, land size and work." data-ta="பயிர், நிலத்தின் அளவு மற்றும் விவசாய வேலைக்கு ஏற்ப இயந்திரத்தைத் தேர்வு செய்யுங்கள்.">Choose machinery based on your crop, land size and work.</p></div>
+      <div class="info-card"><div class="info-icon">📍</div><h3 data-en="Local Areas" data-ta="உள்ளூர் பகுதிகள்">Local Areas</h3><p data-en="Select your district, taluk and village." data-ta="மாவட்டம், வட்டம், கிராமத்தைத் தேர்வு செய்யுங்கள்.">Select your district, taluk and village.</p></div>
+    </div>
+  </div>
 </section>
 
-
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
 <footer>
-
-<div class="footer-grid">
-
-
-<div>
-
-<h3>
-🌱 AgriConnect
-</h3>
-
-<p
-data-en="Smart farming technology for modern farmers and agricultural communities."
-data-ta="நவீன விவசாயிகள் மற்றும் விவசாய சமூகங்களுக்கான ஸ்மார்ட் விவசாய தொழில்நுட்பம்.">
-
-Smart farming technology for modern farmers
-and agricultural communities.
-
-</p>
-
-</div>
-
-
-
-<div>
-
-<h3
-data-en="Machinery"
-data-ta="இயந்திரங்கள்">
-
-Machinery
-
-</h3>
-
-<ul>
-
-<li>🚜 Tractors</li>
-
-<li>🌾 Harvesters</li>
-
-<li>⚙️ Tillers</li>
-
-<li>💦 Sprayers</li>
-
-</ul>
-
-</div>
-
-
-
-<div>
-
-<h3
-data-en="Services"
-data-ta="சேவைகள்">
-
-Services
-
-</h3>
-
-<ul>
-
-<li>🌱 Fertilizer</li>
-
-<li>🌦️ Weather</li>
-
-<li>📈 Crop Prices</li>
-
-<li>📦 Orders</li>
-
-</ul>
-
-</div>
-
-
-</div>
-
-
-<div class="copyright">
-
-© 2026 AgriConnect — All Rights Reserved.
-
-</div>
-
+  <div class="footer-grid">
+    <div><h3>🌱 AgriConnect</h3><p data-en="Digital services for farmers and agricultural communities." data-ta="விவசாயிகள் மற்றும் விவசாய சமூகங்களுக்கான டிஜிட்டல் சேவைகள்.">Digital services for farmers and agricultural communities.</p></div>
+    <div><h3 data-en="Machinery" data-ta="இயந்திரங்கள்">Machinery</h3><ul><li>🚜 Tractors</li><li>🌾 Harvesters</li><li>⚙️ Tillers</li><li>💦 Sprayers</li></ul></div>
+    <div><h3 data-en="Services" data-ta="சேவைகள்">Services</h3><ul><li>🌱 Fertilizer</li><li>🌦️ Weather</li><li>📈 Crop Prices</li><li>📦 Orders</li></ul></div>
+  </div>
+  <div class="copyright">© 2026 AgriConnect — All Rights Reserved.</div>
 </footer>
 
+<!-- ADD MACHINERY MODAL -->
+<div id="addMachineModal" class="modal" onclick="closeModalOutside(event,'addMachineModal')">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('addMachineModal')">×</button>
+    <h2 data-en="➕ Add Your Machinery" data-ta="➕ உங்கள் இயந்திரத்தைச் சேர்க்கவும்">➕ Add Your Machinery</h2>
 
+    <form id="addMachineForm">
+      <div class="form-group">
+        <label data-en="Owner Name" data-ta="உரிமையாளர் பெயர்">Owner Name</label>
+        <input id="ownerName" required maxlength="80" autocomplete="name" placeholder="Enter owner name">
+      </div>
 
-<!-- =======================================================
-     BOOKING MODAL
-======================================================= -->
+      <div class="form-group">
+        <label data-en="Mobile Number" data-ta="மொபைல் எண்">Mobile Number</label>
+        <input id="ownerPhone" type="tel" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number">
+      </div>
 
-<div
-id="bookingModal"
-class="modal"
-onclick="closeOutside(event)">
+      <div class="form-group">
+        <label data-en="Machinery Name" data-ta="இயந்திரத்தின் பெயர்">Machinery Name</label>
+        <input id="newMachineName" required maxlength="100" placeholder="Example: Tractor">
+      </div>
 
+      <div class="form-group">
+        <label data-en="Category" data-ta="இயந்திர வகை">Category</label>
+        <select id="newMachineCategory" required>
+          <option value="">Select category</option>
+          <option value="tractor">Tractor / டிராக்டர்</option>
+          <option value="harvester">Harvester / அறுவடை இயந்திரம்</option>
+          <option value="tiller">Power Tiller / பவர் டில்லர்</option>
+          <option value="sprayer">Sprayer / தெளிப்பான்</option>
+          <option value="plough">Plough / கலப்பை</option>
+          <option value="other">Other / மற்றவை</option>
+        </select>
+      </div>
 
-<div class="modal-box">
+      <div class="form-group">
+        <label data-en="District" data-ta="மாவட்டம்">District</label>
+        <select id="addDistrict" required><option value="">Select District</option></select>
+      </div>
 
+      <div class="form-group">
+        <label data-en="Taluk" data-ta="வட்டம்">Taluk</label>
+        <select id="addTaluk" required disabled><option value="">Select Taluk</option></select>
+      </div>
 
-<button
-class="close"
-onclick="closeModal()">
+      <div class="form-group">
+        <label data-en="Village" data-ta="கிராமம்">Village</label>
+        <select id="addVillage" required disabled><option value="">Select Village</option></select>
+      </div>
 
-×
+      <div class="form-group">
+        <label data-en="Rent Per Day (₹)" data-ta="ஒரு நாள் வாடகை (₹)">Rent Per Day (₹)</label>
+        <input id="newMachinePrice" type="number" required min="1" max="1000000" step="1" placeholder="Example: 1500">
+      </div>
 
-</button>
+      <div class="form-group">
+        <label data-en="Machine Description" data-ta="இயந்திர விவரம்">Machine Description</label>
+        <textarea id="newMachineDescription" required maxlength="300" placeholder="Condition, model, usage details..."></textarea>
+      </div>
 
+      <div class="form-group">
+        <label data-en="Machine Photo (Optional)" data-ta="இயந்திரப் புகைப்படம் (விருப்பத்தேர்வு)">Machine Photo (Optional)</label>
+        <input id="newMachinePhoto" type="file" accept="image/jpeg,image/png,image/webp">
+        <p class="help" data-en="Optional image, maximum 1 MB. Saved in this browser." data-ta="விருப்பப் புகைப்படம்; அதிகபட்சம் 1 MB. இந்த browser-ல் சேமிக்கப்படும்.">Optional image, maximum 1 MB. Saved in this browser.</p>
+      </div>
 
-<h2
-data-en="🚜 Rent Machinery"
-data-ta="🚜 இயந்திரத்தை வாடகைக்கு எடுக்கவும்">
-
-🚜 Rent Machinery
-
-</h2>
-
-
-<br>
-
-
-
-<div class="booking-summary">
-
-<div
-id="selectedMachine"
-class="summary-machine">
+      <button type="submit" class="btn primary" style="width:100%" data-en="➕ Publish Machinery" data-ta="➕ இயந்திரத்தைப் பதிவு செய்யவும்">➕ Publish Machinery</button>
+      <p id="addMachineMessage" class="help"></p>
+    </form>
+  </div>
 </div>
 
-<div
-id="selectedOwner">
+<!-- RENTAL BOOKING MODAL -->
+<div id="bookingModal" class="modal" onclick="closeModalOutside(event,'bookingModal')">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('bookingModal')">×</button>
+    <h2 data-en="🚜 Rent Machinery" data-ta="🚜 இயந்திரத்தை வாடகைக்கு எடுக்கவும்">🚜 Rent Machinery</h2>
+
+    <div class="booking-summary">
+      <div id="selectedMachine" class="summary-machine"></div>
+      <div id="selectedOwner"></div>
+      <div id="selectedRate"></div>
+      <div id="totalPrice" class="total"></div>
+    </div>
+
+    <div class="form-group">
+      <label data-en="Number of Days" data-ta="எத்தனை நாட்கள்">Number of Days</label>
+      <input id="days" type="number" min="1" max="365" step="1" value="1" oninput="calculateTotal()">
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label data-en="District" data-ta="மாவட்டம்">District</label>
+        <select id="bookingDistrict" required><option value="">Select District</option></select>
+      </div>
+      <div class="form-group">
+        <label data-en="Taluk" data-ta="வட்டம்">Taluk</label>
+        <select id="bookingTaluk" required disabled><option value="">Select Taluk</option></select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label data-en="Village" data-ta="கிராமம்">Village</label>
+      <select id="bookingVillage" required disabled><option value="">Select Village</option></select>
+    </div>
+
+    <div class="form-group">
+      <label data-en="Street / Farm Address" data-ta="தெரு / விவசாய நில முகவரி">Street / Farm Address</label>
+      <input id="streetAddress" required maxlength="200" placeholder="Enter farm address">
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label data-en="Start Date" data-ta="தொடக்க தேதி">Start Date</label>
+        <input id="startDate" type="date" required>
+      </div>
+      <div class="form-group">
+        <label data-en="Payment Method" data-ta="பணம் செலுத்தும் முறை">Payment Method</label>
+        <select id="paymentMethod">
+          <option value="cod">Cash on Delivery</option>
+          <option value="upi">UPI</option>
+          <option value="bank">Bank Transfer</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn primary" style="width:100%" onclick="bookMachine()" data-en="🚜 Confirm Rental" data-ta="🚜 வாடகையை உறுதி செய்யுங்கள்">🚜 Confirm Rental</button>
+  </div>
 </div>
-
-<div
-id="selectedRate">
-</div>
-
-<div
-id="totalPrice"
-class="total">
-</div>
-
-</div>
-
-
-
-<div class="form-group">
-
-<label
-data-en="Number of Days"
-data-ta="எத்தனை நாட்கள்">
-
-Number of Days
-
-</label>
-
-<input
-id="days"
-type="number"
-min="1"
-value="1"
-oninput="calculateTotal()">
-
-</div>
-
-
-
-<div class="form-group">
-
-<label
-data-en="Delivery / Farm Location"
-data-ta="விநியோக / விவசாய நில இடம்">
-
-Delivery / Farm Location
-
-</label>
-
-<input
-id="deliveryLocation"
-type="text"
-placeholder="Enter your farm location">
-
-</div>
-
-
-
-<div class="form-group">
-
-<label
-data-en="Start Date"
-data-ta="தொடக்க தேதி">
-
-Start Date
-
-</label>
-
-<input
-id="startDate"
-type="date">
-
-</div>
-
-
-
-<div class="form-group">
-
-<label
-data-en="Payment Method"
-data-ta="பணம் செலுத்தும் முறை">
-
-Payment Method
-
-</label>
-
-<select id="paymentMethod">
-
-<option value="cod">
-Cash on Delivery
-</option>
-
-<option value="upi">
-UPI
-</option>
-
-<option value="bank">
-Bank Transfer
-</option>
-
-</select>
-
-</div>
-
-
-
-<button
-class="btn primary"
-style="width:100%;"
-onclick="bookMachine()">
-
-🚜
-
-<span
-data-en="Confirm Rental"
-data-ta="வாடகையை உறுதி செய்யுங்கள்">
-
-Confirm Rental
-
-</span>
-
-</button>
-
-
-</div>
-
-</div>
-
-
 
 <script>
+/* ---------------- LOCATION DATA ---------------- */
 
-/* =========================================================
-   MACHINERY DATA
-========================================================= */
-
-const machines = [
-
-{
-    id:1,
-    name:"John Deere Tractor",
-    tamil:"ஜான் டியர் டிராக்டர்",
-    icon:"🚜",
-    category:"tractor",
-    location:"Coimbatore",
-    price:1800,
-    owner:"Karthik Farms",
-    rating:"4.9",
-    description:
-        "Powerful tractor suitable for ploughing and field preparation.",
-    tamilDescription:
-        "உழவு மற்றும் நிலத் தயாரிப்பு பணிகளுக்கு ஏற்ற சக்திவாய்ந்த டிராக்டர்."
-},
-
-{
-    id:2,
-    name:"Mahindra Tractor",
-    tamil:"மஹிந்திரா டிராக்டர்",
-    icon:"🚜",
-    category:"tractor",
-    location:"Thanjavur",
-    price:1600,
-    owner:"Suresh Machinery",
-    rating:"4.8",
-    description:
-        "Reliable tractor for farming, transport and field operations.",
-    tamilDescription:
-        "விவசாயம், போக்குவரத்து மற்றும் நிலப்பணி பயன்பாடுகளுக்கு ஏற்ற டிராக்டர்."
-},
-
-{
-    id:3,
-    name:"Paddy Harvester",
-    tamil:"நெல் அறுவடை இயந்திரம்",
-    icon:"🌾",
-    category:"harvester",
-    location:"Thanjavur",
-    price:3500,
-    owner:"Raja Agro Machines",
-    rating:"4.9",
-    description:
-        "Efficient harvester designed for fast paddy harvesting.",
-    tamilDescription:
-        "விரைவான நெல் அறுவடைக்காக வடிவமைக்கப்பட்ட திறமையான இயந்திரம்."
-},
-
-{
-    id:4,
-    name:"Power Tiller",
-    tamil:"பவர் டில்லர்",
-    icon:"⚙️",
-    category:"tiller",
-    location:"Madurai",
-    price:1100,
-    owner:"Murugan Machinery",
-    rating:"4.7",
-    description:
-        "Compact power tiller suitable for small and medium farms.",
-    tamilDescription:
-        "சிறிய மற்றும் நடுத்தர விவசாய நிலங்களுக்கு ஏற்ற பவர் டில்லர்."
-},
-
-{
-    id:5,
-    name:"Crop Sprayer",
-    tamil:"பயிர் தெளிப்பான்",
-    icon:"💦",
-    category:"sprayer",
-    location:"Erode",
-    price:750,
-    owner:"Green Agro Rentals",
-    rating:"4.8",
-    description:
-        "Sprayer machine for efficient crop protection and spraying.",
-    tamilDescription:
-        "பயிர் பாதுகாப்பு மற்றும் தெளிப்பு பணிகளுக்கு ஏற்ற இயந்திரம்."
-},
-
-{
-    id:6,
-    name:"Rotary Plough",
-    tamil:"ரோட்டரி கலப்பை",
-    icon:"🔧",
-    category:"plough",
-    location:"Chennai",
-    price:1300,
-    owner:"Tamil Nadu Farm Tools",
-    rating:"4.6",
-    description:
-        "Heavy-duty rotary plough for soil preparation.",
-    tamilDescription:
-        "மண் தயாரிப்பு பணிகளுக்கான வலுவான ரோட்டரி கலப்பை."
-},
-
-{
-    id:7,
-    name:"Mini Tractor",
-    tamil:"மினி டிராக்டர்",
-    icon:"🚜",
-    category:"tractor",
-    location:"Madurai",
-    price:1400,
-    owner:"South Farm Equipment",
-    rating:"4.7",
-    description:
-        "Small tractor suitable for vegetable and fruit farms.",
-    tamilDescription:
-        "காய்கறி மற்றும் பழத்தோட்டங்களுக்கு ஏற்ற சிறிய டிராக்டர்."
-},
-
-{
-    id:8,
-    name:"Combine Harvester",
-    tamil:"கம்பைன் அறுவடை இயந்திரம்",
-    icon:"🌾",
-    category:"harvester",
-    location:"Coimbatore",
-    price:4200,
-    owner:"Kovai Agri Machines",
-    rating:"4.9",
-    description:
-        "High-performance combine harvester for large farming operations.",
-    tamilDescription:
-        "பெரிய விவசாய நிலங்களுக்கான உயர் செயல்திறன் கொண்ட கம்பைன் அறுவடை இயந்திரம்."
-}
-
-];
-
-
-/* =========================================================
-   LANGUAGE
-========================================================= */
-
-let currentLanguage =
-    localStorage.getItem("agriLanguage") || "en";
-
+let currentLanguage = localStorage.getItem("agriLanguage") || "en";
+let locationData = null;
 let selectedMachine = null;
 
+const machines = [
+  {id:1,name:"John Deere Tractor",tamil:"ஜான் டியர் டிராக்டர்",icon:"🚜",category:"tractor",district:"Coimbatore",taluk:"",village:"",price:1800,owner:"Karthik Farms",rating:"4.9",description:"Powerful tractor suitable for ploughing and field preparation.",tamilDescription:"உழவு மற்றும் நிலத் தயாரிப்பு பணிகளுக்கு ஏற்ற சக்திவாய்ந்த டிராக்டர்."},
+  {id:2,name:"Mahindra Tractor",tamil:"மஹிந்திரா டிராக்டர்",icon:"🚜",category:"tractor",district:"Thanjavur",taluk:"",village:"",price:1600,owner:"Suresh Machinery",rating:"4.8",description:"Reliable tractor for farming and field operations.",tamilDescription:"விவசாயம் மற்றும் நிலப்பணிகளுக்கு ஏற்ற டிராக்டர்."},
+  {id:3,name:"Paddy Harvester",tamil:"நெல் அறுவடை இயந்திரம்",icon:"🌾",category:"harvester",district:"Thanjavur",taluk:"",village:"",price:3500,owner:"Raja Agro Machines",rating:"4.9",description:"Efficient machine designed for paddy harvesting.",tamilDescription:"நெல் அறுவடைக்காக வடிவமைக்கப்பட்ட இயந்திரம்."},
+  {id:4,name:"Power Tiller",tamil:"பவர் டில்லர்",icon:"⚙️",category:"tiller",district:"Madurai",taluk:"",village:"",price:1100,owner:"Murugan Machinery",rating:"4.7",description:"Compact tiller suitable for small and medium farms.",tamilDescription:"சிறிய மற்றும் நடுத்தர விவசாய நிலங்களுக்கு ஏற்ற பவர் டில்லர்."},
+  {id:5,name:"Crop Sprayer",tamil:"பயிர் தெளிப்பான்",icon:"💦",category:"sprayer",district:"Erode",taluk:"",village:"",price:750,owner:"Green Agro Rentals",rating:"4.8",description:"Sprayer for crop protection and spraying.",tamilDescription:"பயிர் பாதுகாப்பு மற்றும் தெளிப்புப் பணிகளுக்கான இயந்திரம்."},
+  {id:6,name:"Rotary Plough",tamil:"ரோட்டரி கலப்பை",icon:"🔧",category:"plough",district:"Chennai",taluk:"",village:"",price:1300,owner:"Tamil Nadu Farm Tools",rating:"4.6",description:"Heavy-duty rotary plough for soil preparation.",tamilDescription:"மண் தயாரிப்பிற்கான வலுவான ரோட்டரி கலப்பை."},
+  {id:7,name:"Mini Tractor",tamil:"மினி டிராக்டர்",icon:"🚜",category:"tractor",district:"Madurai",taluk:"",village:"",price:1400,owner:"South Farm Equipment",rating:"4.7",description:"Small tractor suitable for vegetable and fruit farms.",tamilDescription:"காய்கறி மற்றும் பழத்தோட்டங்களுக்கு ஏற்ற சிறிய டிராக்டர்."},
+  {id:8,name:"Combine Harvester",tamil:"கம்பைன் அறுவடை இயந்திரம்",icon:"🌾",category:"harvester",district:"Coimbatore",taluk:"",village:"",price:4200,owner:"Kovai Agri Machines",rating:"4.9",description:"High-performance combine harvester for large farms.",tamilDescription:"பெரிய விவசாய நிலங்களுக்கான உயர் செயல்திறன் கொண்ட கம்பைன் அறுவடை இயந்திரம்."}
+];
+
+function getMyListings(){
+  try{
+    const value = JSON.parse(localStorage.getItem("agriMachineryListings") || "[]");
+    return Array.isArray(value) ? value : [];
+  }catch(error){
+    return [];
+  }
+}
+
+function saveMyListings(list){
+  try{
+    localStorage.setItem("agriMachineryListings",JSON.stringify(list));
+    return true;
+  }catch(error){
+    alert(currentLanguage === "ta"
+      ? "Browser சேமிப்பிடம் நிரம்பியுள்ளது. புகைப்படத்தின் அளவைக் குறைத்து முயற்சிக்கவும்."
+      : "Browser storage is full. Try removing the photo or using a smaller image.");
+    return false;
+  }
+}
+
+function getAllMachines(){
+  return [...machines,...getMyListings()];
+}
+
+/* ---------------- LANGUAGE ---------------- */
 
 function changeLanguage(language){
+  currentLanguage = language;
+  localStorage.setItem("agriLanguage",language);
+  document.documentElement.lang = language === "ta" ? "ta" : "en";
 
-    currentLanguage = language;
+  document.querySelectorAll("[data-en][data-ta]").forEach(element=>{
+    const value = language === "ta"
+      ? element.getAttribute("data-ta")
+      : element.getAttribute("data-en");
+    if(value !== null) element.textContent = value;
+  });
 
-    localStorage.setItem(
-        "agriLanguage",
-        language
-    );
+  document.getElementById("enBtn").classList.toggle("active",language === "en");
+  document.getElementById("taBtn").classList.toggle("active",language === "ta");
 
+  updateAllLocationSelects();
+  updatePlaceholders();
+  renderMachines();
 
-    document
-    .querySelectorAll("[data-en]")
-    .forEach(function(element){
-
-        element.textContent =
-            language === "en"
-            ? element.getAttribute("data-en")
-            : element.getAttribute("data-ta");
-
-    });
-
-
-    document
-    .getElementById("enBtn")
-    .classList
-    .toggle(
-        "active",
-        language === "en"
-    );
-
-
-    document
-    .getElementById("taBtn")
-    .classList
-    .toggle(
-        "active",
-        language === "ta"
-    );
-
-
-    renderMachines();
-
+  if(document.getElementById("myListingsSection").style.display !== "none"){
+    renderMyListings();
+  }
 }
 
+function updatePlaceholders(){
+  document.getElementById("searchInput").placeholder =
+    currentLanguage === "ta" ? "🔍 இயந்திரத்தைத் தேடுங்கள்..." : "🔍 Search machinery...";
+  document.getElementById("ownerName").placeholder =
+    currentLanguage === "ta" ? "உரிமையாளர் பெயர்" : "Enter owner name";
+  document.getElementById("ownerPhone").placeholder =
+    currentLanguage === "ta" ? "10 இலக்க மொபைல் எண்" : "10-digit mobile number";
+  document.getElementById("newMachineName").placeholder =
+    currentLanguage === "ta" ? "இயந்திரத்தின் பெயர்" : "Example: Tractor";
+  document.getElementById("newMachineDescription").placeholder =
+    currentLanguage === "ta" ? "இயந்திரத்தின் நிலை மற்றும் விவரங்கள்" : "Condition, model, usage details...";
+  document.getElementById("streetAddress").placeholder =
+    currentLanguage === "ta" ? "விவசாய நில முகவரியை உள்ளிடவும்" : "Enter farm address";
+}
 
-/* =========================================================
-   RENDER MACHINES
-========================================================= */
+/* ---------------- LOCATION HELPERS ---------------- */
+
+function getEnglishLocations(){
+  if(!locationData) return {};
+  if(locationData.english && typeof locationData.english === "object"){
+    return locationData.english;
+  }
+  return {};
+}
+
+function getDistrictTamil(district){
+  const map = locationData?.tamil?.[district];
+  if(!map) return district;
+  for(const taluk of Object.keys(map)){
+    for(const village of Object.keys(map[taluk] || {})){
+      const row = map[taluk][village];
+      if(row?.district) return row.district;
+    }
+  }
+  return district;
+}
+
+function getTalukTamil(district,taluk){
+  const villages = getEnglishLocations()[district]?.[taluk] || [];
+  for(const village of villages){
+    const row = locationData?.tamil?.[district]?.[taluk]?.[village];
+    if(row?.taluk) return row.taluk;
+  }
+  return taluk;
+}
+
+function getVillageTamil(district,taluk,village){
+  return locationData?.tamil?.[district]?.[taluk]?.[village]?.village || village;
+}
+
+function districtLabel(value){
+  return currentLanguage === "ta" ? getDistrictTamil(value) : value;
+}
+function talukLabel(district,value){
+  return currentLanguage === "ta" ? getTalukTamil(district,value) : value;
+}
+function villageLabel(district,taluk,value){
+  return currentLanguage === "ta" ? getVillageTamil(district,taluk,value) : value;
+}
+
+function placeholderOption(text){
+  const option = document.createElement("option");
+  option.value = "";
+  option.textContent = text;
+  return option;
+}
+
+function fillDistrictSelect(selectId,firstText,selectedValue=""){
+  const select = document.getElementById(selectId);
+  if(!select) return;
+
+  select.innerHTML = "";
+  select.appendChild(placeholderOption(firstText));
+
+  const districts = Object.keys(getEnglishLocations()).sort((a,b)=>a.localeCompare(b));
+  districts.forEach(district=>{
+    const option = document.createElement("option");
+    option.value = district;
+    option.textContent = districtLabel(district);
+    select.appendChild(option);
+  });
+
+  if(districts.includes(selectedValue)) select.value = selectedValue;
+}
+
+function fillTalukSelect(district,selectId,firstText,selectedValue=""){
+  const select = document.getElementById(selectId);
+  if(!select) return;
+
+  select.innerHTML = "";
+  select.appendChild(placeholderOption(firstText));
+
+  const taluks = Object.keys(getEnglishLocations()[district] || {}).sort((a,b)=>a.localeCompare(b));
+  taluks.forEach(taluk=>{
+    const option = document.createElement("option");
+    option.value = taluk;
+    option.textContent = talukLabel(district,taluk);
+    select.appendChild(option);
+  });
+
+  select.disabled = !district;
+  if(taluks.includes(selectedValue)) select.value = selectedValue;
+}
+
+function fillVillageSelect(district,taluk,selectId,firstText,selectedValue=""){
+  const select = document.getElementById(selectId);
+  if(!select) return;
+
+  select.innerHTML = "";
+  select.appendChild(placeholderOption(firstText));
+
+  const villages = getEnglishLocations()[district]?.[taluk] || [];
+  villages.forEach(village=>{
+    const option = document.createElement("option");
+    option.value = village;
+    option.textContent = villageLabel(district,taluk,village);
+    select.appendChild(option);
+  });
+
+  select.disabled = !district || !taluk;
+  if(villages.includes(selectedValue)) select.value = selectedValue;
+}
+
+function updateAllLocationSelects(){
+  const allDistrictText = currentLanguage === "ta" ? "அனைத்து மாவட்டங்கள்" : "All Districts";
+  const allTalukText = currentLanguage === "ta" ? "அனைத்து வட்டங்கள்" : "All Taluks";
+  const allVillageText = currentLanguage === "ta" ? "அனைத்து கிராமங்கள்" : "All Villages";
+
+  const filterDistrict = document.getElementById("districtFilter").value;
+  const filterTaluk = document.getElementById("talukFilter").value;
+  const filterVillage = document.getElementById("villageFilter").value;
+
+  fillDistrictSelect("districtFilter",allDistrictText,filterDistrict);
+  fillTalukSelect(filterDistrict,"talukFilter",allTalukText,filterTaluk);
+  fillVillageSelect(filterDistrict,filterTaluk,"villageFilter",allVillageText,filterVillage);
+
+  const addDistrict = document.getElementById("addDistrict").value;
+  const addTaluk = document.getElementById("addTaluk").value;
+  const addVillage = document.getElementById("addVillage").value;
+
+  fillDistrictSelect("addDistrict",currentLanguage === "ta" ? "மாவட்டத்தைத் தேர்வு செய்க" : "Select District",addDistrict);
+  fillTalukSelect(addDistrict,"addTaluk",currentLanguage === "ta" ? "வட்டத்தைத் தேர்வு செய்க" : "Select Taluk",addTaluk);
+  fillVillageSelect(addDistrict,addTaluk,"addVillage",currentLanguage === "ta" ? "கிராமத்தைத் தேர்வு செய்க" : "Select Village",addVillage);
+
+  const bookingDistrict = document.getElementById("bookingDistrict").value;
+  const bookingTaluk = document.getElementById("bookingTaluk").value;
+  const bookingVillage = document.getElementById("bookingVillage").value;
+
+  fillDistrictSelect("bookingDistrict",currentLanguage === "ta" ? "மாவட்டத்தைத் தேர்வு செய்க" : "Select District",bookingDistrict);
+  fillTalukSelect(bookingDistrict,"bookingTaluk",currentLanguage === "ta" ? "வட்டத்தைத் தேர்வு செய்க" : "Select Taluk",bookingTaluk);
+  fillVillageSelect(bookingDistrict,bookingTaluk,"bookingVillage",currentLanguage === "ta" ? "கிராமத்தைத் தேர்வு செய்க" : "Select Village",bookingVillage);
+}
+
+async function loadLocationData(){
+  const status = document.getElementById("locationStatus");
+  try{
+    const response = await fetch("/api/locations");
+    if(!response.ok) throw new Error("HTTP "+response.status);
+
+    const data = await response.json();
+    if(!data || !data.english || typeof data.english !== "object"){
+      throw new Error("Unexpected location data format");
+    }
+
+    locationData = data;
+    updateAllLocationSelects();
+
+    const count = Object.keys(getEnglishLocations()).length;
+    status.className = "status success";
+    status.textContent = currentLanguage === "ta"
+      ? `${count} மாவட்டங்களுக்கான இடத் தரவு server-லிருந்து ஏற்றப்பட்டது.`
+      : `Location data loaded from server (${count} districts).`;
+  }catch(error){
+    console.error("Could not load /api/locations:",error);
+    status.className = "status error";
+    status.textContent = currentLanguage === "ta"
+      ? "மாவட்டத் தரவை ஏற்ற முடியவில்லை. server.js இயங்குகிறதா, /api/locations route உள்ளதா எனச் சரிபார்க்கவும்."
+      : "Could not load locations. Make sure server.js is running and /api/locations exists.";
+  }
+}
+
+function onFilterDistrictChange(){
+  const district = document.getElementById("districtFilter").value;
+  fillTalukSelect(district,"talukFilter",currentLanguage === "ta" ? "அனைத்து வட்டங்கள்" : "All Taluks");
+  fillVillageSelect("","", "villageFilter",currentLanguage === "ta" ? "அனைத்து கிராமங்கள்" : "All Villages");
+  renderMachines();
+}
+
+function onFilterTalukChange(){
+  const district = document.getElementById("districtFilter").value;
+  const taluk = document.getElementById("talukFilter").value;
+  fillVillageSelect(district,taluk,"villageFilter",currentLanguage === "ta" ? "அனைத்து கிராமங்கள்" : "All Villages");
+  renderMachines();
+}
+
+/* ---------------- MACHINE LISTING ---------------- */
+
+function getCategoryLabel(category){
+  const en = {tractor:"Tractor",harvester:"Harvester",tiller:"Power Tiller",sprayer:"Sprayer",plough:"Plough",other:"Other"};
+  const ta = {tractor:"டிராக்டர்",harvester:"அறுவடை இயந்திரம்",tiller:"பவர் டில்லர்",sprayer:"தெளிப்பான்",plough:"கலப்பை",other:"மற்றவை"};
+  return (currentLanguage === "ta" ? ta : en)[category] || category;
+}
+
+function getMachineLocation(machine){
+  const parts = [];
+  if(machine.district) parts.push(districtLabel(machine.district));
+  if(machine.taluk) parts.push(talukLabel(machine.district,machine.taluk));
+  if(machine.village) parts.push(villageLabel(machine.district,machine.taluk,machine.village));
+  return parts.join(" • ");
+}
 
 function renderMachines(){
+  const grid = document.getElementById("machineryGrid");
+  const search = document.getElementById("searchInput").value.toLowerCase().trim();
+  const category = document.getElementById("categoryFilter").value;
+  const district = document.getElementById("districtFilter").value;
+  const taluk = document.getElementById("talukFilter").value;
+  const village = document.getElementById("villageFilter").value;
 
-    const search =
-        document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
+  const filtered = getAllMachines().filter(machine=>{
+    const searchText = [
+      machine.name,machine.tamil,machine.owner,machine.description,
+      machine.district,machine.taluk,machine.village,
+      getMachineLocation(machine)
+    ].filter(Boolean).join(" ").toLowerCase();
 
+    const searchMatch = !search || searchText.includes(search);
+    const categoryMatch = category === "all" || machine.category === category;
+    const districtMatch = !district || machine.district === district;
+    const talukMatch = !taluk || machine.taluk === taluk;
+    const villageMatch = !village || machine.village === village;
 
-    const category =
-        document
-        .getElementById("categoryFilter")
-        .value;
+    return searchMatch && categoryMatch && districtMatch && talukMatch && villageMatch;
+  });
 
+  grid.innerHTML = "";
+  if(!filtered.length){
+    grid.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div>${
+      currentLanguage === "ta"
+      ? "இந்தத் தேர்வுகளுக்கு ஏற்ற இயந்திரங்கள் இல்லை."
+      : "No machinery matches your selected filters."
+    }</div>`;
+    return;
+  }
 
-    const location =
-        document
-        .getElementById("locationFilter")
-        .value;
+  filtered.forEach(machine=>{
+    const userListing = getMyListings().some(item=>String(item.id)===String(machine.id));
+    const name = currentLanguage === "ta" ? (machine.tamil || machine.name) : machine.name;
+    const description = currentLanguage === "ta" ? (machine.tamilDescription || machine.description) : machine.description;
+    const location = getMachineLocation(machine) || machine.location || "—";
 
+    const card = document.createElement("article");
+    card.className = "machine-card";
 
-    const filtered =
-        machines.filter(function(machine){
+    const imageMarkup = machine.photo
+      ? `<img src="${machine.photo}" alt="Machinery photo">`
+      : machine.icon || "🚜";
 
-            const searchMatch =
+    const type = document.createElement("span");
+    type.className = "machine-type";
+    type.textContent = getCategoryLabel(machine.category);
 
-                machine.name
-                .toLowerCase()
-                .includes(search)
+    const image = document.createElement("div");
+    image.className = "machine-image";
+    if(machine.photo){
+      const img = document.createElement("img");
+      img.src = machine.photo;
+      img.alt = name;
+      image.appendChild(img);
+    }else{
+      image.textContent = machine.icon || "🚜";
+    }
+    image.appendChild(type);
 
-                ||
+    const content = document.createElement("div");
+    content.className = "machine-content";
 
-                machine.tamil
-                .includes(search)
+    const title = document.createElement("h3");
+    title.textContent = name;
 
-                ||
-
-                machine.owner
-                .toLowerCase()
-                .includes(search);
-
-
-            const categoryMatch =
-                category === "all"
-                ||
-                machine.category === category;
-
-
-            const locationMatch =
-                location === "all"
-                ||
-                machine.location === location;
-
-
-            return(
-                searchMatch &&
-                categoryMatch &&
-                locationMatch
-            );
-
-        });
-
-
-    const grid =
-        document.getElementById(
-            "machineryGrid"
-        );
-
-
-    grid.innerHTML = "";
-
-
-    if(filtered.length === 0){
-
-        grid.innerHTML = `
-
-            <div class="empty">
-
-                <div class="empty-icon">
-                    🔍
-                </div>
-
-                ${
-                    currentLanguage === "en"
-                    ?
-                    "No machinery found."
-                    :
-                    "இயந்திரங்கள் எதுவும் கிடைக்கவில்லை."
-                }
-
-            </div>
-
-        `;
-
-        return;
+    if(userListing){
+      const tag = document.createElement("div");
+      tag.className = "owner-tag";
+      tag.textContent = currentLanguage === "ta" ? "உங்கள் பதிவு" : "Your listing";
+      content.appendChild(tag);
     }
 
+    const locationDiv = document.createElement("div");
+    locationDiv.className = "machine-location";
+    locationDiv.textContent = "📍 " + location;
 
-    filtered.forEach(function(machine){
+    const desc = document.createElement("p");
+    desc.className = "machine-description";
+    desc.textContent = description || "";
 
-        const name =
-            currentLanguage === "en"
-            ? machine.name
-            : machine.tamil;
+    const priceRow = document.createElement("div");
+    priceRow.className = "price-row";
+    const price = document.createElement("span");
+    price.className = "price";
+    price.textContent = "₹" + Number(machine.price).toLocaleString("en-IN");
+    const unit = document.createElement("span");
+    unit.className = "price-unit";
+    unit.textContent = currentLanguage === "ta" ? "/ நாள்" : "/ day";
+    priceRow.append(price,unit);
 
+    const ownerRow = document.createElement("div");
+    ownerRow.className = "owner";
+    const ownerName = document.createElement("span");
+    ownerName.className = "owner-name";
+    ownerName.textContent = "👨‍🌾 " + (machine.owner || "—");
+    const rating = document.createElement("span");
+    rating.className = "rating";
+    rating.textContent = machine.rating === "New" ? (currentLanguage === "ta" ? "புதியது" : "New") : "⭐ " + (machine.rating || "—");
+    ownerRow.append(ownerName,rating);
 
-        const description =
-            currentLanguage === "en"
-            ? machine.description
-            : machine.tamilDescription;
+    const actions = document.createElement("div");
+    actions.className = "machine-actions";
 
+    const details = document.createElement("button");
+    details.className = "btn secondary";
+    details.textContent = currentLanguage === "ta" ? "👁️ விவரம்" : "👁️ Details";
+    details.addEventListener("click",()=>showDetails(machine.id));
 
-        const categoryText =
-            currentLanguage === "en"
-            ? getCategoryEnglish(machine.category)
-            : getCategoryTamil(machine.category);
+    const rent = document.createElement("button");
+    rent.className = "btn primary";
+    rent.textContent = currentLanguage === "ta" ? "🚜 வாடகை" : "🚜 Rent";
+    rent.addEventListener("click",()=>openBooking(machine.id));
 
+    actions.append(details,rent);
 
-        const card =
-            document.createElement("div");
+    if(userListing){
+      const remove = document.createElement("button");
+      remove.className = "btn danger";
+      remove.textContent = currentLanguage === "ta" ? "நீக்கு" : "Delete";
+      remove.addEventListener("click",()=>deleteListing(machine.id));
+      actions.appendChild(remove);
+    }
 
-
-        card.className =
-            "machine-card";
-
-
-        card.innerHTML = `
-
-            <div class="machine-image">
-
-                <span class="machine-type">
-                    ${categoryText}
-                </span>
-
-                ${machine.icon}
-
-            </div>
-
-
-            <div class="machine-content">
-
-                <h3>
-                    ${name}
-                </h3>
-
-
-                <div class="machine-location">
-                    📍 ${machine.location}
-                </div>
-
-
-                <p class="machine-description">
-                    ${description}
-                </p>
-
-
-                <div class="price-row">
-
-                    <span class="price">
-                        ₹${machine.price.toLocaleString("en-IN")}
-                    </span>
-
-                    <span class="price-unit">
-
-                        ${
-                            currentLanguage === "en"
-                            ? "/ day"
-                            : "/ நாள்"
-                        }
-
-                    </span>
-
-                </div>
-
-
-                <div class="owner">
-
-                    <span class="owner-name">
-                        👨‍🌾 ${machine.owner}
-                    </span>
-
-                    <span class="rating">
-                        ⭐ ${machine.rating}
-                    </span>
-
-                </div>
-
-
-                <div class="machine-actions">
-
-                    <button
-                        class="btn secondary"
-                        onclick="showDetails(${machine.id})">
-
-                        👁️
-
-                        ${
-                            currentLanguage === "en"
-                            ? "Details"
-                            : "விவரம்"
-                        }
-
-                    </button>
-
-
-                    <button
-                        class="btn primary"
-                        onclick="openBooking(${machine.id})">
-
-                        🚜
-
-                        ${
-                            currentLanguage === "en"
-                            ? "Rent"
-                            : "வாடகை"
-                        }
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        `;
-
-
-        grid.appendChild(card);
-
-    });
-
+    content.append(title,locationDiv,desc,priceRow,ownerRow,actions);
+    card.append(image,content);
+    grid.appendChild(card);
+  });
 }
 
-
-/* =========================================================
-   CATEGORY TEXT
-========================================================= */
-
-function getCategoryEnglish(category){
-
-    const categories = {
-
-        tractor:"Tractor",
-
-        harvester:"Harvester",
-
-        tiller:"Power Tiller",
-
-        sprayer:"Sprayer",
-
-        plough:"Plough"
-
-    };
-
-    return categories[category] || category;
-}
-
-
-function getCategoryTamil(category){
-
-    const categories = {
-
-        tractor:"டிராக்டர்",
-
-        harvester:"அறுவடை இயந்திரம்",
-
-        tiller:"பவர் டில்லர்",
-
-        sprayer:"தெளிப்பான்",
-
-        plough:"கலப்பை"
-
-    };
-
-    return categories[category] || category;
-}
-
-
-/* =========================================================
-   FILTER
-========================================================= */
-
-function filterMachines(){
-
-    renderMachines();
-
-}
-
-
-/* =========================================================
-   RESET
-========================================================= */
+function filterMachines(){renderMachines()}
 
 function resetFilters(){
-
-    document
-    .getElementById("searchInput")
-    .value = "";
-
-
-    document
-    .getElementById("categoryFilter")
-    .value = "all";
-
-
-    document
-    .getElementById("locationFilter")
-    .value = "all";
-
-
-    renderMachines();
-
+  document.getElementById("searchInput").value = "";
+  document.getElementById("categoryFilter").value = "all";
+  document.getElementById("districtFilter").value = "";
+  fillTalukSelect("","talukFilter",currentLanguage === "ta" ? "அனைத்து வட்டங்கள்" : "All Taluks");
+  fillVillageSelect("","", "villageFilter",currentLanguage === "ta" ? "அனைத்து கிராமங்கள்" : "All Villages");
+  renderMachines();
 }
-
-
-/* =========================================================
-   DETAILS
-========================================================= */
 
 function showDetails(id){
+  const machine = getAllMachines().find(item=>String(item.id)===String(id));
+  if(!machine) return;
+  const name = currentLanguage === "ta" ? (machine.tamil || machine.name) : machine.name;
+  const description = currentLanguage === "ta" ? (machine.tamilDescription || machine.description) : machine.description;
+  const location = getMachineLocation(machine) || machine.location || "—";
 
-    const machine =
-        machines.find(
-            item => item.id === id
-        );
-
-
-    if(!machine){
-        return;
-    }
-
-
-    const name =
-        currentLanguage === "en"
-        ? machine.name
-        : machine.tamil;
-
-
-    const description =
-        currentLanguage === "en"
-        ? machine.description
-        : machine.tamilDescription;
-
-
-    alert(
-
-        currentLanguage === "en"
-
-        ?
-
-        `${machine.icon} ${name}
-
-Owner: ${machine.owner}
-Location: ${machine.location}
-Price: ₹${machine.price.toLocaleString("en-IN")} / day
-Rating: ⭐ ${machine.rating}
-
-${description}`
-
-        :
-
-        `${machine.icon} ${name}
-
-உரிமையாளர்: ${machine.owner}
-இடம்: ${machine.location}
-விலை: ₹${machine.price.toLocaleString("en-IN")} / நாள்
-Rating: ⭐ ${machine.rating}
-
-${description}`
-
-    );
-
+  alert(
+    `${machine.icon || "🚜"} ${name}\n\n` +
+    `${currentLanguage === "ta" ? "உரிமையாளர்" : "Owner"}: ${machine.owner || "—"}\n` +
+    `${currentLanguage === "ta" ? "இடம்" : "Location"}: ${location}\n` +
+    `${currentLanguage === "ta" ? "ஒரு நாள் வாடகை" : "Rent per day"}: ₹${Number(machine.price).toLocaleString("en-IN")}\n\n` +
+    `${description || ""}`
+  );
 }
 
+/* ---------------- ADD MACHINERY ---------------- */
 
-/* =========================================================
-   OPEN BOOKING
-========================================================= */
+function openAddMachineModal(){
+  document.getElementById("addMachineMessage").textContent = "";
+  document.getElementById("addMachineModal").classList.add("show");
+  updateAllLocationSelects();
+}
+
+document.getElementById("addDistrict").addEventListener("change",()=>{
+  fillTalukSelect(
+    document.getElementById("addDistrict").value,
+    "addTaluk",
+    currentLanguage === "ta" ? "வட்டத்தைத் தேர்வு செய்க" : "Select Taluk"
+  );
+  fillVillageSelect("","", "addVillage",currentLanguage === "ta" ? "கிராமத்தைத் தேர்வு செய்க" : "Select Village");
+});
+
+document.getElementById("addTaluk").addEventListener("change",()=>{
+  fillVillageSelect(
+    document.getElementById("addDistrict").value,
+    document.getElementById("addTaluk").value,
+    "addVillage",
+    currentLanguage === "ta" ? "கிராமத்தைத் தேர்வு செய்க" : "Select Village"
+  );
+});
+
+document.getElementById("addMachineForm").addEventListener("submit",async event=>{
+  event.preventDefault();
+
+  if(!locationData){
+    alert(currentLanguage === "ta" ? "இடத் தரவு இன்னும் ஏற்றப்படவில்லை." : "Location data has not loaded yet.");
+    return;
+  }
+
+  const owner = document.getElementById("ownerName").value.trim();
+  const phone = document.getElementById("ownerPhone").value.trim();
+  const name = document.getElementById("newMachineName").value.trim();
+  const category = document.getElementById("newMachineCategory").value;
+  const district = document.getElementById("addDistrict").value;
+  const taluk = document.getElementById("addTaluk").value;
+  const village = document.getElementById("addVillage").value;
+  const price = Number(document.getElementById("newMachinePrice").value);
+  const description = document.getElementById("newMachineDescription").value.trim();
+  const file = document.getElementById("newMachinePhoto").files[0];
+
+  if(!/^[0-9]{10}$/.test(phone)){
+    alert(currentLanguage === "ta" ? "சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்." : "Enter a valid 10-digit mobile number.");
+    return;
+  }
+
+  if(!district || !taluk || !village){
+    alert(currentLanguage === "ta" ? "மாவட்டம், வட்டம், கிராமம் தேர்வு செய்யவும்." : "Select district, taluk and village.");
+    return;
+  }
+
+  if(!Number.isFinite(price) || price <= 0 || !name || !description || !owner || !category){
+    alert(currentLanguage === "ta" ? "அனைத்து விவரங்களையும் சரியாக உள்ளிடவும்." : "Please enter valid information in all required fields.");
+    return;
+  }
+
+  if(file && (!["image/jpeg","image/png","image/webp"].includes(file.type) || file.size > 1024*1024)){
+    alert(currentLanguage === "ta" ? "புகைப்படம் JPG, PNG அல்லது WebP வடிவில் 1 MB-க்குள் இருக்க வேண்டும்." : "Photo must be JPG, PNG or WebP and no larger than 1 MB.");
+    return;
+  }
+
+  let photo = "";
+  if(file){
+    try{
+      photo = await new Promise((resolve,reject)=>{
+        const reader = new FileReader();
+        reader.onload = ()=>resolve(reader.result);
+        reader.onerror = ()=>reject(new Error("Could not read image"));
+        reader.readAsDataURL(file);
+      });
+    }catch(error){
+      alert(currentLanguage === "ta" ? "புகைப்படத்தைப் படிக்க முடியவில்லை." : "Could not read the photo.");
+      return;
+    }
+  }
+
+  const listing = {
+    id:"owner-"+Date.now(),
+    name,
+    tamil:name,
+    icon:category === "tractor" ? "🚜" :
+         category === "harvester" ? "🌾" :
+         category === "sprayer" ? "💦" : "⚙️",
+    category,
+    district,taluk,village,
+    location:district,
+    price,owner,phone,
+    rating:"New",
+    description,
+    tamilDescription:description,
+    photo,
+    createdAt:new Date().toISOString()
+  };
+
+  const listings = getMyListings();
+  listings.push(listing);
+
+  if(!saveMyListings(listings)) return;
+
+  document.getElementById("addMachineForm").reset();
+  closeModal("addMachineModal");
+  renderMachines();
+
+  alert(currentLanguage === "ta"
+    ? "இயந்திரப் பதிவு இந்த browser-ல் சேமிக்கப்பட்டது."
+    : "Your machinery listing has been saved in this browser.");
+
+  showMyListings();
+});
+
+function showMyListings(){
+  const section = document.getElementById("myListingsSection");
+  section.style.display = "block";
+  renderMyListings();
+  section.scrollIntoView({behavior:"smooth"});
+}
+
+function hideMyListings(){
+  document.getElementById("myListingsSection").style.display = "none";
+}
+
+function renderMyListings(){
+  const grid = document.getElementById("myListingsGrid");
+  grid.innerHTML = "";
+  const listings = getMyListings();
+
+  if(!listings.length){
+    grid.innerHTML = `<div class="empty"><div class="empty-icon">📋</div>${
+      currentLanguage === "ta" ? "நீங்கள் இன்னும் இயந்திரம் எதையும் பதிவு செய்யவில்லை." : "You have not added any machinery yet."
+    }</div>`;
+    return;
+  }
+
+  listings.forEach(machine=>{
+    const card = document.createElement("article");
+    card.className = "machine-card";
+
+    const image = document.createElement("div");
+    image.className = "machine-image";
+    if(machine.photo){
+      const img = document.createElement("img");
+      img.src = machine.photo;
+      img.alt = machine.name;
+      image.appendChild(img);
+    }else{
+      image.textContent = machine.icon || "🚜";
+    }
+
+    const content = document.createElement("div");
+    content.className = "machine-content";
+
+    const title = document.createElement("h3");
+    title.textContent = machine.name;
+
+    const location = document.createElement("div");
+    location.className = "machine-location";
+    location.textContent = "📍 " + getMachineLocation(machine);
+
+    const price = document.createElement("div");
+    price.className = "price";
+    price.textContent = "₹" + Number(machine.price).toLocaleString("en-IN") + (currentLanguage === "ta" ? " / நாள்" : " / day");
+
+    const owner = document.createElement("p");
+    owner.className = "machine-description";
+    owner.textContent = (currentLanguage === "ta" ? "உரிமையாளர்: " : "Owner: ") + machine.owner;
+
+    const remove = document.createElement("button");
+    remove.className = "btn danger";
+    remove.style.width = "100%";
+    remove.textContent = currentLanguage === "ta" ? "🗑️ பதிவை நீக்கு" : "🗑️ Delete Listing";
+    remove.addEventListener("click",()=>deleteListing(machine.id));
+
+    content.append(title,location,price,owner,remove);
+    card.append(image,content);
+    grid.appendChild(card);
+  });
+}
+
+function deleteListing(id){
+  if(!confirm(currentLanguage === "ta" ? "இந்த இயந்திரப் பதிவை நீக்க வேண்டுமா?" : "Delete this machinery listing?")) return;
+  const listings = getMyListings().filter(item=>String(item.id)!==String(id));
+  if(!saveMyListings(listings)) return;
+  renderMachines();
+  renderMyListings();
+}
+
+/* ---------------- BOOKING ---------------- */
 
 function openBooking(id){
+  selectedMachine = getAllMachines().find(item=>String(item.id)===String(id));
+  if(!selectedMachine) return;
 
-    selectedMachine =
-        machines.find(
-            item => item.id === id
-        );
+  document.getElementById("selectedMachine").textContent =
+    (selectedMachine.icon || "🚜") + " " +
+    (currentLanguage === "ta" ? (selectedMachine.tamil || selectedMachine.name) : selectedMachine.name);
 
+  document.getElementById("selectedOwner").textContent =
+    (currentLanguage === "ta" ? "உரிமையாளர்: " : "Owner: ") + (selectedMachine.owner || "—");
 
-    if(!selectedMachine){
-        return;
-    }
+  document.getElementById("selectedRate").textContent =
+    "₹" + Number(selectedMachine.price).toLocaleString("en-IN") +
+    (currentLanguage === "ta" ? " / நாள்" : " / day");
 
+  document.getElementById("days").value = 1;
+  document.getElementById("streetAddress").value = "";
+  document.getElementById("startDate").value = "";
+  document.getElementById("startDate").min = new Date().toISOString().slice(0,10);
 
-    const name =
-        currentLanguage === "en"
-        ? selectedMachine.name
-        : selectedMachine.tamil;
+  updateAllLocationSelects();
 
+  if(selectedMachine.district && getEnglishLocations()[selectedMachine.district]){
+    document.getElementById("bookingDistrict").value = selectedMachine.district;
+    fillTalukSelect(selectedMachine.district,"bookingTaluk",currentLanguage === "ta" ? "வட்டத்தைத் தேர்வு செய்க" : "Select Taluk");
+    fillVillageSelect(selectedMachine.district,"","bookingVillage",currentLanguage === "ta" ? "கிராமத்தைத் தேர்வு செய்க" : "Select Village");
+  }
 
-    document
-    .getElementById("selectedMachine")
-    .textContent =
-        selectedMachine.icon +
-        " " +
-        name;
-
-
-    document
-    .getElementById("selectedOwner")
-    .textContent =
-        "👨‍🌾 " +
-        (
-            currentLanguage === "en"
-            ? "Owner: "
-            : "உரிமையாளர்: "
-        ) +
-        selectedMachine.owner;
-
-
-    document
-    .getElementById("selectedRate")
-    .textContent =
-        "₹" +
-        selectedMachine.price.toLocaleString("en-IN") +
-        (
-            currentLanguage === "en"
-            ? " / day"
-            : " / நாள்"
-        );
-
-
-    document
-    .getElementById("days")
-    .value = 1;
-
-
-    document
-    .getElementById("deliveryLocation")
-    .value = "";
-
-
-    document
-    .getElementById("startDate")
-    .value = "";
-
-
-    calculateTotal();
-
-
-    document
-    .getElementById("bookingModal")
-    .classList
-    .add("show");
-
+  document.getElementById("bookingModal").classList.add("show");
+  calculateTotal();
 }
 
+document.getElementById("bookingDistrict").addEventListener("change",()=>{
+  const district = document.getElementById("bookingDistrict").value;
+  fillTalukSelect(district,"bookingTaluk",currentLanguage === "ta" ? "வட்டத்தைத் தேர்வு செய்க" : "Select Taluk");
+  fillVillageSelect("","", "bookingVillage",currentLanguage === "ta" ? "கிராமத்தைத் தேர்வு செய்க" : "Select Village");
+});
 
-/* =========================================================
-   CALCULATE TOTAL
-========================================================= */
+document.getElementById("bookingTaluk").addEventListener("change",()=>{
+  fillVillageSelect(
+    document.getElementById("bookingDistrict").value,
+    document.getElementById("bookingTaluk").value,
+    "bookingVillage",
+    currentLanguage === "ta" ? "கிராமத்தைத் தேர்வு செய்க" : "Select Village"
+  );
+});
 
 function calculateTotal(){
-
-    if(!selectedMachine){
-        return;
-    }
-
-
-    const days =
-        Number(
-            document
-            .getElementById("days")
-            .value
-        ) || 0;
-
-
-    const total =
-        selectedMachine.price *
-        days;
-
-
-    document
-    .getElementById("totalPrice")
-    .textContent =
-
-        (
-            currentLanguage === "en"
-            ? "Total: "
-            : "மொத்தம்: "
-        )
-
-        +
-
-        "₹" +
-
-        total.toLocaleString("en-IN");
-
+  if(!selectedMachine) return;
+  const days = Number(document.getElementById("days").value) || 0;
+  const total = Number(selectedMachine.price) * days;
+  document.getElementById("totalPrice").textContent =
+    (currentLanguage === "ta" ? "மொத்தம்: " : "Total: ") +
+    "₹" + (Number.isFinite(total) ? total.toLocaleString("en-IN") : "—");
 }
-
-
-/* =========================================================
-   BOOK MACHINE
-========================================================= */
 
 function bookMachine(){
+  if(!selectedMachine) return;
 
-    if(!selectedMachine){
-        return;
-    }
+  const days = Number(document.getElementById("days").value);
+  const district = document.getElementById("bookingDistrict").value;
+  const taluk = document.getElementById("bookingTaluk").value;
+  const village = document.getElementById("bookingVillage").value;
+  const address = document.getElementById("streetAddress").value.trim();
+  const startDate = document.getElementById("startDate").value;
+  const payment = document.getElementById("paymentMethod").value;
 
+  if(!Number.isInteger(days) || days < 1 || days > 365){
+    alert(currentLanguage === "ta" ? "1 முதல் 365 நாட்களுக்குள் உள்ளிடவும்." : "Enter a number of days between 1 and 365.");
+    return;
+  }
+  if(!district || !taluk || !village){
+    alert(currentLanguage === "ta" ? "மாவட்டம், வட்டம், கிராமம் தேர்வு செய்யவும்." : "Select district, taluk and village.");
+    return;
+  }
+  if(!address || !startDate || startDate < new Date().toISOString().slice(0,10)){
+    alert(currentLanguage === "ta" ? "சரியான முகவரி மற்றும் தொடக்க தேதியை உள்ளிடவும்." : "Enter an address and a valid start date.");
+    return;
+  }
 
-    const days =
-        Number(
-            document
-            .getElementById("days")
-            .value
-        );
+  const booking = {
+    bookingId:"MCH-"+Date.now(),
+    machineId:selectedMachine.id,
+    machineName:selectedMachine.name,
+    owner:selectedMachine.owner,
+    days,
+    total:Number(selectedMachine.price)*days,
+    district,taluk,village,address,startDate,payment,
+    createdAt:new Date().toISOString()
+  };
 
+  try{
+    const bookings = JSON.parse(localStorage.getItem("agriMachineryBookings") || "[]");
+    bookings.push(booking);
+    localStorage.setItem("agriMachineryBookings",JSON.stringify(bookings));
+  }catch(error){
+    alert(currentLanguage === "ta" ? "Booking-ஐ browser-ல் சேமிக்க முடியவில்லை." : "Could not save the booking in this browser.");
+    return;
+  }
 
-    const location =
-        document
-        .getElementById("deliveryLocation")
-        .value
-        .trim();
+  alert(
+    (currentLanguage === "ta" ? "வாடகை விவரம் browser-ல் சேமிக்கப்பட்டது." : "Rental details saved in this browser.") +
+    "\n\nBooking ID: " + booking.bookingId +
+    "\nMachinery: " + selectedMachine.name +
+    "\nOwner: " + selectedMachine.owner +
+    "\nDays: " + days +
+    "\nTotal: ₹" + booking.total.toLocaleString("en-IN") +
+    "\nLocation: " + [district,taluk,village,address].join(", ") +
+    "\nStart Date: " + startDate
+  );
 
-
-    const startDate =
-        document
-        .getElementById("startDate")
-        .value;
-
-
-    const payment =
-        document
-        .getElementById("paymentMethod")
-        .value;
-
-
-    if(!days || days <= 0){
-
-        alert(
-
-            currentLanguage === "en"
-
-            ?
-
-            "Please enter a valid number of days."
-
-            :
-
-            "சரியான நாட்களின் எண்ணிக்கையை உள்ளிடவும்."
-
-        );
-
-        return;
-    }
-
-
-    if(location === ""){
-
-        alert(
-
-            currentLanguage === "en"
-
-            ?
-
-            "Please enter your farm location."
-
-            :
-
-            "உங்கள் விவசாய நிலத்தின் இடத்தை உள்ளிடவும்."
-
-        );
-
-        return;
-    }
-
-
-    if(startDate === ""){
-
-        alert(
-
-            currentLanguage === "en"
-
-            ?
-
-            "Please select a start date."
-
-            :
-
-            "தொடக்க தேதியை தேர்வு செய்யவும்."
-
-        );
-
-        return;
-    }
-
-
-    const bookingId =
-        "MCH-" +
-        Math.floor(
-            1000 +
-            Math.random() * 9000
-        );
-
-
-    const total =
-        selectedMachine.price *
-        days;
-
-
-    alert(
-
-        currentLanguage === "en"
-
-        ?
-
-        `Machinery rental confirmed!
-
-Booking ID: ${bookingId}
-Machinery: ${selectedMachine.name}
-Owner: ${selectedMachine.owner}
-Days: ${days}
-Total: ₹${total.toLocaleString("en-IN")}
-Location: ${location}
-Start Date: ${startDate}
-Payment: ${payment}`
-
-        :
-
-        `இயந்திர வாடகை வெற்றிகரமாக உறுதி செய்யப்பட்டது!
-
-Booking ID: ${bookingId}
-இயந்திரம்: ${selectedMachine.tamil}
-உரிமையாளர்: ${selectedMachine.owner}
-நாட்கள்: ${days}
-மொத்தம்: ₹${total.toLocaleString("en-IN")}
-இடம்: ${location}
-தொடக்க தேதி: ${startDate}`
-
-    );
-
-
-    closeModal();
-
+  closeModal("bookingModal");
 }
 
-
-/* =========================================================
-   CLOSE MODAL
-========================================================= */
-
-function closeModal(){
-
-    document
-    .getElementById("bookingModal")
-    .classList
-    .remove("show");
-
+function closeModal(id){
+  document.getElementById(id).classList.remove("show");
 }
 
-
-/* =========================================================
-   CLOSE OUTSIDE
-========================================================= */
-
-function closeOutside(event){
-
-    if(
-        event.target.id ===
-        "bookingModal"
-    ){
-
-        closeModal();
-
-    }
-
+function closeModalOutside(event,id){
+  if(event.target.id === id) closeModal(id);
 }
 
+document.addEventListener("keydown",event=>{
+  if(event.key === "Escape"){
+    document.querySelectorAll(".modal.show").forEach(modal=>modal.classList.remove("show"));
+  }
+});
 
-/* =========================================================
-   ESC KEY
-========================================================= */
+/* ---------------- START PAGE ---------------- */
 
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key === "Escape"){
-
-            closeModal();
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   INITIAL LOAD
-========================================================= */
-
-changeLanguage(
-    currentLanguage
-);
-
+changeLanguage(currentLanguage);
+loadLocationData();
 renderMachines();
-
 </script>
-
 </body>
 </html>
 ```
-
