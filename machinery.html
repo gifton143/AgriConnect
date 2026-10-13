@@ -607,7 +607,7 @@ function updateAllLocationSelects(){
 async function loadLocationData(){
   const status = document.getElementById("locationStatus");
   try{
-    const response = await fetch("/api/locations");
+    const response = await fetch("./data/locations.json");
     if(!response.ok) throw new Error("HTTP "+response.status);
 
     const data = await response.json();
@@ -624,11 +624,11 @@ async function loadLocationData(){
       ? `${count} மாவட்டங்களுக்கான இடத் தரவு server-லிருந்து ஏற்றப்பட்டது.`
       : `Location data loaded from server (${count} districts).`;
   }catch(error){
-    console.error("Could not load /api/locations:",error);
+    console.error("Could not load locations.json:", error);
     status.className = "status error";
     status.textContent = currentLanguage === "ta"
-      ? "மாவட்டத் தரவை ஏற்ற முடியவில்லை. server.js இயங்குகிறதா, /api/locations route உள்ளதா எனச் சரிபார்க்கவும்."
-      : "Could not load locations. Make sure server.js is running and /api/locations exists.";
+      ? "மாவட்டத் தரவை ஏற்ற முடியவில்லை. locations.json கோப்பைச் சரிபார்க்கவும்."
+: "Could not load locations. Please check data/locations.json.";
   }
 }
 
