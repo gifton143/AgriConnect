@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -9,9 +10,9 @@
 
 <style>
 
-/* =====================================================
+/* =========================================================
    RESET
-===================================================== */
+========================================================= */
 
 *{
     margin:0;
@@ -23,28 +24,27 @@ html{
     scroll-behavior:smooth;
 }
 
+html,
 body{
+    min-height:100%;
+}
+
+body{
+
     font-family:
         "Noto Sans Tamil",
         "Latha",
+        "Segoe UI",
         Arial,
         sans-serif;
 
     color:#173b21;
 
-    min-height:100vh;
+    background:#eef8ef;
 
-    background:
-        linear-gradient(
-            rgba(235,248,237,0.20),
-            rgba(235,248,237,0.30)
-        ),
-        url("./image/farmer-page-bg.png.png");
+    position:relative;
 
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
+    overflow-x:hidden;
 }
 
 button,
@@ -64,18 +64,64 @@ a{
 }
 
 
-/* =====================================================
+/* =========================================================
+   FIXED BACKGROUND - DESKTOP
+========================================================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+    background-image:
+        url("./image/farmer-page-bg.png.png");
+
+    background-size:cover;
+
+    background-position:center center;
+
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
+    transform:translateZ(0);
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    background:rgba(255,255,255,0.04);
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
    NAVBAR
-===================================================== */
+========================================================= */
 
 .navbar{
 
     min-height:72px;
 
-    background:rgba(255,255,255,0.96);
+    background:rgba(255,255,255,0.97);
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     padding:10px 4%;
@@ -91,7 +137,7 @@ a{
     box-shadow:
         0 3px 18px rgba(0,0,0,0.10);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(8px);
 }
 
 .logo{
@@ -114,6 +160,12 @@ a{
     gap:5px;
 
     overflow-x:auto;
+
+    scrollbar-width:none;
+}
+
+.nav-links::-webkit-scrollbar{
+    display:none;
 }
 
 .nav-links a{
@@ -142,9 +194,9 @@ a{
 }
 
 
-/* =====================================================
+/* =========================================================
    LANGUAGE
-===================================================== */
+========================================================= */
 
 .language{
 
@@ -189,9 +241,9 @@ a{
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero{
 
@@ -207,19 +259,14 @@ a{
 
     padding:70px 20px;
 
-    background:
-        linear-gradient(
-            rgba(255,255,255,0.20),
-            rgba(235,248,237,0.32)
-        );
+    background:transparent;
 }
 
 .hero-content{
 
     width:min(900px,94%);
 
-    background:
-        rgba(255,255,255,0.82);
+    background:rgba(255,255,255,0.91);
 
     padding:45px 35px;
 
@@ -228,7 +275,7 @@ a{
     box-shadow:
         0 15px 45px rgba(0,70,20,0.16);
 
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(4px);
 }
 
 .hero-icon{
@@ -287,9 +334,9 @@ a{
 }
 
 
-/* =====================================================
+/* =========================================================
    CONTAINER
-===================================================== */
+========================================================= */
 
 .container{
 
@@ -327,9 +374,9 @@ a{
 }
 
 
-/* =====================================================
-   STAT CARDS
-===================================================== */
+/* =========================================================
+   STATS
+========================================================= */
 
 .stats{
 
@@ -349,7 +396,7 @@ a{
 
 .stat-card{
 
-    background:rgba(255,255,255,0.94);
+    background:rgba(255,255,255,0.95);
 
     border-radius:17px;
 
@@ -394,9 +441,9 @@ a{
 }
 
 
-/* =====================================================
+/* =========================================================
    MAIN GRID
-===================================================== */
+========================================================= */
 
 .dashboard-grid{
 
@@ -409,13 +456,13 @@ a{
 }
 
 
-/* =====================================================
+/* =========================================================
    CARD
-===================================================== */
+========================================================= */
 
 .card{
 
-    background:rgba(255,255,255,0.94);
+    background:rgba(255,255,255,0.95);
 
     border:1px solid rgba(30,100,45,0.12);
 
@@ -426,7 +473,7 @@ a{
     box-shadow:
         0 10px 32px rgba(0,70,20,0.12);
 
-    backdrop-filter:blur(7px);
+    backdrop-filter:blur(4px);
 }
 
 .card-header{
@@ -459,9 +506,9 @@ a{
 }
 
 
-/* =====================================================
+/* =========================================================
    BUTTONS
-===================================================== */
+========================================================= */
 
 .btn{
 
@@ -512,9 +559,9 @@ a{
 }
 
 
-/* =====================================================
+/* =========================================================
    PRODUCTS
-===================================================== */
+========================================================= */
 
 .products{
 
@@ -634,9 +681,9 @@ a{
 }
 
 
-/* =====================================================
+/* =========================================================
    QUICK ACTIONS
-===================================================== */
+========================================================= */
 
 .quick-actions{
 
@@ -698,9 +745,9 @@ a{
 }
 
 
-/* =====================================================
-   RECENT ORDERS
-===================================================== */
+/* =========================================================
+   ORDERS
+========================================================= */
 
 .orders{
 
@@ -784,9 +831,9 @@ a{
 }
 
 
-/* =====================================================
-   ADD PRODUCT MODAL
-===================================================== */
+/* =========================================================
+   MODAL
+========================================================= */
 
 .modal{
 
@@ -889,9 +936,9 @@ a{
 }
 
 
-/* =====================================================
+/* =========================================================
    FORM
-===================================================== */
+========================================================= */
 
 .form-grid{
 
@@ -968,14 +1015,13 @@ a{
 }
 
 
-/* =====================================================
-   FARMER TIPS
-===================================================== */
+/* =========================================================
+   TIPS
+========================================================= */
 
 .tips-section{
 
-    background:
-        rgba(239,249,240,0.82);
+    background:rgba(239,249,240,0.88);
 }
 
 .tips{
@@ -990,7 +1036,7 @@ a{
 
 .tip{
 
-    background:rgba(255,255,255,0.94);
+    background:rgba(255,255,255,0.96);
 
     border-radius:15px;
 
@@ -1028,9 +1074,9 @@ a{
 }
 
 
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 footer{
 
@@ -1089,9 +1135,9 @@ footer ul{
 }
 
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media(max-width:1100px){
 
@@ -1126,18 +1172,53 @@ footer ul{
 }
 
 
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media(max-width:700px){
 
     body{
 
-        background-attachment:scroll;
+        background:#eef8ef;
+
+        overflow-x:hidden;
+    }
+
+    body::before{
+
+        background-image:
+            url("./image/farmer-bg-portrait.jpg.png.png");
+
+        background-size:cover;
 
         background-position:center center;
+
+        background-repeat:no-repeat;
+
+        background-attachment:scroll;
+
+        position:fixed;
+
+        inset:0;
+
+        width:100%;
+
+        height:100dvh;
+
+        transform:none;
+    }
+
+    body::after{
+
+        background:rgba(255,255,255,0.04);
     }
 
     .navbar{
 
         padding:9px 15px;
+
+        gap:10px;
     }
 
     .logo{
@@ -1155,11 +1236,15 @@ footer ul{
     .hero{
 
         padding:45px 12px;
+
+        min-height:430px;
     }
 
     .hero-content{
 
         padding:30px 18px;
+
+        width:94%;
     }
 
     .hero-icon{
@@ -1179,7 +1264,8 @@ footer ul{
 
     .stats{
 
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
 
         margin-top:0;
     }
@@ -1191,7 +1277,8 @@ footer ul{
 
     .quick-actions{
 
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
     }
 
     .tips{
@@ -1223,8 +1310,17 @@ footer ul{
 
         font-size:26px;
     }
+
+    .card{
+
+        padding:20px;
+    }
 }
 
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media(max-width:450px){
 
@@ -1249,6 +1345,39 @@ footer ul{
 
         padding:18px;
     }
+
+    .hero h1{
+
+        font-size:30px;
+    }
+
+    .hero-content{
+
+        padding:25px 15px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL
+========================================================= */
+
+@media(max-width:350px){
+
+    .logo{
+
+        font-size:18px;
+    }
+
+    .hero h1{
+
+        font-size:27px;
+    }
+
+    .hero p{
+
+        font-size:13px;
+    }
 }
 
 </style>
@@ -1268,7 +1397,6 @@ footer ul{
     <a href="index.html" class="logo">
         🌱 AgriConnect
     </a>
-
 
     <nav class="nav-links">
 
@@ -1306,12 +1434,10 @@ footer ul{
 
     </nav>
 
-
     <div class="language">
 
         <button
             id="enBtn"
-            class="active"
             onclick="changeLanguage('en')">
             EN
         </button>
@@ -1327,7 +1453,6 @@ footer ul{
 </header>
 
 
-
 <!-- =====================================================
      HERO
 ===================================================== -->
@@ -1340,14 +1465,14 @@ footer ul{
             👨‍🌾
         </div>
 
-        <div class="badge"
-             data-en="Farmer Dashboard"
-             data-ta="விவசாயி டாஷ்போர்டு">
+        <div
+            class="badge"
+            data-en="Farmer Dashboard"
+            data-ta="விவசாயி டாஷ்போர்டு">
 
             Farmer Dashboard
 
         </div>
-
 
         <h1>
 
@@ -1371,7 +1496,6 @@ footer ul{
 
         </h1>
 
-
         <p
             data-en="Manage your crops, add products, connect with buyers and grow your agricultural business with AgriConnect."
             data-ta="உங்கள் பயிர்களை நிர்வகித்து, பொருட்களை சேர்த்து, வாங்குபவர்களுடன் இணைந்து AgriConnect மூலம் உங்கள் விவசாய வணிகத்தை வளர்த்துக் கொள்ளுங்கள்.">
@@ -1384,7 +1508,6 @@ footer ul{
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1411,8 +1534,8 @@ footer ul{
 
         </h3>
 
-        <strong>
-            12
+        <strong id="productCount">
+            0
         </strong>
 
     </div>
@@ -1487,7 +1610,6 @@ footer ul{
 </section>
 
 
-
 <!-- =====================================================
      DASHBOARD
 ===================================================== -->
@@ -1499,7 +1621,9 @@ footer ul{
 <div class="dashboard-grid">
 
 
-<!-- PRODUCTS -->
+<!-- =====================================================
+     MY PRODUCTS
+===================================================== -->
 
 <div class="card">
 
@@ -1525,26 +1649,35 @@ footer ul{
 
         </div>
 
-
         <button
             class="btn primary"
             onclick="openAddProduct()">
 
-            + Add
+            <span
+                data-en="+ Add"
+                data-ta="+ சேர்க்க">
+
+                + Add
+
+            </span>
 
         </button>
 
     </div>
 
 
-    <div class="products" id="productContainer">
+    <div
+        class="products"
+        id="productContainer">
+
     </div>
 
 </div>
 
 
-
-<!-- QUICK ACTIONS -->
+<!-- =====================================================
+     QUICK ACTIONS
+===================================================== -->
 
 <div class="card">
 
@@ -1737,6 +1870,7 @@ footer ul{
 
         </a>
 
+
     </div>
 
 </div>
@@ -1746,7 +1880,6 @@ footer ul{
 </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1812,8 +1945,12 @@ footer ul{
 
                 <div>
 
-                    <h4>
+                    <h4
+                        data-en="Tomato"
+                        data-ta="தக்காளி">
+
                         Tomato
+
                     </h4>
 
                     <p>
@@ -1823,7 +1960,6 @@ footer ul{
                 </div>
 
             </div>
-
 
             <div class="order-price">
                 ₹800
@@ -1842,8 +1978,12 @@ footer ul{
 
                 <div>
 
-                    <h4>
+                    <h4
+                        data-en="Paddy"
+                        data-ta="நெல்">
+
                         Paddy
+
                     </h4>
 
                     <p>
@@ -1853,7 +1993,6 @@ footer ul{
                 </div>
 
             </div>
-
 
             <div class="order-price">
                 ₹2,350
@@ -1872,8 +2011,12 @@ footer ul{
 
                 <div>
 
-                    <h4>
+                    <h4
+                        data-en="Onion"
+                        data-ta="வெங்காயம்">
+
                         Onion
+
                     </h4>
 
                     <p>
@@ -1883,7 +2026,6 @@ footer ul{
                 </div>
 
             </div>
-
 
             <div class="order-price">
                 ₹2,050
@@ -1902,8 +2044,12 @@ footer ul{
 
                 <div>
 
-                    <h4>
+                    <h4
+                        data-en="Mango"
+                        data-ta="மாம்பழம்">
+
                         Mango
+
                     </h4>
 
                     <p>
@@ -1914,12 +2060,12 @@ footer ul{
 
             </div>
 
-
             <div class="order-price">
                 ₹2,040
             </div>
 
         </div>
+
 
     </div>
 
@@ -1930,9 +2076,8 @@ footer ul{
 </section>
 
 
-
 <!-- =====================================================
-     FARMER TIPS
+     SMART FARMING TIPS
 ===================================================== -->
 
 <section class="section tips-section">
@@ -2048,7 +2193,6 @@ footer ul{
 </section>
 
 
-
 <!-- =====================================================
      FOOTER
 ===================================================== -->
@@ -2088,16 +2232,28 @@ footer ul{
 
 <ul>
 
-<li>
+<li
+    data-en="Products"
+    data-ta="விளைபொருட்கள்">
+
     Products
+
 </li>
 
-<li>
+<li
+    data-en="Orders"
+    data-ta="ஆர்டர்கள்">
+
     Orders
+
 </li>
 
-<li>
+<li
+    data-en="Crop Prices"
+    data-ta="பயிர் விலைகள்">
+
     Crop Prices
+
 </li>
 
 </ul>
@@ -2117,16 +2273,28 @@ footer ul{
 
 <ul>
 
-<li>
+<li
+    data-en="Weather"
+    data-ta="வானிலை">
+
     Weather
+
 </li>
 
-<li>
+<li
+    data-en="Machinery"
+    data-ta="இயந்திரங்கள்">
+
     Machinery
+
 </li>
 
-<li>
+<li
+    data-en="Fertilizer"
+    data-ta="உரம்">
+
     Fertilizer
+
 </li>
 
 </ul>
@@ -2144,7 +2312,6 @@ footer ul{
 </div>
 
 </footer>
-
 
 
 <!-- =====================================================
@@ -2180,27 +2347,12 @@ footer ul{
 <div class="form-grid">
 
 
-<div class="form-group">
-
-<label
-    data-en="Product Name"
-    data-ta="பொருளின் பெயர்">
-
-    Product Name
-
-</label>
-
-<input
-    id="productName"
-    type="text"
-    placeholder="Example: Tomato">
-
-</div>
-
+<!-- CATEGORY -->
 
 <div class="form-group">
 
 <label
+    for="productCategory"
     data-en="Category"
     data-ta="வகை">
 
@@ -2208,32 +2360,41 @@ footer ul{
 
 </label>
 
-<select id="productCategory">
-
-<option value="vegetable">
-Vegetable
-</option>
-
-<option value="fruit">
-Fruit
-</option>
-
-<option value="grain">
-Grain
-</option>
-
-<option value="spice">
-Spice
-</option>
+<select
+    id="productCategory"
+    onchange="updateProductNames()">
 
 </select>
 
 </div>
 
 
+<!-- PRODUCT NAME -->
+
 <div class="form-group">
 
 <label
+    for="productName"
+    data-en="Product Name"
+    data-ta="பொருளின் பெயர்">
+
+    Product Name
+
+</label>
+
+<select id="productName">
+
+</select>
+
+</div>
+
+
+<!-- PRICE -->
+
+<div class="form-group">
+
+<label
+    for="productPrice"
     data-en="Price per kg"
     data-ta="ஒரு கிலோ விலை">
 
@@ -2250,9 +2411,12 @@ Spice
 </div>
 
 
+<!-- QUANTITY -->
+
 <div class="form-group">
 
 <label
+    for="productQuantity"
     data-en="Available Quantity"
     data-ta="கிடைக்கும் அளவு">
 
@@ -2269,9 +2433,12 @@ Spice
 </div>
 
 
+<!-- LOCATION -->
+
 <div class="form-group full">
 
 <label
+    for="productLocation"
     data-en="Location"
     data-ta="இடம்">
 
@@ -2287,9 +2454,12 @@ Spice
 </div>
 
 
+<!-- DESCRIPTION -->
+
 <div class="form-group full">
 
 <label
+    for="productDescription"
     data-en="Description"
     data-ta="விளக்கம்">
 
@@ -2327,65 +2497,352 @@ Spice
 </div>
 
 
-
 <script>
 
-/* =====================================================
-   PRODUCT DATA
-===================================================== */
+/* =========================================================
+   COMPLETE VEGETABLE + FRUIT DATA
+========================================================= */
 
-const farmerProducts = [
+const vegetables = [
 
-{
-    id:1,
-    name:"Tomato",
-    tamil:"தக்காளி",
-    icon:"🍅",
-    price:32,
-    quantity:250,
-    location:"Chennai"
-},
+    {
+        name:"Tomato",
+        tamil:"தக்காளி",
+        icon:"🍅"
+    },
 
-{
-    id:2,
-    name:"Paddy",
-    tamil:"நெல்",
-    icon:"🌾",
-    price:23.5,
-    quantity:500,
-    location:"Thanjavur"
-},
+    {
+        name:"Onion",
+        tamil:"வெங்காயம்",
+        icon:"🧅"
+    },
 
-{
-    id:3,
-    name:"Onion",
-    tamil:"வெங்காயம்",
-    icon:"🧅",
-    price:41,
-    quantity:180,
-    location:"Coimbatore"
-},
+    {
+        name:"Potato",
+        tamil:"உருளைக்கிழங்கு",
+        icon:"🥔"
+    },
 
-{
-    id:4,
-    name:"Mango",
-    tamil:"மாம்பழம்",
-    icon:"🥭",
-    price:68,
-    quantity:120,
-    location:"Madurai"
-}
+    {
+        name:"Carrot",
+        tamil:"கேரட்",
+        icon:"🥕"
+    },
+
+    {
+        name:"Brinjal",
+        tamil:"கத்தரிக்காய்",
+        icon:"🍆"
+    },
+
+    {
+        name:"Drumstick",
+        tamil:"முருங்கைக்காய்",
+        icon:"🥬"
+    },
+
+    {
+        name:"Ladies Finger",
+        tamil:"வெண்டைக்காய்",
+        icon:"🥬"
+    },
+
+    {
+        name:"Cabbage",
+        tamil:"முட்டைக்கோஸ்",
+        icon:"🥬"
+    },
+
+    {
+        name:"Cauliflower",
+        tamil:"காலிஃபிளவர்",
+        icon:"🥦"
+    },
+
+    {
+        name:"Beans",
+        tamil:"பீன்ஸ்",
+        icon:"🫘"
+    },
+
+    {
+        name:"Beetroot",
+        tamil:"பீட்ரூட்",
+        icon:"🫜"
+    },
+
+    {
+        name:"Radish",
+        tamil:"முள்ளங்கி",
+        icon:"🫜"
+    },
+
+    {
+        name:"Cucumber",
+        tamil:"வெள்ளரிக்காய்",
+        icon:"🥒"
+    },
+
+    {
+        name:"Pumpkin",
+        tamil:"பூசணிக்காய்",
+        icon:"🎃"
+    },
+
+    {
+        name:"Bottle Gourd",
+        tamil:"சுரைக்காய்",
+        icon:"🥒"
+    },
+
+    {
+        name:"Bitter Gourd",
+        tamil:"பாகற்காய்",
+        icon:"🥒"
+    },
+
+    {
+        name:"Ridge Gourd",
+        tamil:"பீர்க்கங்காய்",
+        icon:"🥒"
+    },
+
+    {
+        name:"Snake Gourd",
+        tamil:"புடலங்காய்",
+        icon:"🥒"
+    },
+
+    {
+        name:"Green Peas",
+        tamil:"பச்சைப் பட்டாணி",
+        icon:"🫛"
+    },
+
+    {
+        name:"Green Chilli",
+        tamil:"பச்சை மிளகாய்",
+        icon:"🌶️"
+    },
+
+    {
+        name:"Capsicum",
+        tamil:"குடைமிளகாய்",
+        icon:"🫑"
+    },
+
+    {
+        name:"Spinach",
+        tamil:"கீரை",
+        icon:"🥬"
+    },
+
+    {
+        name:"Sweet Potato",
+        tamil:"சர்க்கரைவள்ளிக்கிழங்கு",
+        icon:"🍠"
+    },
+
+    {
+        name:"Garlic",
+        tamil:"பூண்டு",
+        icon:"🧄"
+    },
+
+    {
+        name:"Ginger",
+        tamil:"இஞ்சி",
+        icon:"🫚"
+    }
 
 ];
 
 
+const fruits = [
+
+    {
+        name:"Mango",
+        tamil:"மாம்பழம்",
+        icon:"🥭"
+    },
+
+    {
+        name:"Banana",
+        tamil:"வாழைப்பழம்",
+        icon:"🍌"
+    },
+
+    {
+        name:"Apple",
+        tamil:"ஆப்பிள்",
+        icon:"🍎"
+    },
+
+    {
+        name:"Orange",
+        tamil:"ஆரஞ்சு",
+        icon:"🍊"
+    },
+
+    {
+        name:"Grapes",
+        tamil:"திராட்சை",
+        icon:"🍇"
+    },
+
+    {
+        name:"Guava",
+        tamil:"கொய்யாப்பழம்",
+        icon:"🍐"
+    },
+
+    {
+        name:"Papaya",
+        tamil:"பப்பாளி",
+        icon:"🍊"
+    },
+
+    {
+        name:"Watermelon",
+        tamil:"தர்பூசணி",
+        icon:"🍉"
+    },
+
+    {
+        name:"Pineapple",
+        tamil:"அன்னாசிப்பழம்",
+        icon:"🍍"
+    },
+
+    {
+        name:"Pomegranate",
+        tamil:"மாதுளை",
+        icon:"❤️"
+    },
+
+    {
+        name:"Jackfruit",
+        tamil:"பலாப்பழம்",
+        icon:"🍈"
+    },
+
+    {
+        name:"Coconut",
+        tamil:"தேங்காய்",
+        icon:"🥥"
+    },
+
+    {
+        name:"Lemon",
+        tamil:"எலுமிச்சை",
+        icon:"🍋"
+    },
+
+    {
+        name:"Sapota",
+        tamil:"சப்போட்டா",
+        icon:"🥭"
+    },
+
+    {
+        name:"Custard Apple",
+        tamil:"சீத்தாப்பழம்",
+        icon:"🍏"
+    },
+
+    {
+        name:"Dragon Fruit",
+        tamil:"டிராகன் பழம்",
+        icon:"🐉"
+    },
+
+    {
+        name:"Strawberry",
+        tamil:"ஸ்ட்ராபெர்ரி",
+        icon:"🍓"
+    },
+
+    {
+        name:"Muskmelon",
+        tamil:"முலாம்பழம்",
+        icon:"🍈"
+    },
+
+    {
+        name:"Fig",
+        tamil:"அத்திப்பழம்",
+        icon:"🫐"
+    },
+
+    {
+        name:"Dates",
+        tamil:"பேரீச்சம்பழம்",
+        icon:"🌴"
+    }
+
+];
+
+
+/* =========================================================
+   INITIAL PRODUCTS
+========================================================= */
+
+const farmerProducts = [
+
+    {
+        id:1,
+        name:"Tomato",
+        tamil:"தக்காளி",
+        icon:"🍅",
+        category:"Vegetable",
+        price:32,
+        quantity:250,
+        location:"Chennai"
+    },
+
+    {
+        id:2,
+        name:"Mango",
+        tamil:"மாம்பழம்",
+        icon:"🥭",
+        category:"Fruit",
+        price:68,
+        quantity:120,
+        location:"Madurai"
+    },
+
+    {
+        id:3,
+        name:"Onion",
+        tamil:"வெங்காயம்",
+        icon:"🧅",
+        category:"Vegetable",
+        price:41,
+        quantity:180,
+        location:"Coimbatore"
+    },
+
+    {
+        id:4,
+        name:"Banana",
+        tamil:"வாழைப்பழம்",
+        icon:"🍌",
+        category:"Fruit",
+        price:45,
+        quantity:200,
+        location:"Thanjavur"
+    }
+
+];
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
 let currentLanguage =
     localStorage.getItem("agriLanguage") || "en";
 
-
-/* =====================================================
-   LANGUAGE
-===================================================== */
 
 function changeLanguage(language){
 
@@ -2401,10 +2858,16 @@ function changeLanguage(language){
         .querySelectorAll("[data-en]")
         .forEach(function(element){
 
+            const english =
+                element.getAttribute("data-en");
+
+            const tamil =
+                element.getAttribute("data-ta");
+
             element.textContent =
                 language === "en"
-                ? element.getAttribute("data-en")
-                : element.getAttribute("data-ta");
+                ? english
+                : tamil;
 
         });
 
@@ -2427,14 +2890,119 @@ function changeLanguage(language){
         );
 
 
+    updateProductCategory();
+
+    updateProductNames();
+
     renderProducts();
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   PRODUCT CATEGORY DROPDOWN
+========================================================= */
+
+function updateProductCategory(){
+
+    const category =
+        document.getElementById(
+            "productCategory"
+        );
+
+
+    if(!category){
+        return;
+    }
+
+
+    category.innerHTML = `
+
+        <option value="vegetable">
+
+            ${
+                currentLanguage === "en"
+                ? "🥬 Vegetable"
+                : "🥬 காய்கறி"
+            }
+
+        </option>
+
+        <option value="fruit">
+
+            ${
+                currentLanguage === "en"
+                ? "🍎 Fruit"
+                : "🍎 பழம்"
+            }
+
+        </option>
+
+    `;
+}
+
+
+/* =========================================================
+   PRODUCT NAME DROPDOWN
+========================================================= */
+
+function updateProductNames(){
+
+    const category =
+        document.getElementById(
+            "productCategory"
+        ).value;
+
+
+    const nameSelect =
+        document.getElementById(
+            "productName"
+        );
+
+
+    const data =
+        category === "vegetable"
+        ? vegetables
+        : fruits;
+
+
+    nameSelect.innerHTML = "";
+
+
+    data.forEach(function(item){
+
+        const option =
+            document.createElement("option");
+
+
+        option.value =
+            item.name;
+
+
+        option.textContent =
+            currentLanguage === "en"
+            ? `${item.icon} ${item.name}`
+            : `${item.icon} ${item.tamil}`;
+
+
+        option.dataset.tamil =
+            item.tamil;
+
+
+        option.dataset.icon =
+            item.icon;
+
+
+        nameSelect.appendChild(option);
+
+    });
+
+}
+
+
+/* =========================================================
    RENDER PRODUCTS
-===================================================== */
+========================================================= */
 
 function renderProducts(){
 
@@ -2444,7 +3012,21 @@ function renderProducts(){
         );
 
 
+    const count =
+        document.getElementById(
+            "productCount"
+        );
+
+
     container.innerHTML = "";
+
+
+    if(count){
+
+        count.textContent =
+            farmerProducts.length;
+
+    }
 
 
     farmerProducts.forEach(function(product){
@@ -2453,6 +3035,20 @@ function renderProducts(){
             currentLanguage === "en"
             ? product.name
             : product.tamil;
+
+
+        const category =
+            currentLanguage === "en"
+            ? product.category
+            : product.category === "Vegetable"
+                ? "காய்கறி"
+                : "பழம்";
+
+
+        const availableText =
+            currentLanguage === "en"
+            ? "Available"
+            : "கிடைக்கிறது";
 
 
         const card =
@@ -2477,9 +3073,22 @@ function renderProducts(){
                 </h3>
 
 
-                <div class="location">
+                <div
+                    class="location">
 
                     📍 ${product.location}
+
+                </div>
+
+
+                <div
+                    style="
+                    color:#758178;
+                    font-size:11px;
+                    margin-bottom:5px;
+                    ">
+
+                    ${category}
 
                 </div>
 
@@ -2501,11 +3110,7 @@ function renderProducts(){
 
                     <span class="status">
 
-                        ${
-                            currentLanguage === "en"
-                            ? "Available"
-                            : "கிடைக்கிறது"
-                        }
+                        ${availableText}
 
                     </span>
 
@@ -2534,9 +3139,9 @@ function renderProducts(){
 }
 
 
-/* =====================================================
+/* =========================================================
    MODAL
-===================================================== */
+========================================================= */
 
 function openAddProduct(){
 
@@ -2544,6 +3149,11 @@ function openAddProduct(){
         .getElementById("productModal")
         .classList
         .add("show");
+
+
+    updateProductCategory();
+
+    updateProductNames();
 
 }
 
@@ -2572,29 +3182,51 @@ function closeOutside(event){
 }
 
 
-/* =====================================================
+/* =========================================================
    ADD PRODUCT
-===================================================== */
+========================================================= */
 
 function addProduct(){
 
-    const name =
-        document
-        .getElementById("productName")
-        .value
-        .trim();
-
-
     const category =
         document
-        .getElementById("productCategory")
+        .getElementById(
+            "productCategory"
+        )
         .value;
+
+
+    const nameSelect =
+        document
+        .getElementById(
+            "productName"
+        );
+
+
+    const selectedOption =
+        nameSelect.options[
+            nameSelect.selectedIndex
+        ];
+
+
+    const name =
+        selectedOption.value;
+
+
+    const tamil =
+        selectedOption.dataset.tamil;
+
+
+    const icon =
+        selectedOption.dataset.icon;
 
 
     const price =
         Number(
             document
-            .getElementById("productPrice")
+            .getElementById(
+                "productPrice"
+            )
             .value
         );
 
@@ -2602,20 +3234,33 @@ function addProduct(){
     const quantity =
         Number(
             document
-            .getElementById("productQuantity")
+            .getElementById(
+                "productQuantity"
+            )
             .value
         );
 
 
     const location =
         document
-        .getElementById("productLocation")
+        .getElementById(
+            "productLocation"
+        )
+        .value
+        .trim();
+
+
+    const description =
+        document
+        .getElementById(
+            "productDescription"
+        )
         .value
         .trim();
 
 
     if(
-        name === "" ||
+        !name ||
         price <= 0 ||
         quantity <= 0 ||
         location === ""
@@ -2640,25 +3285,6 @@ function addProduct(){
     }
 
 
-    let icon = "🌾";
-
-    if(category === "vegetable"){
-        icon = "🥬";
-    }
-
-    if(category === "fruit"){
-        icon = "🍎";
-    }
-
-    if(category === "grain"){
-        icon = "🌾";
-    }
-
-    if(category === "spice"){
-        icon = "🌶️";
-    }
-
-
     farmerProducts.push({
 
         id:
@@ -2668,10 +3294,15 @@ function addProduct(){
             name,
 
         tamil:
-            name,
+            tamil,
 
         icon:
             icon,
+
+        category:
+            category === "vegetable"
+            ? "Vegetable"
+            : "Fruit",
 
         price:
             price,
@@ -2680,7 +3311,10 @@ function addProduct(){
             quantity,
 
         location:
-            location
+            location,
+
+        description:
+            description
 
     });
 
@@ -2689,27 +3323,30 @@ function addProduct(){
 
 
     document
-        .getElementById("productName")
+        .getElementById(
+            "productPrice"
+        )
         .value = "";
 
 
     document
-        .getElementById("productPrice")
+        .getElementById(
+            "productQuantity"
+        )
         .value = "";
 
 
     document
-        .getElementById("productQuantity")
+        .getElementById(
+            "productLocation"
+        )
         .value = "";
 
 
     document
-        .getElementById("productLocation")
-        .value = "";
-
-
-    document
-        .getElementById("productDescription")
+        .getElementById(
+            "productDescription"
+        )
         .value = "";
 
 
@@ -2722,24 +3359,46 @@ function addProduct(){
 
         ?
 
-        "Product added successfully!"
+        `${name} added successfully!`
 
         :
 
-        "பொருள் வெற்றிகரமாக சேர்க்கப்பட்டது!"
+        `${tamil} வெற்றிகரமாக சேர்க்கப்பட்டது!`
 
     );
 
 }
 
 
-/* =====================================================
-   START
-===================================================== */
+/* =========================================================
+   ESC KEY - CLOSE MODAL
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   START PAGE
+========================================================= */
 
 changeLanguage(
     currentLanguage
 );
+
+updateProductCategory();
+
+updateProductNames();
 
 renderProducts();
 
@@ -2747,4 +3406,5 @@ renderProducts();
 
 
 </body>
+
 </html>

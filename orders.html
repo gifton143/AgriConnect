@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,10 @@
 <title>AgriConnect - Orders</title>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     margin:0;
@@ -23,6 +26,7 @@ body{
     font-family:
         "Noto Sans Tamil",
         "Latha",
+        "Segoe UI",
         Arial,
         sans-serif;
 
@@ -30,26 +34,36 @@ body{
 
     color:#183b21;
 
+    /*
+       DESKTOP / LANDSCAPE BACKGROUND
+    */
     background-image:
         linear-gradient(
-            rgba(235,248,237,.15),
-            rgba(235,248,237,.30)
+            rgba(20,55,30,.16),
+            rgba(20,55,30,.22)
         ),
         url("./image/order-bg.png.png");
 
     background-size:cover;
-    background-position:center;
+    background-position:center center;
     background-repeat:no-repeat;
+
+    /*
+       IMPORTANT:
+       Background stays fixed.
+       It will NOT move while scrolling.
+    */
     background-attachment:fixed;
 }
 
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 .header{
     position:fixed;
+
     top:0;
     left:0;
     right:0;
@@ -62,17 +76,20 @@ body{
     align-items:center;
     justify-content:space-between;
 
-    gap:15px;
+    gap:18px;
 
     padding:10px 30px;
 
-    background:rgba(255,255,255,.96);
-
-    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.97);
 
     box-shadow:
         0 4px 20px rgba(0,0,0,.12);
 }
+
+
+/* =========================================================
+   LOGO
+========================================================= */
 
 .logo{
     text-decoration:none;
@@ -84,16 +101,35 @@ body{
     font-weight:900;
 
     white-space:nowrap;
+
+    flex-shrink:0;
 }
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .nav-links{
     display:flex;
 
     align-items:center;
 
+    justify-content:center;
+
     gap:4px;
 
+    flex:1;
+
+    min-width:0;
+
     overflow-x:auto;
+
+    scrollbar-width:none;
+}
+
+.nav-links::-webkit-scrollbar{
+    display:none;
 }
 
 .nav-links a{
@@ -103,7 +139,7 @@ body{
 
     font-size:13px;
 
-    font-weight:700;
+    font-weight:800;
 
     padding:9px 11px;
 
@@ -112,6 +148,8 @@ body{
     white-space:nowrap;
 
     transition:.2s;
+
+    flex-shrink:0;
 }
 
 .nav-links a:hover,
@@ -120,6 +158,11 @@ body{
 
     color:#16842f;
 }
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
 
 .language{
     display:flex;
@@ -131,6 +174,8 @@ body{
     background:#edf5ee;
 
     border-radius:9px;
+
+    flex-shrink:0;
 }
 
 .language button{
@@ -147,6 +192,8 @@ body{
     font-weight:800;
 
     color:#35533c;
+
+    font-family:inherit;
 }
 
 .language button.active{
@@ -159,16 +206,16 @@ body{
 }
 
 
-/* =========================
+/* =========================================================
    PAGE
-========================= */
+========================================================= */
 
 .page{
     min-height:100vh;
 
     padding:
         125px
-        6%
+        5%
         60px;
 }
 
@@ -179,9 +226,9 @@ body{
 }
 
 
-/* =========================
-   TITLE
-========================= */
+/* =========================================================
+   PAGE HEADER
+========================================================= */
 
 .page-header{
     text-align:center;
@@ -191,7 +238,7 @@ body{
     color:white;
 
     text-shadow:
-        0 2px 8px rgba(0,0,0,.55);
+        0 3px 10px rgba(0,0,0,.65);
 }
 
 .page-header .icon{
@@ -211,13 +258,13 @@ body{
 .page-header p{
     font-size:16px;
 
-    font-weight:600;
+    font-weight:700;
 }
 
 
-/* =========================
+/* =========================================================
    STATS
-========================= */
+========================================================= */
 
 .stats{
     display:grid;
@@ -235,14 +282,12 @@ body{
 
     border-radius:17px;
 
-    background:rgba(255,255,255,.94);
+    background:rgba(255,255,255,.95);
 
     box-shadow:
-        0 10px 28px rgba(0,0,0,.14);
+        0 10px 28px rgba(0,0,0,.16);
 
     border-left:5px solid #168a32;
-
-    backdrop-filter:blur(8px);
 }
 
 .stat-card .icon{
@@ -268,9 +313,9 @@ body{
 }
 
 
-/* =========================
+/* =========================================================
    CONTROLS
-========================= */
+========================================================= */
 
 .controls{
     display:grid;
@@ -286,17 +331,17 @@ body{
 
     border-radius:16px;
 
-    background:rgba(255,255,255,.94);
+    background:rgba(255,255,255,.95);
 
     box-shadow:
-        0 9px 28px rgba(0,0,0,.13);
-
-    backdrop-filter:blur(8px);
+        0 9px 28px rgba(0,0,0,.15);
 }
 
 .controls input,
 .controls select{
     width:100%;
+
+    min-height:44px;
 
     padding:12px 14px;
 
@@ -309,6 +354,10 @@ body{
     outline:none;
 
     color:#203d27;
+
+    font-family:inherit;
+
+    font-size:13px;
 }
 
 .controls input:focus,
@@ -320,6 +369,8 @@ body{
 }
 
 .reset-btn{
+    min-height:44px;
+
     border:1px solid #c6d8c9;
 
     background:white;
@@ -333,6 +384,10 @@ body{
     font-weight:800;
 
     cursor:pointer;
+
+    font-family:inherit;
+
+    white-space:nowrap;
 }
 
 .reset-btn:hover{
@@ -340,21 +395,19 @@ body{
 }
 
 
-/* =========================
-   ORDERS
-========================= */
+/* =========================================================
+   ORDERS CARD
+========================================================= */
 
 .orders-card{
     padding:25px;
 
     border-radius:20px;
 
-    background:rgba(255,255,255,.95);
+    background:rgba(255,255,255,.96);
 
     box-shadow:
-        0 13px 35px rgba(0,0,0,.15);
-
-    backdrop-filter:blur(9px);
+        0 13px 35px rgba(0,0,0,.17);
 }
 
 .orders-card h2{
@@ -366,9 +419,9 @@ body{
 }
 
 
-/* =========================
-   ORDER ITEM
-========================= */
+/* =========================================================
+   ORDER LIST
+========================================================= */
 
 .order-list{
     display:flex;
@@ -377,6 +430,11 @@ body{
 
     gap:15px;
 }
+
+
+/* =========================================================
+   ORDER ITEM
+========================================================= */
 
 .order-item{
     display:grid;
@@ -410,6 +468,11 @@ body{
         0 7px 20px rgba(0,70,20,.09);
 }
 
+
+/* =========================================================
+   PRODUCT ICON
+========================================================= */
+
 .product-icon{
     width:62px;
     height:62px;
@@ -425,6 +488,11 @@ body{
 
     font-size:35px;
 }
+
+
+/* =========================================================
+   ORDER INFO
+========================================================= */
 
 .order-info h3{
     color:#175b29;
@@ -447,6 +515,11 @@ body{
 
     margin-top:4px;
 }
+
+
+/* =========================================================
+   ORDER DETAIL
+========================================================= */
 
 .order-detail{
     display:flex;
@@ -476,12 +549,14 @@ body{
     font-size:20px;
 
     font-weight:900;
+
+    margin-top:2px;
 }
 
 
-/* =========================
+/* =========================================================
    STATUS
-========================= */
+========================================================= */
 
 .status{
     display:inline-flex;
@@ -526,9 +601,9 @@ body{
 }
 
 
-/* =========================
+/* =========================================================
    VIEW BUTTON
-========================= */
+========================================================= */
 
 .view-btn{
     border:1px solid #c6dbc9;
@@ -544,6 +619,10 @@ body{
     font-weight:800;
 
     cursor:pointer;
+
+    font-family:inherit;
+
+    white-space:nowrap;
 }
 
 .view-btn:hover{
@@ -551,9 +630,9 @@ body{
 }
 
 
-/* =========================
+/* =========================================================
    EMPTY
-========================= */
+========================================================= */
 
 .empty{
     padding:60px 20px;
@@ -576,9 +655,9 @@ body{
 }
 
 
-/* =========================
+/* =========================================================
    MODAL
-========================= */
+========================================================= */
 
 .modal{
     display:none;
@@ -595,9 +674,9 @@ body{
 
     padding:20px;
 
-    background:rgba(0,30,10,.55);
+    background:rgba(0,30,10,.60);
 
-    backdrop-filter:blur(5px);
+    backdrop-filter:blur(4px);
 }
 
 .modal.show{
@@ -622,7 +701,7 @@ body{
     background:white;
 
     box-shadow:
-        0 25px 70px rgba(0,0,0,.28);
+        0 25px 70px rgba(0,0,0,.30);
 }
 
 .close{
@@ -645,6 +724,10 @@ body{
     font-size:21px;
 
     cursor:pointer;
+}
+
+.close:hover{
+    background:#e4efe6;
 }
 
 .modal-box h2{
@@ -709,16 +792,16 @@ body{
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 .footer{
     padding:25px;
 
     text-align:center;
 
-    background:rgba(13,55,25,.95);
+    background:rgba(13,55,25,.96);
 
     color:#d5e5d8;
 }
@@ -730,22 +813,20 @@ body{
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media(max-width:1100px){
 
     .header{
-        flex-wrap:wrap;
-
         padding:10px 18px;
+
+        gap:10px;
     }
 
     .nav-links{
-        width:100%;
-
-        order:3;
+        justify-content:flex-start;
     }
 
     .stats{
@@ -773,47 +854,241 @@ body{
         grid-column:3;
         grid-row:2;
     }
-
 }
 
+
+/* =========================================================
+   MOBILE
+   IMPORTANT:
+   PORTRAIT BACKGROUND
+========================================================= */
 
 @media(max-width:700px){
 
     body{
-        background-attachment:scroll;
+
+        /*
+           MOBILE / PORTRAIT BACKGROUND
+        */
+        background-image:
+            linear-gradient(
+                rgba(20,55,30,.10),
+                rgba(20,55,30,.18)
+            ),
+            url("./image/order-bg-portrait.jpg.png.png");
+
+        background-size:cover;
+
+        /*
+           Keeps portrait image positioned nicely.
+        */
+        background-position:center top;
+
+        background-repeat:no-repeat;
+
+        /*
+           IMPORTANT:
+           Background does NOT scroll.
+        */
+        background-attachment:fixed;
     }
+
+
+    /* -------------------------
+       HEADER
+    ------------------------- */
+
+    .header{
+        min-height:94px;
+
+        display:grid;
+
+        grid-template-columns:
+            1fr auto;
+
+        grid-template-rows:
+            auto auto;
+
+        padding:9px 12px;
+
+        gap:5px 8px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .language{
+        justify-self:end;
+    }
+
+    .language button{
+        padding:6px 9px;
+
+        font-size:11px;
+    }
+
+    .nav-links{
+        grid-column:1/-1;
+
+        grid-row:2;
+
+        width:100%;
+
+        justify-content:flex-start;
+
+        gap:2px;
+
+        padding-bottom:2px;
+    }
+
+    .nav-links a{
+        font-size:11px;
+
+        padding:7px 8px;
+    }
+
+
+    /* -------------------------
+       PAGE
+    ------------------------- */
 
     .page{
         padding:
-            120px 5% 45px;
+            125px 4% 45px;
+    }
+
+    .container{
+        width:100%;
+    }
+
+
+    /* -------------------------
+       PAGE HEADER
+    ------------------------- */
+
+    .page-header{
+        margin-bottom:24px;
+    }
+
+    .page-header .icon{
+        font-size:43px;
     }
 
     .page-header h1{
-        font-size:34px;
+        font-size:32px;
+
+        line-height:1.2;
     }
+
+    .page-header p{
+        font-size:13px;
+
+        line-height:1.6;
+    }
+
+
+    /* -------------------------
+       STATS
+    ------------------------- */
 
     .stats{
         grid-template-columns:1fr;
+
+        gap:13px;
     }
+
+    .stat-card{
+        padding:18px;
+
+        border-radius:17px;
+    }
+
+    .stat-card .icon{
+        font-size:27px;
+    }
+
+    .stat-card p{
+        font-size:13px;
+    }
+
+    .stat-card strong{
+        font-size:25px;
+    }
+
+
+    /* -------------------------
+       CONTROLS
+    ------------------------- */
 
     .controls{
         grid-template-columns:1fr;
+
+        gap:10px;
+
+        padding:15px;
+
+        border-radius:16px;
     }
 
-    .orders-card{
-        padding:18px;
+    .controls input,
+    .controls select,
+    .reset-btn{
+        width:100%;
+
+        min-height:45px;
     }
+
+
+    /* -------------------------
+       ORDERS CARD
+    ------------------------- */
+
+    .orders-card{
+        padding:17px;
+
+        border-radius:18px;
+    }
+
+    .orders-card h2{
+        font-size:21px;
+
+        margin-bottom:15px;
+    }
+
+
+    /* -------------------------
+       ORDER ITEM
+    ------------------------- */
 
     .order-item{
         grid-template-columns:
-            60px 1fr;
+            58px 1fr;
+
         gap:12px;
+
+        padding:15px;
+
+        border-radius:15px;
     }
 
     .product-icon{
         width:55px;
         height:55px;
-        font-size:30px;
+
+        font-size:29px;
+    }
+
+    .order-info h3{
+        font-size:17px;
+    }
+
+    .order-id{
+        font-size:10px;
+    }
+
+    .order-info p{
+        font-size:11px;
     }
 
     .order-detail,
@@ -822,32 +1097,151 @@ body{
         grid-column:1/-1 !important;
     }
 
-    .detail-grid{
-        grid-template-columns:1fr;
+    .order-detail{
+        padding-top:3px;
     }
 
-}
+    .detail-label{
+        font-size:11px;
+    }
+
+    .detail-value{
+        font-size:13px;
+    }
+
+    .order-price{
+        font-size:19px;
+    }
+
+    .order-status{
+        margin-top:2px;
+    }
+
+    .order-action{
+        margin-top:2px;
+    }
+
+    .view-btn{
+        width:100%;
+
+        min-height:42px;
+    }
 
 
-@media(max-width:450px){
+    /* -------------------------
+       MODAL
+    ------------------------- */
 
-    .logo{
+    .modal{
+        padding:12px;
+    }
+
+    .modal-box{
+        max-height:92vh;
+
+        padding:20px;
+
+        border-radius:18px;
+    }
+
+    .modal-box h2{
         font-size:20px;
     }
 
+    .detail-grid{
+        grid-template-columns:1fr;
+
+        gap:9px;
+    }
+
+    .detail-box{
+        padding:13px;
+    }
+
+    .modal-total{
+        font-size:20px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:450px){
+
+    .header{
+        min-height:92px;
+
+        padding:8px 9px;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
     .language button{
-        padding:6px 8px;
-        font-size:11px;
+        padding:5px 7px;
+
+        font-size:10px;
+    }
+
+    .nav-links a{
+        font-size:10px;
+
+        padding:6px 7px;
+    }
+
+    .page{
+        padding:
+            122px 3.5% 40px;
     }
 
     .page-header h1{
         font-size:29px;
     }
 
-    .modal-box{
-        padding:20px;
+    .page-header p{
+        font-size:12px;
     }
 
+    .stat-card{
+        padding:16px;
+    }
+
+    .orders-card{
+        padding:14px;
+    }
+
+    .order-item{
+        padding:13px;
+    }
+
+    .modal-box{
+        padding:18px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:350px){
+
+    .logo{
+        font-size:17px;
+    }
+
+    .nav-links a{
+        font-size:9px;
+
+        padding:6px 6px;
+    }
+
+    .page-header h1{
+        font-size:26px;
+    }
 }
 
 </style>
@@ -857,452 +1251,513 @@ body{
 <body>
 
 
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
 <header class="header">
 
-<a href="index.html" class="logo">
-🌱 AgriConnect
-</a>
+    <a href="index.html" class="logo">
+        🌱 AgriConnect
+    </a>
 
 
-<nav class="nav-links">
+    <nav class="nav-links">
 
-<a href="index.html">
-🏠 Home
-</a>
+        <a href="index.html">
+            🏠 Home
+        </a>
 
-<a href="farmer.html">
-👨‍🌾 Farmer
-</a>
+        <a href="farmer.html">
+            👨‍🌾 Farmer
+        </a>
 
-<a href="buyer.html">
-🛒 Buyer
-</a>
+        <a href="buyer.html">
+            🛒 Buyer
+        </a>
 
-<a href="machinery.html">
-🚜 Machinery
-</a>
+        <a href="machinery.html">
+            🚜 Machinery
+        </a>
 
-<a href="fertilizer.html">
-🌱 Fertilizer
-</a>
+        <a href="fertilizer.html">
+            🌱 Fertilizer
+        </a>
 
-<a href="weather.html">
-🌦️ Weather
-</a>
+        <a href="weather.html">
+            🌦️ Weather
+        </a>
 
-<a href="crop-prices.html">
-📈 Crop Prices
-</a>
+        <a href="crop-prices.html">
+            📈 Crop Prices
+        </a>
 
-<a href="orders.html" class="active">
-📦 Orders
-</a>
+        <a href="orders.html" class="active">
+            📦 Orders
+        </a>
 
-</nav>
+    </nav>
 
 
-<div class="language">
+    <div class="language">
 
-<button
-id="enBtn"
-class="active"
-onclick="changeLanguage('en')">
-EN
-</button>
+        <button
+            id="enBtn"
+            class="active"
+            onclick="changeLanguage('en')">
+            EN
+        </button>
 
-<button
-id="taBtn"
-onclick="changeLanguage('ta')">
-தமிழ்
-</button>
+        <button
+            id="taBtn"
+            onclick="changeLanguage('ta')">
+            தமிழ்
+        </button>
 
-</div>
+    </div>
 
 </header>
 
 
 
+<!-- =======================================================
+     MAIN
+======================================================= -->
+
 <main class="page">
 
-<div class="container">
+    <div class="container">
 
 
-<!-- PAGE HEADER -->
+        <!-- PAGE HEADER -->
 
-<div class="page-header">
+        <div class="page-header">
 
-<div class="icon">
-📦
-</div>
+            <div class="icon">
+                📦
+            </div>
 
-<h1
-data-en="My Orders"
-data-ta="எனது ஆர்டர்கள்">
-My Orders
-</h1>
+            <h1
+                data-en="My Orders"
+                data-ta="எனது ஆர்டர்கள்">
+                My Orders
+            </h1>
 
-<p
-data-en="Track and manage your agricultural product orders."
-data-ta="உங்கள் விவசாய பொருட்களின் ஆர்டர்களை கண்காணித்து நிர்வகிக்கவும்.">
-Track and manage your agricultural product orders.
-</p>
+            <p
+                data-en="Track and manage your agricultural product orders."
+                data-ta="உங்கள் விவசாய பொருட்களின் ஆர்டர்களை கண்காணித்து நிர்வகிக்கவும்.">
+                Track and manage your agricultural product orders.
+            </p>
 
-</div>
+        </div>
 
 
 
-<!-- STATS -->
+        <!-- =================================================
+             STATS
+        ================================================== -->
 
-<div class="stats">
+        <div class="stats">
 
 
-<div class="stat-card">
+            <div class="stat-card">
 
-<div class="icon">
-📦
-</div>
+                <div class="icon">
+                    📦
+                </div>
 
-<p
-data-en="Total Orders"
-data-ta="மொத்த ஆர்டர்கள்">
-Total Orders
-</p>
+                <p
+                    data-en="Total Orders"
+                    data-ta="மொத்த ஆர்டர்கள்">
+                    Total Orders
+                </p>
 
-<strong id="totalOrders">
-6
-</strong>
+                <strong id="totalOrders">
+                    0
+                </strong>
 
-</div>
+            </div>
 
 
-<div class="stat-card">
+            <div class="stat-card">
 
-<div class="icon">
-🚚
-</div>
+                <div class="icon">
+                    🚚
+                </div>
 
-<p
-data-en="In Transit"
-data-ta="வழியில்">
-In Transit
-</p>
+                <p
+                    data-en="In Transit"
+                    data-ta="வழியில்">
+                    In Transit
+                </p>
 
-<strong id="transitOrders">
-2
-</strong>
+                <strong id="transitOrders">
+                    0
+                </strong>
 
-</div>
+            </div>
 
 
-<div class="stat-card">
+            <div class="stat-card">
 
-<div class="icon">
-✅
-</div>
+                <div class="icon">
+                    ✅
+                </div>
 
-<p
-data-en="Delivered"
-data-ta="வழங்கப்பட்டது">
-Delivered
-</p>
+                <p
+                    data-en="Delivered"
+                    data-ta="வழங்கப்பட்டது">
+                    Delivered
+                </p>
 
-<strong id="deliveredOrders">
-3
-</strong>
+                <strong id="deliveredOrders">
+                    0
+                </strong>
 
-</div>
+            </div>
 
 
-<div class="stat-card">
+            <div class="stat-card">
 
-<div class="icon">
-💰
-</div>
+                <div class="icon">
+                    💰
+                </div>
 
-<p
-data-en="Total Spent"
-data-ta="மொத்த செலவு">
-Total Spent
-</p>
+                <p
+                    data-en="Total Spent"
+                    data-ta="மொத்த செலவு">
+                    Total Spent
+                </p>
+
+                <strong id="totalSpent">
+                    ₹0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CONTROLS
+        ================================================== -->
+
+        <div class="controls">
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="🔍 Search order or product..."
+                oninput="renderOrders()">
 
-<strong id="totalSpent">
-₹7,420
-</strong>
 
-</div>
+            <select
+                id="statusFilter"
+                onchange="renderOrders()">
 
-</div>
+                <option
+                    value="all"
+                    data-en="All Status"
+                    data-ta="அனைத்து நிலைகள்">
+                    All Status
+                </option>
 
+                <option
+                    value="Delivered"
+                    data-en="Delivered"
+                    data-ta="வழங்கப்பட்டது">
+                    Delivered
+                </option>
 
+                <option
+                    value="In Transit"
+                    data-en="In Transit"
+                    data-ta="வழியில்">
+                    In Transit
+                </option>
 
-<!-- CONTROLS -->
+                <option
+                    value="Processing"
+                    data-en="Processing"
+                    data-ta="செயலாக்கத்தில்">
+                    Processing
+                </option>
 
-<div class="controls">
+                <option
+                    value="Cancelled"
+                    data-en="Cancelled"
+                    data-ta="ரத்து செய்யப்பட்டது">
+                    Cancelled
+                </option>
 
-<input
-id="searchInput"
-type="text"
-placeholder="🔍 Search order or product..."
-oninput="renderOrders()">
+            </select>
 
 
-<select
-id="statusFilter"
-onchange="renderOrders()">
+            <select
+                id="sortFilter"
+                onchange="renderOrders()">
 
-<option value="all">
-All Status
-</option>
+                <option
+                    value="newest"
+                    data-en="Newest First"
+                    data-ta="புதியது முதலில்">
+                    Newest First
+                </option>
 
-<option value="Delivered">
-Delivered
-</option>
+                <option
+                    value="oldest"
+                    data-en="Oldest First"
+                    data-ta="பழையது முதலில்">
+                    Oldest First
+                </option>
 
-<option value="In Transit">
-In Transit
-</option>
+                <option
+                    value="priceHigh"
+                    data-en="Price: High to Low"
+                    data-ta="விலை: அதிகம் முதல் குறைவு">
+                    Price: High to Low
+                </option>
 
-<option value="Processing">
-Processing
-</option>
+                <option
+                    value="priceLow"
+                    data-en="Price: Low to High"
+                    data-ta="விலை: குறைவு முதல் அதிகம்">
+                    Price: Low to High
+                </option>
 
-<option value="Cancelled">
-Cancelled
-</option>
+            </select>
 
-</select>
 
+            <button
+                class="reset-btn"
+                onclick="resetFilters()">
 
-<select
-id="sortFilter"
-onchange="renderOrders()">
+                ↻
+                <span
+                    data-en="Reset"
+                    data-ta="மீட்டமை">
+                    Reset
+                </span>
 
-<option value="newest">
-Newest First
-</option>
+            </button>
 
-<option value="oldest">
-Oldest First
-</option>
+        </div>
 
-<option value="priceHigh">
-Price: High to Low
-</option>
 
-<option value="priceLow">
-Price: Low to High
-</option>
 
-</select>
+        <!-- =================================================
+             ORDER HISTORY
+        ================================================== -->
 
+        <div class="orders-card">
 
-<button
-class="reset-btn"
-onclick="resetFilters()">
+            <h2
+                data-en="📋 Order History"
+                data-ta="📋 ஆர்டர் வரலாறு">
+                📋 Order History
+            </h2>
 
-↻ Reset
 
-</button>
+            <div
+                id="orderList"
+                class="order-list">
+            </div>
 
-</div>
+        </div>
 
 
-
-<!-- ORDERS -->
-
-<div class="orders-card">
-
-<h2
-data-en="📋 Order History"
-data-ta="📋 ஆர்டர் வரலாறு">
-📋 Order History
-</h2>
-
-
-<div
-id="orderList"
-class="order-list">
-</div>
-
-</div>
-
-
-</div>
+    </div>
 
 </main>
 
 
 
-<!-- ORDER MODAL -->
+<!-- =======================================================
+     ORDER MODAL
+======================================================= -->
 
 <div
-id="orderModal"
-class="modal"
-onclick="closeOutside(event)">
+    id="orderModal"
+    class="modal"
+    onclick="closeOutside(event)">
 
-<div class="modal-box">
+    <div class="modal-box">
 
-<button
-class="close"
-onclick="closeModal()">
-×
-</button>
-
-<h2
-data-en="📦 Order Details"
-data-ta="📦 ஆர்டர் விவரங்கள்">
-📦 Order Details
-</h2>
+        <button
+            class="close"
+            onclick="closeModal()">
+            ×
+        </button>
 
 
-<div class="detail-grid">
+        <h2
+            data-en="📦 Order Details"
+            data-ta="📦 ஆர்டர் விவரங்கள்">
+            📦 Order Details
+        </h2>
 
 
-<div class="detail-box">
+        <div class="detail-grid">
 
-<span class="label"
-data-en="Order ID"
-data-ta="ஆர்டர் ID">
-Order ID
-</span>
 
-<strong id="modalOrderId">
--
-</strong>
+            <div class="detail-box">
+
+                <span
+                    class="label"
+                    data-en="Order ID"
+                    data-ta="ஆர்டர் ID">
+                    Order ID
+                </span>
+
+                <strong id="modalOrderId">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span
+                    class="label"
+                    data-en="Status"
+                    data-ta="நிலை">
+                    Status
+                </span>
+
+                <strong id="modalStatus">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span
+                    class="label"
+                    data-en="Product"
+                    data-ta="பொருள்">
+                    Product
+                </span>
+
+                <strong id="modalProduct">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span
+                    class="label"
+                    data-en="Quantity"
+                    data-ta="அளவு">
+                    Quantity
+                </span>
+
+                <strong id="modalQuantity">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span
+                    class="label"
+                    data-en="Farmer"
+                    data-ta="விவசாயி">
+                    Farmer
+                </span>
+
+                <strong id="modalFarmer">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span
+                    class="label"
+                    data-en="Location"
+                    data-ta="இடம்">
+                    Location
+                </span>
+
+                <strong id="modalLocation">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span
+                    class="label"
+                    data-en="Order Date"
+                    data-ta="ஆர்டர் தேதி">
+                    Order Date
+                </span>
+
+                <strong id="modalDate">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span
+                    class="label"
+                    data-en="Payment"
+                    data-ta="பணம் செலுத்துதல்">
+                    Payment
+                </span>
+
+                <strong id="modalPayment">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="modalTotal"
+            class="modal-total">
+            Total: ₹0
+        </div>
+
+    </div>
 
 </div>
 
 
-<div class="detail-box">
 
-<span class="label"
-data-en="Status"
-data-ta="நிலை">
-Status
-</span>
-
-<strong id="modalStatus">
--
-</strong>
-
-</div>
-
-
-<div class="detail-box">
-
-<span class="label"
-data-en="Product"
-data-ta="பொருள்">
-Product
-</span>
-
-<strong id="modalProduct">
--
-</strong>
-
-</div>
-
-
-<div class="detail-box">
-
-<span class="label"
-data-en="Quantity"
-data-ta="அளவு">
-Quantity
-</span>
-
-<strong id="modalQuantity">
--
-</strong>
-
-</div>
-
-
-<div class="detail-box">
-
-<span class="label"
-data-en="Farmer"
-data-ta="விவசாயி">
-Farmer
-</span>
-
-<strong id="modalFarmer">
--
-</strong>
-
-</div>
-
-
-<div class="detail-box">
-
-<span class="label"
-data-en="Location"
-data-ta="இடம்">
-Location
-</span>
-
-<strong id="modalLocation">
--
-</strong>
-
-</div>
-
-
-<div class="detail-box">
-
-<span class="label"
-data-en="Order Date"
-data-ta="ஆர்டர் தேதி">
-Order Date
-</span>
-
-<strong id="modalDate">
--
-</strong>
-
-</div>
-
-
-<div class="detail-box">
-
-<span class="label"
-data-en="Payment"
-data-ta="பணம் செலுத்துதல்">
-Payment
-</span>
-
-<strong id="modalPayment">
--
-</strong>
-
-</div>
-
-</div>
-
-
-<div
-id="modalTotal"
-class="modal-total">
-Total: ₹0
-</div>
-
-</div>
-
-</div>
-
-
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
 <footer class="footer">
 
-<p
-data-en="🌱 AgriConnect — Smart Agriculture Platform"
-data-ta="🌱 AgriConnect — ஸ்மார்ட் விவசாய தளம்">
-🌱 AgriConnect — Smart Agriculture Platform
-</p>
+    <p
+        data-en="🌱 AgriConnect — Smart Agriculture Platform"
+        data-ta="🌱 AgriConnect — ஸ்மார்ட் விவசாய தளம்">
+        🌱 AgriConnect — Smart Agriculture Platform
+    </p>
 
-<p>
-© 2026 AgriConnect — All Rights Reserved.
-</p>
+    <p>
+        © 2026 AgriConnect — All Rights Reserved.
+    </p>
 
 </footer>
 
@@ -1310,116 +1765,116 @@ data-ta="🌱 AgriConnect — ஸ்மார்ட் விவசாய தள
 
 <script>
 
-/* =========================
+/* =========================================================
    ORDER DATA
-========================= */
+========================================================= */
 
 const orders = [
 
-{
-    id:"AGR-1001",
-    product:"Tomato",
-    tamil:"தக்காளி",
-    icon:"🍅",
-    quantity:50,
-    farmer:"Ravi Kumar",
-    location:"Chennai",
-    date:"2026-08-20",
-    price:1600,
-    payment:"UPI",
-    status:"Delivered"
-},
+    {
+        id:"AGR-1001",
+        product:"Tomato",
+        tamil:"தக்காளி",
+        icon:"🍅",
+        quantity:50,
+        farmer:"Ravi Kumar",
+        location:"Chennai",
+        date:"2026-08-20",
+        price:1600,
+        payment:"UPI",
+        status:"Delivered"
+    },
 
-{
-    id:"AGR-1002",
-    product:"Paddy",
-    tamil:"நெல்",
-    icon:"🌾",
-    quantity:100,
-    farmer:"Suresh Farms",
-    location:"Thanjavur",
-    date:"2026-08-18",
-    price:2350,
-    payment:"Cash on Delivery",
-    status:"In Transit"
-},
+    {
+        id:"AGR-1002",
+        product:"Paddy",
+        tamil:"நெல்",
+        icon:"🌾",
+        quantity:100,
+        farmer:"Suresh Farms",
+        location:"Thanjavur",
+        date:"2026-08-18",
+        price:2350,
+        payment:"Cash on Delivery",
+        status:"In Transit"
+    },
 
-{
-    id:"AGR-1003",
-    product:"Mango",
-    tamil:"மாம்பழம்",
-    icon:"🥭",
-    quantity:30,
-    farmer:"Murugan Farm",
-    location:"Madurai",
-    date:"2026-08-16",
-    price:2040,
-    payment:"UPI",
-    status:"Delivered"
-},
+    {
+        id:"AGR-1003",
+        product:"Mango",
+        tamil:"மாம்பழம்",
+        icon:"🥭",
+        quantity:30,
+        farmer:"Murugan Farm",
+        location:"Madurai",
+        date:"2026-08-16",
+        price:2040,
+        payment:"UPI",
+        status:"Delivered"
+    },
 
-{
-    id:"AGR-1004",
-    product:"Turmeric",
-    tamil:"மஞ்சள்",
-    icon:"🟡",
-    quantity:20,
-    farmer:"Kannan Agro",
-    location:"Erode",
-    date:"2026-08-14",
-    price:1520,
-    payment:"Bank Transfer",
-    status:"Processing"
-},
+    {
+        id:"AGR-1004",
+        product:"Turmeric",
+        tamil:"மஞ்சள்",
+        icon:"🟡",
+        quantity:20,
+        farmer:"Kannan Agro",
+        location:"Erode",
+        date:"2026-08-14",
+        price:1520,
+        payment:"Bank Transfer",
+        status:"Processing"
+    },
 
-{
-    id:"AGR-1005",
-    product:"Banana",
-    tamil:"வாழைப்பழம்",
-    icon:"🍌",
-    quantity:40,
-    farmer:"Green Farm",
-    location:"Madurai",
-    date:"2026-08-12",
-    price:1440,
-    payment:"UPI",
-    status:"Delivered"
-},
+    {
+        id:"AGR-1005",
+        product:"Banana",
+        tamil:"வாழைப்பழம்",
+        icon:"🍌",
+        quantity:40,
+        farmer:"Green Farm",
+        location:"Madurai",
+        date:"2026-08-12",
+        price:1440,
+        payment:"UPI",
+        status:"Delivered"
+    },
 
-{
-    id:"AGR-1006",
-    product:"Chilli",
-    tamil:"மிளகாய்",
-    icon:"🌶️",
-    quantity:50,
-    farmer:"South Farm",
-    location:"Erode",
-    date:"2026-08-10",
-    price:4600,
-    payment:"Cash on Delivery",
-    status:"In Transit"
-},
+    {
+        id:"AGR-1006",
+        product:"Chilli",
+        tamil:"மிளகாய்",
+        icon:"🌶️",
+        quantity:50,
+        farmer:"South Farm",
+        location:"Erode",
+        date:"2026-08-10",
+        price:4600,
+        payment:"Cash on Delivery",
+        status:"In Transit"
+    },
 
-{
-    id:"AGR-1007",
-    product:"Onion",
-    tamil:"வெங்காயம்",
-    icon:"🧅",
-    quantity:25,
-    farmer:"Kumar Farms",
-    location:"Coimbatore",
-    date:"2026-08-08",
-    price:1025,
-    payment:"UPI",
-    status:"Cancelled"
-}
+    {
+        id:"AGR-1007",
+        product:"Onion",
+        tamil:"வெங்காயம்",
+        icon:"🧅",
+        quantity:25,
+        farmer:"Kumar Farms",
+        location:"Coimbatore",
+        date:"2026-08-08",
+        price:1025,
+        payment:"UPI",
+        status:"Cancelled"
+    }
 
 ];
 
 
-/* =========================
+/* =========================================================
    LANGUAGE
-========================= */
+========================================================= */
 
 let currentLanguage =
     localStorage.getItem("agriLanguage") || "en";
@@ -1435,44 +1890,93 @@ function changeLanguage(language){
     );
 
 
-    document
-    .querySelectorAll("[data-en]")
-    .forEach(function(element){
+    /*
+       Change all normal text
+    */
 
-        element.textContent =
+    document
+        .querySelectorAll("[data-en]")
+        .forEach(function(element){
+
+            element.textContent =
+                language === "en"
+                ? element.getAttribute("data-en")
+                : element.getAttribute("data-ta");
+
+        });
+
+
+    /*
+       Change select option text
+    */
+
+    document
+        .querySelectorAll("option[data-en]")
+        .forEach(function(option){
+
+            option.textContent =
+                language === "en"
+                ? option.getAttribute("data-en")
+                : option.getAttribute("data-ta");
+
+        });
+
+
+    /*
+       Search placeholder
+    */
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+
+    if(language === "en"){
+
+        searchInput.placeholder =
+            "🔍 Search order or product...";
+
+    }else{
+
+        searchInput.placeholder =
+            "🔍 ஆர்டர் அல்லது பொருளை தேடவும்...";
+
+    }
+
+
+    /*
+       Language buttons
+    */
+
+    document
+        .getElementById("enBtn")
+        .classList
+        .toggle(
+            "active",
             language === "en"
-            ? element.getAttribute("data-en")
-            : element.getAttribute("data-ta");
-
-    });
+        );
 
 
     document
-    .getElementById("enBtn")
-    .classList
-    .toggle(
-        "active",
-        language === "en"
-    );
+        .getElementById("taBtn")
+        .classList
+        .toggle(
+            "active",
+            language === "ta"
+        );
 
 
-    document
-    .getElementById("taBtn")
-    .classList
-    .toggle(
-        "active",
-        language === "ta"
-    );
-
+    /*
+       Re-render orders
+    */
 
     renderOrders();
 
 }
 
 
-/* =========================
+/* =========================================================
    STATUS TEXT
-========================= */
+========================================================= */
 
 function statusText(status){
 
@@ -1480,25 +1984,31 @@ function statusText(status){
         return status;
     }
 
+
     const map = {
 
-        "Delivered":"வழங்கப்பட்டது",
+        "Delivered":
+            "வழங்கப்பட்டது",
 
-        "In Transit":"வழியில்",
+        "In Transit":
+            "வழியில்",
 
-        "Processing":"செயலாக்கத்தில்",
+        "Processing":
+            "செயலாக்கத்தில்",
 
-        "Cancelled":"ரத்து செய்யப்பட்டது"
+        "Cancelled":
+            "ரத்து செய்யப்பட்டது"
 
     };
+
 
     return map[status] || status;
 }
 
 
-/* =========================
+/* =========================================================
    PAYMENT TEXT
-========================= */
+========================================================= */
 
 function paymentText(payment){
 
@@ -1506,45 +2016,54 @@ function paymentText(payment){
         return payment;
     }
 
+
     const map = {
 
-        "UPI":"UPI",
+        "UPI":
+            "UPI",
 
-        "Cash on Delivery":"பொருள் பெற்றபின் பணம்",
+        "Cash on Delivery":
+            "பொருள் பெற்றபின் பணம்",
 
-        "Bank Transfer":"வங்கி பரிமாற்றம்"
+        "Bank Transfer":
+            "வங்கி பரிமாற்றம்"
 
     };
+
 
     return map[payment] || payment;
 }
 
 
-/* =========================
+/* =========================================================
    RENDER ORDERS
-========================= */
+========================================================= */
 
 function renderOrders(){
 
     const search =
         document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
 
 
     const status =
         document
-        .getElementById("statusFilter")
-        .value;
+            .getElementById("statusFilter")
+            .value;
 
 
     const sort =
         document
-        .getElementById("sortFilter")
-        .value;
+            .getElementById("sortFilter")
+            .value;
 
+
+    /*
+       FILTER
+    */
 
     let filtered =
         orders.filter(function(order){
@@ -1552,25 +2071,31 @@ function renderOrders(){
             const matchesSearch =
 
                 order.id
-                .toLowerCase()
-                .includes(search)
+                    .toLowerCase()
+                    .includes(search)
 
                 ||
 
                 order.product
-                .toLowerCase()
-                .includes(search)
+                    .toLowerCase()
+                    .includes(search)
 
                 ||
 
                 order.tamil
-                .includes(search)
+                    .includes(search)
 
                 ||
 
                 order.farmer
-                .toLowerCase()
-                .includes(search);
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                order.location
+                    .toLowerCase()
+                    .includes(search);
 
 
             const matchesStatus =
@@ -1586,6 +2111,10 @@ function renderOrders(){
 
         });
 
+
+    /*
+       SORT
+    */
 
     if(sort === "newest"){
 
@@ -1626,13 +2155,20 @@ function renderOrders(){
     }
 
 
+    /*
+       ORDER LIST
+    */
+
     const list =
-        document
-        .getElementById("orderList");
+        document.getElementById("orderList");
 
 
     list.innerHTML = "";
 
+
+    /*
+       EMPTY RESULT
+    */
 
     if(filtered.length === 0){
 
@@ -1668,6 +2204,10 @@ function renderOrders(){
     }
 
 
+    /*
+       CREATE EACH ORDER
+    */
+
     filtered.forEach(function(order){
 
         const productName =
@@ -1684,25 +2224,39 @@ function renderOrders(){
             "order-item";
 
 
+        /*
+           STATUS CLASS
+        */
+
         let statusClass =
             "status-processing";
 
 
         if(order.status === "Delivered"){
+
             statusClass =
                 "status-delivered";
+
         }
 
         else if(order.status === "In Transit"){
+
             statusClass =
                 "status-transit";
+
         }
 
         else if(order.status === "Cancelled"){
+
             statusClass =
                 "status-cancelled";
+
         }
 
+
+        /*
+           ORDER HTML
+        */
 
         item.innerHTML = `
 
@@ -1731,17 +2285,18 @@ function renderOrders(){
             <div class="order-detail">
 
                 <span class="detail-label">
+
                     ${
                         currentLanguage === "en"
                         ? "Quantity"
                         : "அளவு"
                     }
+
                 </span>
 
                 <span class="detail-value">
                     ${order.quantity} kg
                 </span>
-
 
                 <span class="detail-label">
                     📍 ${order.location}
@@ -1753,17 +2308,18 @@ function renderOrders(){
             <div class="order-detail">
 
                 <span class="detail-label">
+
                     ${
                         currentLanguage === "en"
                         ? "Order Date"
                         : "ஆர்டர் தேதி"
                     }
+
                 </span>
 
                 <span class="detail-value">
                     ${formatDate(order.date)}
                 </span>
-
 
                 <span class="order-price">
                     ₹${order.price.toLocaleString("en-IN")}
@@ -1788,6 +2344,7 @@ function renderOrders(){
                     onclick="viewOrder('${order.id}')">
 
                     👁️
+
                     ${
                         currentLanguage === "en"
                         ? "View"
@@ -1808,9 +2365,9 @@ function renderOrders(){
 }
 
 
-/* =========================
-   DATE
-========================= */
+/* =========================================================
+   DATE FORMAT
+========================================================= */
 
 function formatDate(dateString){
 
@@ -1830,9 +2387,9 @@ function formatDate(dateString){
 }
 
 
-/* =========================
+/* =========================================================
    VIEW ORDER
-========================= */
+========================================================= */
 
 function viewOrder(id){
 
@@ -1848,93 +2405,93 @@ function viewOrder(id){
 
 
     document
-    .getElementById("modalOrderId")
-    .textContent =
-        order.id;
+        .getElementById("modalOrderId")
+        .textContent =
+            order.id;
 
 
     document
-    .getElementById("modalStatus")
-    .textContent =
-        statusText(order.status);
+        .getElementById("modalStatus")
+        .textContent =
+            statusText(order.status);
 
 
     document
-    .getElementById("modalProduct")
-    .textContent =
-        order.icon +
-        " " +
-        (
-            currentLanguage === "en"
-            ? order.product
-            : order.tamil
-        );
+        .getElementById("modalProduct")
+        .textContent =
+            order.icon +
+            " " +
+            (
+                currentLanguage === "en"
+                ? order.product
+                : order.tamil
+            );
 
 
     document
-    .getElementById("modalQuantity")
-    .textContent =
-        order.quantity +
-        " kg";
+        .getElementById("modalQuantity")
+        .textContent =
+            order.quantity +
+            " kg";
 
 
     document
-    .getElementById("modalFarmer")
-    .textContent =
-        order.farmer;
+        .getElementById("modalFarmer")
+        .textContent =
+            order.farmer;
 
 
     document
-    .getElementById("modalLocation")
-    .textContent =
-        order.location;
+        .getElementById("modalLocation")
+        .textContent =
+            order.location;
 
 
     document
-    .getElementById("modalDate")
-    .textContent =
-        formatDate(order.date);
+        .getElementById("modalDate")
+        .textContent =
+            formatDate(order.date);
 
 
     document
-    .getElementById("modalPayment")
-    .textContent =
-        paymentText(order.payment);
+        .getElementById("modalPayment")
+        .textContent =
+            paymentText(order.payment);
 
 
     document
-    .getElementById("modalTotal")
-    .textContent =
+        .getElementById("modalTotal")
+        .textContent =
 
-        (
-            currentLanguage === "en"
-            ? "Total: ₹"
-            : "மொத்தம்: ₹"
-        )
+            (
+                currentLanguage === "en"
+                ? "Total: ₹"
+                : "மொத்தம்: ₹"
+            )
 
-        +
+            +
 
-        order.price.toLocaleString("en-IN");
+            order.price.toLocaleString("en-IN");
 
 
     document
-    .getElementById("orderModal")
-    .classList
-    .add("show");
+        .getElementById("orderModal")
+        .classList
+        .add("show");
 
 }
 
 
-/* =========================
+/* =========================================================
    CLOSE MODAL
-========================= */
+========================================================= */
 
 function closeModal(){
 
     document
-    .getElementById("orderModal")
-    .classList
-    .remove("show");
+        .getElementById("orderModal")
+        .classList
+        .remove("show");
 
 }
 
@@ -1953,25 +2510,43 @@ function closeOutside(event){
 }
 
 
-/* =========================
-   RESET
-========================= */
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   RESET FILTERS
+========================================================= */
 
 function resetFilters(){
 
     document
-    .getElementById("searchInput")
-    .value = "";
+        .getElementById("searchInput")
+        .value = "";
 
 
     document
-    .getElementById("statusFilter")
-    .value = "all";
+        .getElementById("statusFilter")
+        .value = "all";
 
 
     document
-    .getElementById("sortFilter")
-    .value = "newest";
+        .getElementById("sortFilter")
+        .value = "newest";
 
 
     renderOrders();
@@ -1979,9 +2554,9 @@ function resetFilters(){
 }
 
 
-/* =========================
-   STATS
-========================= */
+/* =========================================================
+   UPDATE STATS
+========================================================= */
 
 function updateStats(){
 
@@ -2005,50 +2580,55 @@ function updateStats(){
         ).length;
 
 
+    /*
+       Cancelled orders are excluded
+       from total spent.
+    */
+
     const spent =
         orders
-        .filter(
-            order =>
-                order.status !==
-                "Cancelled"
-        )
-        .reduce(
-            (sum,order) =>
-                sum + order.price,
-            0
-        );
+            .filter(
+                order =>
+                    order.status !==
+                    "Cancelled"
+            )
+            .reduce(
+                (sum,order) =>
+                    sum + order.price,
+                0
+            );
 
 
     document
-    .getElementById("totalOrders")
-    .textContent =
-        total;
+        .getElementById("totalOrders")
+        .textContent =
+            total;
 
 
     document
-    .getElementById("transitOrders")
-    .textContent =
-        transit;
+        .getElementById("transitOrders")
+        .textContent =
+            transit;
 
 
     document
-    .getElementById("deliveredOrders")
-    .textContent =
-        delivered;
+        .getElementById("deliveredOrders")
+        .textContent =
+            delivered;
 
 
     document
-    .getElementById("totalSpent")
-    .textContent =
-        "₹" +
-        spent.toLocaleString("en-IN");
+        .getElementById("totalSpent")
+        .textContent =
+            "₹" +
+            spent.toLocaleString("en-IN");
 
 }
 
 
-/* =========================
+/* =========================================================
    START
-========================= */
+========================================================= */
 
 changeLanguage(
     currentLanguage
@@ -2062,4 +2642,3 @@ renderOrders();
 
 </body>
 </html>
-```

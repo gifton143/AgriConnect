@@ -3,1218 +3,1388 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>AgriConnect - Fertilizer</title>
+    <title>AgriConnect - Fertilizer</title>
 
 
-<style>
+    <style>
 
-/* =====================================================
-   RESET
-===================================================== */
+        /* =====================================================
+           RESET
+        ===================================================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-html{
-    scroll-behavior:smooth;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-body{
+        body {
 
-    font-family:
-        "Noto Sans Tamil",
-        "Latha",
-        Arial,
-        sans-serif;
+            font-family:
+                "Noto Sans Tamil",
+                "Latha",
+                Arial,
+                sans-serif;
 
-    color:#183d20;
+            color: #183d20;
 
-    min-height:100vh;
+            min-height: 100vh;
 
-    background:
-        linear-gradient(
-            rgba(235,248,237,0.12),
-            rgba(235,248,237,0.20)
-        ),
-        url("./image/fertilizer-bg.png.png");
+            /* DESKTOP / LANDSCAPE BACKGROUND */
+            background-image:
+                linear-gradient(
+                    rgba(235, 248, 237, 0.12),
+                    rgba(235, 248, 237, 0.20)
+                ),
+                url("./image/fertilizer-bg.png.png");
 
-    background-size:cover;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
 
-    background-position:center;
+            overflow-x: hidden;
+        }
 
-    background-repeat:no-repeat;
 
-    background-attachment:fixed;
-}
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
 
-button,
-input,
-select{
-    font-family:inherit;
-}
 
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
 
-/* =====================================================
-   NAVBAR
-===================================================== */
+        .navbar {
 
-.navbar{
+            min-height: 72px;
 
-    min-height:72px;
+            background:
+                rgba(255, 255, 255, 0.97);
 
-    background:
-        rgba(255,255,255,0.96);
+            display: flex;
 
-    display:flex;
+            align-items: center;
 
-    align-items:center;
+            justify-content: space-between;
 
-    justify-content:space-between;
+            gap: 20px;
 
-    gap:20px;
+            padding: 12px 4%;
 
-    padding:12px 4%;
+            position: sticky;
 
-    position:sticky;
+            top: 0;
 
-    top:0;
+            z-index: 2000;
 
-    z-index:2000;
+            box-shadow:
+                0 3px 18px rgba(0, 0, 0, 0.10);
 
-    box-shadow:
-        0 3px 18px rgba(0,0,0,0.10);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
 
-    backdrop-filter:blur(10px);
-}
 
+        /* =====================================================
+           LOGO
+        ===================================================== */
 
-/* LOGO */
+        .logo {
 
-.logo{
+            text-decoration: none;
 
-    text-decoration:none;
+            color: #16852f;
 
-    color:#16852f;
+            font-size: 30px;
 
-    font-size:30px;
+            font-weight: 900;
 
-    font-weight:900;
+            white-space: nowrap;
+        }
 
-    white-space:nowrap;
-}
 
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
 
-/* NAVIGATION */
+        .nav-links {
 
-.nav-links{
+            display: flex;
 
-    display:flex;
+            align-items: center;
 
-    align-items:center;
+            justify-content: center;
 
-    justify-content:center;
+            gap: 4px;
 
-    gap:4px;
+            overflow-x: auto;
 
-    overflow-x:auto;
+            scrollbar-width: none;
+        }
 
-    scrollbar-width:none;
-}
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
 
-.nav-links::-webkit-scrollbar{
-    display:none;
-}
+        .nav-links a {
 
-.nav-links a{
+            text-decoration: none;
 
-    text-decoration:none;
+            color: #3c5141;
 
-    color:#3c5141;
+            padding: 9px 11px;
 
-    padding:9px 11px;
+            border-radius: 9px;
 
-    border-radius:9px;
+            font-size: 13px;
 
-    font-size:13px;
+            font-weight: 700;
 
-    font-weight:700;
+            white-space: nowrap;
 
-    white-space:nowrap;
+            transition: 0.2s;
+        }
 
-    transition:0.2s;
-}
+        .nav-links a:hover {
 
-.nav-links a:hover{
+            background: #e7f5e9;
 
-    background:#e7f5e9;
+            color: #16852f;
+        }
 
-    color:#16852f;
-}
+        .nav-links a.active {
 
-.nav-links a.active{
+            background: #e1f3e4;
 
-    background:#e1f3e4;
+            color: #16852f;
+        }
 
-    color:#16852f;
-}
 
+        /* =====================================================
+           LANGUAGE
+        ===================================================== */
 
-/* LANGUAGE */
+        .language {
 
-.language{
+            display: flex;
 
-    display:flex;
+            gap: 5px;
 
-    gap:5px;
+            padding: 4px;
 
-    padding:4px;
+            background: #edf6ee;
 
-    background:#edf6ee;
+            border-radius: 9px;
 
-    border-radius:9px;
+            flex-shrink: 0;
+        }
 
-    flex-shrink:0;
-}
+        .language button {
 
-.language button{
+            border: none;
 
-    border:none;
+            background: transparent;
 
-    background:transparent;
+            color: #21452a;
 
-    color:#21452a;
+            padding: 8px 12px;
 
-    padding:8px 12px;
+            border-radius: 7px;
 
-    border-radius:7px;
+            font-weight: 800;
 
-    font-weight:800;
+            cursor: pointer;
+        }
 
-    cursor:pointer;
-}
+        .language button.active {
 
-.language button.active{
+            background: #168d34;
 
-    background:#168d34;
+            color: white;
+        }
 
-    color:white;
-}
 
+        /* =====================================================
+           HERO
+        ===================================================== */
 
-/* =====================================================
-   HERO
-===================================================== */
+        .hero {
 
-.hero{
+            min-height: 390px;
 
-    min-height:390px;
+            padding:
+                65px
+                20px
+                40px;
 
-    padding:
-        65px
-        20px
-        40px;
+            display: flex;
 
-    display:flex;
+            align-items: center;
 
-    align-items:center;
+            justify-content: center;
 
-    justify-content:center;
+            position: relative;
+        }
 
-    position:relative;
-}
 
+        /* =====================================================
+           HERO BOX
+        ===================================================== */
 
-/* HERO BOX */
+        .hero-box {
 
-.hero-box{
+            width: min(1050px, 94%);
 
-    width:min(1050px,94%);
+            padding:
+                38px
+                35px;
 
-    padding:
-        38px
-        35px;
+            text-align: center;
 
-    text-align:center;
+            background:
+                rgba(255, 255, 255, 0.86);
 
-    background:
-        rgba(255,255,255,0.82);
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.70);
 
-    border:
-        1px solid
-        rgba(255,255,255,0.65);
+            border-radius: 24px;
 
-    border-radius:24px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
 
-    backdrop-filter:blur(7px);
+            box-shadow:
+                0 18px 45px
+                rgba(0, 60, 20, 0.18);
+        }
 
-    -webkit-backdrop-filter:blur(7px);
 
-    box-shadow:
-        0 18px 45px
-        rgba(0,60,20,0.18);
-}
+        /* =====================================================
+           HERO ICON
+        ===================================================== */
 
+        .hero-icon {
 
-/* HERO ICON */
+            font-size: 58px;
 
-.hero-icon{
+            margin-bottom: 8px;
+        }
 
-    font-size:58px;
 
-    margin-bottom:8px;
-}
+        /* =====================================================
+           HERO TITLE
+        ===================================================== */
 
+        .hero-box h1 {
 
-/* HERO TITLE */
+            color: #16852f;
 
-.hero-box h1{
+            font-size: 48px;
 
-    color:#16852f;
+            font-weight: 900;
 
-    font-size:48px;
+            margin-bottom: 12px;
 
-    font-weight:900;
+            text-shadow:
+                0 2px 4px
+                rgba(255, 255, 255, 0.8);
+        }
 
-    margin-bottom:12px;
 
-    text-shadow:
-        0 2px 4px
-        rgba(255,255,255,0.8);
-}
+        /* =====================================================
+           HERO DESCRIPTION
+        ===================================================== */
 
+        .hero-box p {
 
-/* HERO DESCRIPTION */
+            color: #405b47;
 
-.hero-box p{
+            font-size: 17px;
 
-    color:#405b47;
+            line-height: 1.8;
 
-    font-size:17px;
+            max-width: 800px;
 
-    line-height:1.8;
+            margin: auto;
+        }
 
-    max-width:800px;
 
-    margin:auto;
-}
+        /* =====================================================
+           MAIN SHOP
+        ===================================================== */
 
+        .shop {
 
-/* =====================================================
-   MAIN SHOP
-===================================================== */
+            width: min(1250px, 92%);
 
-.shop{
+            margin: 0 auto;
 
-    width:min(1250px,92%);
+            padding:
+                20px
+                0
+                70px;
 
-    margin:0 auto;
+            position: relative;
 
-    padding:
-        20px
-        0
-        70px;
+            z-index: 5;
+        }
 
-    position:relative;
 
-    z-index:5;
-}
+        /* =====================================================
+           SHOP TITLE
+        ===================================================== */
 
+        .shop-title {
 
-/* =====================================================
-   SHOP TITLE
-===================================================== */
+            text-align: center;
 
-.shop-title{
+            margin-bottom: 25px;
 
-    text-align:center;
+            background:
+                rgba(255, 255, 255, 0.86);
 
-    margin-bottom:25px;
+            border-radius: 16px;
 
-    background:
-        rgba(255,255,255,0.80);
+            padding: 18px;
 
-    border-radius:16px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
 
-    padding:18px;
+        .shop-title h2 {
 
-    backdrop-filter:blur(5px);
-}
+            color: #145d27;
 
-.shop-title h2{
+            font-size: 34px;
 
-    color:#145d27;
+            font-weight: 900;
 
-    font-size:34px;
+            margin-bottom: 6px;
+        }
 
-    font-weight:900;
+        .shop-title p {
 
-    margin-bottom:6px;
-}
+            color: #506357;
 
-.shop-title p{
+            font-size: 15px;
+        }
 
-    color:#506357;
 
-    font-size:15px;
-}
+        /* =====================================================
+           CONTROLS
+        ===================================================== */
 
+        .controls {
 
-/* =====================================================
-   CONTROLS
-===================================================== */
+            display: grid;
 
-.controls{
+            grid-template-columns:
+                2fr
+                1fr
+                1fr
+                auto;
 
-    display:grid;
+            gap: 12px;
 
-    grid-template-columns:
-        2fr
-        1fr
-        1fr
-        auto;
+            padding: 18px;
 
-    gap:12px;
+            margin-bottom: 28px;
 
-    padding:18px;
+            background:
+                rgba(255, 255, 255, 0.96);
 
-    margin-bottom:28px;
+            border:
+                1px solid
+                #dce9de;
 
-    background:
-        rgba(255,255,255,0.96);
+            border-radius: 17px;
 
-    border:
-        1px solid
-        #dce9de;
+            box-shadow:
+                0 10px 30px
+                rgba(0, 60, 20, 0.14);
+        }
 
-    border-radius:17px;
 
-    box-shadow:
-        0 10px 30px
-        rgba(0,60,20,0.14);
-}
+        /* =====================================================
+           INPUT
+        ===================================================== */
 
+        .controls input,
+        .controls select {
 
-/* INPUT */
+            width: 100%;
 
-.controls input,
-.controls select{
+            height: 48px;
 
-    width:100%;
+            padding:
+                0
+                14px;
 
-    height:48px;
+            border:
+                1px solid
+                #cbdccc;
 
-    padding:
-        0
-        14px;
+            border-radius: 9px;
 
-    border:
-        1px solid
-        #cbdccc;
+            background: white;
 
-    border-radius:9px;
+            color: #24472c;
 
-    background:white;
+            outline: none;
 
-    color:#24472c;
+            font-size: 14px;
+        }
 
-    outline:none;
+        .controls input:focus,
+        .controls select:focus {
 
-    font-size:14px;
-}
+            border-color: #168d34;
 
-.controls input:focus,
-.controls select:focus{
+            box-shadow:
+                0 0 0 3px
+                rgba(22, 141, 52, 0.10);
+        }
 
-    border-color:#168d34;
 
-    box-shadow:
-        0 0 0 3px
-        rgba(22,141,52,0.10);
-}
+        /* =====================================================
+           RESET BUTTON
+        ===================================================== */
 
+        .reset-btn {
 
-/* RESET BUTTON */
+            height: 48px;
 
-.reset-btn{
+            padding:
+                0
+                20px;
 
-    height:48px;
+            border:
+                1px solid
+                #c8ddcb;
 
-    padding:
-        0
-        20px;
+            border-radius: 9px;
 
-    border:
-        1px solid
-        #c8ddcb;
+            background: white;
 
-    border-radius:9px;
+            color: #16852f;
 
-    background:white;
+            font-weight: 800;
 
-    color:#16852f;
+            cursor: pointer;
 
-    font-weight:800;
+            white-space: nowrap;
+        }
 
-    cursor:pointer;
+        .reset-btn:hover {
 
-    white-space:nowrap;
-}
+            background: #eaf7ec;
+        }
 
-.reset-btn:hover{
 
-    background:#eaf7ec;
-}
+        /* =====================================================
+           PRODUCTS GRID
+        ===================================================== */
 
+        .products {
 
-/* =====================================================
-   PRODUCTS GRID
-===================================================== */
+            display: grid;
 
-.products{
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
 
-    display:grid;
+            gap: 22px;
+        }
 
-    grid-template-columns:
-        repeat(3,minmax(0,1fr));
 
-    gap:22px;
-}
+        /* =====================================================
+           PRODUCT CARD
+        ===================================================== */
 
+        .product-card {
 
-/* =====================================================
-   PRODUCT CARD
-===================================================== */
+            background:
+                rgba(255, 255, 255, 0.97);
 
-.product-card{
+            border:
+                1px solid
+                #d8e7da;
 
-    background:
-        rgba(255,255,255,0.97);
+            border-radius: 18px;
 
-    border:
-        1px solid
-        #d8e7da;
+            overflow: hidden;
 
-    border-radius:18px;
+            box-shadow:
+                0 10px 30px
+                rgba(0, 60, 20, 0.13);
 
-    overflow:hidden;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
 
-    box-shadow:
-        0 10px 30px
-        rgba(0,60,20,0.13);
+        .product-card:hover {
 
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
+            transform:
+                translateY(-5px);
 
-.product-card:hover{
+            box-shadow:
+                0 16px 38px
+                rgba(0, 60, 20, 0.19);
+        }
 
-    transform:
-        translateY(-5px);
 
-    box-shadow:
-        0 16px 38px
-        rgba(0,60,20,0.19);
-}
+        /* =====================================================
+           PRODUCT IMAGE
+        ===================================================== */
 
+        .product-image {
 
-/* PRODUCT IMAGE */
+            height: 185px;
 
-.product-image{
+            display: flex;
 
-    height:185px;
+            align-items: center;
 
-    display:flex;
+            justify-content: center;
 
-    align-items:center;
+            background:
+                linear-gradient(
+                    135deg,
+                    #e7f6e9,
+                    #f8fff8
+                );
 
-    justify-content:center;
+            font-size: 75px;
+        }
 
-    background:
-        linear-gradient(
-            135deg,
-            #e7f6e9,
-            #f8fff8
-        );
 
-    font-size:75px;
-}
+        /* =====================================================
+           PRODUCT CONTENT
+        ===================================================== */
 
+        .product-content {
 
-/* PRODUCT CONTENT */
+            padding: 20px;
+        }
 
-.product-content{
+        .product-content h3 {
 
-    padding:20px;
-}
+            color: #155e29;
 
-.product-content h3{
+            font-size: 21px;
 
-    color:#155e29;
+            margin-bottom: 8px;
+        }
 
-    font-size:21px;
+        .product-type {
 
-    margin-bottom:8px;
-}
+            display: inline-block;
 
-.product-type{
+            padding:
+                5px
+                10px;
 
-    display:inline-block;
+            background: #e4f5e7;
 
-    padding:
-        5px
-        10px;
+            color: #18712c;
 
-    background:#e4f5e7;
+            border-radius: 20px;
 
-    color:#18712c;
+            font-size: 11px;
 
-    border-radius:20px;
+            font-weight: 800;
 
-    font-size:11px;
+            margin-bottom: 12px;
+        }
 
-    font-weight:800;
+        .product-description {
 
-    margin-bottom:12px;
-}
+            color: #657269;
 
-.product-description{
+            font-size: 13px;
 
-    color:#657269;
+            line-height: 1.65;
 
-    font-size:13px;
+            min-height: 43px;
 
-    line-height:1.65;
+            margin-bottom: 13px;
+        }
 
-    min-height:43px;
 
-    margin-bottom:13px;
-}
+        /* =====================================================
+           PRICE
+        ===================================================== */
 
+        .price {
 
-/* PRICE */
+            color: #16852f;
 
-.price{
+            font-size: 23px;
 
-    color:#16852f;
+            font-weight: 900;
 
-    font-size:23px;
+            margin-bottom: 5px;
+        }
 
-    font-weight:900;
+        .price-unit {
 
-    margin-bottom:5px;
-}
+            color: #758178;
 
-.price-unit{
+            font-size: 12px;
 
-    color:#758178;
+            font-weight: 500;
+        }
 
-    font-size:12px;
 
-    font-weight:500;
-}
+        /* =====================================================
+           SELLER
+        ===================================================== */
 
+        .seller {
 
-/* SELLER */
+            border-top:
+                1px solid
+                #edf2ee;
 
-.seller{
+            margin-top: 15px;
 
-    border-top:
-        1px solid
-        #edf2ee;
+            padding-top: 13px;
 
-    margin-top:15px;
+            display: flex;
 
-    padding-top:13px;
+            justify-content: space-between;
 
-    display:flex;
+            align-items: center;
 
-    justify-content:space-between;
+            gap: 10px;
+        }
 
-    align-items:center;
+        .seller-name {
 
-    gap:10px;
-}
+            font-size: 12px;
 
-.seller-name{
+            color: #4c6252;
 
-    font-size:12px;
+            font-weight: 700;
+        }
 
-    color:#4c6252;
+        .rating {
 
-    font-weight:700;
-}
+            color: #d18b18;
 
-.rating{
+            font-size: 12px;
+        }
 
-    color:#d18b18;
 
-    font-size:12px;
-}
+        /* =====================================================
+           BUY BUTTON
+        ===================================================== */
 
+        .buy-btn {
 
-/* BUY BUTTON */
+            width: 100%;
 
-.buy-btn{
+            border: none;
 
-    width:100%;
+            margin-top: 16px;
 
-    border:none;
+            padding: 13px;
 
-    margin-top:16px;
+            border-radius: 9px;
 
-    padding:13px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #168e35,
+                    #087b29
+                );
 
-    border-radius:9px;
+            color: white;
 
-    background:
-        linear-gradient(
-            135deg,
-            #168e35,
-            #087b29
-        );
+            font-weight: 900;
 
-    color:white;
+            font-size: 14px;
 
-    font-weight:900;
+            cursor: pointer;
 
-    font-size:14px;
+            transition: 0.2s;
+        }
 
-    cursor:pointer;
+        .buy-btn:hover {
 
-    transition:0.2s;
-}
+            transform:
+                translateY(-1px);
 
-.buy-btn:hover{
+            box-shadow:
+                0 7px 18px
+                rgba(0, 100, 30, 0.22);
+        }
 
-    transform:
-        translateY(-1px);
 
-    box-shadow:
-        0 7px 18px
-        rgba(0,100,30,0.22);
-}
+        /* =====================================================
+           EMPTY
+        ===================================================== */
 
+        .empty {
 
-/* =====================================================
-   EMPTY
-===================================================== */
+            grid-column: 1 / -1;
 
-.empty{
+            padding: 60px 20px;
 
-    grid-column:1/-1;
+            text-align: center;
 
-    padding:60px 20px;
+            background:
+                rgba(255, 255, 255, 0.94);
 
-    text-align:center;
+            border-radius: 17px;
 
-    background:
-        rgba(255,255,255,0.94);
+            color: #657269;
 
-    border-radius:17px;
+            box-shadow:
+                0 10px 30px
+                rgba(0, 60, 20, 0.10);
+        }
 
-    color:#657269;
+        .empty-icon {
 
-    box-shadow:
-        0 10px 30px
-        rgba(0,60,20,0.10);
-}
+            font-size: 48px;
 
-.empty-icon{
+            margin-bottom: 12px;
+        }
 
-    font-size:48px;
 
-    margin-bottom:12px;
-}
+        /* =====================================================
+           BENEFITS
+        ===================================================== */
 
+        .benefits {
 
-/* =====================================================
-   BENEFITS
-===================================================== */
+            margin-top: 45px;
 
-.benefits{
+            display: grid;
 
-    margin-top:45px;
+            grid-template-columns:
+                repeat(3, 1fr);
 
-    display:grid;
+            gap: 18px;
+        }
 
-    grid-template-columns:
-        repeat(3,1fr);
+        .benefit {
 
-    gap:18px;
-}
+            padding: 24px;
 
-.benefit{
+            text-align: center;
 
-    padding:24px;
+            background:
+                rgba(255, 255, 255, 0.94);
 
-    text-align:center;
+            border:
+                1px solid
+                #dce9de;
 
-    background:
-        rgba(255,255,255,0.92);
+            border-radius: 16px;
 
-    border:
-        1px solid
-        #dce9de;
+            box-shadow:
+                0 8px 25px
+                rgba(0, 60, 20, 0.10);
 
-    border-radius:16px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
 
-    box-shadow:
-        0 8px 25px
-        rgba(0,60,20,0.10);
+        .benefit-icon {
 
-    backdrop-filter:blur(5px);
-}
+            font-size: 38px;
 
-.benefit-icon{
+            margin-bottom: 10px;
+        }
 
-    font-size:38px;
+        .benefit h3 {
 
-    margin-bottom:10px;
-}
+            color: #17602a;
 
-.benefit h3{
+            margin-bottom: 7px;
 
-    color:#17602a;
+            font-size: 18px;
+        }
 
-    margin-bottom:7px;
+        .benefit p {
 
-    font-size:18px;
-}
+            color: #657269;
 
-.benefit p{
+            font-size: 13px;
 
-    color:#657269;
+            line-height: 1.6;
+        }
 
-    font-size:13px;
 
-    line-height:1.6;
-}
+        /* =====================================================
+           FOOTER
+        ===================================================== */
 
+        footer {
 
-/* =====================================================
-   FOOTER
-===================================================== */
+            background:
+                rgba(18, 59, 28, 0.96);
 
-footer{
+            color: white;
 
-    background:
-        rgba(18,59,28,0.96);
+            padding:
+                35px
+                7%
+                20px;
 
-    color:white;
+            margin-top: 20px;
+        }
 
-    padding:
-        35px
-        7%
-        20px;
+        .footer-grid {
 
-    margin-top:20px;
-}
+            display: grid;
 
-.footer-grid{
+            grid-template-columns:
+                2fr
+                1fr
+                1fr;
 
-    display:grid;
+            gap: 35px;
 
-    grid-template-columns:
-        2fr
-        1fr
-        1fr;
+            margin-bottom: 25px;
+        }
 
-    gap:35px;
+        footer h3 {
 
-    margin-bottom:25px;
-}
+            margin-bottom: 10px;
+        }
 
-footer h3{
+        footer p,
+        footer li {
 
-    margin-bottom:10px;
-}
+            color: #c6d7ca;
 
-footer p,
-footer li{
+            font-size: 13px;
 
-    color:#c6d7ca;
+            line-height: 1.8;
+        }
 
-    font-size:13px;
+        footer ul {
 
-    line-height:1.8;
-}
+            list-style: none;
+        }
 
-footer ul{
+        .copyright {
 
-    list-style:none;
-}
+            border-top:
+                1px solid
+                #31543a;
 
-.copyright{
+            padding-top: 17px;
 
-    border-top:
-        1px solid
-        #31543a;
+            text-align: center;
 
-    padding-top:17px;
+            color: #aec0b1;
 
-    text-align:center;
+            font-size: 12px;
+        }
 
-    color:#aec0b1;
 
-    font-size:12px;
-}
+        /* =====================================================
+           ORDER MODAL
+        ===================================================== */
 
+        .modal {
 
-/* =====================================================
-   ORDER MODAL
-===================================================== */
+            position: fixed;
 
-.modal{
+            inset: 0;
 
-    position:fixed;
+            z-index: 5000;
 
-    inset:0;
+            display: none;
 
-    z-index:5000;
+            align-items: center;
 
-    display:none;
+            justify-content: center;
 
-    align-items:center;
+            padding: 20px;
 
-    justify-content:center;
+            background:
+                rgba(0, 30, 10, 0.55);
 
-    padding:20px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
 
-    background:
-        rgba(0,30,10,0.55);
+        .modal.show {
 
-    backdrop-filter:blur(5px);
-}
+            display: flex;
+        }
 
-.modal.show{
+        .modal-box {
 
-    display:flex;
-}
+            width: min(520px, 100%);
 
-.modal-box{
+            max-height: 90vh;
 
-    width:min(520px,100%);
+            overflow-y: auto;
 
-    max-height:90vh;
+            padding: 28px;
 
-    overflow-y:auto;
+            background: white;
 
-    padding:28px;
+            border-radius: 18px;
 
-    background:white;
+            position: relative;
 
-    border-radius:18px;
+            box-shadow:
+                0 25px 70px
+                rgba(0, 0, 0, 0.30);
+        }
 
-    position:relative;
+        .modal-box h2 {
 
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,0.30);
-}
+            color: #145d27;
 
-.modal-box h2{
+            margin-bottom: 5px;
+        }
 
-    color:#145d27;
+        .close-btn {
 
-    margin-bottom:5px;
-}
+            position: absolute;
 
-.close-btn{
+            right: 16px;
 
-    position:absolute;
+            top: 15px;
 
-    right:16px;
+            width: 36px;
 
-    top:15px;
+            height: 36px;
 
-    width:36px;
+            border: none;
 
-    height:36px;
+            border-radius: 50%;
 
-    border:none;
+            background: #f0f4f0;
 
-    border-radius:50%;
+            color: #28402e;
 
-    background:#f0f4f0;
+            font-size: 20px;
 
-    color:#28402e;
+            cursor: pointer;
+        }
 
-    font-size:20px;
+        .close-btn:hover {
 
-    cursor:pointer;
-}
+            background: #e2eee4;
+        }
 
-.close-btn:hover{
 
-    background:#e2eee4;
-}
+        /* =====================================================
+           ORDER INFO
+        ===================================================== */
 
+        .order-info {
 
-/* ORDER INFO */
+            margin:
+                15px
+                0;
 
-.order-info{
+            padding: 16px;
 
-    margin:
-        15px
-        0;
+            background: #f2f8f3;
 
-    padding:16px;
+            border-radius: 10px;
 
-    background:#f2f8f3;
+            line-height: 1.8;
 
-    border-radius:10px;
+            color: #3d5543;
+        }
 
-    line-height:1.8;
+        .order-total {
 
-    color:#3d5543;
-}
+            color: #16852f;
 
-.order-total{
+            font-size: 22px;
 
-    color:#16852f;
+            font-weight: 900;
 
-    font-size:22px;
+            margin-top: 5px;
+        }
 
-    font-weight:900;
 
-    margin-top:5px;
-}
+        /* =====================================================
+           FORM
+        ===================================================== */
 
+        .form-group {
 
-/* FORM */
+            margin-bottom: 15px;
+        }
 
-.form-group{
+        .form-group label {
 
-    margin-bottom:15px;
-}
+            display: block;
 
-.form-group label{
+            color: #263b2d;
 
-    display:block;
+            font-size: 13px;
 
-    color:#263b2d;
+            font-weight: 800;
 
-    font-size:13px;
+            margin-bottom: 7px;
+        }
 
-    font-weight:800;
+        .form-group input,
+        .form-group select {
 
-    margin-bottom:7px;
-}
+            width: 100%;
 
-.form-group input,
-.form-group select{
+            padding: 12px;
 
-    width:100%;
+            border:
+                1px solid
+                #cbdccc;
 
-    padding:12px;
+            border-radius: 8px;
 
-    border:
-        1px solid
-        #cbdccc;
+            outline: none;
+        }
 
-    border-radius:8px;
+        .form-group input:focus,
+        .form-group select:focus {
 
-    outline:none;
-}
+            border-color: #168d34;
+        }
 
-.form-group input:focus,
-.form-group select:focus{
+        .confirm-btn {
 
-    border-color:#168d34;
-}
+            width: 100%;
 
-.confirm-btn{
+            padding: 13px;
 
-    width:100%;
+            border: none;
 
-    padding:13px;
+            border-radius: 9px;
 
-    border:none;
+            background: #168d34;
 
-    border-radius:9px;
+            color: white;
 
-    background:#168d34;
+            font-weight: 900;
 
-    color:white;
+            cursor: pointer;
+        }
 
-    font-weight:900;
+        .confirm-btn:hover {
 
-    cursor:pointer;
-}
+            background: #116f28;
+        }
 
-.confirm-btn:hover{
 
-    background:#116f28;
-}
+        /* =====================================================
+           TABLET
+        ===================================================== */
 
+        @media (max-width: 1050px) {
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+            .navbar {
 
-@media(max-width:1050px){
+                flex-wrap: wrap;
+            }
 
-    .navbar{
+            .nav-links {
 
-        flex-wrap:wrap;
-    }
+                width: 100%;
 
-    .nav-links{
+                order: 5;
+            }
 
-        width:100%;
+            .products {
 
-        order:5;
-    }
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
 
-    .products{
+            .controls {
 
-        grid-template-columns:
-            repeat(2,minmax(0,1fr));
-    }
+                grid-template-columns:
+                    1fr 1fr;
+            }
 
-    .controls{
+            .reset-btn {
 
-        grid-template-columns:
-            1fr 1fr;
-    }
+                width: 100%;
+            }
+        }
 
-    .reset-btn{
 
-        width:100%;
-    }
-}
+        /* =====================================================
+           MOBILE + PORTRAIT BACKGROUND
+        ===================================================== */
 
+        @media (max-width: 700px) {
 
-@media(max-width:700px){
+            /*
+                IMPORTANT:
+                Mobile / Portrait background
+            */
 
-    body{
+            body {
 
-        background-attachment:scroll;
+                background-image:
+                    linear-gradient(
+                        rgba(235, 248, 237, 0.10),
+                        rgba(235, 248, 237, 0.18)
+                    ),
+                    url("./image/fertilizer-bg-portrait.jpg.png.png");
 
-        background-position:center center;
-    }
+                background-size: cover;
 
-    .navbar{
+                background-position: center center;
 
-        padding:
-            10px
-            15px;
-    }
+                background-repeat: no-repeat;
 
-    .logo{
+                background-attachment: fixed;
 
-        font-size:22px;
-    }
+                min-height: 100vh;
+            }
 
-    .language button{
 
-        padding:
-            7px
-            9px;
+            .navbar {
 
-        font-size:11px;
-    }
+                padding:
+                    10px
+                    15px;
 
-    .hero{
+                gap: 10px;
+            }
 
-        min-height:330px;
+            .logo {
 
-        padding:
-            40px
-            15px
-            25px;
-    }
+                font-size: 22px;
+            }
 
-    .hero-box{
+            .language button {
 
-        padding:
-            28px
-            20px;
-    }
+                padding:
+                    7px
+                    9px;
 
-    .hero-icon{
+                font-size: 11px;
+            }
 
-        font-size:45px;
-    }
 
-    .hero-box h1{
+            .hero {
 
-        font-size:34px;
-    }
+                min-height: 330px;
 
-    .hero-box p{
+                padding:
+                    40px
+                    15px
+                    25px;
+            }
 
-        font-size:14px;
-    }
+            .hero-box {
 
-    .shop{
+                width: 96%;
 
-        width:92%;
-    }
+                padding:
+                    28px
+                    20px;
 
-    .shop-title h2{
+                border-radius: 20px;
+            }
 
-        font-size:27px;
-    }
+            .hero-icon {
 
-    .controls{
+                font-size: 45px;
+            }
 
-        grid-template-columns:1fr;
+            .hero-box h1 {
 
-        padding:15px;
-    }
+                font-size: 34px;
 
-    .products{
+                line-height: 1.25;
+            }
 
-        grid-template-columns:1fr;
-    }
+            .hero-box p {
 
-    .benefits{
+                font-size: 14px;
 
-        grid-template-columns:1fr;
-    }
+                line-height: 1.7;
+            }
 
-    .footer-grid{
 
-        grid-template-columns:1fr;
-    }
-}
+            .shop {
 
+                width: 92%;
+            }
 
-@media(max-width:450px){
+            .shop-title {
 
-    .nav-links a{
+                padding: 18px 14px;
+            }
 
-        font-size:12px;
+            .shop-title h2 {
 
-        padding:
-            8px 9px;
-    }
+                font-size: 27px;
 
-    .hero-box h1{
+                line-height: 1.3;
+            }
 
-        font-size:29px;
-    }
+            .shop-title p {
 
-    .product-image{
+                font-size: 13px;
 
-        height:160px;
-    }
+                line-height: 1.6;
+            }
 
-}
 
-</style>
+            .controls {
+
+                grid-template-columns: 1fr;
+
+                padding: 15px;
+
+                gap: 10px;
+            }
+
+
+            .products {
+
+                grid-template-columns: 1fr;
+
+                gap: 18px;
+            }
+
+
+            .product-image {
+
+                height: 170px;
+            }
+
+
+            .benefits {
+
+                grid-template-columns: 1fr;
+
+                gap: 15px;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+            }
+
+
+            footer {
+
+                padding:
+                    30px
+                    7%
+                    20px;
+            }
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 450px) {
+
+            .navbar {
+
+                padding:
+                    9px
+                    10px;
+            }
+
+            .logo {
+
+                font-size: 20px;
+            }
+
+            .nav-links a {
+
+                font-size: 12px;
+
+                padding:
+                    8px 9px;
+            }
+
+            .hero {
+
+                padding:
+                    30px
+                    10px
+                    20px;
+            }
+
+            .hero-box {
+
+                padding:
+                    24px
+                    16px;
+            }
+
+            .hero-box h1 {
+
+                font-size: 29px;
+            }
+
+            .hero-box p {
+
+                font-size: 13px;
+            }
+
+            .product-image {
+
+                height: 160px;
+            }
+
+            .product-content {
+
+                padding: 17px;
+            }
+
+            .product-content h3 {
+
+                font-size: 19px;
+            }
+
+            .modal {
+
+                padding: 12px;
+            }
+
+            .modal-box {
+
+                padding: 22px 18px;
+
+                border-radius: 16px;
+            }
+        }
+
+
+    </style>
 
 </head>
 
@@ -1222,1430 +1392,1352 @@ footer ul{
 <body>
 
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
 
-<header class="navbar">
-
-
-<a
-    href="index.html"
-    class="logo"
->
-    🌱 AgriConnect
-</a>
+    <header class="navbar">
 
 
-<nav class="nav-links">
-
-    <a href="index.html">
-        🏠 Home
-    </a>
-
-    <a href="farmer.html">
-        👨‍🌾 Farmer
-    </a>
-
-    <a href="buyer.html">
-        🛒 Buyer
-    </a>
-
-    <a href="machinery.html">
-        🚜 Machinery
-    </a>
-
-    <a
-        href="fertilizer.html"
-        class="active"
-    >
-        🌱 Fertilizer
-    </a>
-
-    <a href="weather.html">
-        🌦️ Weather
-    </a>
-
-    <a href="crop-prices.html">
-        📈 Crop Prices
-    </a>
-
-    <a href="orders.html">
-        📦 Orders
-    </a>
-
-</nav>
+        <a
+            href="index.html"
+            class="logo"
+        >
+            🌱 AgriConnect
+        </a>
 
 
-<div class="language">
+        <nav class="nav-links">
 
-    <button
-        id="enBtn"
-        class="active"
-        onclick="changeLanguage('en')"
-    >
-        EN
-    </button>
+            <a href="index.html">
+                🏠 Home
+            </a>
 
-    <button
-        id="taBtn"
-        onclick="changeLanguage('ta')"
-    >
-        தமிழ்
-    </button>
+            <a href="farmer.html">
+                👨‍🌾 Farmer
+            </a>
 
-</div>
+            <a href="buyer.html">
+                🛒 Buyer
+            </a>
 
-</header>
+            <a href="machinery.html">
+                🚜 Machinery
+            </a>
+
+            <a
+                href="fertilizer.html"
+                class="active"
+            >
+                🌱 Fertilizer
+            </a>
+
+            <a href="weather.html">
+                🌦️ Weather
+            </a>
+
+            <a href="crop-prices.html">
+                📈 Crop Prices
+            </a>
+
+            <a href="orders.html">
+                📦 Orders
+            </a>
+
+        </nav>
 
 
+        <div class="language">
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+            <button
+                id="enBtn"
+                class="active"
+                onclick="changeLanguage('en')"
+            >
+                EN
+            </button>
 
-<section class="hero">
+            <button
+                id="taBtn"
+                onclick="changeLanguage('ta')"
+            >
+                தமிழ்
+            </button>
 
-    <div class="hero-box">
-
-        <div class="hero-icon">
-            🌱
         </div>
 
-
-        <h1
-            data-en="Organic Fertilizer"
-            data-ta="இயற்கை உரங்கள்"
-        >
-            Organic Fertilizer
-        </h1>
-
-
-        <p
-            data-en="Choose quality fertilizers for healthier soil, stronger crops and better farming results."
-            data-ta="ஆரோக்கியமான மண், வலுவான பயிர்கள் மற்றும் சிறந்த விவசாய முடிவுகளுக்கான தரமான உரங்களை தேர்வு செய்யுங்கள்."
-        >
-            Choose quality fertilizers for healthier soil,
-            stronger crops and better farming results.
-        </p>
-
-    </div>
-
-</section>
+    </header>
 
 
 
-<!-- =====================================================
-     FERTILIZER SHOP
-===================================================== -->
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
 
-<section class="shop">
+    <section class="hero">
 
+        <div class="hero-box">
 
-    <div class="shop-title">
-
-        <h2
-            data-en="🌱 Fertilizer Marketplace"
-            data-ta="🌱 உர சந்தை"
-        >
-            🌱 Fertilizer Marketplace
-        </h2>
-
-
-        <p
-            data-en="Find suitable fertilizers from trusted agricultural suppliers."
-            data-ta="நம்பகமான விவசாய விற்பனையாளர்களிடமிருந்து உங்களுக்கு தேவையான உரங்களை கண்டுபிடிக்கலாம்."
-        >
-            Find suitable fertilizers from trusted
-            agricultural suppliers.
-        </p>
-
-    </div>
-
-
-
-    <!-- CONTROLS -->
-
-    <div class="controls">
-
-
-        <input
-            id="searchInput"
-            type="text"
-            placeholder="🔍 Search fertilizer..."
-            onkeyup="filterProducts()"
-        >
-
-
-        <select
-            id="typeFilter"
-            onchange="filterProducts()"
-        >
-
-            <option
-                value="all"
-                data-en="All Types"
-                data-ta="அனைத்து வகைகள்"
-            >
-                All Types
-            </option>
-
-            <option value="organic">
-                Organic
-            </option>
-
-            <option value="compost">
-                Compost
-            </option>
-
-            <option value="bio">
-                Bio Fertilizer
-            </option>
-
-            <option value="vermi">
-                Vermicompost
-            </option>
-
-        </select>
-
-
-        <select
-            id="cropFilter"
-            onchange="filterProducts()"
-        >
-
-            <option
-                value="all"
-                data-en="All Crops"
-                data-ta="அனைத்து பயிர்கள்"
-            >
-                All Crops
-            </option>
-
-            <option value="rice">
-                Rice
-            </option>
-
-            <option value="vegetable">
-                Vegetables
-            </option>
-
-            <option value="fruit">
-                Fruits
-            </option>
-
-            <option value="cotton">
-                Cotton
-            </option>
-
-        </select>
-
-
-        <button
-            class="reset-btn"
-            onclick="resetFilters()"
-        >
-            ↻ Reset
-        </button>
-
-    </div>
-
-
-
-    <!-- PRODUCTS -->
-
-    <div
-        id="products"
-        class="products"
-    ></div>
-
-
-
-    <!-- =================================================
-         BENEFITS
-    ================================================= -->
-
-    <div class="benefits">
-
-
-        <div class="benefit">
-
-            <div class="benefit-icon">
+            <div class="hero-icon">
                 🌱
             </div>
 
-            <h3
-                data-en="Healthy Soil"
-                data-ta="ஆரோக்கியமான மண்"
+
+            <h1
+                data-en="Organic Fertilizer"
+                data-ta="இயற்கை உரங்கள்"
             >
-                Healthy Soil
-            </h3>
+                Organic Fertilizer
+            </h1>
+
 
             <p
-                data-en="Quality fertilizers help improve soil health and fertility."
-                data-ta="தரமான உரங்கள் மண்ணின் ஆரோக்கியத்தையும் வளத்தையும் மேம்படுத்த உதவுகின்றன."
+                data-en="Choose quality fertilizers for healthier soil, stronger crops and better farming results."
+                data-ta="ஆரோக்கியமான மண், வலுவான பயிர்கள் மற்றும் சிறந்த விவசாய முடிவுகளுக்கான தரமான உரங்களை தேர்வு செய்யுங்கள்."
             >
-                Quality fertilizers help improve soil health
-                and fertility.
+                Choose quality fertilizers for healthier soil,
+                stronger crops and better farming results.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FERTILIZER SHOP
+    ===================================================== -->
+
+    <section class="shop">
+
+
+        <div class="shop-title">
+
+            <h2
+                data-en="🌱 Fertilizer Marketplace"
+                data-ta="🌱 உர சந்தை"
+            >
+                🌱 Fertilizer Marketplace
+            </h2>
+
+
+            <p
+                data-en="Find suitable fertilizers from trusted agricultural suppliers."
+                data-ta="நம்பகமான விவசாய விற்பனையாளர்களிடமிருந்து உங்களுக்கு தேவையான உரங்களை கண்டுபிடிக்கலாம்."
+            >
+                Find suitable fertilizers from trusted
+                agricultural suppliers.
             </p>
 
         </div>
 
 
 
-        <div class="benefit">
+        <!-- CONTROLS -->
 
-            <div class="benefit-icon">
-                🌾
-            </div>
+        <div class="controls">
 
-            <h3
-                data-en="Better Crops"
-                data-ta="சிறந்த பயிர்கள்"
-            >
-                Better Crops
-            </h3>
-
-            <p
-                data-en="Choose the right fertilizer for stronger and healthier crops."
-                data-ta="வலுவான மற்றும் ஆரோக்கியமான பயிர்களுக்கு சரியான உரத்தை தேர்வு செய்யுங்கள்."
-            >
-                Choose the right fertilizer for stronger
-                and healthier crops.
-            </p>
-
-        </div>
-
-
-
-        <div class="benefit">
-
-            <div class="benefit-icon">
-                🚚
-            </div>
-
-            <h3
-                data-en="Easy Delivery"
-                data-ta="எளிய விநியோகம்"
-            >
-                Easy Delivery
-            </h3>
-
-            <p
-                data-en="Order fertilizers online and get them delivered conveniently."
-                data-ta="உரங்களை ஆன்லைனில் ஆர்டர் செய்து எளிதாக பெற்றுக்கொள்ளலாம்."
-            >
-                Order fertilizers online and get them
-                delivered conveniently.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    <div class="footer-grid">
-
-
-        <div>
-
-            <h3>
-                🌱 AgriConnect
-            </h3>
-
-            <p
-                data-en="Smart farming technology for modern farmers and buyers."
-                data-ta="நவீன விவசாயிகள் மற்றும் வாங்குபவர்களுக்கான ஸ்மார்ட் விவசாய தொழில்நுட்பம்."
-            >
-                Smart farming technology for modern farmers
-                and buyers.
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h3
-                data-en="Services"
-                data-ta="சேவைகள்"
-            >
-                Services
-            </h3>
-
-            <ul>
-
-                <li>
-                    Fertilizer
-                </li>
-
-                <li>
-                    Crop Prices
-                </li>
-
-                <li>
-                    Weather
-                </li>
-
-                <li>
-                    Machinery
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <div>
-
-            <h3
-                data-en="Marketplace"
-                data-ta="சந்தை"
-            >
-                Marketplace
-            </h3>
-
-            <ul>
-
-                <li>
-                    Products
-                </li>
-
-                <li>
-                    Farmers
-                </li>
-
-                <li>
-                    Buyers
-                </li>
-
-                <li>
-                    Orders
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-        © 2026 AgriConnect —
-        All Rights Reserved.
-
-    </div>
-
-</footer>
-
-
-
-<!-- =====================================================
-     ORDER MODAL
-===================================================== -->
-
-<div
-    id="orderModal"
-    class="modal"
-    onclick="closeOutside(event)"
->
-
-
-    <div class="modal-box">
-
-
-        <button
-            class="close-btn"
-            onclick="closeModal()"
-        >
-            ×
-        </button>
-
-
-        <h2
-            data-en="🛒 Order Fertilizer"
-            data-ta="🛒 உரம் ஆர்டர் செய்யுங்கள்"
-        >
-            🛒 Order Fertilizer
-        </h2>
-
-
-        <div
-            id="orderInfo"
-            class="order-info"
-        ></div>
-
-
-        <div class="form-group">
-
-            <label
-                data-en="Quantity (kg)"
-                data-ta="அளவு (கிலோ)"
-            >
-                Quantity (kg)
-            </label>
 
             <input
-                id="quantity"
-                type="number"
-                min="1"
-                value="10"
-                oninput="calculateTotal()"
-            >
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label
-                data-en="Delivery Location"
-                data-ta="விநியோக இடம்"
-            >
-                Delivery Location
-            </label>
-
-            <input
-                id="deliveryLocation"
+                id="searchInput"
                 type="text"
-                placeholder="Enter delivery location"
+                placeholder="🔍 Search fertilizer..."
+                onkeyup="filterProducts()"
             >
 
-        </div>
 
-
-        <div class="form-group">
-
-            <label
-                data-en="Payment Method"
-                data-ta="பணம் செலுத்தும் முறை"
+            <select
+                id="typeFilter"
+                onchange="filterProducts()"
             >
-                Payment Method
-            </label>
 
-            <select id="paymentMethod">
-
-                <option value="Cash on Delivery">
-                    Cash on Delivery
+                <option
+                    value="all"
+                    data-en="All Types"
+                    data-ta="அனைத்து வகைகள்"
+                >
+                    All Types
                 </option>
 
-                <option value="UPI">
-                    UPI
+                <option
+                    value="organic"
+                    data-en="Organic"
+                    data-ta="இயற்கை உரம்"
+                >
+                    Organic
                 </option>
 
-                <option value="Bank Transfer">
-                    Bank Transfer
+                <option
+                    value="compost"
+                    data-en="Compost"
+                    data-ta="கம்போஸ்ட்"
+                >
+                    Compost
+                </option>
+
+                <option
+                    value="bio"
+                    data-en="Bio Fertilizer"
+                    data-ta="உயிர் உரம்"
+                >
+                    Bio Fertilizer
+                </option>
+
+                <option
+                    value="vermi"
+                    data-en="Vermicompost"
+                    data-ta="மண்புழு உரம்"
+                >
+                    Vermicompost
                 </option>
 
             </select>
 
+
+            <select
+                id="cropFilter"
+                onchange="filterProducts()"
+            >
+
+                <option
+                    value="all"
+                    data-en="All Crops"
+                    data-ta="அனைத்து பயிர்கள்"
+                >
+                    All Crops
+                </option>
+
+                <option
+                    value="rice"
+                    data-en="Rice"
+                    data-ta="நெல்"
+                >
+                    Rice
+                </option>
+
+                <option
+                    value="vegetable"
+                    data-en="Vegetables"
+                    data-ta="காய்கறிகள்"
+                >
+                    Vegetables
+                </option>
+
+                <option
+                    value="fruit"
+                    data-en="Fruits"
+                    data-ta="பழங்கள்"
+                >
+                    Fruits
+                </option>
+
+                <option
+                    value="cotton"
+                    data-en="Cotton"
+                    data-ta="பருத்தி"
+                >
+                    Cotton
+                </option>
+
+            </select>
+
+
+            <button
+                class="reset-btn"
+                onclick="resetFilters()"
+            >
+                ↻ Reset
+            </button>
+
         </div>
 
 
-        <button
-            class="confirm-btn"
-            onclick="placeOrder()"
-        >
 
-            🛒
+        <!-- PRODUCTS -->
 
-            <span
-                data-en="Place Order"
-                data-ta="ஆர்டர் செய்யுங்கள்"
+        <div
+            id="products"
+            class="products"
+        ></div>
+
+
+
+        <!-- =================================================
+             BENEFITS
+        ================================================= -->
+
+        <div class="benefits">
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    🌱
+                </div>
+
+                <h3
+                    data-en="Healthy Soil"
+                    data-ta="ஆரோக்கியமான மண்"
+                >
+                    Healthy Soil
+                </h3>
+
+                <p
+                    data-en="Quality fertilizers help improve soil health and fertility."
+                    data-ta="தரமான உரங்கள் மண்ணின் ஆரோக்கியத்தையும் வளத்தையும் மேம்படுத்த உதவுகின்றன."
+                >
+                    Quality fertilizers help improve soil health
+                    and fertility.
+                </p>
+
+            </div>
+
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    🌾
+                </div>
+
+                <h3
+                    data-en="Better Crops"
+                    data-ta="சிறந்த பயிர்கள்"
+                >
+                    Better Crops
+                </h3>
+
+                <p
+                    data-en="Choose the right fertilizer for stronger and healthier crops."
+                    data-ta="வலுவான மற்றும் ஆரோக்கியமான பயிர்களுக்கு சரியான உரத்தை தேர்வு செய்யுங்கள்."
+                >
+                    Choose the right fertilizer for stronger
+                    and healthier crops.
+                </p>
+
+            </div>
+
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    🚚
+                </div>
+
+                <h3
+                    data-en="Easy Delivery"
+                    data-ta="எளிய விநியோகம்"
+                >
+                    Easy Delivery
+                </h3>
+
+                <p
+                    data-en="Order fertilizers online and get them delivered conveniently."
+                    data-ta="உரங்களை ஆன்லைனில் ஆர்டர் செய்து எளிதாக பெற்றுக்கொள்ளலாம்."
+                >
+                    Order fertilizers online and get them
+                    delivered conveniently.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <h3>
+                    🌱 AgriConnect
+                </h3>
+
+                <p
+                    data-en="Smart farming technology for modern farmers and buyers."
+                    data-ta="நவீன விவசாயிகள் மற்றும் வாங்குபவர்களுக்கான ஸ்மார்ட் விவசாய தொழில்நுட்பம்."
+                >
+                    Smart farming technology for modern farmers
+                    and buyers.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3
+                    data-en="Services"
+                    data-ta="சேவைகள்"
+                >
+                    Services
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Fertilizer
+                    </li>
+
+                    <li>
+                        Crop Prices
+                    </li>
+
+                    <li>
+                        Weather
+                    </li>
+
+                    <li>
+                        Machinery
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h3
+                    data-en="Marketplace"
+                    data-ta="சந்தை"
+                >
+                    Marketplace
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Products
+                    </li>
+
+                    <li>
+                        Farmers
+                    </li>
+
+                    <li>
+                        Buyers
+                    </li>
+
+                    <li>
+                        Orders
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 AgriConnect —
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         ORDER MODAL
+    ===================================================== -->
+
+    <div
+        id="orderModal"
+        class="modal"
+        onclick="closeOutside(event)"
+    >
+
+
+        <div class="modal-box">
+
+
+            <button
+                class="close-btn"
+                onclick="closeModal()"
             >
-                Place Order
-            </span>
+                ×
+            </button>
 
-        </button>
+
+            <h2
+                data-en="🛒 Order Fertilizer"
+                data-ta="🛒 உரம் ஆர்டர் செய்யுங்கள்"
+            >
+                🛒 Order Fertilizer
+            </h2>
+
+
+            <div
+                id="orderInfo"
+                class="order-info"
+            ></div>
+
+
+            <div class="form-group">
+
+                <label
+                    data-en="Quantity (kg)"
+                    data-ta="அளவு (கிலோ)"
+                >
+                    Quantity (kg)
+                </label>
+
+                <input
+                    id="quantity"
+                    type="number"
+                    min="1"
+                    value="10"
+                    oninput="calculateTotal()"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label
+                    data-en="Delivery Location"
+                    data-ta="விநியோக இடம்"
+                >
+                    Delivery Location
+                </label>
+
+                <input
+                    id="deliveryLocation"
+                    type="text"
+                    placeholder="Enter delivery location"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label
+                    data-en="Payment Method"
+                    data-ta="பணம் செலுத்தும் முறை"
+                >
+                    Payment Method
+                </label>
+
+                <select id="paymentMethod">
+
+                    <option value="Cash on Delivery">
+                        Cash on Delivery
+                    </option>
+
+                    <option value="UPI">
+                        UPI
+                    </option>
+
+                    <option value="Bank Transfer">
+                        Bank Transfer
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                class="confirm-btn"
+                onclick="placeOrder()"
+            >
+
+                🛒
+
+                <span
+                    data-en="Place Order"
+                    data-ta="ஆர்டர் செய்யுங்கள்"
+                >
+                    Place Order
+                </span>
+
+            </button>
+
+        </div>
 
     </div>
 
-</div>
 
 
-
-<script>
-
-/* =====================================================
-   FERTILIZER DATA
-===================================================== */
-
-const fertilizers = [
-
-    {
-        id:1,
-
-        name:"Organic Compost",
-
-        tamil:"இயற்கை கம்போஸ்ட்",
-
-        icon:"🌱",
-
-        type:"organic",
-
-        crop:"vegetable",
-
-        price:450,
-
-        unit:"25 kg",
-
-        seller:"Green Earth Agro",
-
-        rating:"4.9",
-
-        description:
-            "Natural compost suitable for vegetables and field crops."
-    },
-
-
-    {
-        id:2,
-
-        name:"Vermicompost",
-
-        tamil:"மண்புழு உரம்",
-
-        icon:"🪱",
-
-        type:"vermi",
-
-        crop:"vegetable",
-
-        price:550,
-
-        unit:"25 kg",
-
-        seller:"Organic Farm Store",
-
-        rating:"4.8",
-
-        description:
-            "Nutrient-rich vermicompost for healthy plant growth."
-    },
-
-
-    {
-        id:3,
-
-        name:"Bio Fertilizer",
-
-        tamil:"உயிர் உரம்",
-
-        icon:"🌿",
-
-        type:"bio",
-
-        crop:"rice",
-
-        price:380,
-
-        unit:"10 kg",
-
-        seller:"Agro Bio Solutions",
-
-        rating:"4.7",
-
-        description:
-            "Bio fertilizer that supports soil health and crop growth."
-    },
-
-
-    {
-        id:4,
-
-        name:"Cow Manure",
-
-        tamil:"மாட்டு சாண உரம்",
-
-        icon:"🐄",
-
-        type:"organic",
-
-        crop:"fruit",
-
-        price:320,
-
-        unit:"25 kg",
-
-        seller:"Natural Farm",
-
-        rating:"4.8",
-
-        description:
-            "Natural organic manure suitable for fruit crops."
-    },
-
-
-    {
-        id:5,
-
-        name:"Compost Fertilizer",
-
-        tamil:"கம்போஸ்ட் உரம்",
-
-        icon:"🍃",
-
-        type:"compost",
-
-        crop:"rice",
-
-        price:420,
-
-        unit:"25 kg",
-
-        seller:"Farm Fresh Organics",
-
-        rating:"4.6",
-
-        description:
-            "Compost fertilizer for improving soil structure."
-    },
-
-
-    {
-        id:6,
-
-        name:"Neem Fertilizer",
-
-        tamil:"வேப்பம் உரம்",
-
-        icon:"🌳",
-
-        type:"organic",
-
-        crop:"cotton",
-
-        price:490,
-
-        unit:"20 kg",
-
-        seller:"Natural Grow Agro",
-
-        rating:"4.9",
-
-        description:
-            "Neem-based organic fertilizer for healthier crops."
-    },
-
-
-    {
-        id:7,
-
-        name:"Rice Bio Fertilizer",
-
-        tamil:"நெல் உயிர் உரம்",
-
-        icon:"🌾",
-
-        type:"bio",
-
-        crop:"rice",
-
-        price:350,
-
-        unit:"10 kg",
-
-        seller:"Tamil Agro Center",
-
-        rating:"4.8",
-
-        description:
-            "Specially suitable bio fertilizer for paddy cultivation."
-    },
-
-
-    {
-        id:8,
-
-        name:"Fruit Organic Fertilizer",
-
-        tamil:"பழப் பயிர் இயற்கை உரம்",
-
-        icon:"🍎",
-
-        type:"organic",
-
-        crop:"fruit",
-
-        price:620,
-
-        unit:"25 kg",
-
-        seller:"Healthy Crop Farms",
-
-        rating:"4.9",
-
-        description:
-            "Organic fertilizer formulated for fruit crops."
-    },
-
-
-    {
-        id:9,
-
-        name:"Vegetable Bio Mix",
-
-        tamil:"காய்கறி உயிர் கலவை உரம்",
-
-        icon:"🥬",
-
-        type:"bio",
-
-        crop:"vegetable",
-
-        price:430,
-
-        unit:"10 kg",
-
-        seller:"Green Valley Agro",
-
-        rating:"4.7",
-
-        description:
-            "Bio fertilizer mix designed for vegetable farming."
-    }
-
-];
-
-
-
-/* =====================================================
-   LANGUAGE
-===================================================== */
-
-let currentLanguage =
-    localStorage.getItem("agriLanguage") || "en";
-
-
-let selectedFertilizer = null;
-
-
-
-function changeLanguage(language){
-
-    currentLanguage = language;
-
-
-    localStorage.setItem(
-        "agriLanguage",
-        language
-    );
-
-
-    document
-        .querySelectorAll("[data-en]")
-        .forEach(function(element){
-
-            element.textContent =
-                language === "en"
-                ? element.getAttribute("data-en")
-                : element.getAttribute("data-ta");
-
-        });
-
-
-    document
-        .getElementById("enBtn")
-        .classList
-        .toggle(
-            "active",
-            language === "en"
-        );
-
-
-    document
-        .getElementById("taBtn")
-        .classList
-        .toggle(
-            "active",
-            language === "ta"
-        );
-
-
-    renderProducts();
-
-}
-
-
-
-/* =====================================================
-   RENDER PRODUCTS
-===================================================== */
-
-function renderProducts(){
-
-    const search =
-        document
-            .getElementById("searchInput")
-            .value
-            .toLowerCase()
-            .trim();
-
-
-    const type =
-        document
-            .getElementById("typeFilter")
-            .value;
-
-
-    const crop =
-        document
-            .getElementById("cropFilter")
-            .value;
-
-
-    const filtered =
-        fertilizers.filter(function(item){
-
-
-            const searchMatch =
-
-                item.name
-                    .toLowerCase()
-                    .includes(search)
-
-                ||
-
-                item.tamil
-                    .includes(search)
-
-                ||
-
-                item.seller
-                    .toLowerCase()
-                    .includes(search);
-
-
-            const typeMatch =
-
-                type === "all"
-                ||
-                item.type === type;
-
-
-            const cropMatch =
-
-                crop === "all"
-                ||
-                item.crop === crop;
-
-
-            return(
-                searchMatch
-                &&
-                typeMatch
-                &&
-                cropMatch
+    <script>
+
+        /* =====================================================
+           FERTILIZER DATA
+        ===================================================== */
+
+        const fertilizers = [
+
+            {
+                id: 1,
+                name: "Organic Compost",
+                tamil: "இயற்கை கம்போஸ்ட்",
+                icon: "🌱",
+                type: "organic",
+                crop: "vegetable",
+                price: 450,
+                unit: "25 kg",
+                seller: "Green Earth Agro",
+                rating: "4.9",
+                description:
+                    "Natural compost suitable for vegetables and field crops."
+            },
+
+            {
+                id: 2,
+                name: "Vermicompost",
+                tamil: "மண்புழு உரம்",
+                icon: "🪱",
+                type: "vermi",
+                crop: "vegetable",
+                price: 550,
+                unit: "25 kg",
+                seller: "Organic Farm Store",
+                rating: "4.8",
+                description:
+                    "Nutrient-rich vermicompost for healthy plant growth."
+            },
+
+            {
+                id: 3,
+                name: "Bio Fertilizer",
+                tamil: "உயிர் உரம்",
+                icon: "🌿",
+                type: "bio",
+                crop: "rice",
+                price: 380,
+                unit: "10 kg",
+                seller: "Agro Bio Solutions",
+                rating: "4.7",
+                description:
+                    "Bio fertilizer that supports soil health and crop growth."
+            },
+
+            {
+                id: 4,
+                name: "Cow Manure",
+                tamil: "மாட்டு சாண உரம்",
+                icon: "🐄",
+                type: "organic",
+                crop: "fruit",
+                price: 320,
+                unit: "25 kg",
+                seller: "Natural Farm",
+                rating: "4.8",
+                description:
+                    "Natural organic manure suitable for fruit crops."
+            },
+
+            {
+                id: 5,
+                name: "Compost Fertilizer",
+                tamil: "கம்போஸ்ட் உரம்",
+                icon: "🍃",
+                type: "compost",
+                crop: "rice",
+                price: 420,
+                unit: "25 kg",
+                seller: "Farm Fresh Organics",
+                rating: "4.6",
+                description:
+                    "Compost fertilizer for improving soil structure."
+            },
+
+            {
+                id: 6,
+                name: "Neem Fertilizer",
+                tamil: "வேப்பம் உரம்",
+                icon: "🌳",
+                type: "organic",
+                crop: "cotton",
+                price: 490,
+                unit: "20 kg",
+                seller: "Natural Grow Agro",
+                rating: "4.9",
+                description:
+                    "Neem-based organic fertilizer for healthier crops."
+            },
+
+            {
+                id: 7,
+                name: "Rice Bio Fertilizer",
+                tamil: "நெல் உயிர் உரம்",
+                icon: "🌾",
+                type: "bio",
+                crop: "rice",
+                price: 350,
+                unit: "10 kg",
+                seller: "Tamil Agro Center",
+                rating: "4.8",
+                description:
+                    "Specially suitable bio fertilizer for paddy cultivation."
+            },
+
+            {
+                id: 8,
+                name: "Fruit Organic Fertilizer",
+                tamil: "பழப் பயிர் இயற்கை உரம்",
+                icon: "🍎",
+                type: "organic",
+                crop: "fruit",
+                price: 620,
+                unit: "25 kg",
+                seller: "Healthy Crop Farms",
+                rating: "4.9",
+                description:
+                    "Organic fertilizer formulated for fruit crops."
+            },
+
+            {
+                id: 9,
+                name: "Vegetable Bio Mix",
+                tamil: "காய்கறி உயிர் கலவை உரம்",
+                icon: "🥬",
+                type: "bio",
+                crop: "vegetable",
+                price: 430,
+                unit: "10 kg",
+                seller: "Green Valley Agro",
+                rating: "4.7",
+                description:
+                    "Bio fertilizer mix designed for vegetable farming."
+            }
+
+        ];
+
+
+        /* =====================================================
+           LANGUAGE
+        ===================================================== */
+
+        let currentLanguage =
+            localStorage.getItem("agriLanguage") || "en";
+
+        let selectedFertilizer = null;
+
+
+        function changeLanguage(language) {
+
+            currentLanguage = language;
+
+            localStorage.setItem(
+                "agriLanguage",
+                language
             );
 
-        });
+
+            document
+                .querySelectorAll("[data-en]")
+                .forEach(function (element) {
+
+                    element.textContent =
+                        language === "en"
+                            ? element.getAttribute("data-en")
+                            : element.getAttribute("data-ta");
+
+                });
 
 
-    const container =
-        document.getElementById("products");
+            document
+                .getElementById("enBtn")
+                .classList
+                .toggle(
+                    "active",
+                    language === "en"
+                );
 
 
-    container.innerHTML = "";
+            document
+                .getElementById("taBtn")
+                .classList
+                .toggle(
+                    "active",
+                    language === "ta"
+                );
 
 
-    if(filtered.length === 0){
+            updateFilterLanguage();
 
-        container.innerHTML = `
+            renderProducts();
 
-            <div class="empty">
+        }
 
-                <div class="empty-icon">
-                    🔍
-                </div>
 
-                <div>
+        /* =====================================================
+           FILTER LANGUAGE
+        ===================================================== */
 
-                    ${
+        function updateFilterLanguage() {
+
+            document
+                .querySelectorAll(
+                    "#typeFilter option[data-en], #cropFilter option[data-en]"
+                )
+                .forEach(function (option) {
+
+                    option.textContent =
                         currentLanguage === "en"
+                            ? option.getAttribute("data-en")
+                            : option.getAttribute("data-ta");
 
-                        ?
+                });
 
-                        "No fertilizers found."
+        }
 
-                        :
 
-                        "உரங்கள் எதுவும் கிடைக்கவில்லை."
-                    }
+        /* =====================================================
+           RENDER PRODUCTS
+        ===================================================== */
 
-                </div>
+        function renderProducts() {
 
-            </div>
+            const search =
+                document
+                    .getElementById("searchInput")
+                    .value
+                    .toLowerCase()
+                    .trim();
 
-        `;
 
-        return;
+            const type =
+                document
+                    .getElementById("typeFilter")
+                    .value;
 
-    }
 
+            const crop =
+                document
+                    .getElementById("cropFilter")
+                    .value;
 
-    filtered.forEach(function(item){
 
+            const filtered =
+                fertilizers.filter(function (item) {
 
-        const name =
+                    const searchMatch =
 
-            currentLanguage === "en"
+                        item.name
+                            .toLowerCase()
+                            .includes(search)
 
-            ?
+                        ||
 
-            item.name
+                        item.tamil
+                            .includes(search)
 
-            :
+                        ||
 
-            item.tamil;
+                        item.seller
+                            .toLowerCase()
+                            .includes(search);
 
 
-        const card =
-            document.createElement("div");
+                    const typeMatch =
 
+                        type === "all"
+                        ||
+                        item.type === type;
 
-        card.className =
-            "product-card";
 
+                    const cropMatch =
 
-        card.innerHTML = `
+                        crop === "all"
+                        ||
+                        item.crop === crop;
 
-            <div class="product-image">
 
-                ${item.icon}
+                    return (
+                        searchMatch
+                        &&
+                        typeMatch
+                        &&
+                        cropMatch
+                    );
 
-            </div>
+                });
 
 
-            <div class="product-content">
+            const container =
+                document.getElementById("products");
 
-                <h3>
-                    ${name}
-                </h3>
 
+            container.innerHTML = "";
 
-                <span class="product-type">
 
-                    ${
-                        item.type === "organic"
-                        ? "Organic"
-                        : item.type === "compost"
-                        ? "Compost"
-                        : item.type === "bio"
-                        ? "Bio Fertilizer"
-                        : "Vermicompost"
-                    }
+            if (filtered.length === 0) {
 
-                </span>
+                container.innerHTML = `
 
+                    <div class="empty">
 
-                <p class="product-description">
+                        <div class="empty-icon">
+                            🔍
+                        </div>
 
-                    ${
-                        currentLanguage === "en"
-                        ? item.description
-                        : getTamilDescription(item)
-                    }
+                        <div>
 
-                </p>
+                            ${
+                                currentLanguage === "en"
+                                    ? "No fertilizers found."
+                                    : "உரங்கள் எதுவும் கிடைக்கவில்லை."
+                            }
 
+                        </div>
 
-                <div class="price">
+                    </div>
 
-                    ₹${item.price}
+                `;
 
-                    <span class="price-unit">
-                        / ${item.unit}
-                    </span>
+                return;
+            }
 
-                </div>
 
+            filtered.forEach(function (item) {
 
-                <div class="seller">
+                const name =
 
-                    <span class="seller-name">
+                    currentLanguage === "en"
+                        ? item.name
+                        : item.tamil;
 
-                        👨‍🌾 ${item.seller}
 
-                    </span>
+                const card =
+                    document.createElement("div");
 
 
-                    <span class="rating">
+                card.className =
+                    "product-card";
 
-                        ⭐ ${item.rating}
 
-                    </span>
+                const typeName =
+                    currentLanguage === "en"
+                        ? (
+                            item.type === "organic"
+                                ? "Organic"
+                                : item.type === "compost"
+                                    ? "Compost"
+                                    : item.type === "bio"
+                                        ? "Bio Fertilizer"
+                                        : "Vermicompost"
+                        )
+                        : (
+                            item.type === "organic"
+                                ? "இயற்கை உரம்"
+                                : item.type === "compost"
+                                    ? "கம்போஸ்ட்"
+                                    : item.type === "bio"
+                                        ? "உயிர் உரம்"
+                                        : "மண்புழு உரம்"
+                        );
 
-                </div>
 
+                card.innerHTML = `
 
-                <button
-                    class="buy-btn"
-                    onclick="openOrder(${item.id})"
-                >
+                    <div class="product-image">
 
-                    🛒
+                        ${item.icon}
 
-                    ${
-                        currentLanguage === "en"
-                        ? "Buy Now"
-                        : "இப்போது வாங்குங்கள்"
-                    }
+                    </div>
 
-                </button>
 
-            </div>
+                    <div class="product-content">
 
-        `;
+                        <h3>
+                            ${name}
+                        </h3>
 
 
-        container.appendChild(card);
+                        <span class="product-type">
 
-    });
+                            ${typeName}
 
-}
+                        </span>
 
 
+                        <p class="product-description">
 
-/* =====================================================
-   TAMIL DESCRIPTIONS
-===================================================== */
+                            ${
+                                currentLanguage === "en"
+                                    ? item.description
+                                    : getTamilDescription(item)
+                            }
 
-function getTamilDescription(item){
+                        </p>
 
-    const descriptions = {
 
-        "Organic Compost":
-            "காய்கறிகள் மற்றும் வயல் பயிர்களுக்கு ஏற்ற இயற்கை கம்போஸ்ட்.",
+                        <div class="price">
 
-        "Vermicompost":
-            "ஆரோக்கியமான தாவர வளர்ச்சிக்கு ஊட்டச்சத்து நிறைந்த மண்புழு உரம்.",
+                            ₹${item.price}
 
-        "Bio Fertilizer":
-            "மண் ஆரோக்கியத்தையும் பயிர் வளர்ச்சியையும் மேம்படுத்தும் உயிர் உரம்.",
+                            <span class="price-unit">
+                                / ${item.unit}
+                            </span>
 
-        "Cow Manure":
-            "பழப் பயிர்களுக்கு ஏற்ற இயற்கையான மாட்டு சாண உரம்.",
+                        </div>
 
-        "Compost Fertilizer":
-            "மண்ணின் கட்டமைப்பை மேம்படுத்த உதவும் கம்போஸ்ட் உரம்.",
 
-        "Neem Fertilizer":
-            "ஆரோக்கியமான பயிர்களுக்கு ஏற்ற வேப்பம் அடிப்படையிலான இயற்கை உரம்.",
+                        <div class="seller">
 
-        "Rice Bio Fertilizer":
-            "நெல் சாகுபடிக்கு சிறப்பாக ஏற்ற உயிர் உரம்.",
+                            <span class="seller-name">
 
-        "Fruit Organic Fertilizer":
-            "பழப் பயிர்களுக்காக தயாரிக்கப்பட்ட இயற்கை உரம்.",
+                                👨‍🌾 ${item.seller}
 
-        "Vegetable Bio Mix":
-            "காய்கறி விவசாயத்திற்காக தயாரிக்கப்பட்ட உயிர் உர கலவை."
+                            </span>
 
-    };
 
+                            <span class="rating">
 
-    return descriptions[item.name]
-        || item.description;
+                                ⭐ ${item.rating}
 
-}
+                            </span>
 
+                        </div>
 
 
-/* =====================================================
-   FILTER
-===================================================== */
+                        <button
+                            class="buy-btn"
+                            onclick="openOrder(${item.id})"
+                        >
 
-function filterProducts(){
+                            🛒
 
-    renderProducts();
+                            ${
+                                currentLanguage === "en"
+                                    ? "Buy Now"
+                                    : "இப்போது வாங்குங்கள்"
+                            }
 
-}
+                        </button>
 
+                    </div>
 
+                `;
 
-/* =====================================================
-   RESET
-===================================================== */
 
-function resetFilters(){
+                container.appendChild(card);
 
-    document
-        .getElementById("searchInput")
-        .value = "";
+            });
 
+        }
 
-    document
-        .getElementById("typeFilter")
-        .value = "all";
 
+        /* =====================================================
+           TAMIL DESCRIPTIONS
+        ===================================================== */
 
-    document
-        .getElementById("cropFilter")
-        .value = "all";
+        function getTamilDescription(item) {
 
+            const descriptions = {
 
-    renderProducts();
+                "Organic Compost":
+                    "காய்கறிகள் மற்றும் வயல் பயிர்களுக்கு ஏற்ற இயற்கை கம்போஸ்ட்.",
 
-}
+                "Vermicompost":
+                    "ஆரோக்கியமான தாவர வளர்ச்சிக்கு ஊட்டச்சத்து நிறைந்த மண்புழு உரம்.",
 
+                "Bio Fertilizer":
+                    "மண் ஆரோக்கியத்தையும் பயிர் வளர்ச்சியையும் மேம்படுத்தும் உயிர் உரம்.",
 
+                "Cow Manure":
+                    "பழப் பயிர்களுக்கு ஏற்ற இயற்கையான மாட்டு சாண உரம்.",
 
-/* =====================================================
-   OPEN ORDER
-===================================================== */
+                "Compost Fertilizer":
+                    "மண்ணின் கட்டமைப்பை மேம்படுத்த உதவும் கம்போஸ்ட் உரம்.",
 
-function openOrder(id){
+                "Neem Fertilizer":
+                    "ஆரோக்கியமான பயிர்களுக்கு ஏற்ற வேப்பம் அடிப்படையிலான இயற்கை உரம்.",
 
-    selectedFertilizer =
-        fertilizers.find(
-            item => item.id === id
-        );
+                "Rice Bio Fertilizer":
+                    "நெல் சாகுபடிக்கு சிறப்பாக ஏற்ற உயிர் உரம்.",
 
+                "Fruit Organic Fertilizer":
+                    "பழப் பயிர்களுக்காக தயாரிக்கப்பட்ட இயற்கை உரம்.",
 
-    if(!selectedFertilizer){
+                "Vegetable Bio Mix":
+                    "காய்கறி விவசாயத்திற்காக தயாரிக்கப்பட்ட உயிர் உர கலவை."
 
-        return;
+            };
 
-    }
 
+            return descriptions[item.name]
+                || item.description;
 
-    const name =
+        }
 
-        currentLanguage === "en"
 
-        ?
+        /* =====================================================
+           FILTER
+        ===================================================== */
 
-        selectedFertilizer.name
+        function filterProducts() {
 
-        :
+            renderProducts();
 
-        selectedFertilizer.tamil;
+        }
 
 
-    document
-        .getElementById("orderInfo")
-        .innerHTML = `
+        /* =====================================================
+           RESET
+        ===================================================== */
 
-            <strong>
+        function resetFilters() {
 
-                ${selectedFertilizer.icon}
-                ${name}
+            document
+                .getElementById("searchInput")
+                .value = "";
 
-            </strong>
 
-            <br>
+            document
+                .getElementById("typeFilter")
+                .value = "all";
 
-            👨‍🌾
-            ${selectedFertilizer.seller}
 
-            <br>
+            document
+                .getElementById("cropFilter")
+                .value = "all";
 
-            ₹${selectedFertilizer.price}
-            /
-            ${selectedFertilizer.unit}
 
-            <div
-                id="orderTotal"
-                class="order-total"
-            ></div>
+            renderProducts();
 
-        `;
+        }
 
 
-    document
-        .getElementById("quantity")
-        .value = 10;
+        /* =====================================================
+           OPEN ORDER
+        ===================================================== */
 
+        function openOrder(id) {
 
-    document
-        .getElementById("deliveryLocation")
-        .value = "";
+            selectedFertilizer =
+                fertilizers.find(
+                    item => item.id === id
+                );
 
 
-    calculateTotal();
+            if (!selectedFertilizer) {
 
+                return;
 
-    document
-        .getElementById("orderModal")
-        .classList
-        .add("show");
+            }
 
-}
 
+            const name =
 
+                currentLanguage === "en"
+                    ? selectedFertilizer.name
+                    : selectedFertilizer.tamil;
 
-/* =====================================================
-   CALCULATE TOTAL
-===================================================== */
 
-function calculateTotal(){
+            document
+                .getElementById("orderInfo")
+                .innerHTML = `
 
-    if(!selectedFertilizer){
+                    <strong>
 
-        return;
+                        ${selectedFertilizer.icon}
+                        ${name}
 
-    }
+                    </strong>
 
+                    <br>
 
-    const quantity =
-        Number(
+                    👨‍🌾
+                    ${selectedFertilizer.seller}
+
+                    <br>
+
+                    ₹${selectedFertilizer.price}
+                    /
+                    ${selectedFertilizer.unit}
+
+                    <div
+                        id="orderTotal"
+                        class="order-total"
+                    ></div>
+
+                `;
+
+
             document
                 .getElementById("quantity")
-                .value
-        )
-        || 0;
+                .value = 10;
 
 
-    const total =
-        selectedFertilizer.price *
-        quantity;
+            document
+                .getElementById("deliveryLocation")
+                .value = "";
 
 
-    const totalElement =
-        document.getElementById("orderTotal");
+            calculateTotal();
 
 
-    if(totalElement){
+            document
+                .getElementById("orderModal")
+                .classList
+                .add("show");
 
-        totalElement.textContent =
+        }
 
-            (
+
+        /* =====================================================
+           CALCULATE TOTAL
+        ===================================================== */
+
+        function calculateTotal() {
+
+            if (!selectedFertilizer) {
+
+                return;
+
+            }
+
+
+            const quantity =
+                Number(
+                    document
+                        .getElementById("quantity")
+                        .value
+                )
+                || 0;
+
+
+            const total =
+                selectedFertilizer.price *
+                quantity;
+
+
+            const totalElement =
+                document.getElementById("orderTotal");
+
+
+            if (totalElement) {
+
+                totalElement.textContent =
+
+                    (
+                        currentLanguage === "en"
+                            ? "Total: "
+                            : "மொத்தம்: "
+                    )
+
+                    +
+
+                    "₹"
+
+                    +
+
+                    total.toLocaleString("en-IN");
+
+            }
+
+        }
+
+
+        /* =====================================================
+           PLACE ORDER
+        ===================================================== */
+
+        function placeOrder() {
+
+            if (!selectedFertilizer) {
+
+                return;
+
+            }
+
+
+            const quantity =
+                Number(
+                    document
+                        .getElementById("quantity")
+                        .value
+                );
+
+
+            const location =
+                document
+                    .getElementById("deliveryLocation")
+                    .value
+                    .trim();
+
+
+            const payment =
+                document
+                    .getElementById("paymentMethod")
+                    .value;
+
+
+            if (
+                !quantity
+                ||
+                quantity <= 0
+            ) {
+
+                alert(
+
+                    currentLanguage === "en"
+                        ? "Please enter a valid quantity."
+                        : "சரியான அளவை உள்ளிடவும்."
+
+                );
+
+                return;
+
+            }
+
+
+            if (location === "") {
+
+                alert(
+
+                    currentLanguage === "en"
+                        ? "Please enter delivery location."
+                        : "விநியோக இடத்தை உள்ளிடவும்."
+
+                );
+
+                return;
+
+            }
+
+
+            const total =
+                selectedFertilizer.price *
+                quantity;
+
+
+            const orderId =
+                "FERT-"
+                +
+                Math.floor(
+                    1000 +
+                    Math.random() * 9000
+                );
+
+
+            alert(
+
                 currentLanguage === "en"
 
-                ?
+                    ?
 
-                "Total: "
-
-                :
-
-                "மொத்தம்: "
-            )
-
-            +
-
-            "₹"
-
-            +
-
-            total.toLocaleString("en-IN");
-
-    }
-
-}
-
-
-
-/* =====================================================
-   PLACE ORDER
-===================================================== */
-
-function placeOrder(){
-
-    if(!selectedFertilizer){
-
-        return;
-
-    }
-
-
-    const quantity =
-        Number(
-            document
-                .getElementById("quantity")
-                .value
-        );
-
-
-    const location =
-        document
-            .getElementById("deliveryLocation")
-            .value
-            .trim();
-
-
-    const payment =
-        document
-            .getElementById("paymentMethod")
-            .value;
-
-
-    if(
-        !quantity
-        ||
-        quantity <= 0
-    ){
-
-        alert(
-
-            currentLanguage === "en"
-
-            ?
-
-            "Please enter a valid quantity."
-
-            :
-
-            "சரியான அளவை உள்ளிடவும்."
-
-        );
-
-        return;
-
-    }
-
-
-    if(location === ""){
-
-        alert(
-
-            currentLanguage === "en"
-
-            ?
-
-            "Please enter delivery location."
-
-            :
-
-            "விநியோக இடத்தை உள்ளிடவும்."
-
-        );
-
-        return;
-
-    }
-
-
-    const total =
-        selectedFertilizer.price *
-        quantity;
-
-
-    const orderId =
-        "FERT-"
-        +
-        Math.floor(
-            1000 +
-            Math.random() * 9000
-        );
-
-
-    alert(
-
-        currentLanguage === "en"
-
-        ?
-
-        `Order placed successfully!
+                    `Order placed successfully!
 
 Order ID: ${orderId}
 
@@ -2664,9 +2756,9 @@ ${location}
 Payment:
 ${payment}`
 
-        :
+                    :
 
-        `ஆர்டர் வெற்றிகரமாக செய்யப்பட்டது!
+                    `ஆர்டர் வெற்றிகரமாக செய்யப்பட்டது!
 
 ஆர்டர் ID:
 ${orderId}
@@ -2683,58 +2775,73 @@ ${quantity} கிலோ
 விநியோக இடம்:
 ${location}`
 
-    );
+            );
 
 
-    closeModal();
+            closeModal();
 
-}
-
-
-
-/* =====================================================
-   CLOSE MODAL
-===================================================== */
-
-function closeModal(){
-
-    document
-        .getElementById("orderModal")
-        .classList
-        .remove("show");
-
-}
+        }
 
 
+        /* =====================================================
+           CLOSE MODAL
+        ===================================================== */
 
-/* =====================================================
-   CLOSE OUTSIDE
-===================================================== */
+        function closeModal() {
 
-function closeOutside(event){
+            document
+                .getElementById("orderModal")
+                .classList
+                .remove("show");
 
-    if(
-        event.target.id ===
-        "orderModal"
-    ){
-
-        closeModal();
-
-    }
-
-}
+        }
 
 
+        /* =====================================================
+           CLOSE OUTSIDE
+        ===================================================== */
 
-/* =====================================================
-   START PAGE
-===================================================== */
+        function closeOutside(event) {
 
-changeLanguage(currentLanguage);
+            if (
+                event.target.id ===
+                "orderModal"
+            ) {
 
-renderProducts();
+                closeModal();
 
-</script>
+            }
+
+        }
+
+
+        /* =====================================================
+           ESC KEY
+        ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           START PAGE
+        ===================================================== */
+
+        changeLanguage(currentLanguage);
+
+        renderProducts();
+
+    </script>
 
 
 </body>

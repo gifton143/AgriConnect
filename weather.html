@@ -1,13 +1,21 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>AgriConnect - Weather</title>
 
+
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
@@ -20,58 +28,85 @@ html{
 }
 
 body{
+
     font-family:
         "Noto Sans Tamil",
         "Latha",
+        "Segoe UI",
         Arial,
         sans-serif;
 
     min-height:100vh;
+
     color:#173b21;
+
+    /*
+        DESKTOP / LANDSCAPE BACKGROUND
+    */
 
     background-image:
         linear-gradient(
-            rgba(20,55,70,0.18),
-            rgba(20,55,70,0.30)
+            rgba(20,55,70,0.14),
+            rgba(20,55,70,0.24)
         ),
         url("./image/weather-bg.jpg.png");
 
     background-size:cover;
-    background-position:center;
+
+    background-position:center center;
+
     background-repeat:no-repeat;
+
+    /*
+        IMPORTANT:
+        Background stays fixed.
+    */
+
     background-attachment:fixed;
+
+    overflow-x:hidden;
 }
 
 
-/* =========================
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
 .header{
+
     position:fixed;
+
     top:0;
     left:0;
     right:0;
 
-    height:78px;
+    min-height:78px;
 
     z-index:1000;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
-    padding:0 30px;
+    gap:15px;
 
-    background:rgba(255,255,255,0.95);
+    padding:10px 30px;
 
-    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,0.96);
+
+    backdrop-filter:blur(10px);
 
     box-shadow:
         0 4px 20px rgba(0,0,0,0.12);
 }
 
+
+/* LOGO */
+
 .logo{
+
     text-decoration:none;
 
     color:#16842f;
@@ -81,19 +116,36 @@ body{
     font-weight:900;
 
     white-space:nowrap;
+
+    flex-shrink:0;
 }
 
+
+/* NAVIGATION */
+
 .nav-links{
+
     display:flex;
 
     align-items:center;
 
     gap:4px;
 
+    flex:1;
+
+    justify-content:center;
+
     overflow-x:auto;
+
+    scrollbar-width:none;
+}
+
+.nav-links::-webkit-scrollbar{
+    display:none;
 }
 
 .nav-links a{
+
     text-decoration:none;
 
     color:#38523f;
@@ -108,17 +160,24 @@ body{
 
     white-space:nowrap;
 
-    transition:.2s;
+    transition:0.2s;
+
+    flex-shrink:0;
 }
 
 .nav-links a:hover,
 .nav-links a.active{
+
     background:#e4f4e7;
 
     color:#16842f;
 }
 
+
+/* LANGUAGE */
+
 .language{
+
     display:flex;
 
     gap:5px;
@@ -128,9 +187,12 @@ body{
     background:#edf5ee;
 
     border-radius:9px;
+
+    flex-shrink:0;
 }
 
 .language button{
+
     border:none;
 
     background:transparent;
@@ -147,19 +209,22 @@ body{
 }
 
 .language button.active{
+
     background:white;
 
     color:#16842f;
 
-    box-shadow:0 2px 7px rgba(0,0,0,.08);
+    box-shadow:
+        0 2px 7px rgba(0,0,0,.08);
 }
 
 
-/* =========================
+/* =====================================================
    PAGE
-========================= */
+===================================================== */
 
 .page{
+
     min-height:100vh;
 
     padding:
@@ -169,17 +234,19 @@ body{
 }
 
 .container{
+
     width:min(1150px,100%);
 
     margin:auto;
 }
 
 
-/* =========================
-   TITLE
-========================= */
+/* =====================================================
+   PAGE HEADER
+===================================================== */
 
 .page-header{
+
     text-align:center;
 
     margin-bottom:35px;
@@ -187,16 +254,18 @@ body{
     color:white;
 
     text-shadow:
-        0 2px 8px rgba(0,0,0,.45);
+        0 2px 8px rgba(0,0,0,.50);
 }
 
 .page-header .icon{
+
     font-size:55px;
 
     margin-bottom:8px;
 }
 
 .page-header h1{
+
     font-size:44px;
 
     font-weight:900;
@@ -205,26 +274,31 @@ body{
 }
 
 .page-header p{
+
     font-size:16px;
 
     font-weight:600;
 }
 
 
-/* =========================
+/* =====================================================
    LOCATION
-========================= */
+===================================================== */
 
 .location-box{
+
     display:flex;
 
     gap:12px;
 
     max-width:650px;
 
-    margin:0 auto 30px;
+    margin:
+        0
+        auto
+        30px;
 
-    background:rgba(255,255,255,.94);
+    background:rgba(255,255,255,.95);
 
     padding:15px;
 
@@ -237,6 +311,7 @@ body{
 }
 
 .location-box input{
+
     flex:1;
 
     min-width:0;
@@ -250,21 +325,27 @@ body{
     outline:none;
 
     font-size:14px;
+
+    color:#203d27;
 }
 
 .location-box input:focus{
+
     border-color:#168a32;
 
     box-shadow:
-        0 0 0 3px rgba(22,138,50,.1);
+        0 0 0 3px rgba(22,138,50,.10);
 }
 
 .location-box button{
+
     border:none;
 
     border-radius:9px;
 
-    padding:0 22px;
+    padding:
+        0
+        22px;
 
     background:#168a32;
 
@@ -273,18 +354,26 @@ body{
     font-weight:800;
 
     cursor:pointer;
+
+    white-space:nowrap;
+
+    transition:.2s;
 }
 
 .location-box button:hover{
+
     background:#116c27;
+
+    transform:translateY(-1px);
 }
 
 
-/* =========================
+/* =====================================================
    MAIN WEATHER
-========================= */
+===================================================== */
 
 .weather-main{
+
     display:grid;
 
     grid-template-columns:
@@ -297,16 +386,19 @@ body{
 }
 
 
-/* CURRENT WEATHER */
+/* =====================================================
+   CURRENT WEATHER
+===================================================== */
 
 .current-weather{
+
     min-height:350px;
 
     padding:35px;
 
     border-radius:22px;
 
-    background:rgba(255,255,255,.92);
+    background:rgba(255,255,255,.94);
 
     box-shadow:
         0 15px 40px rgba(0,0,0,.18);
@@ -325,12 +417,14 @@ body{
 }
 
 .current-weather .weather-icon{
+
     font-size:90px;
 
     margin-bottom:10px;
 }
 
 .current-weather h2{
+
     font-size:28px;
 
     color:#164d27;
@@ -339,6 +433,7 @@ body{
 }
 
 .temperature{
+
     font-size:70px;
 
     line-height:1;
@@ -351,6 +446,7 @@ body{
 }
 
 .condition{
+
     color:#53675a;
 
     font-size:17px;
@@ -359,6 +455,7 @@ body{
 }
 
 .updated{
+
     margin-top:12px;
 
     color:#7a897e;
@@ -367,26 +464,30 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    WEATHER STATS
-========================= */
+===================================================== */
 
 .weather-stats{
+
     display:grid;
 
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:
+        1fr
+        1fr;
 
     gap:15px;
 }
 
 .stat{
+
     min-height:165px;
 
     padding:25px;
 
     border-radius:18px;
 
-    background:rgba(255,255,255,.92);
+    background:rgba(255,255,255,.94);
 
     box-shadow:
         0 10px 30px rgba(0,0,0,.15);
@@ -405,12 +506,14 @@ body{
 }
 
 .stat-icon{
+
     font-size:40px;
 
     margin-bottom:10px;
 }
 
 .stat h3{
+
     color:#607266;
 
     font-size:13px;
@@ -419,24 +522,26 @@ body{
 }
 
 .stat strong{
+
     color:#175e2b;
 
     font-size:25px;
 }
 
 
-/* =========================
+/* =====================================================
    FARM WEATHER INFO
-========================= */
+===================================================== */
 
 .farm-card{
+
     margin-top:22px;
 
     padding:27px;
 
     border-radius:20px;
 
-    background:rgba(255,255,255,.93);
+    background:rgba(255,255,255,.94);
 
     box-shadow:
         0 12px 35px rgba(0,0,0,.16);
@@ -445,6 +550,7 @@ body{
 }
 
 .farm-card h2{
+
     color:#155725;
 
     font-size:25px;
@@ -453,6 +559,7 @@ body{
 }
 
 .farm-grid{
+
     display:grid;
 
     grid-template-columns:
@@ -462,6 +569,7 @@ body{
 }
 
 .farm-item{
+
     padding:18px;
 
     border-radius:13px;
@@ -472,6 +580,7 @@ body{
 }
 
 .farm-item strong{
+
     display:block;
 
     color:#17642b;
@@ -480,6 +589,7 @@ body{
 }
 
 .farm-item span{
+
     color:#657369;
 
     font-size:13px;
@@ -488,15 +598,17 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    FORECAST
-========================= */
+===================================================== */
 
 .forecast-section{
+
     margin-top:22px;
 }
 
 .forecast-title{
+
     color:white;
 
     font-size:28px;
@@ -504,10 +616,11 @@ body{
     margin-bottom:18px;
 
     text-shadow:
-        0 2px 7px rgba(0,0,0,.5);
+        0 2px 7px rgba(0,0,0,.55);
 }
 
 .forecast{
+
     display:grid;
 
     grid-template-columns:
@@ -517,11 +630,12 @@ body{
 }
 
 .forecast-card{
+
     padding:22px 15px;
 
     border-radius:17px;
 
-    background:rgba(255,255,255,.93);
+    background:rgba(255,255,255,.94);
 
     box-shadow:
         0 9px 25px rgba(0,0,0,.14);
@@ -532,6 +646,7 @@ body{
 }
 
 .forecast-day{
+
     color:#31503a;
 
     font-weight:800;
@@ -542,12 +657,14 @@ body{
 }
 
 .forecast-icon{
+
     font-size:42px;
 
     margin-bottom:10px;
 }
 
 .forecast-temp{
+
     color:#16842f;
 
     font-size:22px;
@@ -558,17 +675,19 @@ body{
 }
 
 .forecast-condition{
+
     color:#718078;
 
     font-size:12px;
 }
 
 
-/* =========================
+/* =====================================================
    FARM TIP
-========================= */
+===================================================== */
 
 .tip{
+
     margin-top:25px;
 
     padding:22px;
@@ -578,8 +697,8 @@ body{
     background:
         linear-gradient(
             135deg,
-            rgba(22,132,47,.94),
-            rgba(10,94,32,.94)
+            rgba(22,132,47,.95),
+            rgba(10,94,32,.95)
         );
 
     color:white;
@@ -589,12 +708,14 @@ body{
 }
 
 .tip h3{
+
     margin-bottom:8px;
 
     font-size:20px;
 }
 
 .tip p{
+
     font-size:14px;
 
     line-height:1.7;
@@ -603,56 +724,64 @@ body{
 }
 
 
-/* =========================
+/* =====================================================
    FOOTER
-========================= */
+===================================================== */
 
 .footer{
+
     margin-top:45px;
 
     padding:25px;
 
     text-align:center;
 
-    background:rgba(13,55,25,.92);
+    background:rgba(13,55,25,.94);
 
     color:#d5e5d8;
 }
 
 .footer p{
+
     font-size:13px;
 
     line-height:1.7;
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* =====================================================
+   TABLET
+===================================================== */
 
 @media(max-width:1050px){
 
     .header{
+
         flex-wrap:wrap;
 
-        height:auto;
+        min-height:78px;
 
-        min-height:70px;
-
-        padding:10px 18px;
+        padding:
+            10px
+            18px;
     }
 
     .nav-links{
+
         width:100%;
 
         order:3;
+
+        justify-content:flex-start;
     }
 
     .weather-main{
+
         grid-template-columns:1fr;
     }
 
     .forecast{
+
         grid-template-columns:
             repeat(3,1fr);
     }
@@ -660,257 +789,673 @@ body{
 }
 
 
+/* =====================================================
+   MOBILE
+===================================================== */
+
 @media(max-width:700px){
 
     body{
-        background-attachment:scroll;
+
+        /*
+            MOBILE / PORTRAIT BACKGROUND
+        */
+
+        background-image:
+            linear-gradient(
+                rgba(20,55,70,0.10),
+                rgba(20,55,70,0.20)
+            ),
+            url("./image/weather-bg-portrait.jpg.png.png");
+
+        background-size:cover;
+
+        /*
+            Keep portrait image fixed.
+        */
+
+        background-position:center top;
+
+        background-repeat:no-repeat;
+
+        background-attachment:fixed;
     }
+
+
+    /* MOBILE HEADER */
+
+    .header{
+
+        min-height:auto;
+
+        padding:
+            10px
+            12px;
+
+        display:grid;
+
+        grid-template-columns:
+            1fr
+            auto;
+
+        grid-template-rows:
+            auto
+            auto;
+
+        gap:8px 10px;
+
+        align-items:center;
+    }
+
+
+    .logo{
+
+        font-size:22px;
+
+        grid-column:1;
+        grid-row:1;
+    }
+
+
+    .language{
+
+        grid-column:2;
+        grid-row:1;
+    }
+
+
+    .language button{
+
+        padding:
+            7px
+            9px;
+
+        font-size:12px;
+    }
+
+
+    .nav-links{
+
+        grid-column:
+            1 / -1;
+
+        grid-row:2;
+
+        width:100%;
+
+        display:flex;
+
+        justify-content:flex-start;
+
+        overflow-x:auto;
+
+        padding-bottom:2px;
+
+        gap:3px;
+    }
+
+
+    .nav-links a{
+
+        font-size:12px;
+
+        padding:
+            8px
+            10px;
+    }
+
+
+    /* PAGE */
 
     .page{
+
         padding:
-            120px
+            145px
             5%
-            40px;
+            45px;
     }
 
-    .page-header h1{
-        font-size:34px;
+
+    /* TITLE */
+
+    .page-header{
+
+        margin-bottom:25px;
     }
 
     .page-header .icon{
+
         font-size:45px;
+
+        margin-bottom:5px;
     }
+
+    .page-header h1{
+
+        font-size:34px;
+
+        line-height:1.2;
+    }
+
+    .page-header p{
+
+        font-size:14px;
+
+        line-height:1.6;
+    }
+
+
+    /* LOCATION */
 
     .location-box{
+
         flex-direction:column;
+
+        padding:12px;
+
+        margin-bottom:22px;
     }
 
-    .location-box button{
+    .location-box input{
+
+        width:100%;
+
         padding:13px;
     }
 
+    .location-box button{
+
+        width:100%;
+
+        min-height:46px;
+
+        padding:12px;
+    }
+
+
+    /* CURRENT WEATHER */
+
+    .current-weather{
+
+        min-height:310px;
+
+        padding:25px 18px;
+
+        border-radius:20px;
+    }
+
+    .current-weather .weather-icon{
+
+        font-size:75px;
+    }
+
+    .current-weather h2{
+
+        font-size:24px;
+    }
+
+    .temperature{
+
+        font-size:58px;
+
+        margin:12px 0;
+    }
+
+    .condition{
+
+        font-size:15px;
+    }
+
+
+    /* STATS */
+
     .weather-stats{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+        gap:12px;
+    }
+
+    .stat{
+
+        min-height:145px;
+
+        padding:18px 12px;
+    }
+
+    .stat-icon{
+
+        font-size:34px;
+    }
+
+    .stat strong{
+
+        font-size:22px;
+    }
+
+
+    /* FARM INFO */
+
+    .farm-card{
+
+        padding:22px 18px;
+
+        border-radius:19px;
+    }
+
+    .farm-card h2{
+
+        font-size:22px;
+
+        line-height:1.4;
     }
 
     .farm-grid{
+
         grid-template-columns:1fr;
+
+        gap:12px;
+    }
+
+
+    /* FORECAST */
+
+    .forecast-section{
+
+        margin-top:25px;
+    }
+
+    .forecast-title{
+
+        font-size:25px;
+
+        margin-bottom:15px;
     }
 
     .forecast{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+        gap:12px;
+    }
+
+    .forecast-card{
+
+        padding:
+            20px
+            12px;
+
+        min-height:190px;
+
+        display:flex;
+
+        flex-direction:column;
+
+        justify-content:center;
+
+        align-items:center;
+    }
+
+
+    /* TIP */
+
+    .tip{
+
+        padding:20px;
+
+        margin-top:22px;
+    }
+
+    .tip h3{
+
+        font-size:19px;
+    }
+
+    .tip p{
+
+        font-size:13px;
     }
 
 }
 
 
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
 @media(max-width:450px){
 
     .logo{
+
         font-size:20px;
     }
 
+
     .language button{
-        padding:6px 8px;
+
+        padding:
+            6px
+            8px;
 
         font-size:11px;
     }
 
+
+    .page{
+
+        padding:
+            142px
+            4%
+            40px;
+    }
+
+
     .page-header h1{
+
         font-size:29px;
     }
 
-    .temperature{
-        font-size:58px;
+
+    .page-header p{
+
+        font-size:13px;
     }
+
+
+    .temperature{
+
+        font-size:52px;
+    }
+
 
     .weather-stats{
+
         grid-template-columns:1fr;
     }
 
+
     .forecast{
+
         grid-template-columns:1fr;
+    }
+
+
+    .forecast-card{
+
+        min-height:175px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL SCREEN
+===================================================== */
+
+@media(max-width:350px){
+
+    .logo{
+
+        font-size:18px;
+    }
+
+    .page{
+
+        padding-top:140px;
+    }
+
+    .nav-links a{
+
+        font-size:11px;
+
+        padding:
+            7px
+            8px;
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header class="header">
 
-<a href="index.html" class="logo">
-🌱 AgriConnect
+
+<a href="index.html"
+   class="logo">
+
+    🌱 AgriConnect
+
 </a>
 
 
 <nav class="nav-links">
 
+
 <a href="index.html">
-🏠 Home
+    🏠 Home
 </a>
+
 
 <a href="farmer.html">
-👨‍🌾 Farmer
+    👨‍🌾 Farmer
 </a>
+
 
 <a href="buyer.html">
-🛒 Buyer
+    🛒 Buyer
 </a>
+
 
 <a href="machinery.html">
-🚜 Machinery
+    🚜 Machinery
 </a>
+
 
 <a href="fertilizer.html">
-🌱 Fertilizer
+    🌱 Fertilizer
 </a>
 
-<a href="weather.html" class="active">
-🌦️ Weather
+
+<a href="weather.html"
+   class="active">
+
+    🌦️ Weather
+
 </a>
+
 
 <a href="crop-prices.html">
-📈 Crop Prices
+    📈 Crop Prices
 </a>
 
+
 <a href="orders.html">
-📦 Orders
+    📦 Orders
 </a>
+
 
 </nav>
 
 
 <div class="language">
 
-<button
-id="enBtn"
-class="active"
-onclick="changeLanguage('en')">
-EN
-</button>
 
 <button
-id="taBtn"
-onclick="changeLanguage('ta')">
-தமிழ்
+    id="enBtn"
+    class="active"
+    onclick="changeLanguage('en')">
+
+    EN
+
 </button>
+
+
+<button
+    id="taBtn"
+    onclick="changeLanguage('ta')">
+
+    தமிழ்
+
+</button>
+
 
 </div>
+
 
 </header>
 
 
 
-<!-- =========================
-     WEATHER PAGE
-========================= -->
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <main class="page">
+
 
 <div class="container">
 
 
+<!-- PAGE TITLE -->
+
 <div class="page-header">
 
+
 <div class="icon">
-🌦️
+    🌦️
 </div>
+
 
 <h1
-data-en="Agriculture Weather"
-data-ta="விவசாய வானிலை">
-Agriculture Weather
+    data-en="Agriculture Weather"
+    data-ta="விவசாய வானிலை">
+
+    Agriculture Weather
+
 </h1>
 
+
 <p
-data-en="Monitor weather conditions and plan your farming activities."
-data-ta="வானிலை நிலைமைகளை கண்காணித்து உங்கள் விவசாய பணிகளை திட்டமிடுங்கள்.">
-Monitor weather conditions and plan your farming activities.
+    data-en="Monitor weather conditions and plan your farming activities."
+    data-ta="வானிலை நிலைமைகளை கண்காணித்து உங்கள் விவசாய பணிகளை திட்டமிடுங்கள்.">
+
+    Monitor weather conditions and plan your farming activities.
+
 </p>
+
 
 </div>
 
 
 
-<!-- LOCATION -->
+<!-- =====================================================
+     LOCATION
+===================================================== -->
 
 <div class="location-box">
 
+
 <input
-id="locationInput"
-type="text"
-value="Chennai"
-placeholder="Enter location"
-data-placeholder-en="Enter location"
-data-placeholder-ta="இடத்தை உள்ளிடவும்">
+    id="locationInput"
+    type="text"
+    value="Chennai"
+    placeholder="Enter location"
+    data-placeholder-en="Enter location"
+    data-placeholder-ta="இடத்தை உள்ளிடவும்">
+
 
 <button onclick="updateWeather()">
 
-📍
-<span
-data-en="Check Weather"
-data-ta="வானிலையை பார்க்க">
-Check Weather
-</span>
+    📍
+
+    <span
+        data-en="Check Weather"
+        data-ta="வானிலையை பார்க்க">
+
+        Check Weather
+
+    </span>
 
 </button>
+
 
 </div>
 
 
 
-<!-- CURRENT WEATHER -->
+<!-- =====================================================
+     CURRENT WEATHER
+===================================================== -->
 
 <div class="weather-main">
 
 
 <div class="current-weather">
 
+
 <div
-id="weatherIcon"
-class="weather-icon">
-☀️
+    id="weatherIcon"
+    class="weather-icon">
+
+    ☀️
+
 </div>
+
 
 <h2 id="locationName">
-Chennai
+    Chennai
 </h2>
 
-<div
-id="temperature"
-class="temperature">
-31°C
-</div>
 
 <div
-id="condition"
-class="condition"
-data-en="Sunny"
-data-ta="வெயில்">
-Sunny
+    id="temperature"
+    class="temperature">
+
+    31°C
+
 </div>
+
 
 <div
-class="updated"
-data-en="Updated just now"
-data-ta="இப்போது புதுப்பிக்கப்பட்டது">
-Updated just now
-</div>
+    id="condition"
+    class="condition">
+
+    Sunny
 
 </div>
 
 
+<div
+    class="updated"
+    data-en="Updated just now"
+    data-ta="இப்போது புதுப்பிக்கப்பட்டது">
 
-<!-- STATS -->
+    Updated just now
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     WEATHER STATS
+===================================================== -->
 
 <div class="weather-stats">
 
@@ -918,74 +1463,85 @@ Updated just now
 <div class="stat">
 
 <div class="stat-icon">
-💧
+    💧
 </div>
 
 <h3
-data-en="Humidity"
-data-ta="ஈரப்பதம்">
-Humidity
+    data-en="Humidity"
+    data-ta="ஈரப்பதம்">
+
+    Humidity
+
 </h3>
 
 <strong id="humidity">
-68%
+    68%
 </strong>
 
 </div>
 
 
+
 <div class="stat">
 
 <div class="stat-icon">
-💨
+    💨
 </div>
 
 <h3
-data-en="Wind Speed"
-data-ta="காற்றின் வேகம்">
-Wind Speed
+    data-en="Wind Speed"
+    data-ta="காற்றின் வேகம்">
+
+    Wind Speed
+
 </h3>
 
 <strong id="wind">
-14 km/h
+    14 km/h
 </strong>
 
 </div>
 
 
+
 <div class="stat">
 
 <div class="stat-icon">
-🌧️
+    🌧️
 </div>
 
 <h3
-data-en="Rain Chance"
-data-ta="மழை வாய்ப்பு">
-Rain Chance
+    data-en="Rain Chance"
+    data-ta="மழை வாய்ப்பு">
+
+    Rain Chance
+
 </h3>
 
 <strong id="rain">
-20%
+    20%
 </strong>
 
 </div>
+
 
 
 <div class="stat">
 
 <div class="stat-icon">
-🌡️
+    🌡️
 </div>
 
 <h3
-data-en="Feels Like"
-data-ta="உணரப்படும் வெப்பநிலை">
-Feels Like
+    data-en="Feels Like"
+    data-ta="உணரப்படும் வெப்பநிலை">
+
+    Feels Like
+
 </h3>
 
 <strong id="feels">
-33°C
+    33°C
 </strong>
 
 </div>
@@ -997,14 +1553,19 @@ Feels Like
 
 
 
-<!-- FARM INFO -->
+<!-- =====================================================
+     FARM WEATHER INFORMATION
+===================================================== -->
 
 <div class="farm-card">
 
+
 <h2
-data-en="🌾 Farming Weather Information"
-data-ta="🌾 விவசாய வானிலை தகவல்கள்">
-🌾 Farming Weather Information
+    data-en="🌾 Farming Weather Information"
+    data-ta="🌾 விவசாய வானிலை தகவல்கள்">
+
+    🌾 Farming Weather Information
+
 </h2>
 
 
@@ -1013,199 +1574,294 @@ data-ta="🌾 விவசாய வானிலை தகவல்கள்">
 
 <div class="farm-item">
 
+
 <strong
-data-en="🌱 Crop Growth"
-data-ta="🌱 பயிர் வளர்ச்சி">
-🌱 Crop Growth
+    data-en="🌱 Crop Growth"
+    data-ta="🌱 பயிர் வளர்ச்சி">
+
+    🌱 Crop Growth
+
 </strong>
 
+
 <span
-data-en="Current temperature is suitable for regular crop monitoring."
-data-ta="தற்போதைய வெப்பநிலை வழக்கமான பயிர் கண்காணிப்புக்கு ஏற்றதாக உள்ளது.">
-Current temperature is suitable for regular crop monitoring.
+    data-en="Current temperature is suitable for regular crop monitoring."
+    data-ta="தற்போதைய வெப்பநிலை வழக்கமான பயிர் கண்காணிப்புக்கு ஏற்றதாக உள்ளது.">
+
+    Current temperature is suitable for regular crop monitoring.
+
 </span>
 
+
 </div>
+
 
 
 <div class="farm-item">
 
+
 <strong
-data-en="💧 Irrigation"
-data-ta="💧 நீர்ப்பாசனம்">
-💧 Irrigation
+    data-en="💧 Irrigation"
+    data-ta="💧 நீர்ப்பாசனம்">
+
+    💧 Irrigation
+
 </strong>
 
+
 <span
-data-en="Check soil moisture before irrigation to avoid unnecessary water usage."
-data-ta="தேவையற்ற நீர் பயன்பாட்டை தவிர்க்க நீர்ப்பாசனத்திற்கு முன் மண்ணின் ஈரப்பதத்தை சரிபார்க்கவும்.">
-Check soil moisture before irrigation to avoid unnecessary water usage.
+    data-en="Check soil moisture before irrigation to avoid unnecessary water usage."
+    data-ta="தேவையற்ற நீர் பயன்பாட்டை தவிர்க்க நீர்ப்பாசனத்திற்கு முன் மண்ணின் ஈரப்பதத்தை சரிபார்க்கவும்.">
+
+    Check soil moisture before irrigation to avoid unnecessary water usage.
+
 </span>
 
+
 </div>
+
 
 
 <div class="farm-item">
 
+
 <strong
-data-en="🌦️ Weather Alert"
-data-ta="🌦️ வானிலை எச்சரிக்கை">
-🌦️ Weather Alert
+    data-en="🌦️ Weather Alert"
+    data-ta="🌦️ வானிலை எச்சரிக்கை">
+
+    🌦️ Weather Alert
+
 </strong>
 
+
 <span
-data-en="Monitor rain conditions before spraying fertilizer or pesticides."
-data-ta="உரம் அல்லது பூச்சிக்கொல்லி தெளிப்பதற்கு முன் மழை நிலையை கண்காணிக்கவும்.">
-Monitor rain conditions before spraying fertilizer or pesticides.
+    data-en="Monitor rain conditions before spraying fertilizer or pesticides."
+    data-ta="உரம் அல்லது பூச்சிக்கொல்லி தெளிப்பதற்கு முன் மழை நிலையை கண்காணிக்கவும்.">
+
+    Monitor rain conditions before spraying fertilizer or pesticides.
+
 </span>
 
-</div>
-
-
-</div>
 
 </div>
 
 
+</div>
 
-<!-- FORECAST -->
+</div>
+
+
+
+<!-- =====================================================
+     FORECAST
+===================================================== -->
 
 <section class="forecast-section">
 
+
 <h2
-class="forecast-title"
-data-en="📅 5 Day Forecast"
-data-ta="📅 5 நாள் வானிலை முன்னறிவிப்பு">
-📅 5 Day Forecast
+    class="forecast-title"
+    data-en="📅 5 Day Forecast"
+    data-ta="📅 5 நாள் வானிலை முன்னறிவிப்பு">
+
+    📅 5 Day Forecast
+
 </h2>
 
 
 <div class="forecast">
 
 
-<div class="forecast-card">
-
-<div
-class="forecast-day"
-data-en="Today"
-data-ta="இன்று">
-Today
-</div>
-
-<div class="forecast-icon">
-☀️
-</div>
-
-<div class="forecast-temp">
-31°C
-</div>
-
-<div
-class="forecast-condition"
-data-en="Sunny"
-data-ta="வெயில்">
-Sunny
-</div>
-
-</div>
-
+<!-- TODAY -->
 
 <div class="forecast-card">
 
+
 <div
-class="forecast-day">
-Tomorrow
+    class="forecast-day"
+    data-en="Today"
+    data-ta="இன்று">
+
+    Today
+
 </div>
+
 
 <div class="forecast-icon">
-🌤️
+    ☀️
 </div>
+
 
 <div class="forecast-temp">
-30°C
+    31°C
 </div>
+
 
 <div
-class="forecast-condition"
-data-en="Partly Cloudy"
-data-ta="சிறிது மேகமூட்டம்">
-Partly Cloudy
-</div>
+    class="forecast-condition"
+    data-en="Sunny"
+    data-ta="வெயில்">
+
+    Sunny
 
 </div>
 
+
+</div>
+
+
+
+<!-- TOMORROW -->
 
 <div class="forecast-card">
 
+
 <div
-class="forecast-day">
-Monday
+    class="forecast-day"
+    data-en="Tomorrow"
+    data-ta="நாளை">
+
+    Tomorrow
+
 </div>
+
 
 <div class="forecast-icon">
-🌧️
+    🌤️
 </div>
+
 
 <div class="forecast-temp">
-29°C
+    30°C
 </div>
+
 
 <div
-class="forecast-condition"
-data-en="Light Rain"
-data-ta="லேசான மழை">
-Light Rain
-</div>
+    class="forecast-condition"
+    data-en="Partly Cloudy"
+    data-ta="சிறிது மேகமூட்டம்">
+
+    Partly Cloudy
 
 </div>
 
+
+</div>
+
+
+
+<!-- MONDAY -->
 
 <div class="forecast-card">
 
+
 <div
-class="forecast-day">
-Tuesday
+    class="forecast-day"
+    data-en="Monday"
+    data-ta="திங்கட்கிழமை">
+
+    Monday
+
 </div>
+
 
 <div class="forecast-icon">
-⛅
+    🌧️
 </div>
+
 
 <div class="forecast-temp">
-30°C
+    29°C
 </div>
+
 
 <div
-class="forecast-condition"
-data-en="Cloudy"
-data-ta="மேகமூட்டம்">
-Cloudy
-</div>
+    class="forecast-condition"
+    data-en="Light Rain"
+    data-ta="லேசான மழை">
+
+    Light Rain
 
 </div>
 
+
+</div>
+
+
+
+<!-- TUESDAY -->
 
 <div class="forecast-card">
 
+
 <div
-class="forecast-day">
-Wednesday
+    class="forecast-day"
+    data-en="Tuesday"
+    data-ta="செவ்வாய்க்கிழமை">
+
+    Tuesday
+
 </div>
+
 
 <div class="forecast-icon">
-☀️
+    ⛅
 </div>
+
 
 <div class="forecast-temp">
-32°C
+    30°C
 </div>
 
+
 <div
-class="forecast-condition"
-data-en="Sunny"
-data-ta="வெயில்">
-Sunny
+    class="forecast-condition"
+    data-en="Cloudy"
+    data-ta="மேகமூட்டம்">
+
+    Cloudy
+
 </div>
+
+
+</div>
+
+
+
+<!-- WEDNESDAY -->
+
+<div class="forecast-card">
+
+
+<div
+    class="forecast-day"
+    data-en="Wednesday"
+    data-ta="புதன்கிழமை">
+
+    Wednesday
+
+</div>
+
+
+<div class="forecast-icon">
+    ☀️
+</div>
+
+
+<div class="forecast-temp">
+    32°C
+</div>
+
+
+<div
+    class="forecast-condition"
+    data-en="Sunny"
+    data-ta="வெயில்">
+
+    Sunny
+
+</div>
+
 
 </div>
 
@@ -1216,21 +1872,31 @@ Sunny
 
 
 
-<!-- FARM TIP -->
+<!-- =====================================================
+     FARMER TIP
+===================================================== -->
 
 <div class="tip">
 
+
 <h3
-data-en="🌾 Farmer Tip"
-data-ta="🌾 விவசாயி அறிவுரை">
-🌾 Farmer Tip
+    data-en="🌾 Farmer Tip"
+    data-ta="🌾 விவசாயி அறிவுரை">
+
+    🌾 Farmer Tip
+
 </h3>
 
+
 <p
-data-en="Always check the latest weather conditions before irrigation, fertilizer application, pesticide spraying and harvesting."
-data-ta="நீர்ப்பாசனம், உரம் இடுதல், பூச்சிக்கொல்லி தெளித்தல் மற்றும் அறுவடை செய்வதற்கு முன் சமீபத்திய வானிலை நிலைமைகளை எப்போதும் சரிபார்க்கவும்.">
-Always check the latest weather conditions before irrigation, fertilizer application, pesticide spraying and harvesting.
+    data-en="Always check the latest weather conditions before irrigation, fertilizer application, pesticide spraying and harvesting."
+    data-ta="நீர்ப்பாசனம், உரம் இடுதல், பூச்சிக்கொல்லி தெளித்தல் மற்றும் அறுவடை செய்வதற்கு முன் சமீபத்திய வானிலை நிலைமைகளை எப்போதும் சரிபார்க்கவும்.">
+
+    Always check the latest weather conditions before irrigation,
+    fertilizer application, pesticide spraying and harvesting.
+
 </p>
+
 
 </div>
 
@@ -1241,19 +1907,26 @@ Always check the latest weather conditions before irrigation, fertilizer applica
 
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer class="footer">
 
+
 <p
-data-en="🌱 AgriConnect — Smart Agriculture Platform"
-data-ta="🌱 AgriConnect — ஸ்மார்ட் விவசாய தளம்">
-🌱 AgriConnect — Smart Agriculture Platform
+    data-en="🌱 AgriConnect — Smart Agriculture Platform"
+    data-ta="🌱 AgriConnect — ஸ்மார்ட் விவசாய தளம்">
+
+    🌱 AgriConnect — Smart Agriculture Platform
+
 </p>
 
+
 <p>
-© 2026 AgriConnect — All Rights Reserved.
+    © 2026 AgriConnect — All Rights Reserved.
 </p>
+
 
 </footer>
 
@@ -1261,9 +1934,9 @@ data-ta="🌱 AgriConnect — ஸ்மார்ட் விவசாய தள
 
 <script>
 
-/* =========================
+/* =====================================================
    LANGUAGE
-========================= */
+===================================================== */
 
 let currentLanguage =
     localStorage.getItem("agriLanguage") || "en";
@@ -1273,6 +1946,7 @@ function changeLanguage(language){
 
     currentLanguage = language;
 
+
     localStorage.setItem(
         "agriLanguage",
         language
@@ -1280,33 +1954,33 @@ function changeLanguage(language){
 
 
     document
-    .querySelectorAll("[data-en]")
-    .forEach(function(element){
+        .querySelectorAll("[data-en]")
+        .forEach(function(element){
 
-        element.textContent =
+            element.textContent =
+                language === "en"
+                ? element.getAttribute("data-en")
+                : element.getAttribute("data-ta");
+
+        });
+
+
+    document
+        .getElementById("enBtn")
+        .classList
+        .toggle(
+            "active",
             language === "en"
-            ? element.getAttribute("data-en")
-            : element.getAttribute("data-ta");
-
-    });
+        );
 
 
     document
-    .getElementById("enBtn")
-    .classList
-    .toggle(
-        "active",
-        language === "en"
-    );
-
-
-    document
-    .getElementById("taBtn")
-    .classList
-    .toggle(
-        "active",
-        language === "ta"
-    );
+        .getElementById("taBtn")
+        .classList
+        .toggle(
+            "active",
+            language === "ta"
+        );
 
 
     const input =
@@ -1314,83 +1988,146 @@ function changeLanguage(language){
             "locationInput"
         );
 
+
     input.placeholder =
         language === "en"
-        ? input.getAttribute("data-placeholder-en")
-        : input.getAttribute("data-placeholder-ta");
+        ? input.getAttribute(
+            "data-placeholder-en"
+          )
+        : input.getAttribute(
+            "data-placeholder-ta"
+          );
+
+
+    /*
+        Refresh weather text
+        after language change.
+    */
+
+    updateWeather(false);
 
 }
 
 
-/* =========================
+/* =====================================================
    WEATHER DATA
-========================= */
+===================================================== */
 
 const weatherData = {
 
+
     Chennai:{
+
         icon:"☀️",
+
         temperature:"31°C",
+
         conditionEn:"Sunny",
+
         conditionTa:"வெயில்",
+
         humidity:"68%",
+
         wind:"14 km/h",
+
         rain:"20%",
+
         feels:"33°C"
+
     },
+
 
     Coimbatore:{
+
         icon:"🌤️",
+
         temperature:"28°C",
+
         conditionEn:"Partly Cloudy",
+
         conditionTa:"சிறிது மேகமூட்டம்",
+
         humidity:"72%",
+
         wind:"11 km/h",
+
         rain:"30%",
+
         feels:"29°C"
+
     },
+
 
     Madurai:{
+
         icon:"☀️",
+
         temperature:"33°C",
+
         conditionEn:"Sunny",
+
         conditionTa:"வெயில்",
+
         humidity:"61%",
+
         wind:"16 km/h",
+
         rain:"15%",
+
         feels:"35°C"
+
     },
+
 
     Thanjavur:{
+
         icon:"⛅",
+
         temperature:"30°C",
+
         conditionEn:"Cloudy",
+
         conditionTa:"மேகமூட்டம்",
+
         humidity:"70%",
+
         wind:"13 km/h",
+
         rain:"35%",
+
         feels:"32°C"
+
     },
 
+
     Erode:{
+
         icon:"🌤️",
+
         temperature:"29°C",
+
         conditionEn:"Partly Cloudy",
+
         conditionTa:"சிறிது மேகமூட்டம்",
+
         humidity:"66%",
+
         wind:"12 km/h",
+
         rain:"25%",
+
         feels:"31°C"
+
     }
 
 };
 
 
-/* =========================
+/* =====================================================
    UPDATE WEATHER
-========================= */
+===================================================== */
 
-function updateWeather(){
+function updateWeather(showAlert = true){
 
     const input =
         document
@@ -1401,18 +2138,26 @@ function updateWeather(){
 
     if(input === ""){
 
-        alert(
-            currentLanguage === "en"
-            ? "Please enter a location."
-            : "தயவுசெய்து இடத்தை உள்ளிடவும்."
-        );
+        if(showAlert){
+
+            alert(
+
+                currentLanguage === "en"
+
+                ? "Please enter a location."
+
+                : "தயவுசெய்து இடத்தை உள்ளிடவும்."
+
+            );
+
+        }
 
         return;
 
     }
 
 
-    let location =
+    const location =
         Object.keys(weatherData)
         .find(function(city){
 
@@ -1424,11 +2169,19 @@ function updateWeather(){
 
     if(!location){
 
-        alert(
-            currentLanguage === "en"
-            ? "Demo weather is available for Chennai, Coimbatore, Madurai, Thanjavur and Erode."
-            : "சென்னை, கோயம்புத்தூர், மதுரை, தஞ்சாவூர் மற்றும் ஈரோடு ஆகிய இடங்களுக்கு Demo weather உள்ளது."
-        );
+        if(showAlert){
+
+            alert(
+
+                currentLanguage === "en"
+
+                ? "Demo weather is available for Chennai, Coimbatore, Madurai, Thanjavur and Erode."
+
+                : "சென்னை, கோயம்புத்தூர், மதுரை, தஞ்சாவூர் மற்றும் ஈரோடு ஆகிய இடங்களுக்கு Demo weather உள்ளது."
+
+            );
+
+        }
 
         return;
 
@@ -1439,90 +2192,108 @@ function updateWeather(){
         weatherData[location];
 
 
-    document
-    .getElementById("locationName")
-    .textContent =
-        location;
-
+    /* LOCATION */
 
     document
-    .getElementById("weatherIcon")
-    .textContent =
-        data.icon;
+        .getElementById("locationName")
+        .textContent =
+            location;
 
 
-    document
-    .getElementById("temperature")
-    .textContent =
-        data.temperature;
-
+    /* ICON */
 
     document
-    .getElementById("humidity")
-    .textContent =
-        data.humidity;
+        .getElementById("weatherIcon")
+        .textContent =
+            data.icon;
 
 
-    document
-    .getElementById("wind")
-    .textContent =
-        data.wind;
-
+    /* TEMPERATURE */
 
     document
-    .getElementById("rain")
-    .textContent =
-        data.rain;
+        .getElementById("temperature")
+        .textContent =
+            data.temperature;
 
 
-    document
-    .getElementById("feels")
-    .textContent =
-        data.feels;
-
+    /* CONDITION */
 
     document
-    .getElementById("condition")
-    .textContent =
-        currentLanguage === "en"
-        ? data.conditionEn
-        : data.conditionTa;
+        .getElementById("condition")
+        .textContent =
+
+            currentLanguage === "en"
+
+            ? data.conditionEn
+
+            : data.conditionTa;
+
+
+    /* HUMIDITY */
+
+    document
+        .getElementById("humidity")
+        .textContent =
+            data.humidity;
+
+
+    /* WIND */
+
+    document
+        .getElementById("wind")
+        .textContent =
+            data.wind;
+
+
+    /* RAIN */
+
+    document
+        .getElementById("rain")
+        .textContent =
+            data.rain;
+
+
+    /* FEELS LIKE */
+
+    document
+        .getElementById("feels")
+        .textContent =
+            data.feels;
 
 }
 
 
-/* =========================
+/* =====================================================
    ENTER KEY
-========================= */
+===================================================== */
 
 document
-.getElementById("locationInput")
-.addEventListener(
-    "keypress",
-    function(event){
+    .getElementById("locationInput")
+    .addEventListener(
+        "keydown",
+        function(event){
 
-        if(event.key === "Enter"){
+            if(event.key === "Enter"){
 
-            updateWeather();
+                updateWeather();
+
+            }
 
         }
-
-    }
-);
+    );
 
 
-/* =========================
+/* =====================================================
    START
-========================= */
+===================================================== */
 
 changeLanguage(
     currentLanguage
 );
 
-updateWeather();
-
 </script>
 
+
 </body>
+
 </html>
-```

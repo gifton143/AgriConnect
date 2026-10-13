@@ -1,9 +1,15 @@
 /* =========================================================
-   AGRICONNECT - COMPLETE STYLE.CSS
+   AGRICONNECT
+   COMPLETE STYLE.CSS
+   FULL REPLACEMENT
+   Desktop + Tablet + Mobile
+   Landscape + Portrait
+   Tamil + English
    ========================================================= */
 
+
 /* =========================================================
-   RESET
+   01. RESET
    ========================================================= */
 
 * {
@@ -14,19 +20,23 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
+    min-height: 100vh;
+
     font-family:
         "Noto Sans Tamil",
         "Latha",
+        "Segoe UI",
         Arial,
         sans-serif;
 
-    color: #123b20;
-    min-height: 100vh;
-
+    color: #163b21;
     background: #eef8ef;
+
+    overflow-x: hidden;
 }
 
 button,
@@ -40,9 +50,48 @@ button {
     cursor: pointer;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
 
 /* =========================================================
-   PAGE BACKGROUNDS
+   02. COMMON PAGE BACKGROUND
+   ========================================================= */
+
+body.index-page,
+body.farmer-page,
+body.buyer-page,
+body.machinery-page,
+body.orders-page,
+body.order-page,
+body.fertilizer-page,
+body.crop-prices-page,
+body.crop-price-page,
+body.weather-page {
+    min-height: 100vh;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    background-attachment: scroll;
+}
+
+
+/* =========================================================
+   03. DESKTOP BACKGROUNDS
    ========================================================= */
 
 /* HOME */
@@ -50,15 +99,15 @@ button {
 body.index-page {
     background-image:
         linear-gradient(
-            rgba(255, 255, 255, 0.03),
+            rgba(255, 255, 255, 0.04),
             rgba(238, 248, 239, 0.08)
         ),
         url("./image/agriculture-1.jpg.jpg");
 
-    background-size: cover;
-    background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
 }
 
 
@@ -67,15 +116,15 @@ body.index-page {
 body.farmer-page {
     background-image:
         linear-gradient(
-            rgba(255, 255, 255, 0.03),
-            rgba(235, 248, 237, 0.08)
+            rgba(0, 0, 0, 0.08),
+            rgba(0, 0, 0, 0.08)
         ),
         url("./image/farmer-page-bg.png.png");
 
-    background-size: cover;
-    background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
 }
 
 
@@ -84,17 +133,15 @@ body.farmer-page {
 body.buyer-page {
     background-image:
         linear-gradient(
-            rgba(255, 255, 255, 0.02),
-            rgba(235, 248, 237, 0.08)
+            rgba(0, 0, 0, 0.08),
+            rgba(0, 0, 0, 0.08)
         ),
         url("./image/buyer-page-bg.png.png");
 
-    background-size: cover;
-    background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    background-color: #eef8ef;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
 }
 
 
@@ -103,66 +150,72 @@ body.buyer-page {
 body.machinery-page {
     background-image:
         linear-gradient(
-            rgba(255, 255, 255, 0.03),
-            rgba(235, 248, 237, 0.08)
+            rgba(0, 0, 0, 0.08),
+            rgba(0, 0, 0, 0.08)
         ),
         url("./image/machinery-bg.png.png");
 
-    background-size: cover;
-    background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
 }
 
 
 /* ORDERS */
 
-body.orders-page {
+body.orders-page,
+body.order-page {
     background-image:
         linear-gradient(
-            rgba(255, 255, 255, 0.03),
-            rgba(235, 248, 237, 0.08)
+            rgba(0, 0, 0, 0.08),
+            rgba(0, 0, 0, 0.08)
         ),
         url("./image/order-bg.png.png");
 
-    background-size: cover;
-    background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
 }
 
 
-/* FERTILIZER */
+/* =========================================================
+   FERTILIZER DESKTOP
+   ========================================================= */
 
 body.fertilizer-page {
     background-image:
         linear-gradient(
-            rgba(255, 255, 255, 0.03),
-            rgba(235, 248, 237, 0.08)
+            rgba(0, 0, 0, 0.06),
+            rgba(0, 0, 0, 0.06)
         ),
-        url("./image/fertilizer-bg.png.png");
+        url("./image/fertilizer-bg.png.png") !important;
 
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-attachment: scroll !important;
+
+    background-color: #eef8ef;
 }
 
 
 /* CROP PRICE */
 
-body.crop-prices-page {
+body.crop-prices-page,
+body.crop-price-page {
     background-image:
         linear-gradient(
-            rgba(255, 255, 255, 0.03),
-            rgba(235, 248, 237, 0.08)
+            rgba(0, 0, 0, 0.08),
+            rgba(0, 0, 0, 0.08)
         ),
         url("./image/crop-price-bg.png.png");
 
-    background-size: cover;
-    background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
 }
 
 
@@ -171,52 +224,45 @@ body.crop-prices-page {
 body.weather-page {
     background-image:
         linear-gradient(
-            rgba(20, 55, 70, 0.04),
-            rgba(20, 55, 70, 0.10)
+            rgba(0, 0, 0, 0.06),
+            rgba(0, 0, 0, 0.06)
         ),
-        url("./image/agriculture-2.jpg.jpg");
+        url("./image/weather-bg.jpg.png");
 
-    background-size: cover;
-    background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: scroll;
 }
 
 
 /* =========================================================
-   IMPORTANT
-   PAGE SECTIONS MUST BE TRANSPARENT
+   04. TRANSPARENT PAGE SECTIONS
    ========================================================= */
 
-body.buyer-page .hero,
-body.buyer-page .section {
-    background: transparent;
-}
-
 body.farmer-page .hero,
-body.farmer-page .section {
-    background: transparent;
-}
+body.farmer-page .section,
+
+body.buyer-page .hero,
+body.buyer-page .section,
 
 body.machinery-page .hero,
-body.machinery-page .section {
-    background: transparent;
-}
+body.machinery-page .section,
 
 body.orders-page .hero,
-body.orders-page .section {
-    background: transparent;
-}
+body.orders-page .section,
+
+body.order-page .hero,
+body.order-page .section,
 
 body.fertilizer-page .hero,
-body.fertilizer-page .section {
-    background: transparent;
-}
+body.fertilizer-page .section,
 
 body.crop-prices-page .hero,
-body.crop-prices-page .section {
-    background: transparent;
-}
+body.crop-prices-page .section,
+
+body.crop-price-page .hero,
+body.crop-price-page .section,
 
 body.weather-page .hero,
 body.weather-page .section {
@@ -225,7 +271,7 @@ body.weather-page .section {
 
 
 /* =========================================================
-   HEADER
+   05. HEADER
    ========================================================= */
 
 .header {
@@ -235,158 +281,168 @@ body.weather-page .section {
     left: 0;
     right: 0;
 
-    height: 78px;
+    width: 100%;
+    min-height: 76px;
 
     z-index: 1000;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-    padding: 0 35px;
+    gap: 18px;
 
-    background: rgba(255, 255, 255, 0.94);
+    padding: 0 30px;
 
-    backdrop-filter: blur(12px);
-
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.97);
 
     border-bottom:
         1px solid rgba(30, 90, 45, 0.10);
 
     box-shadow:
-        0 4px 20px rgba(0, 60, 20, 0.12);
+        0 4px 18px rgba(0, 60, 20, 0.12);
 }
 
 
 /* =========================================================
-   LOGO
+   06. LOGO
    ========================================================= */
 
 .logo {
     display: flex;
-
     align-items: center;
 
-    gap: 10px;
+    gap: 8px;
+
+    flex-shrink: 0;
 
     color: #16842f;
 
     font-size: 30px;
-
     font-weight: 900;
+
+    line-height: 1;
+
+    white-space: nowrap;
 }
 
 .logo-icon {
-    font-size: 36px;
+    font-size: 34px;
+    line-height: 1;
 }
 
 
 /* =========================================================
-   LANGUAGE
-   ========================================================= */
-
-.language {
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-}
-
-.language button {
-    border:
-        1px solid #b8cfbd;
-
-    background:
-        rgba(255, 255, 255, 0.95);
-
-    color: #21482b;
-
-    padding: 9px 17px;
-
-    border-radius: 9px;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    transition: 0.2s ease;
-}
-
-.language button:hover {
-    border-color: #168a32;
-}
-
-.language button.active {
-    color: white;
-
-    background: #168a32;
-
-    border-color: #168a32;
-}
-
-
-/* =========================================================
-   NAVIGATION
+   07. NAVIGATION
    ========================================================= */
 
 .nav-links {
     display: flex;
-
     align-items: center;
+    justify-content: center;
 
-    gap: 5px;
+    gap: 4px;
+
+    flex: 1;
+
+    min-width: 0;
 }
 
 .nav-links a {
-    text-decoration: none;
-
-    color: #31503a;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
     padding: 9px 11px;
 
     border-radius: 8px;
 
-    font-size: 13px;
+    color: #31503a;
 
+    font-size: 13px;
     font-weight: 700;
 
     white-space: nowrap;
 
-    transition: 0.2s ease;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .nav-links a:hover {
     color: #168a32;
-
     background: #e8f5ea;
 }
 
 .nav-links a.active {
-    color: white;
-
+    color: #ffffff;
     background: #168a32;
 }
 
 
 /* =========================================================
-   HERO
+   08. LANGUAGE
+   ========================================================= */
+
+.language {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    flex-shrink: 0;
+}
+
+.language button {
+    min-width: 70px;
+
+    padding: 9px 13px;
+
+    border:
+        1px solid #b8cfbd;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #21482b;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.language button:hover {
+    color: #168a32;
+    border-color: #168a32;
+}
+
+.language button.active {
+    color: #ffffff;
+    background: #168a32;
+    border-color: #168a32;
+}
+
+
+/* =========================================================
+   09. HERO
    ========================================================= */
 
 .hero {
-    min-height: 100vh;
-
-    padding-top: 78px;
-
     position: relative;
 
+    width: 100%;
+    min-height: 100vh;
+
+    padding-top: 76px;
+
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     overflow: hidden;
@@ -398,13 +454,12 @@ body.weather-page .section {
     content: "";
 
     position: absolute;
-
     inset: 0;
 
     background:
         linear-gradient(
-            rgba(255,255,255,0.02),
-            rgba(255,255,255,0.05)
+            rgba(255, 255, 255, 0.02),
+            rgba(255, 255, 255, 0.05)
         );
 
     pointer-events: none;
@@ -419,12 +474,12 @@ body.weather-page .section {
     right: 0;
     bottom: 0;
 
-    height: 130px;
+    height: 100px;
 
     background:
         linear-gradient(
             transparent,
-            rgba(238,248,239,0.20)
+            rgba(238, 248, 239, 0.18)
         );
 
     pointer-events: none;
@@ -432,7 +487,7 @@ body.weather-page .section {
 
 
 /* =========================================================
-   HERO CONTENT
+   10. HERO CONTENT
    ========================================================= */
 
 .hero-content {
@@ -442,51 +497,49 @@ body.weather-page .section {
 
     width: min(1000px, 92%);
 
-    text-align: center;
-
     padding: 40px 20px;
+
+    text-align: center;
 }
 
 .welcome {
-    color: #086c29;
-
-    font-size: 36px;
-
-    font-weight: 800;
-
     margin-bottom: 8px;
 
+    color: #08752d;
+
+    font-size: 36px;
+    font-weight: 800;
+
+    line-height: 1.4;
+
     text-shadow:
-        0 2px 8px rgba(255,255,255,0.9);
+        0 2px 7px rgba(255, 255, 255, 0.95);
 }
 
 .hero-title {
+    margin-bottom: 18px;
+
     color: #08752d;
 
     font-size: 78px;
+    font-weight: 900;
 
     line-height: 1;
 
-    font-weight: 900;
-
     letter-spacing: -3px;
 
-    margin-bottom: 18px;
-
     text-shadow:
-        0 3px 9px rgba(255,255,255,0.85);
+        0 3px 9px rgba(255, 255, 255, 0.90);
 }
 
 
 /* =========================================================
-   DIVIDER
+   11. DIVIDER
    ========================================================= */
 
 .divider {
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     gap: 14px;
@@ -496,7 +549,6 @@ body.weather-page .section {
 
 .divider span {
     width: 85px;
-
     height: 1px;
 
     background: #39864a;
@@ -504,42 +556,42 @@ body.weather-page .section {
 
 .divider-icon {
     font-size: 28px;
+    line-height: 1;
 }
 
 
 /* =========================================================
-   DESCRIPTION
+   12. DESCRIPTION
    ========================================================= */
 
 .hero-description {
+    width: 100%;
     max-width: 720px;
 
     margin: 0 auto 30px;
 
-    color: #142d1a;
+    color: #173b21;
 
     font-size: 19px;
+    font-weight: 600;
 
     line-height: 1.8;
 
-    font-weight: 600;
-
     text-shadow:
-        0 1px 5px white;
+        0 1px 5px rgba(255, 255, 255, 0.95);
 }
 
 
 /* =========================================================
-   MAIN BUTTON
+   13. CONTINUE BUTTON
    ========================================================= */
 
 .continue-btn {
     min-width: 330px;
 
-    border: none;
-
     padding: 16px 50px;
 
+    border: none;
     border-radius: 11px;
 
     background:
@@ -549,23 +601,24 @@ body.weather-page .section {
             #087b29
         );
 
-    color: white;
+    color: #ffffff;
 
     font-size: 18px;
-
     font-weight: 800;
 
     box-shadow:
         0 8px 24px rgba(0, 90, 25, 0.28);
 
-    transition: 0.25s ease;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .continue-btn:hover {
     transform: translateY(-3px);
 
     box-shadow:
-        0 13px 30px rgba(0, 90, 25, 0.38);
+        0 13px 30px rgba(0, 90, 25, 0.36);
 }
 
 .continue-btn:active {
@@ -574,7 +627,7 @@ body.weather-page .section {
 
 
 /* =========================================================
-   PAGE CONTAINER
+   14. PAGE CONTAINER
    ========================================================= */
 
 .page-container {
@@ -582,66 +635,66 @@ body.weather-page .section {
 
     margin: 0 auto;
 
-    padding: 110px 0 50px;
+    padding:
+        105px
+        0
+        50px;
 }
 
 
 /* =========================================================
-   PAGE TITLE
+   15. PAGE TITLE
    ========================================================= */
 
 .page-title {
-    text-align: center;
-
-    color: #124c23;
-
-    font-size: 38px;
-
-    font-weight: 900;
-
     margin-bottom: 10px;
 
+    color: #08752d;
+
+    text-align: center;
+
+    font-size: 38px;
+    font-weight: 900;
+
+    line-height: 1.3;
+
     text-shadow:
-        0 2px 6px rgba(255,255,255,0.85);
+        0 2px 6px rgba(255, 255, 255, 0.90);
 }
 
 .page-subtitle {
-    text-align: center;
+    margin-bottom: 30px;
 
     color: #35523c;
 
-    font-size: 16px;
+    text-align: center;
 
-    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 
 /* =========================================================
-   COMMON CARD
+   16. COMMON CARD
    ========================================================= */
 
 .card {
-    background:
-        rgba(255,255,255,0.88);
+    padding: 25px;
 
     border:
-        1px solid rgba(31,100,45,0.12);
+        1px solid rgba(31, 100, 45, 0.12);
 
     border-radius: 18px;
 
-    padding: 25px;
+    background: rgba(255, 255, 255, 0.94);
 
     box-shadow:
-        0 12px 35px rgba(0,70,20,0.14);
-
-    backdrop-filter: blur(5px);
-
-    -webkit-backdrop-filter: blur(5px);
+        0 12px 35px rgba(0, 70, 20, 0.14);
 }
 
 
 /* =========================================================
-   GRID
+   17. GRIDS
    ========================================================= */
 
 .grid {
@@ -673,36 +726,30 @@ body.weather-page .section {
 
 
 /* =========================================================
-   TOOLBAR
+   18. TOOLBAR
    ========================================================= */
 
 .toolbar {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     gap: 15px;
 
     margin-bottom: 25px;
-
     padding: 18px 20px;
-
-    background:
-        rgba(255,255,255,0.88);
 
     border-radius: 14px;
 
-    box-shadow:
-        0 8px 25px rgba(0,70,20,0.10);
+    background: rgba(255, 255, 255, 0.94);
 
-    backdrop-filter: blur(6px);
+    box-shadow:
+        0 8px 25px rgba(0, 70, 20, 0.10);
 }
 
 
 /* =========================================================
-   INPUTS
+   19. INPUTS
    ========================================================= */
 
 input,
@@ -710,21 +757,34 @@ select,
 textarea {
     width: 100%;
 
+    padding: 12px 14px;
+
     border:
         1px solid #cad9cd;
 
-    background:
-        rgba(255,255,255,0.96);
-
-    color: #183b22;
-
     border-radius: 9px;
-
-    padding: 12px 14px;
 
     outline: none;
 
+    background: #ffffff;
+
+    color: #183b22;
+
     font-size: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #84948a;
 }
 
 input:focus,
@@ -733,12 +793,12 @@ textarea:focus {
     border-color: #168c35;
 
     box-shadow:
-        0 0 0 3px rgba(22,140,53,0.10);
+        0 0 0 3px rgba(22, 140, 53, 0.10);
 }
 
 
 /* =========================================================
-   BUTTONS
+   20. BUTTONS
    ========================================================= */
 
 .btn,
@@ -746,18 +806,20 @@ textarea:focus {
 .add-btn,
 .submit-btn {
     border: none;
-
     border-radius: 9px;
 
     padding: 12px 22px;
 
     background: #168d34;
 
-    color: white;
+    color: #ffffff;
 
+    font-size: 14px;
     font-weight: 800;
 
-    transition: 0.2s ease;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
 }
 
 .btn:hover,
@@ -771,7 +833,7 @@ textarea:focus {
 
 
 /* =========================================================
-   STAT CARDS
+   21. STAT CARDS
    ========================================================= */
 
 .stat-card {
@@ -779,33 +841,33 @@ textarea:focus {
 
     border-radius: 16px;
 
-    background:
-        rgba(255,255,255,0.90);
-
-    box-shadow:
-        0 10px 30px rgba(0,70,20,0.13);
-
     border-left:
         5px solid #168d34;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 10px 30px rgba(0, 70, 20, 0.13);
 }
 
 .stat-card h3 {
+    margin-bottom: 8px;
+
     color: #54705a;
 
     font-size: 14px;
-
-    margin-bottom: 8px;
 }
 
 .stat-card strong {
     color: #126029;
 
     font-size: 30px;
+    font-weight: 900;
 }
 
 
 /* =========================================================
-   TABLE
+   22. TABLE
    ========================================================= */
 
 .table-wrapper {
@@ -815,19 +877,17 @@ textarea:focus {
 
     border-radius: 14px;
 
-    background:
-        rgba(255,255,255,0.92);
+    background: #ffffff;
 
     box-shadow:
-        0 10px 30px rgba(0,70,20,0.10);
+        0 10px 30px rgba(0, 70, 20, 0.10);
 }
 
 table {
     width: 100%;
+    min-width: 650px;
 
     border-collapse: collapse;
-
-    min-width: 650px;
 }
 
 th {
@@ -835,11 +895,12 @@ th {
 
     background: #168d34;
 
-    color: white;
+    color: #ffffff;
 
     text-align: left;
 
     font-size: 14px;
+    font-weight: 800;
 }
 
 td {
@@ -859,44 +920,134 @@ tr:hover td {
 
 
 /* =========================================================
-   BADGES
+   23. BADGES
    ========================================================= */
 
 .badge {
     display: inline-flex;
-
     align-items: center;
+    justify-content: center;
 
     padding: 6px 12px;
 
     border-radius: 20px;
 
     font-size: 12px;
-
     font-weight: 800;
 }
 
 .badge-success {
     background: #ddf5e3;
-
     color: #14752d;
 }
 
 .badge-warning {
     background: #fff1c9;
-
     color: #8a6510;
 }
 
 .badge-danger {
     background: #ffe1e1;
-
     color: #a82020;
 }
 
 
 /* =========================================================
-   LOGIN MODAL
+   24. IMAGE CARDS
+   ========================================================= */
+
+.image-card {
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 10px 28px rgba(0, 60, 20, 0.14);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.image-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 60, 20, 0.18);
+}
+
+.image-card img {
+    display: block;
+
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+}
+
+.image-card-content {
+    padding: 18px;
+}
+
+
+/* =========================================================
+   25. SEARCH BOX
+   ========================================================= */
+
+.search-box {
+    position: relative;
+
+    width: min(420px, 100%);
+}
+
+.search-box input {
+    padding-left: 42px;
+}
+
+.search-icon {
+    position: absolute;
+
+    top: 50%;
+    left: 14px;
+
+    transform: translateY(-50%);
+
+    color: #5d7563;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   26. EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+    padding: 60px 20px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    color: #617066;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(0, 70, 20, 0.10);
+}
+
+.empty-state .icon {
+    margin-bottom: 15px;
+
+    font-size: 50px;
+}
+
+
+/* =========================================================
+   27. LOGIN MODAL
    ========================================================= */
 
 .modal {
@@ -909,15 +1060,14 @@ tr:hover td {
     display: none;
 
     align-items: center;
-
     justify-content: center;
 
-    padding: 25px;
+    padding: 20px;
 
     background:
-        rgba(0,35,10,0.42);
+        rgba(0, 25, 8, 0.60);
 
-    backdrop-filter: blur(6px);
+    overflow-y: auto;
 }
 
 .modal.show {
@@ -926,10 +1076,12 @@ tr:hover td {
 
 
 /* =========================================================
-   LOGIN PANEL
+   28. LOGIN PANEL
    ========================================================= */
 
 .login-panel {
+    position: relative;
+
     width: min(930px, 100%);
 
     min-height: 500px;
@@ -942,20 +1094,18 @@ tr:hover td {
 
     border-radius: 20px;
 
-    background: white;
+    background: #ffffff;
 
     box-shadow:
-        0 25px 70px rgba(0,0,0,0.28);
+        0 25px 70px rgba(0, 0, 0, 0.28);
 
     animation:
         popup 0.25s ease;
 }
 
 @keyframes popup {
-
     from {
         opacity: 0;
-
         transform:
             translateY(20px)
             scale(0.97);
@@ -963,7 +1113,6 @@ tr:hover td {
 
     to {
         opacity: 1;
-
         transform:
             translateY(0)
             scale(1);
@@ -972,93 +1121,119 @@ tr:hover td {
 
 
 /* =========================================================
-   LOGIN LEFT
+   29. LOGIN LEFT
    ========================================================= */
 
 .login-left {
     position: relative;
 
-    padding: 42px 35px;
+    padding: 40px 32px;
 
-    background: white;
+    background: #ffffff;
 
     border-right:
         1px solid #e4ebe5;
 }
 
-.close-btn {
-    position: absolute;
-
-    top: 16px;
-    right: 16px;
-
-    width: 38px;
-    height: 38px;
-
-    border-radius: 50%;
-
-    border:
-        1px solid #dce6de;
-
-    background: white;
-
-    color: #263c2b;
-
-    font-size: 24px;
-}
-
-.close-btn:hover {
-    background: #f1f8f2;
-}
-
 .login-left h2 {
-    margin-top: 25px;
-
+    margin-top: 22px;
     margin-bottom: 8px;
 
     color: #123d20;
 
     font-size: 23px;
+    font-weight: 800;
+
+    line-height: 1.4;
 }
 
 .login-left > p {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
 
     color: #536358;
 
     font-size: 14px;
+
+    line-height: 1.6;
 }
 
 
 /* =========================================================
-   ROLE CARDS
+   30. CLOSE
+   ========================================================= */
+
+.close-btn {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    z-index: 20;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid #dce6de;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #263c2b;
+
+    font-size: 23px;
+    line-height: 1;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.close-btn:hover {
+    background: #f1f8f2;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   31. ROLE
    ========================================================= */
 
 .role-container {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
     gap: 15px;
 }
 
 .role-card {
-    min-height: 235px;
+    min-height: 225px;
 
-    padding: 22px 15px;
-
-    text-align: center;
+    padding: 20px 14px;
 
     border:
         1px solid #d4e3d7;
 
     border-radius: 13px;
 
-    background: white;
+    background: #ffffff;
+
+    text-align: center;
 
     cursor: pointer;
 
-    transition: 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
 }
 
 .role-card:hover,
@@ -1066,23 +1241,22 @@ tr:hover td {
     border-color: #22933d;
 
     box-shadow:
-        0 8px 22px rgba(24,130,48,0.16);
+        0 8px 22px rgba(24, 130, 48, 0.16);
 
     transform: translateY(-2px);
 }
 
 .role-image {
     width: 95px;
-
     height: 95px;
 
     margin: 0 auto 15px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
+
+    overflow: hidden;
 
     border-radius: 50%;
 
@@ -1091,12 +1265,20 @@ tr:hover td {
     font-size: 53px;
 }
 
+.role-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
 .role-card h3 {
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 
     color: #145c28;
 
     font-size: 20px;
+    font-weight: 800;
 }
 
 .role-card p {
@@ -1109,23 +1291,23 @@ tr:hover td {
 
 
 /* =========================================================
-   LOGIN RIGHT
+   32. LOGIN RIGHT
    ========================================================= */
 
 .login-right {
     padding: 30px 35px;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
 
-    background: white;
+    background: #ffffff;
 }
 
 .back-btn {
     align-self: flex-start;
+
+    margin-bottom: 15px;
 
     border: none;
 
@@ -1134,24 +1316,29 @@ tr:hover td {
     color: #163c21;
 
     font-size: 14px;
-
     font-weight: 700;
-
-    margin-bottom: 15px;
 }
+
+.back-btn:hover {
+    color: #168d34;
+}
+
+
+/* =========================================================
+   33. USER ICON
+   ========================================================= */
 
 .user-icon {
     width: 78px;
-
     height: 78px;
 
     margin: 0 auto 10px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
+
+    overflow: hidden;
 
     border-radius: 50%;
 
@@ -1160,19 +1347,34 @@ tr:hover td {
     font-size: 42px;
 }
 
-.login-right h2 {
-    text-align: center;
+.user-icon img {
+    width: 100%;
+    height: 100%;
 
-    color: #0f5123;
-
-    font-size: 27px;
-
-    margin-bottom: 25px;
+    object-fit: cover;
 }
 
 
 /* =========================================================
-   FORM
+   34. LOGIN TITLE
+   ========================================================= */
+
+.login-right h2 {
+    margin-bottom: 25px;
+
+    color: #0f5123;
+
+    text-align: center;
+
+    font-size: 27px;
+    font-weight: 800;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   35. FORM
    ========================================================= */
 
 .form-group {
@@ -1187,9 +1389,13 @@ tr:hover td {
     color: #263a2c;
 
     font-size: 14px;
-
     font-weight: 700;
 }
+
+
+/* =========================================================
+   36. INPUT WRAP
+   ========================================================= */
 
 .input-wrap {
     position: relative;
@@ -1201,12 +1407,23 @@ tr:hover td {
     padding-right: 45px;
 }
 
+
+/* =========================================================
+   37. EYE
+   ========================================================= */
+
 .eye-btn {
     position: absolute;
 
     top: 50%;
-
     right: 10px;
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     transform: translateY(-50%);
 
@@ -1219,7 +1436,7 @@ tr:hover td {
 
 
 /* =========================================================
-   DEMO
+   38. DEMO
    ========================================================= */
 
 .demo {
@@ -1242,14 +1459,13 @@ tr:hover td {
 
 
 /* =========================================================
-   ERROR
+   39. ERROR
    ========================================================= */
 
 .error {
     display: none;
 
     margin-bottom: 12px;
-
     padding: 10px;
 
     border-radius: 7px;
@@ -1259,153 +1475,109 @@ tr:hover td {
     color: #bd2525;
 
     font-size: 13px;
+
+    line-height: 1.5;
 }
 
 
 /* =========================================================
-   FOOTER
+   40. FOOTER
    ========================================================= */
 
 .footer {
     margin-top: 40px;
-
     padding: 25px;
 
-    text-align: center;
-
-    background:
-        rgba(255,255,255,0.88);
+    background: rgba(255, 255, 255, 0.92);
 
     color: #45614c;
 
-    backdrop-filter: blur(7px);
-}
-
-
-/* =========================================================
-   IMAGE CARDS
-   ========================================================= */
-
-.image-card {
-    overflow: hidden;
-
-    border-radius: 16px;
-
-    background: white;
-
-    box-shadow:
-        0 10px 28px rgba(0,60,20,0.14);
-}
-
-.image-card img {
-    display: block;
-
-    width: 100%;
-
-    height: 220px;
-
-    object-fit: cover;
-}
-
-.image-card-content {
-    padding: 18px;
-}
-
-
-/* =========================================================
-   SEARCH
-   ========================================================= */
-
-.search-box {
-    position: relative;
-
-    width: min(420px, 100%);
-}
-
-.search-box input {
-    padding-left: 42px;
-}
-
-.search-icon {
-    position: absolute;
-
-    left: 14px;
-
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    color: #5d7563;
-}
-
-
-/* =========================================================
-   EMPTY STATE
-   ========================================================= */
-
-.empty-state {
-    padding: 60px 20px;
-
     text-align: center;
 
-    background:
-        rgba(255,255,255,0.88);
-
-    border-radius: 18px;
-
-    color: #617066;
-
-    box-shadow:
-        0 10px 30px rgba(0,70,20,0.10);
-}
-
-.empty-state .icon {
-    font-size: 50px;
-
-    margin-bottom: 15px;
+    border-top:
+        1px solid rgba(30, 90, 45, 0.08);
 }
 
 
 /* =========================================================
-   MOBILE
+   41. PAGE BACKGROUND
    ========================================================= */
 
-@media (max-width: 1100px) {
+.page-bg {
+    min-height: 100vh;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    background-attachment: scroll;
+}
+
+
+/* =========================================================
+   42. TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media screen and (max-width: 1100px) {
 
     .header {
         padding: 0 18px;
     }
 
     .nav-links {
+        max-width: 58%;
+
         overflow-x: auto;
 
-        max-width: 65%;
+        justify-content: flex-start;
+
+        scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
     }
 
     .nav-links a {
-        font-size: 12px;
-
         padding: 8px 9px;
-    }
-}
 
-
-@media (max-width: 900px) {
-
-    .header {
-        height: 70px;
+        font-size: 12px;
     }
 
     .logo {
-        font-size: 24px;
+        font-size: 25px;
     }
 
     .logo-icon {
         font-size: 30px;
     }
+}
+
+
+/* =========================================================
+   43. TABLET
+   ========================================================= */
+
+@media screen and (max-width: 900px) {
+
+    .header {
+        min-height: 70px;
+
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .logo-icon {
+        font-size: 28px;
+    }
 
     .language button {
-        padding: 8px 10px;
+        min-width: 60px;
+
+        padding: 8px 9px;
 
         font-size: 12px;
     }
@@ -1414,14 +1586,14 @@ tr:hover td {
         padding-top: 70px;
     }
 
-    .hero-title {
-        font-size: 55px;
-
-        letter-spacing: -1px;
+    .welcome {
+        font-size: 29px;
     }
 
-    .welcome {
-        font-size: 28px;
+    .hero-title {
+        font-size: 56px;
+
+        letter-spacing: -1px;
     }
 
     .hero-description {
@@ -1431,10 +1603,12 @@ tr:hover td {
     .grid,
     .grid-4 {
         grid-template-columns:
-            1fr 1fr;
+            repeat(2, minmax(0, 1fr));
     }
 
     .login-panel {
+        width: min(700px, 100%);
+
         grid-template-columns: 1fr;
 
         max-height: 92vh;
@@ -1443,47 +1617,190 @@ tr:hover td {
     }
 
     .login-left {
+        padding: 30px 22px;
+
         border-right: none;
 
         border-bottom:
             1px solid #e5ebe6;
-
-        padding: 28px 20px;
     }
 
     .login-right {
-        padding: 25px 20px;
+        padding: 28px 22px;
     }
 }
 
 
 /* =========================================================
-   MOBILE SMALL
+   44. MOBILE PORTRAIT
    ========================================================= */
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px)
+       and (orientation: portrait) {
 
-    body.index-page,
-    body.farmer-page,
-    body.buyer-page,
-    body.machinery-page,
-    body.orders-page,
-    body.fertilizer-page,
-    body.crop-prices-page,
-    body.weather-page {
+    /* HOME */
 
+    body.index-page {
+        background-image:
+            linear-gradient(
+                rgba(255, 255, 255, 0.03),
+                rgba(238, 248, 239, 0.08)
+            ),
+            url("./image/agriculture-1-portrait.jpg.png");
+
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
         background-attachment: scroll;
-
-        background-position:
-            center center;
     }
 
+
+    /* FARMER */
+
+    body.farmer-page {
+        background-image:
+            linear-gradient(
+                rgba(0, 0, 0, 0.04),
+                rgba(0, 0, 0, 0.04)
+            ),
+            url("./image/farmer-bg-portrait.jpg.png.png");
+
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+
+    /* BUYER */
+
+    body.buyer-page {
+        background-image:
+            linear-gradient(
+                rgba(0, 0, 0, 0.04),
+                rgba(0, 0, 0, 0.04)
+            ),
+            url("./image/buyer-bg-portrait.jpg.png.png");
+
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+
+    /* MACHINERY */
+
+    body.machinery-page {
+        background-image:
+            linear-gradient(
+                rgba(0, 0, 0, 0.04),
+                rgba(0, 0, 0, 0.04)
+            ),
+            url("./image/machinery-bg-portrait.jpg.png.png");
+
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+
+    /* =====================================================
+       FERTILIZER PORTRAIT
+       IMPORTANT
+       ===================================================== */
+
+    body.fertilizer-page {
+        background-image:
+            linear-gradient(
+                rgba(0, 0, 0, 0.03),
+                rgba(0, 0, 0, 0.03)
+            ),
+            url("./image/fertilizer-bg-portrait.jpg.png.png") !important;
+
+        background-repeat: no-repeat !important;
+
+        background-position: center center !important;
+
+        background-size: cover !important;
+
+        background-attachment: scroll !important;
+
+        background-color: #eef8ef !important;
+    }
+
+
+    /* WEATHER */
+
+    body.weather-page {
+        background-image:
+            linear-gradient(
+                rgba(0, 0, 0, 0.04),
+                rgba(0, 0, 0, 0.04)
+            ),
+            url("./image/weather-bg-portrait.jpg.png.png");
+
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+
+    /* CROP PRICE */
+
+    body.crop-prices-page,
+    body.crop-price-page {
+        background-image:
+            linear-gradient(
+                rgba(0, 0, 0, 0.04),
+                rgba(0, 0, 0, 0.04)
+            ),
+            url("./image/crop-price-bg-portrait.jpg.png.png");
+
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+
+    /* ORDERS */
+
+    body.orders-page,
+    body.order-page {
+        background-image:
+            linear-gradient(
+                rgba(0, 0, 0, 0.04),
+                rgba(0, 0, 0, 0.04)
+            ),
+            url("./image/order-bg-portrait.jpg.png.png");
+
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+}
+
+
+/* =========================================================
+   45. MOBILE
+   ========================================================= */
+
+@media screen and (max-width: 600px) {
+
     .header {
-        height: 65px;
+        min-height: 64px;
 
         flex-wrap: wrap;
 
-        padding: 8px 12px;
+        padding:
+            8px
+            10px;
+
+        gap: 6px 8px;
     }
 
     .logo {
@@ -1491,7 +1808,7 @@ tr:hover td {
     }
 
     .logo-icon {
-        font-size: 25px;
+        font-size: 24px;
     }
 
     .language {
@@ -1499,48 +1816,108 @@ tr:hover td {
     }
 
     .language button {
-        padding: 7px 8px;
+        min-width: 52px;
 
-        font-size: 11px;
+        padding: 7px 7px;
+
+        font-size: 10px;
     }
+
+
+    /* NAV */
 
     .nav-links {
         order: 3;
 
         width: 100%;
-
         max-width: 100%;
 
-        padding-bottom: 5px;
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+        padding-bottom: 3px;
+
+        scrollbar-width: none;
     }
 
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-links a {
+        padding: 7px 9px;
+
+        font-size: 11px;
+    }
+
+
+    /* HERO */
+
     .hero {
-        padding-top: 110px;
+        min-height: 100vh;
+
+        padding-top: 115px;
+        padding-bottom: 35px;
     }
 
     .hero-content {
-        padding: 30px 12px;
+        width: 94%;
+
+        padding:
+            30px
+            10px;
     }
 
     .welcome {
+        margin-bottom: 7px;
+
+        color: #08752d;
+
         font-size: 24px;
+
+        line-height: 1.5;
     }
 
     .hero-title {
+        margin-bottom: 15px;
+
+        color: #08752d;
+
         font-size: 42px;
+
+        line-height: 1.08;
 
         letter-spacing: -1px;
     }
 
+    .divider {
+        gap: 8px;
+
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .divider span {
+        width: 55px;
+    }
+
+    .divider-icon {
+        font-size: 22px;
+    }
+
     .hero-description {
+        margin-bottom: 25px;
+
+        color: #173b21;
+
         font-size: 15px;
 
-        line-height: 1.7;
+        line-height: 1.75;
     }
 
     .continue-btn {
         width: 90%;
-
         min-width: 0;
 
         padding: 14px 20px;
@@ -1548,75 +1925,442 @@ tr:hover td {
         font-size: 16px;
     }
 
+
+    /* PAGE */
+
+    .page-container {
+        width: 92%;
+
+        padding:
+            120px
+            0
+            35px;
+    }
+
+    .page-title {
+        color: #08752d;
+
+        font-size: 30px;
+    }
+
+    .page-subtitle {
+        font-size: 14px;
+    }
+
+
+    /* GRIDS */
+
     .grid,
     .grid-2,
     .grid-4 {
         grid-template-columns: 1fr;
     }
 
+
+    /* CARD */
+
+    .card {
+        padding: 18px;
+    }
+
+
+    /* TOOLBAR */
+
     .toolbar {
         flex-direction: column;
 
         align-items: stretch;
+
+        padding: 15px;
     }
+
+
+    /* IMAGE */
+
+    .image-card img {
+        height: 190px;
+    }
+
+
+    /* TABLE */
+
+    .table-wrapper {
+        border-radius: 10px;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+
+    /* LOGIN */
+
+    .modal {
+        padding: 10px;
+
+        align-items: flex-start;
+    }
+
+    .login-panel {
+        width: 100%;
+
+        max-height: 96vh;
+
+        margin-top: 2vh;
+
+        border-radius: 16px;
+    }
+
+    .login-left {
+        padding:
+            24px
+            14px;
+    }
+
+    .login-left h2 {
+        margin-top: 20px;
+
+        font-size: 20px;
+    }
+
+    .login-left > p {
+        font-size: 13px;
+    }
+
+
+    /* ROLE */
 
     .role-container {
         grid-template-columns: 1fr;
+
+        gap: 12px;
     }
 
     .role-card {
         min-height: auto;
+
+        padding: 18px 12px;
     }
 
-    .page-container {
-        width: 92%;
+    .role-image {
+        width: 80px;
+        height: 80px;
 
-        padding-top: 110px;
+        margin-bottom: 12px;
+
+        font-size: 43px;
     }
 
-    .page-title {
-        font-size: 30px;
+    .role-card h3 {
+        font-size: 18px;
+    }
+
+    .role-card p {
+        font-size: 12px;
+    }
+
+
+    /* LOGIN RIGHT */
+
+    .login-right {
+        padding:
+            22px
+            14px;
+    }
+
+    .login-right h2 {
+        margin-bottom: 20px;
+
+        font-size: 23px;
+    }
+
+    .user-icon {
+        width: 65px;
+        height: 65px;
+
+        font-size: 35px;
+    }
+
+    .close-btn {
+        width: 34px;
+        height: 34px;
+
+        top: 10px;
+        right: 10px;
+
+        font-size: 20px;
     }
 }
 
 
 /* =========================================================
-   EXTRA SMALL
+   46. SMALL MOBILE
    ========================================================= */
 
-@media (max-width: 400px) {
+@media screen and (max-width: 400px) {
 
-    .hero-title {
-        font-size: 36px;
+    .logo {
+        font-size: 18px;
+    }
+
+    .logo-icon {
+        font-size: 22px;
+    }
+
+    .language button {
+        min-width: 48px;
+
+        padding: 6px 6px;
+
+        font-size: 10px;
+    }
+
+    .nav-links a {
+        padding: 6px 8px;
+
+        font-size: 10px;
+    }
+
+    .hero {
+        padding-top: 112px;
     }
 
     .welcome {
         font-size: 21px;
     }
 
-    .language button {
-        padding: 6px;
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .continue-btn {
+        width: 95%;
+
+        padding: 13px 15px;
+
+        font-size: 15px;
+    }
+
+    .page-title {
+        font-size: 26px;
+    }
+
+    .page-subtitle {
+        font-size: 13px;
+    }
+
+    .login-panel {
+        border-radius: 14px;
+    }
+}
+
+
+/* =========================================================
+   47. MOBILE LANDSCAPE
+   ========================================================= */
+
+@media screen and (max-width: 900px)
+       and (orientation: landscape) {
+
+    body.index-page,
+    body.farmer-page,
+    body.buyer-page,
+    body.machinery-page,
+    body.orders-page,
+    body.order-page,
+    body.fertilizer-page,
+    body.crop-prices-page,
+    body.crop-price-page,
+    body.weather-page {
+
+        background-position: center center;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+    .header {
+        min-height: 58px;
+
+        padding:
+            5px
+            12px;
     }
 
     .logo {
-        font-size: 18px;
+        font-size: 19px;
+    }
+
+    .logo-icon {
+        font-size: 22px;
+    }
+
+    .nav-links a {
+        padding: 6px 7px;
+
+        font-size: 10px;
+    }
+
+    .language button {
+        min-width: 48px;
+
+        padding: 6px 7px;
+
+        font-size: 10px;
+    }
+
+    .hero {
+        min-height: 100vh;
+
+        padding-top: 62px;
+    }
+
+    .hero-content {
+        padding:
+            20px
+            15px;
+    }
+
+    .welcome {
+        font-size: 21px;
+    }
+
+    .hero-title {
+        margin-bottom: 10px;
+
+        font-size: 43px;
+    }
+
+    .hero-description {
+        max-width: 650px;
+
+        margin-bottom: 15px;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+    .continue-btn {
+        padding:
+            10px
+            28px;
+
+        font-size: 14px;
+    }
+
+    .login-panel {
+        max-height: 90vh;
+
+        overflow-y: auto;
     }
 }
-@media (max-width: 800px) {
 
-    .hero,
-    .agriculture-section,
-    .farm-hero,
-    .page-hero,
-    .machinery-hero,
-    .fertilizer-hero,
-    .weather-hero,
-    .crop-price-hero,
-    .order-hero,
-    .buyer-hero {
-        background-attachment: scroll !important;
-        background-size: cover !important;
+
+/* =========================================================
+   48. ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline:
+        3px solid rgba(22, 141, 52, 0.30);
+
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   49. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   50. FINAL FERTILIZER OVERRIDE
+   ========================================================= */
+
+/*
+   This is intentionally placed at the very end.
+   It prevents old fertilizer.html CSS from replacing
+   the portrait background.
+*/
+
+body.fertilizer-page {
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-attachment: scroll !important;
+}
+
+
+/* MOBILE FERTILIZER FINAL */
+
+@media screen and (max-width: 600px)
+       and (orientation: portrait) {
+
+    body.fertilizer-page {
+        background-image:
+            linear-gradient(
+                rgba(0, 0, 0, 0.03),
+                rgba(0, 0, 0, 0.03)
+            ),
+            url("./image/fertilizer-bg-portrait.jpg.png.png") !important;
+
+        background-repeat: no-repeat !important;
         background-position: center center !important;
+        background-size: cover !important;
+        background-attachment: scroll !important;
     }
 
+    body.fertilizer-page .hero,
+    body.fertilizer-page .section,
+    body.fertilizer-page main {
+        background: transparent !important;
+    }
+
+    body.fertilizer-page h1,
+    body.fertilizer-page h2,
+    body.fertilizer-page h3,
+    body.fertilizer-page .hero-title,
+    body.fertilizer-page .page-title {
+        color: #08752d !important;
+
+        text-shadow:
+            0 2px 6px rgba(255, 255, 255, 0.95) !important;
+    }
+
+    body.fertilizer-page p,
+    body.fertilizer-page .hero-description,
+    body.fertilizer-page .page-subtitle {
+        color: #173b21 !important;
+
+        text-shadow:
+            0 1px 4px rgba(255, 255, 255, 0.95) !important;
+    }
 }
+
+
+/* =========================================================
+   END
+   ========================================================= */

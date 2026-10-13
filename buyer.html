@@ -1,20 +1,12 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AgriConnect - Buyer</title>
 
 <style>
-
-/* =========================================================
-   RESET
-   ========================================================= */
 
 *{
     margin:0;
@@ -27,22 +19,23 @@ html{
 }
 
 body{
-    font-family:Arial,"Noto Sans Tamil",sans-serif;
-    color:#183d20;
+    font-family:
+        Arial,
+        "Noto Sans Tamil",
+        "Latha",
+        sans-serif;
 
-    background:
-        linear-gradient(
-            rgba(235,248,237,0.12),
-            rgba(235,248,237,0.18)
-        ),
+    color:#183d20;
+    min-height:100vh;
+    overflow-x:hidden;
+
+    background-image:
         url("./image/buyer-page-bg.png.png");
 
     background-size:cover;
-    background-position:center top;
+    background-position:center center;
     background-repeat:no-repeat;
     background-attachment:fixed;
-
-    min-height:100vh;
 }
 
 a{
@@ -56,69 +49,47 @@ select{
     font-family:inherit;
 }
 
-
-/* =========================================================
+/* =====================================================
    NAVBAR
-   ========================================================= */
+===================================================== */
 
 .navbar{
-
     min-height:70px;
-
-    background:rgba(255,255,255,0.95);
+    background:rgba(255,255,255,0.96);
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     padding:12px 5%;
-
     gap:20px;
 
     position:sticky;
-
     top:0;
-
     z-index:1000;
 
     box-shadow:
         0 3px 18px rgba(0,0,0,0.12);
 
-    backdrop-filter:blur(10px);
-
-    -webkit-backdrop-filter:blur(10px);
 }
 
-
-/* LOGO */
-
 .logo{
-
     font-size:24px;
-
     font-weight:900;
-
     color:#16852f;
-
     white-space:nowrap;
 }
 
-
-/* NAVIGATION */
-
 .nav-links{
-
     display:flex;
-
+    align-items:center;
     gap:5px;
 
-    align-items:center;
-
     overflow-x:auto;
-
     scrollbar-width:none;
+
+    flex:1;
+    justify-content:center;
 }
 
 .nav-links::-webkit-scrollbar{
@@ -126,147 +97,101 @@ select{
 }
 
 .nav-links a{
-
     padding:9px 11px;
-
     border-radius:9px;
 
     font-size:13px;
-
     font-weight:700;
 
     color:#3d5141;
-
     white-space:nowrap;
 
     transition:0.2s;
 }
 
 .nav-links a:hover{
-
     background:#e6f5e8;
-
     color:#218b35;
+    transform:translateY(-1px);
 }
 
 .nav-links a.active{
-
     background:#dff2e2;
-
     color:#16852f;
 }
 
-
-/* LANGUAGE */
+/* =====================================================
+   LANGUAGE
+===================================================== */
 
 .language{
-
     display:flex;
-
     background:#edf5ee;
-
     padding:4px;
-
     border-radius:9px;
-
     flex-shrink:0;
 }
 
 .language button{
-
     border:0;
-
     background:transparent;
 
     padding:7px 9px;
-
     border-radius:6px;
 
     cursor:pointer;
-
     font-weight:bold;
+    color:#36513c;
 }
 
 .language button.active{
-
     background:white;
-
     color:#218b35;
 
     box-shadow:
         0 2px 7px rgba(0,0,0,0.08);
 }
 
-
-/* =========================================================
+/* =====================================================
    HERO
-   ========================================================= */
+===================================================== */
 
 .hero{
-
     min-height:560px;
-
     padding:70px 7%;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    position:relative;
-
-    background:transparent;
 }
 
-
-/*
-   IMPORTANT:
-   White transparent panel behind hero text
-   so letters are clearly visible.
-*/
-
 .hero-content{
-
     width:min(900px,100%);
 
     text-align:center;
 
-    padding:38px 45px;
+    padding:40px 45px;
 
-    background:
-        rgba(255,255,255,0.84);
+    background:rgba(255,255,255,0.88);
 
-    border:
-        1px solid rgba(255,255,255,0.85);
-
+    border:1px solid rgba(255,255,255,0.95);
     border-radius:24px;
 
     box-shadow:
         0 15px 45px rgba(0,0,0,0.18);
 
-    backdrop-filter:blur(7px);
-
-    -webkit-backdrop-filter:blur(7px);
 }
 
-
-/* BADGE */
-
 .badge{
-
     display:inline-block;
 
     background:#e1f5e4;
-
     color:#176b29;
 
     padding:9px 17px;
-
     border-radius:25px;
 
     font-size:14px;
-
     font-weight:800;
 
     margin-bottom:20px;
@@ -274,19 +199,13 @@ select{
     border:1px solid #c4e3c9;
 }
 
-
-/* HERO TITLE */
-
 .hero h1{
-
     font-size:52px;
-
     line-height:1.15;
 
     margin-bottom:18px;
 
     color:#123f1d;
-
     font-weight:900;
 
     text-shadow:
@@ -294,110 +213,72 @@ select{
 }
 
 .hero h1 span{
-
     color:#168b32;
 }
 
-
-/* HERO DESCRIPTION */
-
 .hero p{
-
     max-width:760px;
-
     margin:0 auto;
 
     line-height:1.8;
 
     color:#263d2b;
-
     font-size:17px;
-
     font-weight:600;
-
-    text-shadow:
-        0 1px 3px rgba(255,255,255,0.95);
 }
 
-
-/* =========================================================
+/* =====================================================
    SECTION
-   ========================================================= */
+===================================================== */
 
 .section{
-
     padding:55px 0;
 
-    background:
-        rgba(255,255,255,0.91);
+    background:rgba(255,255,255,0.92);
 
-    backdrop-filter:blur(4px);
-
-    -webkit-backdrop-filter:blur(4px);
 }
 
 .container{
-
     width:86%;
-
     max-width:1250px;
-
     margin:auto;
 }
 
-
-/* SECTION TITLE */
-
 .section-title{
-
     margin-bottom:28px;
-
     text-align:left;
 }
 
 .section-title h2{
-
     font-size:32px;
-
     margin-bottom:8px;
 
     color:#123f1d;
-
     font-weight:900;
-
-    text-shadow:
-        0 1px 3px rgba(255,255,255,0.9);
 }
 
 .section-title p{
-
     color:#405448;
-
     font-weight:600;
-
     font-size:15px;
 }
 
-
-/* =========================================================
+/* =====================================================
    FILTER CONTROLS
-   ========================================================= */
+===================================================== */
 
 .controls{
+    background:rgba(255,255,255,0.98);
 
-    background:
-        rgba(255,255,255,0.98);
-
-    border:
-        1px solid #cbdccc;
-
+    border:1px solid #cbdccc;
     border-radius:16px;
 
     padding:20px;
 
     display:grid;
 
-    grid-template-columns:2fr 1fr 1fr auto;
+    grid-template-columns:
+        2fr 1fr auto;
 
     gap:12px;
 
@@ -409,39 +290,34 @@ select{
 
 .controls input,
 .controls select{
-
     width:100%;
 
     padding:13px;
 
-    border:
-        1px solid #cdddcf;
-
+    border:1px solid #cdddcf;
     border-radius:9px;
 
     outline:none;
 
     background:white;
-
     color:#183d20;
+
+    min-height:45px;
 }
 
 .controls input:focus,
 .controls select:focus{
-
     border-color:#218b35;
 
     box-shadow:
         0 0 0 3px rgba(33,139,53,0.10);
 }
 
-
-/* =========================================================
+/* =====================================================
    BUTTONS
-   ========================================================= */
+===================================================== */
 
 .btn{
-
     border:0;
 
     padding:12px 20px;
@@ -456,21 +332,16 @@ select{
 }
 
 .primary{
-
     background:#218b35;
-
     color:white;
 }
 
 .primary:hover{
-
     background:#176e28;
-
     transform:translateY(-1px);
 }
 
 .secondary{
-
     background:white;
 
     border:1px solid #c7dbc9;
@@ -479,17 +350,14 @@ select{
 }
 
 .secondary:hover{
-
     background:#edf8ef;
 }
 
-
-/* =========================================================
+/* =====================================================
    PRODUCTS
-   ========================================================= */
+===================================================== */
 
 .products{
-
     display:grid;
 
     grid-template-columns:
@@ -498,17 +366,10 @@ select{
     gap:20px;
 }
 
-
-/* PRODUCT CARD */
-
 .product-card{
+    background:rgba(255,255,255,0.98);
 
-    background:
-        rgba(255,255,255,0.98);
-
-    border:
-        1px solid #dce9de;
-
+    border:1px solid #dce9de;
     border-radius:17px;
 
     overflow:hidden;
@@ -520,24 +381,17 @@ select{
 }
 
 .product-card:hover{
-
     transform:translateY(-5px);
 
     box-shadow:
         0 12px 30px rgba(0,0,0,0.17);
 }
 
-
-/* PRODUCT IMAGE */
-
 .product-image{
-
     height:160px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     background:
@@ -550,104 +404,72 @@ select{
     font-size:75px;
 }
 
-
-/* PRODUCT CONTENT */
-
 .product-content{
-
     padding:20px;
 }
 
 .product-content h3{
-
     margin-bottom:8px;
 
     font-size:21px;
-
     color:#183d20;
 }
 
 .location{
-
     color:#718077;
-
     font-size:12px;
 
     margin-bottom:14px;
 }
 
 .price{
-
     color:#218b35;
 
     font-size:21px;
-
     font-weight:800;
 }
 
 .unit{
-
     color:#718077;
-
     font-size:12px;
 }
 
-
-/* SELLER */
-
 .seller{
-
     margin-top:15px;
-
     padding-top:15px;
 
-    border-top:
-        1px solid #edf2ee;
+    border-top:1px solid #edf2ee;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
+
+    gap:10px;
 }
 
 .seller-name{
-
     font-weight:bold;
-
     font-size:13px;
 }
 
 .rating{
-
     color:#d18b18;
-
     font-size:12px;
+    white-space:nowrap;
 }
 
-
-/* ACTIONS */
-
 .product-actions{
-
     display:flex;
-
     gap:8px;
-
     margin-top:17px;
 }
 
 .product-actions button{
-
     flex:1;
 }
 
-
-/* EMPTY */
-
 .empty{
-
-    grid-column:1/-1;
+    grid-column:1 / -1;
 
     text-align:center;
 
@@ -663,19 +485,15 @@ select{
         0 8px 25px rgba(0,0,0,0.08);
 }
 
-
-/* =========================================================
-   INFO SECTION
-   ========================================================= */
+/* =====================================================
+   INFO
+===================================================== */
 
 .info-section{
-
-    background:
-        rgba(239,248,240,0.95);
+    background:rgba(239,248,240,0.95);
 }
 
 .info-grid{
-
     display:grid;
 
     grid-template-columns:
@@ -685,12 +503,9 @@ select{
 }
 
 .info-card{
+    background:rgba(255,255,255,0.98);
 
-    background:
-        rgba(255,255,255,0.98);
-
-    border:
-        1px solid #dce9de;
+    border:1px solid #dce9de;
 
     border-radius:15px;
 
@@ -701,65 +516,55 @@ select{
 }
 
 .info-icon{
-
     font-size:38px;
-
     margin-bottom:12px;
 }
 
 .info-card h3{
-
     margin-bottom:8px;
-
     color:#183d20;
 }
 
 .info-card p{
-
     color:#68766c;
 
     font-size:13px;
-
     line-height:1.7;
 }
 
-
-/* =========================================================
+/* =====================================================
    MODAL
-   ========================================================= */
+===================================================== */
 
 .modal{
-
     display:none;
 
     position:fixed;
-
     inset:0;
 
-    background:
-        rgba(0,0,0,0.55);
+    background:rgba(0,0,0,0.60);
 
     z-index:5000;
 
     align-items:center;
-
     justify-content:center;
 
     padding:20px;
 }
 
 .modal.show{
-
     display:flex;
 }
 
 .modal-box{
-
     background:white;
 
     width:100%;
+    max-width:600px;
 
-    max-width:550px;
+    max-height:92vh;
+
+    overflow-y:auto;
 
     border-radius:18px;
 
@@ -772,11 +577,9 @@ select{
 }
 
 .close{
-
     position:absolute;
 
     right:20px;
-
     top:18px;
 
     border:0;
@@ -784,7 +587,6 @@ select{
     background:#f1f4f1;
 
     width:35px;
-
     height:35px;
 
     border-radius:50%;
@@ -795,24 +597,21 @@ select{
 }
 
 .close:hover{
-
     background:#e2eee4;
 }
 
-
-/* FORM */
+/* =====================================================
+   FORM
+===================================================== */
 
 .form-group{
-
     margin-bottom:15px;
 }
 
 .form-group label{
-
     display:block;
 
     font-size:13px;
-
     font-weight:bold;
 
     margin-bottom:7px;
@@ -820,30 +619,48 @@ select{
 
 .form-group input,
 .form-group select{
-
     width:100%;
 
     padding:12px;
 
-    border:
-        1px solid #cdddcf;
+    border:1px solid #cdddcf;
 
     border-radius:8px;
 
     outline:none;
+
+    background:white;
 }
 
 .form-group input:focus,
 .form-group select:focus{
-
     border-color:#218b35;
 }
 
+/* =====================================================
+   LOCATION BOX
+===================================================== */
 
-/* ORDER SUMMARY */
+.location-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+}
+
+.village-note{
+    font-size:11px;
+    color:#718077;
+    margin-top:5px;
+}
+
+/* =====================================================
+   ORDER SUMMARY
+===================================================== */
 
 .order-summary{
-
     background:#f3f8f3;
 
     padding:15px;
@@ -856,7 +673,6 @@ select{
 }
 
 .total{
-
     font-size:20px;
 
     font-weight:bold;
@@ -864,23 +680,96 @@ select{
     color:#218b35;
 }
 
+/* =====================================================
+   PAYMENT BOX
+===================================================== */
 
-/* =========================================================
+.payment-box{
+    display:none;
+
+    margin-top:10px;
+
+    padding:15px;
+
+    background:#f5faf5;
+
+    border:1px solid #d7e7d9;
+
+    border-radius:10px;
+}
+
+.payment-box.show{
+    display:block;
+}
+
+.payment-box h4{
+    margin-bottom:10px;
+    color:#218b35;
+}
+
+.payment-box p{
+    font-size:12px;
+    color:#647268;
+    line-height:1.7;
+}
+
+.upi-input{
+    margin-top:10px;
+}
+
+.bank-input{
+    margin-top:10px;
+}
+
+/* =====================================================
+   SUCCESS BOX
+===================================================== */
+
+.success-box{
+    display:none;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:#effaf0;
+
+    border:1px solid #bfe0c4;
+
+    border-radius:12px;
+
+    margin-top:15px;
+}
+
+.success-box.show{
+    display:block;
+}
+
+.success-icon{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.order-id{
+    font-weight:bold;
+    color:#218b35;
+    margin:10px 0;
+}
+
+/* =====================================================
    FOOTER
-   ========================================================= */
+===================================================== */
 
 footer{
-
-    background:
-        rgba(18,59,28,0.97);
+    background:rgba(18,59,28,0.97);
 
     color:white;
 
-    padding:45px 7% 20px;
+    padding:
+        45px 7% 20px;
 }
 
 .footer-grid{
-
     display:grid;
 
     grid-template-columns:
@@ -892,27 +781,22 @@ footer{
 }
 
 footer h3{
-
     margin-bottom:12px;
 }
 
 footer p,
 footer li{
-
     color:#c3d3c6;
 
     font-size:13px;
-
     line-height:1.8;
 }
 
 footer ul{
-
     list-style:none;
 }
 
 .copyright{
-
     border-top:
         1px solid #31533a;
 
@@ -925,1554 +809,3967 @@ footer ul{
     font-size:12px;
 }
 
-
-/* =========================================================
+/* =====================================================
    TABLET
-   ========================================================= */
+===================================================== */
 
 @media(max-width:1000px){
 
     .navbar{
-
         flex-wrap:wrap;
-
         padding:12px 4%;
     }
 
+    .logo{
+        order:1;
+    }
+
+    .language{
+        order:2;
+    }
+
     .nav-links{
-
         width:100%;
+        order:3;
 
-        order:5;
+        justify-content:flex-start;
+
+        padding-bottom:3px;
     }
 
     .products{
-
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns:1fr 1fr;
     }
 
     .controls{
-
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns:1fr 1fr;
+    }
+    .controls .secondary{
+        width:100%;
     }
 
     .info-grid{
-
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns:1fr 1fr;
     }
 
     .hero{
-
         min-height:500px;
     }
 
     .hero h1{
-
         font-size:44px;
     }
 }
 
-
-/* =========================================================
+/* =====================================================
    MOBILE
-   ========================================================= */
+===================================================== */
 
 @media(max-width:700px){
 
     body{
+        background-image:
+            url("./image/buyer-bg-portrait.jpg.png.png");
 
-        background-attachment:scroll;
+        background-size:cover;
+        background-position:center center;
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+    }
 
-        background-position:center top;
+    .navbar{
+        padding:10px 4%;
+        gap:10px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .nav-links{
+        gap:3px;
+    }
+
+    .nav-links a{
+        padding:8px 9px;
+        font-size:12px;
+    }
+
+    .language button{
+        padding:6px 8px;
     }
 
     .hero{
-
         min-height:480px;
-
         padding:40px 20px;
     }
 
     .hero-content{
-
         padding:28px 20px;
-
         border-radius:18px;
     }
 
     .hero h1{
-
         font-size:35px;
     }
 
     .hero p{
-
         font-size:15px;
+        line-height:1.7;
     }
 
     .products{
-
         grid-template-columns:1fr;
     }
 
     .controls{
-
         grid-template-columns:1fr;
+        padding:15px;
     }
 
     .info-grid{
-
         grid-template-columns:1fr;
     }
 
     .footer-grid{
-
         grid-template-columns:1fr;
-
         gap:25px;
     }
 
     .container{
-
         width:92%;
     }
 
     .section-title h2{
-
         font-size:27px;
+    }
+
+    .section-title p{
+        font-size:14px;
+    }
+
+    .modal{
+        padding:12px;
+    }
+
+    .modal-box{
+        padding:22px;
+        border-radius:16px;
+    }
+
+    .location-grid{
+        grid-template-columns:1fr;
     }
 }
 
-
-/* =========================================================
+/* =====================================================
    SMALL MOBILE
-   ========================================================= */
+===================================================== */
 
 @media(max-width:400px){
 
     .hero h1{
-
         font-size:30px;
     }
 
     .logo{
-
-        font-size:20px;
+        font-size:19px;
     }
 
     .language button{
+        padding:6px 7px;
+    }
 
-        padding:6px 8px;
+    .product-content{
+        padding:17px;
+    }
+
+    .product-image{
+        height:140px;
+        font-size:65px;
     }
 }
 
-</style>
 
+/* =====================================================
+   EXCEL LOCATION SELECTOR
+===================================================== */
+.location-selector-card{
+    background:rgba(255,255,255,0.98);
+    border:1px solid #cbdccc;
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.12);
+}
+.location-selector-title{
+    font-size:21px;
+    font-weight:900;
+    color:#218b35;
+    margin-bottom:14px;
+}
+.location-selector-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:12px;
+}
+.location-selector-grid select{
+    width:100%;
+    min-height:50px;
+    padding:13px;
+    border:1px solid #cdddcf;
+    border-radius:9px;
+    outline:none;
+    background:white;
+    color:#183d20;
+    font-size:15px;
+}
+.location-selector-grid select:focus{
+    border-color:#218b35;
+    box-shadow:0 0 0 3px rgba(33,139,53,0.10);
+}
+.location-selector-note{
+    margin-top:9px;
+    color:#718077;
+    font-size:12px;
+}
+.location-selector-status{
+    margin-top:8px;
+    color:#218b35;
+    font-size:12px;
+    font-weight:700;
+}
+@media(max-width:1000px){
+    .location-selector-grid{grid-template-columns:1fr 1fr;}
+    .location-selector-grid select:last-child{grid-column:1 / -1;}
+}
+@media(max-width:700px){
+    .location-selector-grid{grid-template-columns:1fr;}
+    .location-selector-grid select:last-child{grid-column:auto;}
+}
+
+</style>
 </head>
 
 
 <body>
 
-
 <!-- =====================================================
      NAVBAR
-     ===================================================== -->
+===================================================== -->
 
 <header class="navbar">
 
-    <a href="index.html" class="logo">
-        🌱 AgriConnect
-    </a>
+<a href="index.html" class="logo">
+🌱 AgriConnect
+</a>
 
+<nav class="nav-links">
 
-    <nav class="nav-links">
+<a href="index.html">🏠 Home</a>
 
-        <a href="index.html">
-            🏠 Home
-        </a>
+<a href="farmer.html">👨‍🌾 Farmer</a>
 
-        <a href="farmer.html">
-            👨‍🌾 Farmer
-        </a>
+<a href="buyer.html" class="active">🛒 Buyer</a>
 
-        <a href="buyer.html" class="active">
-            🛒 Buyer
-        </a>
+<a href="machinery.html">🚜 Machinery</a>
 
-        <a href="machinery.html">
-            🚜 Machinery
-        </a>
+<a href="fertilizer.html">🌱 Fertilizer</a>
 
-        <a href="fertilizer.html">
-            🌱 Fertilizer
-        </a>
+<a href="weather.html">🌦️ Weather</a>
 
-        <a href="weather.html">
-            🌦️ Weather
-        </a>
+<a href="crop-prices.html">📈 Crop Prices</a>
 
-        <a href="crop-prices.html">
-            📈 Crop Prices
-        </a>
+<a href="orders.html">📦 Orders</a>
 
-        <a href="orders.html">
-            📦 Orders
-        </a>
+</nav>
 
-    </nav>
+<div class="language">
 
+<button
+id="enBtn"
+class="active"
+onclick="changeLanguage('en')">
+EN
+</button>
 
-    <div class="language">
+<button
+id="taBtn"
+onclick="changeLanguage('ta')">
+தமிழ்
+</button>
 
-        <button
-            id="enBtn"
-            class="active"
-            onclick="changeLanguage('en')">
-
-            EN
-
-        </button>
-
-        <button
-            id="taBtn"
-            onclick="changeLanguage('ta')">
-
-            தமிழ்
-
-        </button>
-
-    </div>
+</div>
 
 </header>
 
 
-
 <!-- =====================================================
      HERO
-     ===================================================== -->
+===================================================== -->
 
 <section class="hero">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <div class="badge">
+<div class="badge">
+🛒 Buyer Marketplace
+</div>
 
-            🛒 Buyer Marketplace
+<h1>
 
-        </div>
+<span
+data-en="Buy Fresh"
+data-ta="புதிய விளைபொருட்களை">
+Buy Fresh
+</span>
 
+<span
+data-en=" Directly"
+data-ta=" நேரடியாக வாங்குங்கள்">
+Directly
+</span>
 
-        <h1>
+</h1>
 
-            <span
-                data-en="Buy Fresh"
-                data-ta="புதிய விளைபொருட்களை">
+<p
+data-en="Find fresh agricultural products directly from farmers and place your order easily."
+data-ta="விவசாயிகளிடமிருந்து நேரடியாக புதிய விளைபொருட்களை கண்டுபிடித்து எளிதாக ஆர்டர் செய்யுங்கள்.">
 
-                Buy Fresh
+Find fresh agricultural products directly
+from farmers and place your order easily.
 
-            </span>
+</p>
 
-            <span
-                data-en=" Directly"
-                data-ta=" நேரடியாக வாங்குங்கள்">
-
-                Directly
-
-            </span>
-
-        </h1>
-
-
-        <p
-            data-en="Find fresh agricultural products directly from farmers and place your order easily."
-            data-ta="விவசாயிகளிடமிருந்து நேரடியாக புதிய விளைபொருட்களை கண்டுபிடித்து எளிதாக ஆர்டர் செய்யுங்கள்.">
-
-            Find fresh agricultural products directly from farmers
-            and place your order easily.
-
-        </p>
-
-    </div>
+</div>
 
 </section>
-
 
 
 <!-- =====================================================
      PRODUCTS
-     ===================================================== -->
+===================================================== -->
 
 <section class="section">
 
-    <div class="container">
+<div class="container">
 
+<div class="section-title">
 
-        <div class="section-title">
+<h2
+data-en="🌾 Available Products"
+data-ta="🌾 கிடைக்கும் விளைபொருட்கள்">
 
-            <h2
-                data-en="🌾 Available Products"
-                data-ta="🌾 கிடைக்கும் விளைபொருட்கள்">
+🌾 Available Products
 
-                🌾 Available Products
+</h2>
 
-            </h2>
+<p
+data-en="Browse vegetables, fruits and other agricultural products from farmers."
+data-ta="விவசாயிகளிடமிருந்து காய்கறிகள், பழங்கள் மற்றும் பிற விவசாயப் பொருட்களை பாருங்கள்.">
 
+Browse vegetables, fruits and other agricultural products from farmers.
 
-            <p
-                data-en="Browse products from farmers near different markets."
-                data-ta="வெவ்வேறு சந்தைகளில் உள்ள விவசாயிகளின் பொருட்களை பாருங்கள்.">
-
-                Browse products from farmers near different markets.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- FILTERS -->
-
-        <div class="controls">
-
-
-            <input
-                id="searchInput"
-                type="text"
-                placeholder="🔍 Search product..."
-                onkeyup="filterProducts()">
-
-
-
-            <select
-                id="categoryFilter"
-                onchange="filterProducts()">
-
-                <option value="all">
-                    All Categories
-                </option>
-
-                <option value="vegetable">
-                    Vegetables
-                </option>
-
-                <option value="fruit">
-                    Fruits
-                </option>
-
-                <option value="grain">
-                    Grains
-                </option>
-
-                <option value="spice">
-                    Spices
-                </option>
-
-            </select>
-
-
-
-            <select
-                id="locationFilter"
-                onchange="filterProducts()">
-
-                <option value="all">
-                    All Locations
-                </option>
-
-                <option value="Chennai">
-                    Chennai
-                </option>
-
-                <option value="Coimbatore">
-                    Coimbatore
-                </option>
-
-                <option value="Madurai">
-                    Madurai
-                </option>
-
-                <option value="Thanjavur">
-                    Thanjavur
-                </option>
-
-                <option value="Erode">
-                    Erode
-                </option>
-
-                <option value="Ooty">
-                    Ooty
-                </option>
-
-            </select>
-
-
-
-            <button
-                class="btn secondary"
-                onclick="resetFilters()">
-
-                ↻ Reset
-
-            </button>
-
-        </div>
-
-
-
-        <!-- PRODUCTS -->
-
-        <div
-            id="products"
-            class="products">
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     WHY BUY DIRECT
-     ===================================================== -->
-
-<section class="section info-section">
-
-    <div class="container">
-
-
-        <div class="section-title">
-
-            <h2
-                data-en="💡 Why Buy Direct?"
-                data-ta="💡 ஏன் நேரடியாக வாங்க வேண்டும்?">
-
-                💡 Why Buy Direct?
-
-            </h2>
-
-
-            <p
-                data-en="AgriConnect connects buyers directly with farmers."
-                data-ta="AgriConnect வாங்குபவர்களை நேரடியாக விவசாயிகளுடன் இணைக்கிறது.">
-
-                AgriConnect connects buyers directly with farmers.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="info-grid">
-
-
-            <!-- CARD 1 -->
-
-            <div class="info-card">
-
-                <div class="info-icon">
-                    👨‍🌾
-                </div>
-
-
-                <h3
-                    data-en="Direct From Farmer"
-                    data-ta="விவசாயியிடமிருந்து நேரடியாக">
-
-                    Direct From Farmer
-
-                </h3>
-
-
-                <p
-                    data-en="Buy agricultural products directly from farmers without unnecessary middle steps."
-                    data-ta="தேவையற்ற இடைத்தரகர்கள் இல்லாமல் விவசாயிகளிடமிருந்து நேரடியாக பொருட்களை வாங்கலாம்.">
-
-                    Buy agricultural products directly from farmers
-                    without unnecessary middle steps.
-
-                </p>
-
-            </div>
-
-
-
-            <!-- CARD 2 -->
-
-            <div class="info-card">
-
-                <div class="info-icon">
-                    🥬
-                </div>
-
-
-                <h3
-                    data-en="Fresh Products"
-                    data-ta="புதிய விளைபொருட்கள்">
-
-                    Fresh Products
-
-                </h3>
-
-
-                <p
-                    data-en="Find fresh crops and agricultural products listed by local farmers."
-                    data-ta="உள்ளூர் விவசாயிகள் பட்டியலிடும் புதிய பயிர்கள் மற்றும் விளைபொருட்களை கண்டுபிடிக்கலாம்.">
-
-                    Find fresh crops and agricultural products listed
-                    by local farmers.
-
-                </p>
-
-            </div>
-
-
-
-            <!-- CARD 3 -->
-
-            <div class="info-card">
-
-                <div class="info-icon">
-                    💰
-                </div>
-
-
-                <h3
-                    data-en="Better Prices"
-                    data-ta="சிறந்த விலைகள்">
-
-                    Better Prices
-
-                </h3>
-
-
-                <p
-                    data-en="Compare products and prices before placing your order."
-                    data-ta="ஆர்டர் செய்வதற்கு முன் பொருட்கள் மற்றும் விலைகளை ஒப்பிடலாம்.">
-
-                    Compare products and prices before placing your order.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
-
-<footer>
-
-    <div class="footer-grid">
-
-
-        <div>
-
-            <h3>
-                🌱 AgriConnect
-            </h3>
-
-
-            <p
-                data-en="Smart farming technology for modern farmers and buyers."
-                data-ta="நவீன விவசாயிகள் மற்றும் வாங்குபவர்களுக்கான ஸ்மார்ட் விவசாய தொழில்நுட்பம்.">
-
-                Smart farming technology for modern farmers and buyers.
-
-            </p>
-
-        </div>
-
-
-
-        <div>
-
-            <h3
-                data-en="Buyer"
-                data-ta="வாங்குபவர்">
-
-                Buyer
-
-            </h3>
-
-
-            <ul>
-
-                <li>Products</li>
-
-                <li>Orders</li>
-
-                <li>Farmers</li>
-
-            </ul>
-
-        </div>
-
-
-
-        <div>
-
-            <h3
-                data-en="Services"
-                data-ta="சேவைகள்">
-
-                Services
-
-            </h3>
-
-
-            <ul>
-
-                <li>Crop Prices</li>
-
-                <li>Weather</li>
-
-                <li>Machinery</li>
-
-                <li>Fertilizer</li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="copyright">
-
-        © 2026 AgriConnect — All Rights Reserved.
-
-    </div>
-
-</footer>
-
-
-
-<!-- =====================================================
-     ORDER MODAL
-     ===================================================== -->
-
-<div
-    id="orderModal"
-    class="modal"
-    onclick="closeOutside(event)">
-
-
-    <div class="modal-box">
-
-
-        <button
-            class="close"
-            onclick="closeModal()">
-
-            ×
-
-        </button>
-
-
-        <h2
-            id="modalTitle">
-
-            Place Order
-
-        </h2>
-
-
-        <br>
-
-
-        <div class="order-summary">
-
-            <div id="selectedProduct">
-            </div>
-
-
-            <div id="selectedPrice">
-            </div>
-
-
-            <div id="selectedSeller">
-            </div>
-
-
-            <div
-                id="totalPrice"
-                class="total">
-
-            </div>
-
-        </div>
-
-
-
-        <!-- QUANTITY -->
-
-        <div class="form-group">
-
-            <label
-                data-en="Quantity (kg)"
-                data-ta="அளவு (கிலோ)">
-
-                Quantity (kg)
-
-            </label>
-
-
-            <input
-                id="quantity"
-                type="number"
-                min="1"
-                value="10"
-                oninput="calculateTotal()">
-
-        </div>
-
-
-
-        <!-- LOCATION -->
-
-        <div class="form-group">
-
-            <label
-                data-en="Delivery Location"
-                data-ta="விநியோக இடம்">
-
-                Delivery Location
-
-            </label>
-
-
-            <input
-                id="deliveryLocation"
-                type="text"
-                placeholder="Enter delivery location">
-
-        </div>
-
-
-
-        <!-- PAYMENT -->
-
-        <div class="form-group">
-
-            <label
-                data-en="Payment Method"
-                data-ta="பணம் செலுத்தும் முறை">
-
-                Payment Method
-
-            </label>
-
-
-            <select id="paymentMethod">
-
-                <option value="cod">
-                    Cash on Delivery
-                </option>
-
-                <option value="upi">
-                    UPI
-                </option>
-
-                <option value="bank">
-                    Bank Transfer
-                </option>
-
-            </select>
-
-        </div>
-
-
-
-        <button
-            class="btn primary"
-            style="width:100%;"
-            onclick="placeOrder()">
-
-            🛒
-
-            <span
-                data-en="Place Order"
-                data-ta="ஆர்டர் செய்யுங்கள்">
-
-                Place Order
-
-            </span>
-
-        </button>
-
-    </div>
+</p>
 
 </div>
 
 
+<!-- =====================================================
+     FILTERS
+===================================================== -->
+
+<div class="controls">
+
+<input
+id="searchInput"
+type="text"
+placeholder="🔍 Search product..."
+onkeyup="filterProducts()">
+
+
+<select
+id="categoryFilter"
+onchange="filterProducts()">
+
+<option value="all">All Categories</option>
+
+<option value="vegetable">
+🥬 Vegetables
+</option>
+
+<option value="fruit">
+🍎 Fruits
+</option>
+
+<option value="grain">
+🌾 Grains
+</option>
+
+<option value="spice">
+🌶️ Spices
+</option>
+
+</select>
+
+
+
+
+
+<button
+class="btn secondary"
+onclick="resetFilters()">
+
+↻ Reset
+
+</button>
+
+</div>
+
+
+<!-- =====================================================
+     EXCEL LOCATION SELECTOR
+===================================================== -->
+
+<div class="location-selector-card">
+
+<div class="location-selector-title"
+data-en="📍 Select Delivery Location"
+data-ta="📍 விநியோக இடத்தை தேர்வு செய்யவும்">
+📍 Select Delivery Location
+</div>
+
+<div class="location-selector-grid">
+
+<select id="mainDistrict" onchange="mainLocationDistrictChanged()">
+<option value="">Select District</option>
+</select>
+
+<select id="mainTaluk" onchange="mainLocationTalukChanged()" disabled>
+<option value="">Select Taluk</option>
+</select>
+
+<select id="mainVillage" onchange="mainLocationVillageChanged()" disabled>
+<option value="">Select Village</option>
+</select>
+
+</div>
+
+<div class="location-selector-note"
+data-en="District → Taluk → Village are loaded from your Tamil Nadu Excel sheet."
+data-ta="மாவட்டம் → வட்டம் → கிராமம் உங்கள் தமிழ்நாடு Excel தரவிலிருந்து ஏற்றப்படுகிறது.">
+District → Taluk → Village are loaded from your Tamil Nadu Excel sheet.
+</div>
+
+<div id="locationStatus" class="location-selector-status"></div>
+
+</div>
+
+
+<div
+id="products"
+class="products">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY BUY DIRECT
+===================================================== -->
+
+<section class="section info-section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2
+data-en="💡 Why Buy Direct?"
+data-ta="💡 ஏன் நேரடியாக வாங்க வேண்டும்?">
+
+💡 Why Buy Direct?
+
+</h2>
+
+<p
+data-en="AgriConnect connects buyers directly with farmers."
+data-ta="AgriConnect வாங்குபவர்களை நேரடியாக விவசாயிகளுடன் இணைக்கிறது.">
+
+AgriConnect connects buyers directly with farmers.
+
+</p>
+
+</div>
+
+
+<div class="info-grid">
+
+
+<div class="info-card">
+
+<div class="info-icon">
+👨‍🌾
+</div>
+
+<h3
+data-en="Direct From Farmer"
+data-ta="விவசாயியிடமிருந்து நேரடியாக">
+
+Direct From Farmer
+
+</h3>
+
+<p
+data-en="Buy agricultural products directly from farmers without unnecessary middle steps."
+data-ta="தேவையற்ற இடைத்தரகர்கள் இல்லாமல் விவசாயிகளிடமிருந்து நேரடியாக பொருட்களை வாங்கலாம்.">
+
+Buy agricultural products directly from farmers without unnecessary middle steps.
+
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="info-icon">
+🥬
+</div>
+
+<h3
+data-en="Fresh Products"
+data-ta="புதிய விளைபொருட்கள்">
+
+Fresh Products
+
+</h3>
+
+<p
+data-en="Find fresh crops and agricultural products listed by local farmers."
+data-ta="உள்ளூர் விவசாயிகள் பட்டியலிடும் புதிய பயிர்கள் மற்றும் விளைபொருட்களை கண்டுபிடிக்கலாம்.">
+
+Find fresh crops and agricultural products listed by local farmers.
+
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="info-icon">
+💰
+</div>
+
+<h3
+data-en="Better Prices"
+data-ta="சிறந்த விலைகள்">
+
+Better Prices
+
+</h3>
+
+<p
+data-en="Compare products and prices before placing your order."
+data-ta="ஆர்டர் செய்வதற்கு முன் பொருட்கள் மற்றும் விலைகளை ஒப்பிடலாம்.">
+
+Compare products and prices before placing your order.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+<h3>
+🌱 AgriConnect
+</h3>
+
+<p
+data-en="Smart farming technology for modern farmers and buyers."
+data-ta="நவீன விவசாயிகள் மற்றும் வாங்குபவர்களுக்கான ஸ்மார்ட் விவசாய தொழில்நுட்பம்.">
+
+Smart farming technology for modern farmers and buyers.
+
+</p>
+
+</div>
+
+
+<div>
+
+<h3
+data-en="Buyer"
+data-ta="வாங்குபவர்">
+
+Buyer
+
+</h3>
+
+<ul>
+
+<li>Products</li>
+<li>Orders</li>
+<li>Farmers</li>
+
+</ul>
+
+</div>
+
+
+<div>
+
+<h3
+data-en="Services"
+data-ta="சேவைகள்">
+
+Services
+
+</h3>
+
+<ul>
+
+<li>Crop Prices</li>
+<li>Weather</li>
+<li>Machinery</li>
+<li>Fertilizer</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 AgriConnect — All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     ORDER MODAL
+===================================================== -->
+
+<div
+id="orderModal"
+class="modal"
+onclick="closeOutside(event)">
+
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeModal()">
+×
+</button>
+
+
+<h2 id="modalTitle">
+Place Order
+</h2>
+
+
+<div class="order-summary">
+
+<div id="selectedProduct"></div>
+
+<div id="selectedPrice"></div>
+
+<div id="selectedSeller"></div>
+
+<div id="totalPrice" class="total"></div>
+
+</div>
+
+
+<!-- =====================================================
+     QUANTITY
+===================================================== -->
+
+<div class="form-group">
+
+<label
+data-en="Quantity (kg)"
+data-ta="அளவு (கிலோ)">
+
+Quantity (kg)
+
+</label>
+
+<input
+id="quantity"
+type="number"
+min="1"
+value="10"
+oninput="calculateTotal()">
+
+</div>
+
+
+<!-- =====================================================
+     DELIVERY LOCATION
+===================================================== -->
+
+<h3 style="margin:20px 0 12px;color:#218b35;">
+📍 Delivery Location
+</h3>
+
+<div class="location-grid">
+
+
+<div class="form-group">
+
+<label
+data-en="District"
+data-ta="மாவட்டம்">
+
+District
+
+</label>
+
+<select
+id="district"
+onchange="loadTaluks()">
+
+<option value="">
+Select District
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label
+data-en="Taluk"
+data-ta="வட்டம்">
+
+Taluk
+
+</label>
+
+<select
+id="taluk"
+onchange="loadOrderVillages()">
+
+<option value="">
+Select Taluk
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label
+data-en="Village"
+data-ta="கிராமம்">
+
+Village
+
+</label>
+
+<select
+id="village">
+<option value="">Select Village</option>
+</select>
+
+<div class="village-note">
+Select your village from the Excel location data.
+<br>
+Excel தரவிலிருந்து உங்கள் கிராமத்தை தேர்வு செய்யவும்.
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label
+data-en="Door / Street / Address"
+data-ta="வீட்டு எண் / தெரு / முகவரி">
+
+Door / Street / Address
+
+</label>
+
+<input
+id="deliveryAddress"
+type="text"
+placeholder="Enter complete delivery address">
+
+</div>
+
+
+<!-- =====================================================
+     PAYMENT
+===================================================== -->
+
+<div class="form-group">
+
+<label
+data-en="Payment Method"
+data-ta="பணம் செலுத்தும் முறை">
+
+Payment Method
+
+</label>
+
+<select
+id="paymentMethod"
+onchange="changePaymentMethod()">
+
+<option value="cod">
+Cash on Delivery
+</option>
+
+<option value="upi">
+UPI Payment
+</option>
+
+<option value="bank">
+Bank Transfer
+</option>
+
+</select>
+
+</div>
+
+
+<!-- UPI -->
+
+<div
+id="upiBox"
+class="payment-box">
+
+<h4>
+💳 UPI Payment
+</h4>
+
+<p>
+Enter your UPI ID to continue with UPI payment.
+</p>
+
+<input
+id="upiId"
+class="upi-input"
+type="text"
+placeholder="example@upi">
+
+</div>
+
+
+<!-- BANK -->
+
+<div
+id="bankBox"
+class="payment-box">
+
+<h4>
+🏦 Bank Transfer
+</h4>
+
+<p>
+After placing the order, transfer the amount to the registered AgriConnect bank account.
+</p>
+
+<input
+id="bankName"
+class="bank-input"
+type="text"
+placeholder="Enter your bank name">
+
+</div>
+
+
+<!-- =====================================================
+     PLACE ORDER
+===================================================== -->
+
+<button
+class="btn primary"
+style="width:100%;margin-top:18px;"
+onclick="placeOrder()">
+
+🛒
+
+<span
+data-en="Place Order"
+data-ta="ஆர்டர் செய்யுங்கள்">
+
+Place Order
+
+</span>
+
+</button>
+
+
+<!-- =====================================================
+     SUCCESS
+===================================================== -->
+
+<div
+id="successBox"
+class="success-box">
+
+<div class="success-icon">
+✅
+</div>
+
+<h3
+data-en="Order Placed Successfully!"
+data-ta="ஆர்டர் வெற்றிகரமாக செய்யப்பட்டது!">
+
+Order Placed Successfully!
+
+</h3>
+
+<div
+id="successOrderId"
+class="order-id">
+</div>
+
+<p id="successDetails"></p>
+
+</div>
+
+
+</div>
+
+</div>
+
 
 <script>
 
-/* =========================================================
+/* =====================================================
+/* =====================================================
+   TAMIL NADU LOCATION DATA
+   LIVE DATA FROM AgriConnect Node.js + Excel
+
+   Excel flow:
+   Tamil_Nadu_District_Taluk_Village_Bilingual_FINAL(2).xlsx
+          ↓
+       server.js
+          ↓
+     /api/locations
+          ↓
+      buyer.html
+===================================================== */
+
+let excelLocations = {};
+let tamilLocations = {};
+let locationDataReady = false;
+let locationDataLoading = null;
+
+async function loadLocationData(){
+
+    if(locationDataReady){
+        return true;
+    }
+
+    if(locationDataLoading){
+        return locationDataLoading;
+    }
+
+    locationDataLoading = fetch("/api/locations", {
+        method:"GET",
+        headers:{
+            "Accept":"application/json"
+        },
+        cache:"no-store"
+    })
+    .then(function(response){
+
+        if(!response.ok){
+            throw new Error(
+                "Location API returned HTTP " + response.status
+            );
+        }
+
+        return response.json();
+    })
+    .then(function(data){
+
+        excelLocations =
+            data && data.english
+                ? data.english
+                : {};
+
+        tamilLocations =
+            data && data.tamil
+                ? data.tamil
+                : {};
+
+        locationDataReady = true;
+
+        console.log(
+            "AgriConnect location data loaded:",
+            Object.keys(excelLocations).length,
+            "districts"
+        );
+
+        return true;
+    })
+    .catch(function(error){
+
+        console.error(
+            "AgriConnect location data loading failed:",
+            error
+        );
+
+        excelLocations = {};
+        tamilLocations = {};
+        locationDataReady = false;
+
+        const status =
+            document.getElementById("locationStatus");
+
+        if(status){
+
+            status.textContent =
+                currentLanguage === "ta"
+                    ? "⚠️ Excel இடத் தரவை ஏற்ற முடியவில்லை. Node.js server இயங்குகிறதா என்பதை சரிபார்க்கவும்."
+                    : "⚠️ Could not load Excel location data. Please make sure the Node.js server is running.";
+        }
+
+        return false;
+    })
+    .finally(function(){
+        locationDataLoading = null;
+    });
+
+    return locationDataLoading;
+}
+
+
+/* =====================================================
+   TAMIL DISPLAY FROM EXCEL
+===================================================== */
+
+function getTamilLocation(
+    district,
+    taluk,
+    village
+){
+
+    if(
+        !district ||
+        !taluk ||
+        !village
+    ){
+        return null;
+    }
+
+    return (
+        tamilLocations &&
+        tamilLocations[district] &&
+        tamilLocations[district][taluk] &&
+        tamilLocations[district][taluk][village]
+    ) || null;
+}
+
+
+function locationItemText(
+    item,
+    level,
+    district = "",
+    taluk = ""
+){
+
+    if(!item){
+        return "";
+    }
+
+    if(currentLanguage !== "ta"){
+        return item;
+    }
+
+    /* District_TA comes directly from Excel. */
+    if(level === "district"){
+
+        const districtData =
+            tamilLocations &&
+            tamilLocations[item];
+
+        if(districtData){
+
+            const firstTaluk =
+                Object.keys(districtData)[0];
+
+            const firstVillage =
+                firstTaluk &&
+                districtData[firstTaluk]
+                    ? Object.keys(
+                        districtData[firstTaluk]
+                    )[0]
+                    : "";
+
+            const tamil =
+                firstTaluk &&
+                firstVillage
+                    ? getTamilLocation(
+                        item,
+                        firstTaluk,
+                        firstVillage
+                    )
+                    : null;
+
+            if(tamil && tamil.district){
+                return tamil.district;
+            }
+        }
+
+        return item;
+    }
+
+
+    /* Taluk_TA comes directly from Excel. */
+    if(level === "taluk"){
+
+        const districtData =
+            tamilLocations &&
+            tamilLocations[district];
+
+        if(
+            districtData &&
+            districtData[item]
+        ){
+
+            const firstVillage =
+                Object.keys(
+                    districtData[item]
+                )[0];
+
+            const tamil =
+                firstVillage
+                    ? getTamilLocation(
+                        district,
+                        item,
+                        firstVillage
+                    )
+                    : null;
+
+            if(tamil && tamil.taluk){
+                return tamil.taluk;
+            }
+        }
+
+        return item;
+    }
+
+
+    /* Village_TA comes directly from Excel. */
+    if(level === "village"){
+
+        const tamil =
+            getTamilLocation(
+                district,
+                taluk,
+                item
+            );
+
+        if(tamil && tamil.village){
+            return tamil.village;
+        }
+
+        return item;
+    }
+
+
+    return item;
+}
+
+
+function locationText(
+    englishText,
+    tamilText
+){
+
+    return currentLanguage === "en"
+        ? englishText
+        : tamilText;
+}
+
+
+/* =====================================================
+   COMMON SELECT BUILDER
+===================================================== */
+
+function fillSelect(
+    select,
+    items,
+    placeholder,
+    disabled = false,
+    level = "",
+    district = "",
+    taluk = ""
+){
+
+    if(!select){
+        return;
+    }
+
+    select.innerHTML = "";
+
+    const first =
+        document.createElement("option");
+
+    first.value = "";
+    first.textContent = placeholder;
+
+    select.appendChild(first);
+
+
+    (items || []).forEach(function(item){
+
+        const option =
+            document.createElement("option");
+
+        /*
+           IMPORTANT:
+           The real value remains the English Excel key.
+           Only the visible text changes to Tamil.
+        */
+        option.value = item;
+
+        option.textContent =
+            locationItemText(
+                item,
+                level,
+                district,
+                taluk
+            );
+
+        select.appendChild(option);
+    });
+
+
+    select.disabled = !!disabled;
+}
+
+
+/* =====================================================
+   LOCATION LIST HELPERS
+===================================================== */
+
+function districtNames(){
+
+    return Object.keys(
+        excelLocations || {}
+    ).sort(function(a,b){
+
+        return a.localeCompare(b);
+    });
+}
+
+
+function talukNames(district){
+
+    if(
+        !district ||
+        !excelLocations[district]
+    ){
+        return [];
+    }
+
+    return Object.keys(
+        excelLocations[district]
+    ).sort(function(a,b){
+
+        return a.localeCompare(b);
+    });
+}
+
+
+function villageNames(
+    district,
+    taluk
+){
+
+    if(
+        !district ||
+        !taluk ||
+        !excelLocations[district] ||
+        !excelLocations[district][taluk]
+    ){
+        return [];
+    }
+
+    return Array.from(
+        excelLocations[district][taluk]
+    ).sort(function(a,b){
+
+        return a.localeCompare(b);
+    });
+}
+
+
+/* =====================================================
+   MAIN LOCATION SELECTOR
+===================================================== */
+
+function initMainLocation(){
+
+    if(!locationDataReady){
+
+        loadLocationData().then(function(success){
+
+            if(success){
+                initMainLocation();
+            }
+
+        });
+
+        return;
+    }
+
+
+    const d =
+        document.getElementById("mainDistrict");
+
+    const t =
+        document.getElementById("mainTaluk");
+
+    const v =
+        document.getElementById("mainVillage");
+
+
+    if(!d || !t || !v){
+        return;
+    }
+
+
+    fillSelect(
+        d,
+        districtNames(),
+        locationText(
+            "Select District",
+            "மாவட்டத்தை தேர்வு செய்யவும்"
+        ),
+        false,
+        "district"
+    );
+
+
+    fillSelect(
+        t,
+        [],
+        locationText(
+            "Select Taluk",
+            "வட்டத்தை தேர்வு செய்யவும்"
+        ),
+        true,
+        "taluk"
+    );
+
+
+    fillSelect(
+        v,
+        [],
+        locationText(
+            "Select Village",
+            "கிராமத்தை தேர்வு செய்யவும்"
+        ),
+        true,
+        "village"
+    );
+
+
+    updateLocationStatus();
+}
+
+
+function mainLocationDistrictChanged(){
+
+    if(!locationDataReady){
+
+        loadLocationData().then(function(success){
+
+            if(success){
+                mainLocationDistrictChanged();
+            }
+
+        });
+
+        return;
+    }
+
+
+    const d =
+        document.getElementById("mainDistrict");
+
+    const t =
+        document.getElementById("mainTaluk");
+
+    const v =
+        document.getElementById("mainVillage");
+
+
+    if(!d || !t || !v){
+        return;
+    }
+
+
+    const district =
+        d.value;
+
+
+    const taluks =
+        talukNames(district);
+
+
+    fillSelect(
+        t,
+        taluks,
+        locationText(
+            "Select Taluk",
+            "வட்டத்தை தேர்வு செய்யவும்"
+        ),
+        !district,
+        "taluk",
+        district
+    );
+
+
+    fillSelect(
+        v,
+        [],
+        locationText(
+            "Select Village",
+            "கிராமத்தை தேர்வு செய்யவும்"
+        ),
+        true,
+        "village",
+        district,
+        ""
+    );
+
+
+    updateLocationStatus();
+}
+
+
+function mainLocationTalukChanged(){
+
+    if(!locationDataReady){
+
+        loadLocationData().then(function(success){
+
+            if(success){
+                mainLocationTalukChanged();
+            }
+
+        });
+
+        return;
+    }
+
+
+    const d =
+        document.getElementById("mainDistrict");
+
+    const t =
+        document.getElementById("mainTaluk");
+
+    const v =
+        document.getElementById("mainVillage");
+
+
+    if(!d || !t || !v){
+        return;
+    }
+
+
+    const district =
+        d.value;
+
+    const taluk =
+        t.value;
+
+
+    const villages =
+        villageNames(
+            district,
+            taluk
+        );
+
+
+    fillSelect(
+        v,
+        villages,
+        locationText(
+            "Select Village",
+            "கிராமத்தை தேர்வு செய்யவும்"
+        ),
+        !taluk,
+        "village",
+        district,
+        taluk
+    );
+
+
+    updateLocationStatus();
+}
+
+
+function mainLocationVillageChanged(){
+
+    updateLocationStatus();
+}
+
+
+function updateLocationStatus(){
+
+    const d =
+        document.getElementById("mainDistrict");
+
+    const t =
+        document.getElementById("mainTaluk");
+
+    const v =
+        document.getElementById("mainVillage");
+
+    const s =
+        document.getElementById("locationStatus");
+
+
+    if(!d || !t || !v || !s){
+        return;
+    }
+
+
+    if(
+        d.value &&
+        t.value &&
+        v.value
+    ){
+
+        s.textContent =
+            locationText(
+                "Selected: " +
+                locationItemText(
+                    d.value,
+                    "district"
+                ) +
+                " → " +
+                locationItemText(
+                    t.value,
+                    "taluk",
+                    d.value
+                ) +
+                " → " +
+                locationItemText(
+                    v.value,
+                    "village",
+                    d.value,
+                    t.value
+                ),
+
+                "தேர்வு: " +
+                locationItemText(
+                    d.value,
+                    "district"
+                ) +
+                " → " +
+                locationItemText(
+                    t.value,
+                    "taluk",
+                    d.value
+                ) +
+                " → " +
+                locationItemText(
+                    v.value,
+                    "village",
+                    d.value,
+                    t.value
+                )
+            );
+
+    }else if(
+        d.value &&
+        t.value
+    ){
+
+        s.textContent =
+            locationText(
+                "District and Taluk selected. Now choose Village.",
+                "மாவட்டம் மற்றும் வட்டம் தேர்வு செய்யப்பட்டது. இப்போது கிராமத்தை தேர்வு செய்யவும்."
+            );
+
+    }else if(d.value){
+
+        s.textContent =
+            locationText(
+                "District selected. Now choose Taluk.",
+                "மாவட்டம் தேர்வு செய்யப்பட்டது. இப்போது வட்டத்தை தேர்வு செய்யவும்."
+            );
+
+    }else{
+
+        s.textContent =
+            locationText(
+                "Choose District → Taluk → Village.",
+                "மாவட்டம் → வட்டம் → கிராமம் தேர்வு செய்யவும்."
+            );
+    }
+}
+
+
+/* =====================================================
+   REFRESH LOCATION SELECTS AFTER LANGUAGE CHANGE
+===================================================== */
+
+function refreshAllLocationSelects(){
+
+    if(!locationDataReady){
+        return;
+    }
+
+
+    const md =
+        document.getElementById("mainDistrict");
+
+    const mt =
+        document.getElementById("mainTaluk");
+
+    const mv =
+        document.getElementById("mainVillage");
+
+
+    if(md){
+
+        const oldD =
+            md.value;
+
+        fillSelect(
+            md,
+            districtNames(),
+            locationText(
+                "Select District",
+                "மாவட்டத்தை தேர்வு செய்யவும்"
+            ),
+            false,
+            "district"
+        );
+
+        md.value = oldD;
+    }
+
+
+    if(
+        md &&
+        mt &&
+        md.value
+    ){
+
+        const oldT =
+            mt.value;
+
+        fillSelect(
+            mt,
+            talukNames(md.value),
+            locationText(
+                "Select Taluk",
+                "வட்டத்தை தேர்வு செய்யவும்"
+            ),
+            false,
+            "taluk",
+            md.value
+        );
+
+        mt.value = oldT;
+    }
+
+
+    if(
+        md &&
+        mt &&
+        mv &&
+        md.value &&
+        mt.value
+    ){
+
+        const oldV =
+            mv.value;
+
+        fillSelect(
+            mv,
+            villageNames(
+                md.value,
+                mt.value
+            ),
+            locationText(
+                "Select Village",
+                "கிராமத்தை தேர்வு செய்யவும்"
+            ),
+            false,
+            "village",
+            md.value,
+            mt.value
+        );
+
+        mv.value = oldV;
+    }
+
+
+    const od =
+        document.getElementById("district");
+
+    const ot =
+        document.getElementById("taluk");
+
+    const ov =
+        document.getElementById("village");
+
+
+    if(
+        od &&
+        ot &&
+        ov
+    ){
+
+        const oldD =
+            od.value;
+
+        const oldT =
+            ot.value;
+
+        const oldV =
+            ov.value;
+
+
+        fillSelect(
+            od,
+            districtNames(),
+            locationText(
+                "Select District",
+                "மாவட்டத்தை தேர்வு செய்யவும்"
+            ),
+            false,
+            "district"
+        );
+
+        od.value = oldD;
+
+
+        fillSelect(
+            ot,
+            talukNames(oldD),
+            locationText(
+                "Select Taluk",
+                "வட்டத்தை தேர்வு செய்யவும்"
+            ),
+            !oldD,
+            "taluk",
+            oldD
+        );
+
+        ot.value = oldT;
+
+
+        fillSelect(
+            ov,
+            villageNames(
+                oldD,
+                oldT
+            ),
+            locationText(
+                "Select Village",
+                "கிராமத்தை தேர்வு செய்யவும்"
+            ),
+            !oldT,
+            "village",
+            oldD,
+            oldT
+        );
+
+        ov.value = oldV;
+    }
+
+
+    updateLocationStatus();
+}
+
+
+/* =====================================================
+   COPY MAIN LOCATION → ORDER LOCATION
+===================================================== */
+
+function copyMainLocationToOrder(){
+
+    const d =
+        document.getElementById("mainDistrict");
+
+    const t =
+        document.getElementById("mainTaluk");
+
+    const v =
+        document.getElementById("mainVillage");
+
+    const od =
+        document.getElementById("district");
+
+    const ot =
+        document.getElementById("taluk");
+
+    const ov =
+        document.getElementById("village");
+
+
+    if(
+        !d ||
+        !t ||
+        !v ||
+        !od ||
+        !ot ||
+        !ov
+    ){
+        return;
+    }
+
+
+    if(!d.value){
+        return;
+    }
+
+
+    od.value =
+        d.value;
+
+    loadTaluks();
+
+
+    if(t.value){
+
+        ot.value =
+            t.value;
+
+        loadOrderVillages();
+
+        if(v.value){
+            ov.value =
+                v.value;
+        }
+    }
+}
+
+
+/* =====================================================
+   ORDER VILLAGE SELECTOR
+===================================================== */
+
+function loadOrderVillages(){
+
+    if(!locationDataReady){
+
+        loadLocationData().then(function(success){
+
+            if(success){
+                loadOrderVillages();
+            }
+
+        });
+
+        return;
+    }
+
+
+    const d =
+        document.getElementById("district");
+
+    const t =
+        document.getElementById("taluk");
+
+    const v =
+        document.getElementById("village");
+
+
+    if(!d || !t || !v){
+        return;
+    }
+
+
+    const district =
+        d.value;
+
+    const taluk =
+        t.value;
+
+
+    const list =
+        villageNames(
+            district,
+            taluk
+        );
+
+
+    fillSelect(
+        v,
+        list,
+        locationText(
+            "Select Village",
+            "கிராமத்தை தேர்வு செய்யவும்"
+        ),
+        !taluk,
+        "village",
+        district,
+        taluk
+    );
+}
+/* =====================================================
    PRODUCTS DATA
-   ========================================================= */
+===================================================== */
 
 const products = [
 
-    {
-        id:1,
-        name:"Tomato",
-        tamil:"தக்காளி",
-        icon:"🍅",
-        category:"vegetable",
-        location:"Chennai",
-        price:32,
-        seller:"Ravi Kumar",
-        rating:"4.8"
-    },
+/* ================= VEGETABLES ================= */
 
-    {
-        id:2,
-        name:"Onion",
-        tamil:"வெங்காயம்",
-        icon:"🧅",
-        category:"vegetable",
-        location:"Coimbatore",
-        price:41,
-        seller:"Kumar Farms",
-        rating:"4.7"
-    },
+{
+id:1,
+name:"Tomato",
+tamil:"தக்காளி",
+icon:"🍅",
+category:"vegetable",
+location:"Chennai",
+price:32,
+seller:"Ravi Kumar",
+rating:"4.8"
+},
 
-    {
-        id:3,
-        name:"Paddy",
-        tamil:"நெல்",
-        icon:"🌾",
-        category:"grain",
-        location:"Thanjavur",
-        price:23.5,
-        seller:"Suresh Farms",
-        rating:"4.9"
-    },
+{
+id:2,
+name:"Onion",
+tamil:"வெங்காயம்",
+icon:"🧅",
+category:"vegetable",
+location:"Coimbatore",
+price:41,
+seller:"Kumar Farms",
+rating:"4.7"
+},
 
-    {
-        id:4,
-        name:"Mango",
-        tamil:"மாம்பழம்",
-        icon:"🥭",
-        category:"fruit",
-        location:"Madurai",
-        price:68,
-        seller:"Murugan Farm",
-        rating:"4.8"
-    },
+{
+id:3,
+name:"Potato",
+tamil:"உருளைக்கிழங்கு",
+icon:"🥔",
+category:"vegetable",
+location:"Ooty",
+price:38,
+seller:"Hill Farms",
+rating:"4.8"
+},
 
-    {
-        id:5,
-        name:"Turmeric",
-        tamil:"மஞ்சள்",
-        icon:"🟡",
-        category:"spice",
-        location:"Erode",
-        price:76,
-        seller:"Kannan Agro",
-        rating:"4.9"
-    },
+{
+id:4,
+name:"Carrot",
+tamil:"கேரட்",
+icon:"🥕",
+category:"vegetable",
+location:"Ooty",
+price:48,
+seller:"Hill Farms",
+rating:"4.9"
+},
 
-    {
-        id:6,
-        name:"Banana",
-        tamil:"வாழைப்பழம்",
-        icon:"🍌",
-        category:"fruit",
-        location:"Madurai",
-        price:36,
-        seller:"Green Farm",
-        rating:"4.6"
-    },
+{
+id:5,
+name:"Brinjal",
+tamil:"கத்தரிக்காய்",
+icon:"🍆",
+category:"vegetable",
+location:"Madurai",
+price:35,
+seller:"Murugan Farm",
+rating:"4.7"
+},
 
-    {
-        id:7,
-        name:"Groundnut",
-        tamil:"நிலக்கடலை",
-        icon:"🥜",
-        category:"grain",
-        location:"Coimbatore",
-        price:61,
-        seller:"Kovai Agro",
-        rating:"4.7"
-    },
+{
+id:6,
+name:"Drumstick",
+tamil:"முருங்கைக்காய்",
+icon:"🥬",
+category:"vegetable",
+location:"Madurai",
+price:55,
+seller:"Green Farm",
+rating:"4.8"
+},
 
-    {
-        id:8,
-        name:"Chilli",
-        tamil:"மிளகாய்",
-        icon:"🌶️",
-        category:"spice",
-        location:"Erode",
-        price:92,
-        seller:"South Farm",
-        rating:"4.8"
-    },
+{
+id:7,
+name:"Ladies Finger",
+tamil:"வெண்டைக்காய்",
+icon:"🌿",
+category:"vegetable",
+location:"Salem",
+price:42,
+seller:"Salem Agro",
+rating:"4.7"
+},
 
-    {
-        id:9,
-        name:"Carrot",
-        tamil:"கேரட்",
-        icon:"🥕",
-        category:"vegetable",
-        location:"Ooty",
-        price:48,
-        seller:"Hill Farms",
-        rating:"4.9"
-    }
+{
+id:8,
+name:"Cabbage",
+tamil:"முட்டைக்கோஸ்",
+icon:"🥬",
+category:"vegetable",
+location:"Ooty",
+price:34,
+seller:"Mountain Farms",
+rating:"4.8"
+},
+
+{
+id:9,
+name:"Cauliflower",
+tamil:"காலிஃபிளவர்",
+icon:"🥦",
+category:"vegetable",
+location:"Coimbatore",
+price:45,
+seller:"Kovai Agro",
+rating:"4.8"
+},
+
+{
+id:10,
+name:"Beans",
+tamil:"பீன்ஸ்",
+icon:"🫘",
+category:"vegetable",
+location:"Ooty",
+price:62,
+seller:"Hill Farms",
+rating:"4.9"
+},
+
+{
+id:11,
+name:"Beetroot",
+tamil:"பீட்ரூட்",
+icon:"🫜",
+category:"vegetable",
+location:"Ooty",
+price:50,
+seller:"Hill Farms",
+rating:"4.7"
+},
+
+{
+id:12,
+name:"Radish",
+tamil:"முள்ளங்கி",
+icon:"🌱",
+category:"vegetable",
+location:"Coimbatore",
+price:30,
+seller:"Kovai Farmers",
+rating:"4.6"
+},
+
+{
+id:13,
+name:"Cucumber",
+tamil:"வெள்ளரிக்காய்",
+icon:"🥒",
+category:"vegetable",
+location:"Chennai",
+price:28,
+seller:"Chennai Farm",
+rating:"4.7"
+},
+
+{
+id:14,
+name:"Pumpkin",
+tamil:"பூசணிக்காய்",
+icon:"🎃",
+category:"vegetable",
+location:"Thanjavur",
+price:25,
+seller:"Delta Farm",
+rating:"4.8"
+},
+
+{
+id:15,
+name:"Bottle Gourd",
+tamil:"சுரைக்காய்",
+icon:"🥒",
+category:"vegetable",
+location:"Thanjavur",
+price:29,
+seller:"Delta Farm",
+rating:"4.7"
+},
+
+{
+id:16,
+name:"Bitter Gourd",
+tamil:"பாகற்காய்",
+icon:"🥒",
+category:"vegetable",
+location:"Erode",
+price:46,
+seller:"Erode Agro",
+rating:"4.8"
+},
+
+{
+id:17,
+name:"Ridge Gourd",
+tamil:"பீர்க்கங்காய்",
+icon:"🥒",
+category:"vegetable",
+location:"Salem",
+price:40,
+seller:"Salem Agro",
+rating:"4.7"
+},
+
+{
+id:18,
+name:"Snake Gourd",
+tamil:"புடலங்காய்",
+icon:"🥒",
+category:"vegetable",
+location:"Madurai",
+price:38,
+seller:"Madurai Farm",
+rating:"4.6"
+},
+
+{
+id:19,
+name:"Green Peas",
+tamil:"பச்சைப் பட்டாணி",
+icon:"🫛",
+category:"vegetable",
+location:"Ooty",
+price:70,
+seller:"Hill Farms",
+rating:"4.9"
+},
+
+{
+id:20,
+name:"Green Chilli",
+tamil:"பச்சை மிளகாய்",
+icon:"🌶️",
+category:"vegetable",
+location:"Erode",
+price:58,
+seller:"Erode Agro",
+rating:"4.8"
+},
+
+{
+id:21,
+name:"Capsicum",
+tamil:"குடைமிளகாய்",
+icon:"🫑",
+category:"vegetable",
+location:"Coimbatore",
+price:65,
+seller:"Kovai Agro",
+rating:"4.9"
+},
+
+{
+id:22,
+name:"Spinach",
+tamil:"கீரை",
+icon:"🥬",
+category:"vegetable",
+location:"Chennai",
+price:25,
+seller:"Green Farm",
+rating:"4.6"
+},
+
+{
+id:23,
+name:"Sweet Potato",
+tamil:"சர்க்கரைவள்ளிக்கிழங்கு",
+icon:"🍠",
+category:"vegetable",
+location:"Salem",
+price:43,
+seller:"Salem Farms",
+rating:"4.7"
+},
+
+{
+id:24,
+name:"Garlic",
+tamil:"பூண்டு",
+icon:"🧄",
+category:"vegetable",
+location:"Erode",
+price:110,
+seller:"Kannan Agro",
+rating:"4.9"
+},
+
+{
+id:25,
+name:"Ginger",
+tamil:"இஞ்சி",
+icon:"🫚",
+category:"vegetable",
+location:"Erode",
+price:120,
+seller:"Kannan Agro",
+rating:"4.9"
+},
+
+/* ================= FRUITS ================= */
+
+{
+id:26,
+name:"Mango",
+tamil:"மாம்பழம்",
+icon:"🥭",
+category:"fruit",
+location:"Madurai",
+price:68,
+seller:"Murugan Farm",
+rating:"4.8"
+},
+
+{
+id:27,
+name:"Banana",
+tamil:"வாழைப்பழம்",
+icon:"🍌",
+category:"fruit",
+location:"Madurai",
+price:36,
+seller:"Green Farm",
+rating:"4.6"
+},
+
+{
+id:28,
+name:"Apple",
+tamil:"ஆப்பிள்",
+icon:"🍎",
+category:"fruit",
+location:"Ooty",
+price:145,
+seller:"Hill Fruit Farm",
+rating:"4.8"
+},
+
+{
+id:29,
+name:"Orange",
+tamil:"ஆரஞ்சு",
+icon:"🍊",
+category:"fruit",
+location:"Ooty",
+price:75,
+seller:"Mountain Fruit Farm",
+rating:"4.7"
+},
+
+{
+id:30,
+name:"Grapes",
+tamil:"திராட்சை",
+icon:"🍇",
+category:"fruit",
+location:"Coimbatore",
+price:85,
+seller:"Kovai Fruit Farm",
+rating:"4.8"
+},
+
+{
+id:31,
+name:"Guava",
+tamil:"கொய்யாப்பழம்",
+icon:"🍐",
+category:"fruit",
+location:"Salem",
+price:52,
+seller:"Salem Fruit Farm",
+rating:"4.7"
+},
+
+{
+id:32,
+name:"Papaya",
+tamil:"பப்பாளி",
+icon:"🍈",
+category:"fruit",
+location:"Madurai",
+price:40,
+seller:"Madurai Farm",
+rating:"4.6"
+},
+
+{
+id:33,
+name:"Watermelon",
+tamil:"தர்பூசணி",
+icon:"🍉",
+category:"fruit",
+location:"Thanjavur",
+price:30,
+seller:"Delta Fruit Farm",
+rating:"4.8"
+},
+
+{
+id:34,
+name:"Pineapple",
+tamil:"அன்னாசிப்பழம்",
+icon:"🍍",
+category:"fruit",
+location:"Coimbatore",
+price:60,
+seller:"Kovai Farm",
+rating:"4.7"
+},
+
+{
+id:35,
+name:"Pomegranate",
+tamil:"மாதுளை",
+icon:"❤️",
+category:"fruit",
+location:"Madurai",
+price:150,
+seller:"Madurai Fruit Farm",
+rating:"4.9"
+},
+
+{
+id:36,
+name:"Jackfruit",
+tamil:"பலாப்பழம்",
+icon:"🍈",
+category:"fruit",
+location:"Salem",
+price:55,
+seller:"Salem Farm",
+rating:"4.8"
+},
+
+{
+id:37,
+name:"Coconut",
+tamil:"தேங்காய்",
+icon:"🥥",
+category:"fruit",
+location:"Thanjavur",
+price:32,
+seller:"Delta Coconut Farm",
+rating:"4.9"
+},
+
+{
+id:38,
+name:"Lemon",
+tamil:"எலுமிச்சை",
+icon:"🍋",
+category:"fruit",
+location:"Erode",
+price:48,
+seller:"Erode Fruit Farm",
+rating:"4.8"
+},
+
+{
+id:39,
+name:"Sapota",
+tamil:"சப்போட்டா",
+icon:"🥝",
+category:"fruit",
+location:"Madurai",
+price:60,
+seller:"Madurai Farm",
+rating:"4.7"
+},
+
+{
+id:40,
+name:"Custard Apple",
+tamil:"சீத்தாப்பழம்",
+icon:"🍏",
+category:"fruit",
+location:"Salem",
+price:85,
+seller:"Salem Fruit Farm",
+rating:"4.8"
+},
+
+{
+id:41,
+name:"Dragon Fruit",
+tamil:"டிராகன் பழம்",
+icon:"🐉",
+category:"fruit",
+location:"Coimbatore",
+price:160,
+seller:"Kovai Organic Farm",
+rating:"4.9"
+},
+
+{
+id:42,
+name:"Strawberry",
+tamil:"ஸ்ட்ராபெர்ரி",
+icon:"🍓",
+category:"fruit",
+location:"Ooty",
+price:220,
+seller:"Ooty Fruit Farm",
+rating:"4.9"
+},
+
+{
+id:43,
+name:"Muskmelon",
+tamil:"முலாம்பழம்",
+icon:"🍈",
+category:"fruit",
+location:"Thanjavur",
+price:45,
+seller:"Delta Farm",
+rating:"4.7"
+},
+
+{
+id:44,
+name:"Fig",
+tamil:"அத்திப்பழம்",
+icon:"🫐",
+category:"fruit",
+location:"Coimbatore",
+price:180,
+seller:"Kovai Fruit Farm",
+rating:"4.8"
+},
+
+{
+id:45,
+name:"Dates",
+tamil:"பேரீச்சம்பழம்",
+icon:"🌴",
+category:"fruit",
+location:"Chennai",
+price:190,
+seller:"AgriConnect Farm",
+rating:"4.7"
+},
+
+/* ================= GRAINS ================= */
+
+{
+id:46,
+name:"Paddy",
+tamil:"நெல்",
+icon:"🌾",
+category:"grain",
+location:"Thanjavur",
+price:23.5,
+seller:"Suresh Farms",
+rating:"4.9"
+},
+
+{
+id:47,
+name:"Groundnut",
+tamil:"நிலக்கடலை",
+icon:"🥜",
+category:"grain",
+location:"Coimbatore",
+price:61,
+seller:"Kovai Agro",
+rating:"4.7"
+},
+
+/* ================= SPICES ================= */
+
+{
+id:48,
+name:"Turmeric",
+tamil:"மஞ்சள்",
+icon:"🟡",
+category:"spice",
+location:"Erode",
+price:76,
+seller:"Kannan Agro",
+rating:"4.9"
+},
+
+{
+id:49,
+name:"Chilli",
+tamil:"மிளகாய்",
+icon:"🌶️",
+category:"spice",
+location:"Erode",
+price:92,
+seller:"South Farm",
+rating:"4.8"
+}
 
 ];
 
 
-/* =========================================================
+/* =====================================================
    VARIABLES
-   ========================================================= */
+===================================================== */
 
 let currentLanguage =
-    localStorage.getItem("agriLanguage") || "en";
+localStorage.getItem("agriLanguage") || "en";
 
 let selectedProduct = null;
 
 
-/* =========================================================
+/* =====================================================
+   TAMIL NADU DISTRICTS
+===================================================== */
+
+const districts = {
+
+"Ariyalur":[
+"Ariyalur",
+"Andimadam",
+"Sendurai",
+"Udayarpalayam"
+],
+
+"Chengalpattu":[
+"Chengalpattu",
+"Cheyyur",
+"Madurantakam",
+"Thirukalukundram",
+"Thiruporur"
+],
+
+"Chennai":[
+"Alandur",
+"Aminjikarai",
+"Ambattur",
+"Egmore",
+"Guindy",
+"Madhuravoyal",
+"Mambalam",
+"Perambur",
+"Sholinganallur",
+"Thiruvottiyur",
+"Velachery"
+],
+
+"Coimbatore":[
+"Coimbatore North",
+"Coimbatore South",
+"Madukkarai",
+"Perur",
+"Pollachi",
+"Kinathukadavu",
+"Annur",
+"Mettupalayam",
+"Sulur",
+"Valparai"
+],
+
+"Cuddalore":[
+"Cuddalore",
+"Chidambaram",
+"Kurinjipadi",
+"Panruti",
+"Srimushnam",
+"Virudhachalam"
+],
+
+"Dharmapuri":[
+"Dharmapuri",
+"Harur",
+"Palacode",
+"Pappireddipatti",
+"Pennagaram"
+],
+
+"Dindigul":[
+"Dindigul",
+"Attur",
+"Batlagundu",
+"Kodaikanal",
+"Natham",
+"Nilakottai",
+"Oddanchatram",
+"Palani",
+"Vedasandur"
+],
+
+"Erode":[
+"Erode",
+"Bhavani",
+"Anthiyur",
+"Chennimalai",
+"Perundurai",
+"Modakurichi",
+"Gobichettipalayam",
+"Sathyamangalam",
+"Thalavadi"
+],
+
+"Kallakurichi":[
+"Kallakurichi",
+"Chinnasalem",
+"Kalvarayan Hills",
+"Rishivandiyam",
+"Sankarapuram",
+"Ulundurpet",
+"Thiyagadurgam"
+],
+
+"Kancheepuram":[
+"Kancheepuram",
+"Kundrathur",
+"Sriperumbudur",
+"Uthiramerur",
+"Walajabad"
+],
+
+"Karur":[
+"Karur",
+"Aravakurichi",
+"Kadavur",
+"Krishnarayapuram",
+"Kulithalai"
+],
+
+"Krishnagiri":[
+"Krishnagiri",
+"Bargur",
+"Denkanikottai",
+"Hosur",
+"Pochampalli",
+"Uthangarai"
+],
+
+"Madurai":[
+"Madurai East",
+"Madurai North",
+"Madurai South",
+"Madurai West",
+"Melur",
+"Peraiyur",
+"Thirumangalam",
+"Usilampatti",
+"Vadipatti"
+],
+
+"Mayiladuthurai":[
+"Mayiladuthurai",
+"Kuthalam",
+"Sirkazhi",
+"Tharangambadi"
+],
+
+"Nagapattinam":[
+"Nagapattinam",
+"Kilvelur",
+"Thirukkuvalai",
+"Vedaranyam"
+],
+
+"Kanniyakumari":[
+"Agastheeswaram",
+"Thovalai",
+"Kalkulam",
+"Vilavancode"
+],
+
+"Namakkal":[
+"Namakkal",
+"Kolli Hills",
+"Kumarapalayam",
+"Mohanur",
+"Paramathi-Velur",
+"Rasipuram",
+"Sendamangalam",
+"Tiruchengode"
+],
+
+"Perambalur":[
+"Perambalur",
+"Alathur",
+"Kunnam",
+"Veppanthattai"
+],
+
+"Pudukkottai":[
+"Pudukkottai",
+"Alangudi",
+"Aranthangi",
+"Avudaiyarkoil",
+"Gandarvakottai",
+"Iluppur",
+"Karambakudi",
+"Keeranur",
+"Manamelkudi",
+"Thirumayam"
+],
+
+"Ramanathapuram":[
+"Ramanathapuram",
+"Kamuthi",
+"Kadaladi",
+"Kilakarai",
+"Mudukulathur",
+"Paramakudi",
+"Rameswaram",
+"Tiruvadanai"
+],
+
+"Ranipet":[
+"Arakkonam",
+"Arcot",
+"Nemili",
+"Walajah"
+],
+
+"Salem":[
+"Salem",
+"Attur",
+"Edappadi",
+"Gangavalli",
+"Kathiramangalam",
+"Mettur",
+"Omalur",
+"Sankari",
+"Vazhapadi",
+"Yercaud"
+],
+
+"Sivaganga":[
+"Sivaganga",
+"Devakottai",
+"Ilayangudi",
+"Kalayarkoil",
+"Karaikudi",
+"Manamadurai",
+"Singampunari",
+"Tiruppathur"
+],
+
+"Tenkasi":[
+"Tenkasi",
+"Alangulam",
+"Kadayanallur",
+"Sankarankovil",
+"Shenkottai",
+"Sivagiri",
+"Thiruvengadam",
+"Vasudevanallur"
+],
+
+"Thanjavur":[
+"Thanjavur",
+"Budalur",
+"Kumbakonam",
+"Orathanadu",
+"Papanasam",
+"Pattukkottai",
+"Peravurani",
+"Thiruvaiyaru",
+"Thiruvidaimarudur"
+],
+
+"Theni":[
+"Theni",
+"Andipatti",
+"Periyakulam",
+"Uthamapalayam",
+"Bodinayakanur"
+],
+
+"Thoothukudi":[
+"Thoothukudi",
+"Eral",
+"Etayapuram",
+"Kayathar",
+"Kovilpatti",
+"Srivaikuntam",
+"Tiruchendur",
+"Vilathikulam"
+],
+
+"Tiruchirappalli":[
+"Tiruchirappalli East",
+"Tiruchirappalli West",
+"Lalgudi",
+"Manachanallur",
+"Manapparai",
+"Musiri",
+"Thuraiyur",
+"Thottiyam"
+],
+
+"Thirunelveli":[
+"Tirunelveli",
+"Ambasamudram",
+"Nanguneri",
+"Palayamkottai",
+"Radhapuram",
+"Valliyur"
+],
+
+"Tirupathur":[
+"Tirupathur",
+"Ambur",
+"Vaniyambadi",
+"Natrampalli"
+],
+
+"Tiruppur":[
+"Tiruppur North",
+"Tiruppur South",
+"Avinashi",
+"Dharapuram",
+"Kangeyam",
+"Madathukulam",
+"Palladam",
+"Udumalpet",
+"Uthukuli"
+],
+
+"Tiruvallur":[
+"Tiruvallur",
+"Avadi",
+"Gummidipoondi",
+"Pallipattu",
+"Ponneri",
+"Poondi",
+"R.K.Pet",
+"Uthukkottai"
+],
+
+"Tiruvannamalai":[
+"Tiruvannamalai",
+"Arani",
+"Chengam",
+"Chetpet",
+"Cheyyar",
+"Polur",
+"Thandarampattu",
+"Vandavasi"
+],
+
+"Tiruvarur":[
+"Tiruvarur",
+"Koothanallur",
+"Mannargudi",
+"Needamangalam",
+"Nannilam",
+"Thiruthuraipoondi",
+"Valangaiman"
+],
+
+"Vellore":[
+"Vellore",
+"Anaicut",
+"Gudiyatham",
+"Katpadi",
+"KV Kuppam",
+"Peranampattu"
+],
+
+"Viluppuram":[
+"Viluppuram",
+"Gingee",
+"Kandachipuram",
+"Marakkanam",
+"Melmalayanur",
+"Thiruvennainallur",
+"Vanur",
+"Vikravandi"
+],
+
+"Virudhunagar":[
+"Virudhunagar",
+"Aruppukkottai",
+"Rajapalayam",
+"Sattur",
+"Sivakasi",
+"Srivilliputhur",
+"Thiruchuli",
+"Vembakottai"
+]
+
+};
+
+
+/* =====================================================
    LANGUAGE
-   ========================================================= */
+===================================================== */
+
+function updateStaticSelectTexts(){
+    const category = document.getElementById("categoryFilter");
+    if(category){
+        const labels = currentLanguage === "ta"
+            ? ["அனைத்து வகைகள்","🥬 காய்கறிகள்","🍎 பழங்கள்","🌾 தானியங்கள்","🌶️ மசாலா பொருட்கள்"]
+            : ["All Categories","🥬 Vegetables","🍎 Fruits","🌾 Grains","🌶️ Spices"];
+        Array.from(category.options).forEach((o,i)=>{ if(labels[i]) o.textContent=labels[i]; });
+    }
+    const search = document.getElementById("searchInput");
+    if(search){
+        search.placeholder = currentLanguage === "ta" ? "🔍 பொருளை தேடுங்கள்..." : "🔍 Search product...";
+    }
+}
 
 function changeLanguage(language){
 
     currentLanguage = language;
+    localStorage.setItem("agriLanguage", language);
 
-    localStorage.setItem(
-        "agriLanguage",
-        language
-    );
+    document.querySelectorAll("[data-en]").forEach(function(element){
+        const text = language === "en"
+            ? element.getAttribute("data-en")
+            : element.getAttribute("data-ta");
+        if(text !== null) element.textContent = text;
+    });
 
+    const enBtn = document.getElementById("enBtn");
+    const taBtn = document.getElementById("taBtn");
+    if(enBtn) enBtn.classList.toggle("active", language === "en");
+    if(taBtn) taBtn.classList.toggle("active", language === "ta");
 
-    document
-        .querySelectorAll("[data-en]")
-        .forEach(function(element){
+    updateStaticSelectTexts();
 
-            element.textContent =
-                language === "en"
-                ? element.getAttribute("data-en")
-                : element.getAttribute("data-ta");
+    // Preserve the selected location values while changing display language.
+    const md = document.getElementById("mainDistrict");
+    const mt = document.getElementById("mainTaluk");
+    const mv = document.getElementById("mainVillage");
+    const oldD = md ? md.value : "";
+    const oldT = mt ? mt.value : "";
+    const oldV = mv ? mv.value : "";
 
-        });
+    initMainLocation();
 
+    if(md && oldD){
+        md.value = oldD;
+        mainLocationDistrictChanged();
+        if(mt && oldT){
+            mt.value = oldT;
+            mainLocationTalukChanged();
+            if(mv && oldV) mv.value = oldV;
+        }
+        updateLocationStatus();
+    }
 
-    document
-        .getElementById("enBtn")
-        .classList
-        .toggle(
-            "active",
-            language === "en"
-        );
+    const od = document.getElementById("district");
+    const ot = document.getElementById("taluk");
+    const ov = document.getElementById("village");
+    const selectedD = od ? od.value : "";
+    const selectedT = ot ? ot.value : "";
+    const selectedV = ov ? ov.value : "";
 
-
-    document
-        .getElementById("taBtn")
-        .classList
-        .toggle(
-            "active",
-            language === "ta"
-        );
-
+    if(od){
+        loadDistricts();
+        if(selectedD){
+            od.value = selectedD;
+            loadTaluks();
+            if(ot && selectedT){
+                ot.value = selectedT;
+                loadOrderVillages();
+                if(ov && selectedV) ov.value = selectedV;
+            }
+        }
+    }
 
     renderProducts();
-
 }
 
-
-/* =========================================================
+/* =====================================================
    RENDER PRODUCTS
-   ========================================================= */
+===================================================== */
 
 function renderProducts(){
 
-    const search =
-        document
-            .getElementById("searchInput")
-            .value
-            .toLowerCase()
-            .trim();
-
-
-    const category =
-        document
-            .getElementById("categoryFilter")
-            .value;
-
-
-    const location =
-        document
-            .getElementById("locationFilter")
-            .value;
-
-
-    const filtered =
-        products.filter(function(product){
-
-            const searchMatch =
-
-                product.name
-                    .toLowerCase()
-                    .includes(search)
-
-                ||
-
-                product.tamil
-                    .includes(search)
-
-                ||
-
-                product.seller
-                    .toLowerCase()
-                    .includes(search);
-
-
-            const categoryMatch =
-                category === "all"
-                ||
-                product.category === category;
-
-
-            const locationMatch =
-                location === "all"
-                ||
-                product.location === location;
-
-
-            return(
-                searchMatch &&
-                categoryMatch &&
-                locationMatch
-            );
-
-        });
-
-
-    const container =
-        document.getElementById("products");
-
-
-    container.innerHTML = "";
-
-
-    if(filtered.length === 0){
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                🔍
-
-                <br><br>
-
-                ${
-                    currentLanguage === "en"
-                    ? "No products found."
-                    : "பொருட்கள் எதுவும் கிடைக்கவில்லை."
-                }
-
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    filtered.forEach(function(product){
-
-        const name =
-            currentLanguage === "en"
-            ? product.name
-            : product.tamil;
-
-
-        const card =
-            document.createElement("div");
-
-
-        card.className =
-            "product-card";
-
-
-        card.innerHTML = `
-
-            <div class="product-image">
-
-                ${product.icon}
-
-            </div>
-
-
-            <div class="product-content">
-
-                <h3>
-                    ${name}
-                </h3>
-
-
-                <div class="location">
-
-                    📍 ${product.location}
-
-                </div>
-
-
-                <div>
-
-                    <span class="price">
-
-                        ₹${product.price}
-
-                    </span>
-
-                    <span class="unit">
-
-                        / kg
-
-                    </span>
-
-                </div>
-
-
-                <div class="seller">
-
-                    <div>
-
-                        <span class="seller-name">
-
-                            👨‍🌾 ${product.seller}
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="rating">
-
-                        ⭐ ${product.rating}
-
-                    </div>
-
-                </div>
-
-
-                <div class="product-actions">
-
-
-                    <button
-                        class="btn secondary"
-                        onclick="showDetails(${product.id})">
-
-                        👁️
-
-                        ${
-                            currentLanguage === "en"
-                            ? "Details"
-                            : "விவரம்"
-                        }
-
-                    </button>
-
-
-                    <button
-                        class="btn primary"
-                        onclick="openOrder(${product.id})">
-
-                        🛒
-
-                        ${
-                            currentLanguage === "en"
-                            ? "Order"
-                            : "ஆர்டர்"
-                        }
-
-                    </button>
-
-
-                </div>
-
-            </div>
-
-        `;
-
-
-        container.appendChild(card);
-
-    });
-
+const searchElement = document.getElementById("searchInput");
+const categoryElement = document.getElementById("categoryFilter");
+const container = document.getElementById("products");
+
+if(!searchElement || !categoryElement || !container){
+    return;
 }
 
+const search = searchElement.value.toLowerCase().trim();
+const category = categoryElement.value;
 
-/* =========================================================
-   FILTER
-   ========================================================= */
+const filtered = products.filter(function(product){
 
-function filterProducts(){
+    const searchMatch =
+        product.name.toLowerCase().includes(search) ||
+        product.tamil.includes(search) ||
+        product.seller.toLowerCase().includes(search);
 
-    renderProducts();
+    const categoryMatch =
+        category === "all" || product.category === category;
 
+    return searchMatch && categoryMatch;
+});
+
+container.innerHTML = "";
+
+if(filtered.length === 0){
+    container.innerHTML = `
+        <div class="empty">
+            🔍<br><br>
+            ${currentLanguage === "en"
+                ? "No products found."
+                : "பொருட்கள் எதுவும் கிடைக்கவில்லை."}
+        </div>`;
+    return;
 }
 
+filtered.forEach(function(product){
 
-/* =========================================================
-   RESET
-   ========================================================= */
-
-function resetFilters(){
-
-    document
-        .getElementById("searchInput")
-        .value = "";
-
-
-    document
-        .getElementById("categoryFilter")
-        .value = "all";
-
-
-    document
-        .getElementById("locationFilter")
-        .value = "all";
-
-
-    renderProducts();
-
-}
-
-
-/* =========================================================
-   DETAILS
-   ========================================================= */
-
-function showDetails(id){
-
-    const product =
-        products.find(
-            item => item.id === id
-        );
-
-
-    if(!product){
-
-        return;
-
-    }
-
-
-    const name =
-        currentLanguage === "en"
+    const name = currentLanguage === "en"
         ? product.name
         : product.tamil;
 
+    const card = document.createElement("div");
+    card.className = "product-card";
 
-    alert(
+    card.innerHTML = `
+        <div class="product-image">${product.icon}</div>
+        <div class="product-content">
+            <h3>${name}</h3>
+            <div class="location">📍 ${product.location}</div>
+            <div>
+                <span class="price">₹${product.price}</span>
+                <span class="unit">/ kg</span>
+            </div>
+            <div class="seller">
+                <div>
+                    <span class="seller-name">👨‍🌾 ${product.seller}</span>
+                </div>
+                <div class="rating">⭐ ${product.rating}</div>
+            </div>
+            <div class="product-actions">
+                <button class="btn secondary" onclick="showDetails(${product.id})">
+                    👁️ ${currentLanguage === "en" ? "Details" : "விவரம்"}
+                </button>
+                <button class="btn primary" onclick="openOrder(${product.id})">
+                    🛒 ${currentLanguage === "en" ? "Order" : "ஆர்டர்"}
+                </button>
+            </div>
+        </div>`;
 
-        currentLanguage === "en"
+    container.appendChild(card);
+});
+}
 
-        ?
+/* =====================================================
+   FILTER
+===================================================== */
+
+function filterProducts(){
+
+renderProducts();
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+function resetFilters(){
+    const search = document.getElementById("searchInput");
+    const category = document.getElementById("categoryFilter");
+    if(search) search.value = "";
+    if(category) category.value = "all";
+    renderProducts();
+}
+
+
+/* =====================================================
+   DETAILS
+===================================================== */
+
+function showDetails(id){
+
+const product =
+products.find(
+item => item.id === id
+);
+
+if(!product){
+return;
+}
+
+const name =
+currentLanguage === "en"
+?
+product.name
+:
+product.tamil;
+
+
+if(currentLanguage === "en"){
+
+alert(
 
 `${name}
 
 Farmer: ${product.seller}
+
 Location: ${product.location}
+
 Price: ₹${product.price}/kg
+
 Rating: ⭐ ${product.rating}`
 
-        :
+);
+
+}
+else{
+
+alert(
 
 `${name}
 
 விவசாயி: ${product.seller}
-இடம்: ${product.location}
-விலை: ₹${product.price}/கிலோ
-Rating: ⭐ ${product.rating}`
 
-    );
+இடம்: ${product.location}
+
+விலை: ₹${product.price}/கிலோ
+
+மதிப்பீடு: ⭐ ${product.rating}`
+
+);
+
+}
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   LOAD DISTRICTS
+===================================================== */
+
+function loadDistricts(){
+
+    if(!locationDataReady){
+
+        loadLocationData().then(function(success){
+
+            if(success){
+                loadDistricts();
+            }
+
+        });
+
+        return;
+    }
+
+
+    const district =
+        document.getElementById("district");
+
+
+    if(!district){
+        return;
+    }
+
+
+    fillSelect(
+        district,
+        districtNames(),
+        currentLanguage === "en"
+            ? "Select District"
+            : "மாவட்டத்தை தேர்வு செய்யவும்",
+        false,
+        "district"
+    );
+}
+
+
+function loadTaluks(){
+
+    if(!locationDataReady){
+
+        loadLocationData().then(function(success){
+
+            if(success){
+                loadTaluks();
+            }
+
+        });
+
+        return;
+    }
+
+
+    const district =
+        document.getElementById("district");
+
+    const taluk =
+        document.getElementById("taluk");
+
+    const village =
+        document.getElementById("village");
+
+
+    if(!district || !taluk){
+        return;
+    }
+
+
+    const selectedDistrict =
+        district.value;
+
+
+    fillSelect(
+        taluk,
+        talukNames(selectedDistrict),
+        currentLanguage === "en"
+            ? "Select Taluk"
+            : "வட்டத்தை தேர்வு செய்யவும்",
+        !selectedDistrict,
+        "taluk",
+        selectedDistrict
+    );
+
+
+    if(village){
+
+        fillSelect(
+            village,
+            [],
+            currentLanguage === "en"
+                ? "Select Village"
+                : "கிராமத்தை தேர்வு செய்யவும்",
+            true,
+            "village",
+            selectedDistrict,
+            ""
+        );
+    }
+}
+
+
+/* =====================================================
+   LOAD VILLAGES FROM EXCEL
+===================================================== */
+
+function loadOrderVillagesFromTaluk(){
+
+    loadOrderVillages();
+}
+
+
+function loadOrderVillagesFromTaluk(){
+loadOrderVillages();
+}
+
+
+/* =====================================================
    OPEN ORDER
-   ========================================================= */
+===================================================== */
 
 function openOrder(id){
 
-    selectedProduct =
-        products.find(
-            item => item.id === id
-        );
+selectedProduct =
+products.find(
+item => item.id === id
+);
+
+if(!selectedProduct){
+return;
+}
 
 
-    if(!selectedProduct){
-
-        return;
-
-    }
-
-
-    const name =
-        currentLanguage === "en"
-        ? selectedProduct.name
-        : selectedProduct.tamil;
+const name =
+currentLanguage === "en"
+?
+selectedProduct.name
+:
+selectedProduct.tamil;
 
 
-    document
-        .getElementById("selectedProduct")
-        .innerHTML =
-            "<strong>" +
-            selectedProduct.icon +
-            " " +
-            name +
-            "</strong>";
+document
+.getElementById("selectedProduct")
+.textContent =
+selectedProduct.icon +
+" " +
+name;
 
 
-    document
-        .getElementById("selectedPrice")
-        .textContent =
-            "₹" +
-            selectedProduct.price +
-            " / kg";
+document
+.getElementById("selectedPrice")
+.textContent =
+"₹" +
+selectedProduct.price +
+" / kg";
 
 
-    document
-        .getElementById("selectedSeller")
-        .textContent =
-            "👨‍🌾 " +
-            selectedProduct.seller;
+document
+.getElementById("selectedSeller")
+.textContent =
+"👨‍🌾 " +
+selectedProduct.seller;
 
 
-    document
-        .getElementById("quantity")
-        .value = 10;
+document
+.getElementById("quantity")
+.value = 10;
 
 
-    document
-        .getElementById("deliveryLocation")
-        .value = "";
+document
+.getElementById("district")
+.value = "";
 
 
-    calculateTotal();
+document
+.getElementById("taluk")
+.innerHTML = `
+
+<option value="">
+${
+currentLanguage === "en"
+?
+"Select Taluk"
+:
+"வட்டத்தை தேர்வு செய்யவும்"
+}
+</option>
+
+`;
 
 
-    document
-        .getElementById("orderModal")
-        .classList
-        .add("show");
+fillSelect(
+document.getElementById("village"),
+[],
+currentLanguage === "en"
+?
+"Select Village"
+:
+"கிராமத்தை தேர்வு செய்யவும்",
+true
+);
+
+
+document
+.getElementById("deliveryAddress")
+.value = "";
+
+
+document
+.getElementById("paymentMethod")
+.value = "cod";
+
+
+document
+.getElementById("upiId")
+.value = "";
+
+
+document
+.getElementById("bankName")
+.value = "";
+
+
+document
+.getElementById("upiBox")
+.classList.remove("show");
+
+
+document
+.getElementById("bankBox")
+.classList.remove("show");
+
+
+document
+.getElementById("successBox")
+.classList.remove("show");
+
+
+calculateTotal();
+
+
+document
+.getElementById("orderModal")
+.classList
+.add("show");
+
+copyMainLocationToOrder();
 
 }
 
 
-/* =========================================================
-   TOTAL
-   ========================================================= */
+/* =====================================================
+   CALCULATE TOTAL
+===================================================== */
 
 function calculateTotal(){
 
-    if(!selectedProduct){
+if(!selectedProduct){
+return;
+}
 
-        return;
-
-    }
-
-
-    const quantity =
-        Number(
-            document
-                .getElementById("quantity")
-                .value
-        ) || 0;
+const quantity =
+Number(
+document
+.getElementById("quantity")
+.value
+) || 0;
 
 
-    const total =
-        selectedProduct.price *
-        quantity;
+const total =
+selectedProduct.price *
+quantity;
 
 
-    document
-        .getElementById("totalPrice")
-        .textContent =
+document
+.getElementById("totalPrice")
+.textContent =
 
-        (
-            currentLanguage === "en"
-            ? "Total: "
-            : "மொத்தம்: "
-        )
+(
+currentLanguage === "en"
+?
+"Total: "
+:
+"மொத்தம்: "
+)
 
-        +
++
 
-        "₹" +
+"₹"
 
-        total.toLocaleString("en-IN");
++
+
+total.toLocaleString("en-IN");
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   PAYMENT METHOD
+===================================================== */
+
+function changePaymentMethod(){
+
+const payment =
+document
+.getElementById("paymentMethod")
+.value;
+
+
+document
+.getElementById("upiBox")
+.classList
+.remove("show");
+
+
+document
+.getElementById("bankBox")
+.classList
+.remove("show");
+
+
+if(payment === "upi"){
+
+document
+.getElementById("upiBox")
+.classList
+.add("show");
+
+}
+
+
+if(payment === "bank"){
+
+document
+.getElementById("bankBox")
+.classList
+.add("show");
+
+}
+
+}
+
+
+/* =====================================================
    PLACE ORDER
-   ========================================================= */
+===================================================== */
 
 function placeOrder(){
 
-    const quantity =
-        Number(
-            document
-                .getElementById("quantity")
-                .value
-        );
+if(!selectedProduct){
+return;
+}
 
 
-    const location =
-        document
-            .getElementById("deliveryLocation")
-            .value
-            .trim();
+const quantity =
+Number(
+document
+.getElementById("quantity")
+.value
+);
 
 
-    const payment =
-        document
-            .getElementById("paymentMethod")
-            .value;
+const district =
+document
+.getElementById("district")
+.value
+.trim();
 
 
-    if(quantity <= 0){
-
-        alert(
-
-            currentLanguage === "en"
-
-            ? "Please enter a valid quantity."
-
-            : "சரியான அளவை உள்ளிடவும்."
-
-        );
-
-        return;
-
-    }
+const taluk =
+document
+.getElementById("taluk")
+.value
+.trim();
 
 
-    if(location === ""){
-
-        alert(
-
-            currentLanguage === "en"
-
-            ? "Please enter delivery location."
-
-            : "விநியோக இடத்தை உள்ளிடவும்."
-
-        );
-
-        return;
-
-    }
+const village =
+document
+.getElementById("village")
+.value
+.trim();
 
 
-    const orderId =
-        "AGR-" +
-        Math.floor(
-            1000 +
-            Math.random() * 9000
-        );
+const address =
+document
+.getElementById("deliveryAddress")
+.value
+.trim();
 
 
-    const total =
-        selectedProduct.price *
-        quantity;
+const payment =
+document
+.getElementById("paymentMethod")
+.value;
 
 
-    alert(
+const upi =
+document
+.getElementById("upiId")
+.value
+.trim();
 
-        currentLanguage === "en"
 
-        ?
+const bank =
+document
+.getElementById("bankName")
+.value
+.trim();
+
+
+/* =====================================================
+   VALIDATION
+===================================================== */
+
+if(
+!Number.isFinite(quantity) ||
+quantity <= 0
+){
+
+alert(
+currentLanguage === "en"
+?
+"Please enter a valid quantity."
+:
+"சரியான அளவை உள்ளிடவும்."
+);
+
+return;
+
+}
+
+
+if(district === ""){
+
+alert(
+currentLanguage === "en"
+?
+"Please select district."
+:
+"மாவட்டத்தை தேர்வு செய்யவும்."
+);
+
+return;
+
+}
+
+
+if(taluk === ""){
+
+alert(
+currentLanguage === "en"
+?
+"Please select taluk."
+:
+"வட்டத்தை தேர்வு செய்யவும்."
+);
+
+return;
+
+}
+
+
+if(village === ""){
+
+alert(
+currentLanguage === "en"
+?
+"Please enter village."
+:
+"கிராமத்தை உள்ளிடவும்."
+);
+
+return;
+
+}
+
+
+if(address === ""){
+
+alert(
+currentLanguage === "en"
+?
+"Please enter complete delivery address."
+:
+"முழுமையான விநியோக முகவரியை உள்ளிடவும்."
+);
+
+return;
+
+}
+
+
+if(payment === "upi" && upi === ""){
+
+alert(
+currentLanguage === "en"
+?
+"Please enter UPI ID."
+:
+"UPI ID-ஐ உள்ளிடவும்."
+);
+
+return;
+
+}
+
+
+if(payment === "bank" && bank === ""){
+
+alert(
+currentLanguage === "en"
+?
+"Please enter bank name."
+:
+"வங்கி பெயரை உள்ளிடவும்."
+);
+
+return;
+
+}
+
+
+/* =====================================================
+   ORDER ID
+===================================================== */
+
+const orderId =
+"AGR-" +
+new Date().getFullYear() +
+"-" +
+Math.floor(
+100000 +
+Math.random() * 900000
+);
+
+
+const total =
+selectedProduct.price *
+quantity;
+
+
+/* =====================================================
+   PAYMENT TEXT
+===================================================== */
+
+let paymentText = "";
+
+if(payment === "cod"){
+paymentText =
+currentLanguage === "en"
+?
+"Cash on Delivery"
+:
+"பொருள் கிடைக்கும் போது பணம்";
+}
+
+else if(payment === "upi"){
+paymentText =
+"UPI - " + upi;
+}
+
+else if(payment === "bank"){
+paymentText =
+"Bank Transfer - " + bank;
+}
+
+
+/* =====================================================
+   ORDER OBJECT
+===================================================== */
+
+const order = {
+
+orderId:orderId,
+
+product:selectedProduct.name,
+
+productTamil:selectedProduct.tamil,
+
+quantity:quantity,
+
+price:selectedProduct.price,
+
+total:total,
+
+seller:selectedProduct.seller,
+
+district:district,
+
+taluk:taluk,
+
+village:village,
+
+address:address,
+
+payment:paymentText,
+
+date:new Date().toLocaleString("en-IN")
+
+};
+
+
+/* =====================================================
+   SAVE ORDER
+===================================================== */
+
+let orders =
+JSON.parse(
+localStorage.getItem("agriOrders") || "[]"
+);
+
+orders.push(order);
+
+localStorage.setItem(
+"agriOrders",
+JSON.stringify(orders)
+);
+
+
+/* =====================================================
+   SUCCESS
+===================================================== */
+
+document
+.getElementById("successOrderId")
+.textContent =
+"Order ID: " + orderId;
+
+
+document
+.getElementById("successDetails")
+.innerHTML =
+
+currentLanguage === "en"
+
+?
+
+`
+<b>Product:</b> ${selectedProduct.name}<br>
+<b>Quantity:</b> ${quantity} kg<br>
+<b>Total:</b> ₹${total.toLocaleString("en-IN")}<br>
+<b>District:</b> ${district}<br>
+<b>Taluk:</b> ${taluk}<br>
+<b>Village:</b> ${village}<br>
+<b>Payment:</b> ${paymentText}
+`
+
+:
+
+`
+
+<b>பொருள்:</b> ${selectedProduct.tamil}<br>
+<b>அளவு:</b> ${quantity} கிலோ<br>
+<b>மொத்தம்:</b> ₹${total.toLocaleString("en-IN")}<br>
+<b>மாவட்டம்:</b> ${district}<br>
+<b>வட்டம்:</b> ${taluk}<br>
+<b>கிராமம்:</b> ${village}<br>
+<b>பணம்:</b> ${paymentText}
+
+`;
+
+
+document
+.getElementById("successBox")
+.classList
+.add("show");
+
+
+alert(
+
+currentLanguage === "en"
+
+?
 
 `Order placed successfully!
 
 Order ID: ${orderId}
-Product: ${selectedProduct.name}
-Quantity: ${quantity} kg
-Total: ₹${total.toLocaleString("en-IN")}
 
-Payment: ${payment}`
+Total: ₹${total.toLocaleString("en-IN")}`
 
-        :
+:
 
 `ஆர்டர் வெற்றிகரமாக செய்யப்பட்டது!
 
 ஆர்டர் ID: ${orderId}
-பொருள்: ${selectedProduct.tamil}
-அளவு: ${quantity} கிலோ
+
 மொத்தம்: ₹${total.toLocaleString("en-IN")}`
 
-    );
-
-
-    closeModal();
+);
 
 }
 
 
-/* =========================================================
+/* =====================================================
    CLOSE MODAL
-   ========================================================= */
+===================================================== */
 
 function closeModal(){
 
-    document
-        .getElementById("orderModal")
-        .classList
-        .remove("show");
+const modal =
+document.getElementById("orderModal");
+
+if(modal){
+
+modal.classList.remove("show");
 
 }
 
+}
+
+
+/* =====================================================
+   CLOSE OUTSIDE
+===================================================== */
 
 function closeOutside(event){
 
-    if(
-        event.target.id ===
-        "orderModal"
-    ){
+if(
+event.target &&
+event.target.id === "orderModal"
+){
 
-        closeModal();
+closeModal();
 
-    }
+}
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   ESC
+===================================================== */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Escape"){
+
+closeModal();
+
+}
+
+});
+
+
+/* =====================================================
    START
-   ========================================================= */
+===================================================== */
 
-changeLanguage(currentLanguage);
+document.addEventListener("DOMContentLoaded", async function(){
 
-renderProducts();
+    const savedLanguage =
+        localStorage.getItem("agriLanguage");
+
+    if(
+        savedLanguage === "ta" ||
+        savedLanguage === "en"
+    ){
+        currentLanguage =
+            savedLanguage;
+    }
+
+
+    /*
+       Load the real Excel data from Node.js first.
+       No hard-coded village list is used.
+    */
+    await loadLocationData();
+
+
+    changeLanguage(
+        currentLanguage
+    );
+
+
+    initMainLocation();
+
+    loadDistricts();
+
+    renderProducts();
+});
 
 </script>
 
-
 </body>
-
 </html>
-```
